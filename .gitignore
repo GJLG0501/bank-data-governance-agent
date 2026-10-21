@@ -1,0 +1,34 @@
+# Entornos y secretos locales
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+.aws/
+secrets/
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Python, herramientas y compilacion
+__pycache__/
+*.py[cod]
+.pytest_cache/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+.uv-cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Archivos locales y respaldos de bases de datos
+*.log
+*.dump
+*.backup
+postgres-data/
+.DS_Store
+Thumbs.db

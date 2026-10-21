@@ -1,0 +1,221 @@
+{
+  "model": {
+    "name": "bge-large:latest",
+    "digest": "b3d71c92805938e2c9d78e6f35e82d7cc1bd77e05b47dd2ab3016240f4021c15",
+    "dimension": 1024
+  },
+  "passed": 7,
+  "total": 7,
+  "cases": [
+    {
+      "case": "annual_income",
+      "question": "¿Qué significa CUSTOMER.annual_income y en qué unidad se expresa?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/tables/CUSTOMER/fields/annual_income",
+          "similarity": 0.7898707169525547
+        },
+        {
+          "pointer": "/tables/CUSTOMER",
+          "similarity": 0.6863758563995557
+        },
+        {
+          "pointer": "/tables/CUSTOMER/fields/segment",
+          "similarity": 0.6610419760271365
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id/foreign_key",
+          "similarity": 0.6597851318185136
+        },
+        {
+          "pointer": "/tables/CUSTOMER/fields/customer_id",
+          "similarity": 0.6591103070179256
+        }
+      ]
+    },
+    {
+      "case": "annual_income_paraphrase",
+      "question": "Which field stores a customer's annual declared earnings in Mexican pesos per year?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/tables/CUSTOMER/fields/annual_income",
+          "similarity": 0.6978418231010487
+        },
+        {
+          "pointer": "/tables/TRANSACTION/fields/amount",
+          "similarity": 0.5912418230608396
+        },
+        {
+          "pointer": "/tables/TRANSACTION/fields/customer_id",
+          "similarity": 0.5760666455984846
+        },
+        {
+          "pointer": "/tables/LOAN/fields/balance",
+          "similarity": 0.5758478397914998
+        },
+        {
+          "pointer": "/tables/TRANSACTION",
+          "similarity": 0.5702203169793365
+        }
+      ]
+    },
+    {
+      "case": "risk_level",
+      "question": "¿Cuáles son los valores permitidos de CUSTOMER.risk_level?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/tables/CUSTOMER/fields/risk_level",
+          "similarity": 0.7989243395228558
+        },
+        {
+          "pointer": "/tables/CUSTOMER/fields/segment",
+          "similarity": 0.7290599123025462
+        },
+        {
+          "pointer": "/tables/CUSTOMER",
+          "similarity": 0.7212932608199877
+        },
+        {
+          "pointer": "/tables/TRANSACTION/fields/customer_id",
+          "similarity": 0.6594520858868985
+        },
+        {
+          "pointer": "/tables/CUSTOMER/fields/customer_id",
+          "similarity": 0.6589394218678645
+        }
+      ]
+    },
+    {
+      "case": "dpd",
+      "question": "¿Qué significa LOAN.dpd y qué tipo de dato tiene?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/tables/LOAN/fields/dpd",
+          "similarity": 0.7684061345327975
+        },
+        {
+          "pointer": "/tables/LOAN",
+          "similarity": 0.7136098317140758
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id/foreign_key",
+          "similarity": 0.6720065469736209
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id",
+          "similarity": 0.6690227376696789
+        },
+        {
+          "pointer": "/tables/LOAN/fields/loan_id",
+          "similarity": 0.6669448613623139
+        }
+      ]
+    },
+    {
+      "case": "transaction_relationship",
+      "question": "How is TRANSACTION.customer_id related to CUSTOMER.customer_id through a foreign key?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/tables/TRANSACTION/fields/customer_id/foreign_key",
+          "similarity": 0.8625279080181394
+        },
+        {
+          "pointer": "/tables/TRANSACTION/fields/customer_id",
+          "similarity": 0.8180400106253146
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id/foreign_key",
+          "similarity": 0.7966272103645489
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id",
+          "similarity": 0.7489612624979357
+        },
+        {
+          "pointer": "/tables/TRANSACTION",
+          "similarity": 0.7460594461176918
+        }
+      ]
+    },
+    {
+      "case": "loan_relationship",
+      "question": "How is LOAN.customer_id related to the CUSTOMER table?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/tables/LOAN/fields/customer_id/foreign_key",
+          "similarity": 0.8406286585143791
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id",
+          "similarity": 0.8004638312035639
+        },
+        {
+          "pointer": "/tables/TRANSACTION/fields/customer_id/foreign_key",
+          "similarity": 0.7682657060148064
+        },
+        {
+          "pointer": "/tables/LOAN",
+          "similarity": 0.7663518190384129
+        },
+        {
+          "pointer": "/tables/TRANSACTION/fields/customer_id",
+          "similarity": 0.7321889645039955
+        }
+      ]
+    },
+    {
+      "case": "credit_score_absence",
+      "question": "Does CUSTOMER have a credit_score field? What does the catalog explicitly say?",
+      "passed": true,
+      "k": 5,
+      "results": [
+        {
+          "pointer": "/known_absences_for_exercise/1",
+          "similarity": 0.8382277181935947
+        },
+        {
+          "pointer": "/tables/CUSTOMER/fields/segment",
+          "similarity": 0.7117922214966803
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id",
+          "similarity": 0.7019914566285059
+        },
+        {
+          "pointer": "/known_absences_for_exercise/2",
+          "similarity": 0.6947779210210627
+        },
+        {
+          "pointer": "/tables/LOAN/fields/customer_id/foreign_key",
+          "similarity": 0.6946837017204949
+        }
+      ]
+    }
+  ],
+  "corpus_id": "51f2c54b-490d-5c30-94e2-0bddbada5382",
+  "evaluation_date": "2026-10-20",
+  "documents_indexed": 24,
+  "dimensions_stored": [
+    1024
+  ],
+  "pgvector_version": "0.8.7",
+  "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+  "bank_data_matches_original_synthetic_baseline": true,
+  "leftover_test_schemas": 0,
+  "automated_tests": {
+    "passed": 88,
+    "original_tests_preserved": 56
+  }
+}

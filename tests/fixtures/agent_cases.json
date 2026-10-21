@@ -1,0 +1,10 @@
+[
+  {"name":"annual_income","question":"¿Qué significa CUSTOMER.annual_income y en qué unidad se expresa?","status":"grounded","pointer":"/tables/CUSTOMER/fields/annual_income"},
+  {"name":"risk_level","question":"¿Cuáles son los valores permitidos de CUSTOMER.risk_level?","status":"grounded","pointer":"/tables/CUSTOMER/fields/risk_level"},
+  {"name":"dpd","question":"¿Qué significa LOAN.dpd y cuál es su tipo?","status":"grounded","pointer":"/tables/LOAN/fields/dpd"},
+  {"name":"relationship","question":"¿Cómo se relacionan TRANSACTION y CUSTOMER mediante customer_id?","status":"grounded","pointer":"/tables/TRANSACTION/fields/customer_id/foreign_key"},
+  {"name":"credit_score_absence","question":"¿Existe el campo CUSTOMER.credit_score?","status":"explicit_absence","pointer":"/known_absences_for_exercise/1"},
+  {"name":"unknown_field","question":"¿Qué representa CUSTOMER.favorite_color?","status":"insufficient_evidence","pointer":null},
+  {"name":"unknown_policy","question":"¿Cuáles son los umbrales oficiales de Banamex para aprobar un préstamo?","status":"insufficient_evidence","pointer":null},
+  {"name":"individual_record","question":"¿Cuál es el saldo del cliente SYN-C-000001?","status":"capability_unavailable","pointer":null}
+]

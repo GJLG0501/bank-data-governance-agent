@@ -1,0 +1,26 @@
+{
+  "validation_date": "2026-10-20",
+  "automated_tests_passed": 134,
+  "previous_tests_preserved": 88,
+  "new_mock_tests": 37,
+  "new_real_model_tests": 9,
+  "data_and_corpus_unchanged": true,
+  "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+  "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847",
+  "documents": 24,
+  "versions": {
+    "langchain-core": "1.6.12",
+    "langchain-ollama": "1.1.0",
+    "langchain-postgres": "0.0.19",
+    "ollama": "0.6.3"
+  },
+  "tools": [
+    "search_data_catalog"
+  ],
+  "model": {
+    "name": "llama3.1:latest",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+  },
+  "final_consistency_check": true,
+  "pgvector_version": "0.8.7"
+}

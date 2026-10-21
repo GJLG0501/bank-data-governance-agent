@@ -1,0 +1,106 @@
+{
+  "dataset_name": "SYNTHETIC_BANK_METADATA",
+  "version": "1.0",
+  "description": "Small synthetic metadata catalog for an introductory Data Steward / LLM grounding exercise.",
+  "tables": {
+    "CUSTOMER": {
+      "description": "Basic customer master data.",
+      "fields": {
+        "customer_id": {
+          "type": "STRING",
+          "business_meaning": "Unique customer identifier."
+        },
+        "segment": {
+          "type": "STRING",
+          "business_meaning": "Retail customer segment.",
+          "allowed_values": [
+            "MASS",
+            "PREMIER",
+            "PRIVATE"
+          ]
+        },
+        "risk_level": {
+          "type": "STRING",
+          "business_meaning": "Internal customer risk classification.",
+          "allowed_values": [
+            "LOW",
+            "MEDIUM",
+            "HIGH"
+          ]
+        },
+        "annual_income": {
+          "type": "FLOAT",
+          "business_meaning": "Annual declared income.",
+          "unit": "MXN per year"
+        }
+      }
+    },
+    "TRANSACTION": {
+      "description": "Customer financial transactions.",
+      "fields": {
+        "transaction_id": {
+          "type": "STRING",
+          "business_meaning": "Unique transaction identifier."
+        },
+        "customer_id": {
+          "type": "STRING",
+          "business_meaning": "Identifier of the customer performing the transaction.",
+          "foreign_key": "CUSTOMER.customer_id"
+        },
+        "amount": {
+          "type": "FLOAT",
+          "business_meaning": "Transaction amount.",
+          "unit": "MXN"
+        },
+        "channel": {
+          "type": "STRING",
+          "business_meaning": "Channel used to execute the transaction.",
+          "allowed_values": [
+            "BRANCH",
+            "ATM",
+            "MOBILE",
+            "WEB"
+          ]
+        },
+        "merchant_category": {
+          "type": "STRING",
+          "business_meaning": "Merchant classification associated with the transaction."
+        }
+      }
+    },
+    "LOAN": {
+      "description": "Current loan portfolio.",
+      "fields": {
+        "loan_id": {
+          "type": "STRING",
+          "business_meaning": "Unique loan identifier."
+        },
+        "customer_id": {
+          "type": "STRING",
+          "business_meaning": "Borrower identifier.",
+          "foreign_key": "CUSTOMER.customer_id"
+        },
+        "balance": {
+          "type": "FLOAT",
+          "business_meaning": "Current outstanding loan balance.",
+          "unit": "MXN"
+        },
+        "interest_rate": {
+          "type": "FLOAT",
+          "business_meaning": "Annual percentage interest rate.",
+          "unit": "percent per year"
+        },
+        "dpd": {
+          "type": "INTEGER",
+          "business_meaning": "Days past due."
+        }
+      }
+    }
+  },
+  "known_absences_for_exercise": [
+    "The metadata does not say whether TRANSACTION.amount includes currency-conversion fees.",
+    "There is no CUSTOMER.credit_score field.",
+    "There is no LOAN.collateral_value field.",
+    "There is no TRANSACTION.is_fraud field."
+  ]
+}

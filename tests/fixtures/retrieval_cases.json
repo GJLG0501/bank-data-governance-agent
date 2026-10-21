@@ -1,0 +1,9 @@
+[
+  {"name":"annual_income", "question":"¿Qué significa CUSTOMER.annual_income y en qué unidad se expresa?", "k":5, "expected_pointers":["/tables/CUSTOMER/fields/annual_income"]},
+  {"name":"annual_income_paraphrase", "question":"Which field stores a customer's annual declared earnings in Mexican pesos per year?", "k":5, "expected_pointers":["/tables/CUSTOMER/fields/annual_income"]},
+  {"name":"risk_level", "question":"¿Cuáles son los valores permitidos de CUSTOMER.risk_level?", "k":5, "expected_pointers":["/tables/CUSTOMER/fields/risk_level"]},
+  {"name":"dpd", "question":"¿Qué significa LOAN.dpd y qué tipo de dato tiene?", "k":5, "expected_pointers":["/tables/LOAN/fields/dpd"]},
+  {"name":"transaction_relationship", "question":"How is TRANSACTION.customer_id related to CUSTOMER.customer_id through a foreign key?", "k":5, "expected_pointers":["/tables/TRANSACTION/fields/customer_id/foreign_key"]},
+  {"name":"loan_relationship", "question":"How is LOAN.customer_id related to the CUSTOMER table?", "k":5, "expected_pointers":["/tables/LOAN/fields/customer_id/foreign_key"]},
+  {"name":"credit_score_absence", "question":"Does CUSTOMER have a credit_score field? What does the catalog explicitly say?", "k":5, "expected_pointers":["/known_absences_for_exercise/1"]}
+]
