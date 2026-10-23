@@ -1,3 +1,4 @@
+from bank_governance.security import simulated_access
 import json
 
 import pytest
@@ -11,7 +12,7 @@ CASES = json.loads((corpus.ROOT / "tests/fixtures/agent_cases.json").read_text(e
 
 @pytest.fixture(scope="module")
 def live_agent():
-    with steward.agent_session() as agent:
+    with steward.agent_session(security=simulated_access(),data_model='legacy_metadata') as agent:
         yield agent
 
 

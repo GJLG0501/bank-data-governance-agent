@@ -229,7 +229,8 @@ def vector_engine():
     url = URL.create("postgresql+asyncpg", username=config["user"], password=config["password"],
                      host=config["host"], port=config["port"], database=config["dbname"])
     return PGEngine.from_connection_string(url, connect_args={"timeout": 5,
-        "server_settings": {"application_name": "bank-knowledge-retrieval", "statement_timeout": "30000"}})
+        "server_settings": {"application_name": "bank-knowledge-retrieval", "statement_timeout": "30000",
+                            "default_transaction_read_only":"on"}})
 
 
 def create_store(engine, embeddings, schema=SCHEMA):
@@ -271,7 +272,7 @@ class RetrievalSession:
         self.documents = build_documents()
         embeddings, self.model = probe_model()
         self.corpus_id = corpus_identity(self.documents, self.model)
-        with psycopg.connect(**settings()) as conn:
+        with psycopg.connect(**settings(),options='-c default_transaction_read_only=on') as conn:
             exists = conn.execute("SELECT to_regclass(%s)", (f"{SCHEMA}.corpora",)).fetchone()[0]
             if not exists or not check_indexed(conn, self.documents, self.model):
                 raise ValueError("El catalogo o modelo actual no esta indexado. Ejecuta ingest primero.")

@@ -1,0 +1,435 @@
+{
+  "catalog_sha256": "5728b7a92fb618bf2e29083d9072522ad2c897dc9b176556f37dabb39c44fa65",
+  "catalog_version": "1.0.0",
+  "content_sha256": "77311b6c11c14b75a984f4a14b3267a69647e46c478c52719fe235dc17a5579a",
+  "document_count": 82,
+  "documents": [
+    {
+      "entry_id": "absence.banking_features",
+      "id": "8abd58e6-eab1-50b3-812c-3a89e1b84fbf",
+      "sha256": "45dbf352fadedf0bd0ad2634ed3c4347ca01facf0063d676a6c6980c0ad9d970"
+    },
+    {
+      "entry_id": "absence.credit_score",
+      "id": "d7032483-2ed6-5e93-bfef-560a14c215f1",
+      "sha256": "867983ee2430dac32cc95d6d5de9fc24704bdd4d5d80a6fc9d58612addc81dae"
+    },
+    {
+      "entry_id": "absence.currency",
+      "id": "fab94a39-f75b-5087-8e99-d7557c2f7671",
+      "sha256": "3b9ca4b385ded2073c5370fb71a76067afcec9a13bb0167e2d5da24ac5b0af99"
+    },
+    {
+      "entry_id": "absence.legacy_mapping",
+      "id": "43f51403-8038-5603-8ddd-94812a899d69",
+      "sha256": "b2369bc8b1a4fcbf83c5033d9000013c27747a1e18f200eb5bbe48dfc18b0f21"
+    },
+    {
+      "entry_id": "absence.pm_birth",
+      "id": "a8a0f53c-6acc-594f-91cb-74da8d723ef0",
+      "sha256": "d5eb1c9f913c38faebdf9f76928e4a7caf672b150a8fcc10c7ab1c95e0ecd159"
+    },
+    {
+      "entry_id": "absence.unknown_client_fields",
+      "id": "4ee64ca4-0a96-5964-a4bc-d678ff3a8601",
+      "sha256": "53935a0c44803905a0b92f5ad9bbb70e988a086f126c2b483eb0f8a81ae6a15d"
+    },
+    {
+      "entry_id": "ambiguity.raw_domain",
+      "id": "ac20a0b7-90a2-542e-956b-863530a1f9d4",
+      "sha256": "5626dbff8d2257de61e88b66e0c26e2d060fd537941206e698a1f4cd8d7a45db"
+    },
+    {
+      "entry_id": "auxiliary.cfg.ref_cuenta_modelo",
+      "id": "cad4d3c2-0bc7-546b-992f-3bc68c48a1be",
+      "sha256": "82012fcc4ec4a4988a15231ff9202b0ce67cabd539a562a08d39b73fb00efe9d"
+    },
+    {
+      "entry_id": "auxiliary.cfg.ref_txn_modelo",
+      "id": "7d5e33f3-2708-520d-ac62-627de366f1fb",
+      "sha256": "3e2da548e74d22a7707b2a3a0096d18d43f2afdbf873830e8d7472e8a649cd04"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.cve_mes_alta",
+      "id": "93314049-d648-5847-bfbe-330413f3dce6",
+      "sha256": "39bc043bce72d72ef8e0a893a8973bb527e7da05114b77f72aabb94d6eead9aa"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.cve_producto",
+      "id": "1b1ceea6-c54c-5d86-a320-a3cfd01536a2",
+      "sha256": "4490cb8aa90dd81baece562700afb182657376ac3364f41f04b8a60c156805bf"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.dominio",
+      "id": "79b6a04a-da08-5e6c-8c51-918083c0a739",
+      "sha256": "572a7e9199328c36cb441d8d26364914f23ceb7cd3daba509cc113e6b30dab0a"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.fec_alta",
+      "id": "a4c07b9a-4e70-5f9c-82ca-b3170269c27d",
+      "sha256": "88b18a99c07820fb9f2318d1245631cb457b1334926263aa4fadf5ebcb1a63e1"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.fec_informacion",
+      "id": "b73689f3-f206-53a0-89ae-40a02ce7b4e8",
+      "sha256": "79df2441f2ab99d9a8119269c2b2dbcc8cbe9b9ccde2ea068b8dc4c6ed5d84ae"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.num_cta",
+      "id": "7eee6345-dc42-5849-bb99-9429f6c1c1c2",
+      "sha256": "899cdbdca84877dcf0e8cc111c8f80140a11dc65c8db794df24806d9312bac89"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.num_cte",
+      "id": "c62251c0-420a-5f74-91a2-3cff7c203da8",
+      "sha256": "171627795c500b863b46e54b76799e77f8bbb4771486050a9c1db3e2118393d3"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+      "id": "3cc3e73a-0b37-5fda-9c51-5b17d243e045",
+      "sha256": "5caa8473c451e4a294b5896eb17b23799dd0b1d5d1c8d65f61925549e9cbbca8"
+    },
+    {
+      "entry_id": "field.cfg.fact_sdos_captacoloca_m.saldo_mes",
+      "id": "2e0e5598-09f8-5fa3-acbc-841bd176a477",
+      "sha256": "bbc367898e8332afa553b0e0e71b25f800326c9686c1bf948ae2c365bdc2ee71"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.cve_mes_txn",
+      "id": "6cbd7bc6-de6d-5c8f-96fb-7721cf025043",
+      "sha256": "7560f4543584ae33aed9b03cb5cfaafa2efcbb04eb8fba15e0c22231f3c7fc71"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.cve_producto",
+      "id": "1a464746-d928-59f2-8909-339719c2f951",
+      "sha256": "dfcdac2d05bfc15751e0ef8d70621c1f66f8ff71ec556d12dc711fdf605e045a"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.cve_txn",
+      "id": "9d1eac10-607d-57e2-8cf4-8cdb46f126c1",
+      "sha256": "731f8ddb8851b2ef8e308356e8fcfe6d2528dec547f73efb41207a7695d63394"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.desc_txn",
+      "id": "bc7ded91-07c1-5d86-ab90-c5c259ca9c99",
+      "sha256": "afa9e74abb5f1183a22bef125eb3de9e06020f4af89f5568d9da117d445a2bbd"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.dominio",
+      "id": "648b56b3-f5ef-5758-89f3-d541d9e2ffba",
+      "sha256": "fc065ad9d2a7830edebc6b5bc3411e48274afb0e3433fb4eb308d81a3fef0a50"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.fec_informacion",
+      "id": "481279d0-4f94-5266-a366-2d39142d75d3",
+      "sha256": "26069949cd97c90dc2b7639667c93c7b5f0c2be3c7fe2bafc14740767f522179"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.fec_txn",
+      "id": "b73084a8-2274-5c2e-b2ac-550731770108",
+      "sha256": "5802559202f200874dfda17276eae9954b1abac88972f7e4fcdb8b6d93395555"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.num_cta",
+      "id": "68b8135f-8505-539a-9380-436d2099daa0",
+      "sha256": "4874fb9935e87c17346caf0d2f66c1df74f5d85453ceca46f6f6f8fefbd13564"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.num_cte",
+      "id": "7374d5ca-8d70-5c70-bbf0-614493f765b7",
+      "sha256": "0848c3e1d362efb90e4dc4675dd6418881112624176fa7fa7b03e01281ee9812"
+    },
+    {
+      "entry_id": "field.cfg.fact_txn_captacoloca_d.saldo_txn",
+      "id": "2a01ac69-4ec3-55b2-b5ab-cec560f7d0bb",
+      "sha256": "4d27b27b9a5a920cb561ced57033e4393ef11d0d6c82c2a54fae876f87795368"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.cve_dir",
+      "id": "8650dd34-da10-506c-8a3d-6fb0c3538517",
+      "sha256": "cb075feab654d9f82f92e324915afa0f2aa07eb9f0db7759869e779765b96915"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.cve_promotor",
+      "id": "086ee45f-5356-5848-bc12-b5604c2ca0ec",
+      "sha256": "41f0affda5da73551cababd1dd5c721e77d246e1dab1e078918a1b9e432b3c50"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.cve_subdir",
+      "id": "fee89408-1c16-590b-83c1-1dc70cc3457e",
+      "sha256": "10f4442871f6d5b99e144c8e40ac0aecfd5a510a6e9ea3a770a6b72269485581"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.cve_sucursal",
+      "id": "571ed0b0-1730-56af-ae13-325fdb63ae8c",
+      "sha256": "5761a7c465a133e686c708959fa16b4926b85441379eafaa46930492875447c9"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.cve_territorio",
+      "id": "44b38937-97ed-5c20-876a-89dd2c0e8845",
+      "sha256": "f93ee4716cf21d25b5fdc53fc5aa7492950206aade5965e78047879e9f7fb68b"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.fec_alta",
+      "id": "6abc63d8-ada2-5500-9f92-620d9c6e328b",
+      "sha256": "6f2dff98fda3201b711a3e0aadd368a919c936ad37f614b540acc58a2e954ec7"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.fec_nac",
+      "id": "a2a36882-0b7b-5c4b-80db-9f6c8a1019a1",
+      "sha256": "ca2a2a4f8b01028e8e44e5896378676181dabea655a2e4e75e490bef4ee07ac4"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.genero_cte",
+      "id": "0bc541c6-5dd7-5301-8e90-d7d8f916c644",
+      "sha256": "4f84e0b68c5bb64cd570007afca9038d71baf09f20833a2c98ff5832a0e50bee"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.giro_empresa",
+      "id": "dc6f0f4d-2fb7-54bf-992f-857145a3ba75",
+      "sha256": "3a9a391b58d595d434e65721ff25b74162d695491dd112b8b4ab324679ef6b9e"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.num_cte",
+      "id": "5e62fbca-e10c-5ff5-9a0c-2de1c620533a",
+      "sha256": "bb7d074b6ff1fa8983934f88ba2d19970e19e5cfbe9793c96a239ba34e24e6cd"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.segmento_cte",
+      "id": "99d84220-1b74-54b8-ad8b-04df23dd2295",
+      "sha256": "0f6de89cb1bebdb08f258285ee3b7e5b1d790b195e4a7da2d58ff5082fa132a4"
+    },
+    {
+      "entry_id": "field.dim.dim_cliente.tipo_persona",
+      "id": "127d9956-3905-5eda-8d6e-ad96f7a229ae",
+      "sha256": "b30f718878df804124325d751760155ddd1b06a2c3d6f5942f68c95a6756326b"
+    },
+    {
+      "entry_id": "field.dim.dim_producto.activo",
+      "id": "39a554d9-05bf-53be-9a69-ec696ae59d18",
+      "sha256": "9008b0bd8c76f36962e76526ca37fe7576168515e11a899115eaeca5b2316117"
+    },
+    {
+      "entry_id": "field.dim.dim_producto.cve_dominio",
+      "id": "d9685700-ca73-5c4a-9bea-00e567b22240",
+      "sha256": "df7637dfd5d35140e339159a7d4bcf1df6e493876c964a050301c25cf4df0376"
+    },
+    {
+      "entry_id": "field.dim.dim_producto.cve_producto",
+      "id": "f36480e7-06fc-5634-81b7-f9c5ee5b0f45",
+      "sha256": "05cfdea15a5e70b70986320d48b153ef38f7f3da5cf06d875effa49780a1c7f8"
+    },
+    {
+      "entry_id": "field.dim.dim_producto.cve_subproducto",
+      "id": "99eb5623-b6b0-54ed-901b-b52e770dde83",
+      "sha256": "f229ed50e4dd24330210cc54669776a08f6c13e83200b89a262b476428472631"
+    },
+    {
+      "entry_id": "field.dim.dim_producto.descripcion",
+      "id": "8c8d3c14-6bb5-5b71-8c51-0157e304f4cc",
+      "sha256": "ad1a0afc91d2f162826f1d911bb9b4e9569a5b956b9660120dc09fed48a41fc6"
+    },
+    {
+      "entry_id": "field.dim.dim_producto.grupo_producto",
+      "id": "be797f9d-41ce-5432-9446-39b12201d6ff",
+      "sha256": "070f49cd2829d956b4d2af223c5568d04fecace9bdb31868ecb4e98f9cdc53c9"
+    },
+    {
+      "entry_id": "field.dim.dim_txn.cve_dominio",
+      "id": "e299fb3f-7ace-597e-8cbf-894673dfd410",
+      "sha256": "15632685aa7bcd054771a674f1601824b4513cab6a59bc8f83bb1324420f7e10"
+    },
+    {
+      "entry_id": "field.dim.dim_txn.cve_producto",
+      "id": "a2b4ee67-a082-5020-95cc-c3d7ec6c83f6",
+      "sha256": "88a4aaea79d126e05465516dc9892b23830259dc1210df22802973a55782e132"
+    },
+    {
+      "entry_id": "field.dim.dim_txn.cve_txn",
+      "id": "3ae7e961-787b-5090-a962-40f2d51f2b81",
+      "sha256": "bef9cb31f27c5c325d38ab28e3c85dbc45f836cada3f57ac35b5a2d318351f8a"
+    },
+    {
+      "entry_id": "field.dim.dim_txn.desc_txn",
+      "id": "44b37302-9d47-5def-abc5-1b916bb05c72",
+      "sha256": "9552c2136d9f56fa4c588e2609cf46f739a33fac1b7842ca0aec4aee51962b0a"
+    },
+    {
+      "entry_id": "field.dim.dim_txn.grupo_producto",
+      "id": "9617907e-dd5f-5c99-ad02-4902420896e8",
+      "sha256": "6bbc246618281435a8ebc435442ecf5f7be6ed3325a04c27fbc9a9b7a2084bc9"
+    },
+    {
+      "entry_id": "limitation.synthetic_generation",
+      "id": "58b37e8d-c22c-5f8f-91dd-de372c5b1e29",
+      "sha256": "e3187bb318329450f63f76dcfce348d20ef654930f54e48cb7bb8bac1c478cac"
+    },
+    {
+      "entry_id": "model.overview",
+      "id": "8a77ed12-66bb-5648-8e01-9ff28e292426",
+      "sha256": "b17c1efaca75bfe926b289e10e70ddf5a665f7a5552bf5260adeedb0dd204d68"
+    },
+    {
+      "entry_id": "product.AHORRO",
+      "id": "d1349ac1-98a9-574d-853e-84c3101bd06f",
+      "sha256": "800fc1b3ce70201756a1ee05d232d07de566a1000be14c0186a44e0ad84e88db"
+    },
+    {
+      "entry_id": "product.CHEQUES",
+      "id": "3703bef6-1351-522c-8552-09426a579493",
+      "sha256": "311c3f30f35b799d78b101c04cc382ae0830a231a2aabb048cb71b95b3166d73"
+    },
+    {
+      "entry_id": "product.C_PERSONAL",
+      "id": "c64b59c8-369c-5fe6-aae7-040dac805b29",
+      "sha256": "b897b05c0721c6e6a2510676a641ddd939419b3dc77580afb37a3df62fd6cca2"
+    },
+    {
+      "entry_id": "product.TDC",
+      "id": "04f69218-0df4-529e-95fc-93f744d5df57",
+      "sha256": "c13829d1933a97d6b0d0e6cf1218e35b82558699c99edda621f121223e2cb936"
+    },
+    {
+      "entry_id": "proposal.governance_constraints",
+      "id": "85518aa4-212e-5f20-8681-9e5ef2c4ea80",
+      "sha256": "753ba75b047c8af9d27530e6338d1cc678a0bf4df0ad047c3c06e5a144029105"
+    },
+    {
+      "entry_id": "relationship.account_owner",
+      "id": "2bccd446-c862-5145-842d-bb3363500eb0",
+      "sha256": "ea2582f5c17f03ddb128f27bb4615a48c9f1619966e266dabb7dabdad35f8491"
+    },
+    {
+      "entry_id": "relationship.balance_movement",
+      "id": "87a8f752-4662-5e7e-b386-852255306a94",
+      "sha256": "b505bf878f0db64c77e54ad8e6956883960586070630e7c1d7f13a27e87e975b"
+    },
+    {
+      "entry_id": "relationship.transaction_catalog",
+      "id": "1cbe8eb8-afab-50bd-98ba-a509c0a0b700",
+      "sha256": "6a704bffe7caf33b6b36c31d468869041c71b31a5da99bccdbfb876b81ec4bcf"
+    },
+    {
+      "entry_id": "rule.amounts.card",
+      "id": "a533c2c7-c38c-534b-a5d4-54eaab9b5fcd",
+      "sha256": "2d16d21a94cbeecc5f4233921d2f5bd075286d63a1d19d2ee0afdf339bc7db48"
+    },
+    {
+      "entry_id": "rule.amounts.deposits",
+      "id": "c5a4f9e4-323d-52a4-82d2-6a8d793f41d7",
+      "sha256": "981ad6ded443b94f1fd6d74a7b477261bf483dd2a156f39f883248710dcd5b2d"
+    },
+    {
+      "entry_id": "rule.amounts.personal",
+      "id": "e1e2dbef-df5e-51e8-ae99-0819db7bd5b9",
+      "sha256": "e550b2c7fed625b7d9f9882aaed51ba6ad35a7eb3dcb0d3192f808e300df5fcb"
+    },
+    {
+      "entry_id": "rule.growth",
+      "id": "f9687e46-ab0f-55fa-868a-5ffc0500f489",
+      "sha256": "f7b18a749fd3b615427ee1370db6c70eec017b6722732e32a1bdc054acb725e6"
+    },
+    {
+      "entry_id": "rule.reconciliation",
+      "id": "f9c58180-c17d-588c-9b2b-431ad59bb6d7",
+      "sha256": "c7ca9ad077cbb0956675c71a7e203ce17238033c95c67e70c93c7735ce29d7ff"
+    },
+    {
+      "entry_id": "table.cfg.fact_sdos_captacoloca_m",
+      "id": "3a092922-fe4b-502a-8408-24783f9da306",
+      "sha256": "bf9724875f500346d4a701e71ceb220b9062db03e90884e0f15c432fc538066e"
+    },
+    {
+      "entry_id": "table.cfg.fact_txn_captacoloca_d",
+      "id": "1ac0910b-ba92-5736-a999-d9c4b2a713f9",
+      "sha256": "9d4d3eba7dd2df1c68afefdd2ef849c1ea4514f01f2ad317eb9157be5fe38648"
+    },
+    {
+      "entry_id": "table.dim.dim_cliente",
+      "id": "37246ddd-b975-57a4-9592-588924d5ef9f",
+      "sha256": "d559bb887d8232184352914cf309f458c3df84bb7d4dc1dc8892c24ddfa7b30e"
+    },
+    {
+      "entry_id": "table.dim.dim_producto",
+      "id": "304c367b-827c-5ed5-b315-b25c4241413b",
+      "sha256": "cf6470e25e7e6960a0848cf38df06123e5e1152a29abca643b105f1de625cf09"
+    },
+    {
+      "entry_id": "table.dim.dim_txn",
+      "id": "162bc196-4c6c-5c55-a6c7-43c8fdbc574b",
+      "sha256": "ce56a2be37a430a148ce885a84f50091c0c0360a303503bb481d215946fe79cd"
+    },
+    {
+      "entry_id": "temporal.calendar",
+      "id": "e28043c0-e29c-507c-b79c-97218153800b",
+      "sha256": "20caf9d68305d4f0dd800d76ec0ef089eefa416db437312f58118d68a5117891"
+    },
+    {
+      "entry_id": "temporal.opening_balance",
+      "id": "8dd608b1-c4ad-5bb1-90e7-b753a62edcb1",
+      "sha256": "351943b7bf8235631693cb5729c1ca5ec839000cdd80675f9556e1dd9cb38cbd"
+    },
+    {
+      "entry_id": "transaction.AHORRO.100",
+      "id": "8a0ba068-46e5-59a2-8580-fd5442153b7c",
+      "sha256": "4ed084a54132ebcbc59b6985b1d94b0b67a2cd5c537f1abd4a0244499d3b5527"
+    },
+    {
+      "entry_id": "transaction.AHORRO.200",
+      "id": "15e65b98-363a-56bc-9df3-cbc0d40d9ce6",
+      "sha256": "2ce0ae6af84e082226de82c235667df9dc7fa848b04ca219ac61fc5145cb4289"
+    },
+    {
+      "entry_id": "transaction.CHEQUES.100",
+      "id": "4f7b0314-90fa-5802-8bbc-2532b05c9862",
+      "sha256": "78c0bd09050d19b99b5df4ae2e1efdec8321a2b8fa95c66698dfcb3b7fba1d36"
+    },
+    {
+      "entry_id": "transaction.CHEQUES.200",
+      "id": "7cd0f6e5-e3fd-5699-88de-0029aeb27858",
+      "sha256": "987ad64a4abf7d38eb708b37c4f26cd77fbe9bf8aac2c00ff85bae9c6b8222be"
+    },
+    {
+      "entry_id": "transaction.C_PERSONAL.300",
+      "id": "7276a981-ac51-5d83-855b-ceac3251c73e",
+      "sha256": "9f2e6ddd882b411eb4237df8a2dc2464a42119303177a74bb0e978cd5caa3afe"
+    },
+    {
+      "entry_id": "transaction.C_PERSONAL.450",
+      "id": "7a375c57-0555-56b6-8e98-7a885017f698",
+      "sha256": "14b020fc23eac44e3368fc977965f44ec4f3c6a70fab403f47872c4ddb8f0e89"
+    },
+    {
+      "entry_id": "transaction.TDC.300",
+      "id": "0a3ffa3d-be77-5fb1-b55b-81ffc3a144ed",
+      "sha256": "1af4c44587520a7eb9c00b0ce3619c00a48fa1aa4489397829523b3f8b076840"
+    },
+    {
+      "entry_id": "transaction.TDC.400",
+      "id": "5063461f-4e1c-57d4-bd48-75b4575bf307",
+      "sha256": "7a95bf3741e6421c54252a31d98e07149e9deb6839e4a52bc961dd123291de04"
+    },
+    {
+      "entry_id": "transaction.TDC.450",
+      "id": "3b8aedc3-7ea8-51d8-aa0f-aa74764e5fb2",
+      "sha256": "ab182ca7a1a903ca014b2fbb29d7e4a933124d5e0e364c2e8c52025669126196"
+    }
+  ],
+  "format": "new-bank-document-manifest-v1",
+  "kinds": {
+    "ambiguity": 7,
+    "auxiliary_table": 2,
+    "field": 42,
+    "financial_rule": 5,
+    "limitation": 1,
+    "model": 1,
+    "product": 4,
+    "proposal": 1,
+    "relationship": 3,
+    "table": 5,
+    "temporal_rule": 2,
+    "transaction": 9
+  },
+  "model_id": "new_bank_2026",
+  "renderer_version": "1.0.0"
+}

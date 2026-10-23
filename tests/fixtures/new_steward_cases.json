@@ -1,0 +1,17 @@
+[
+ {"id":"segment","question":"¿Qué significa dim.dim_cliente.segmento_cte?","entry":"field.dim.dim_cliente.segmento_cte","patterns":["premium","preferente","masivo"]},
+ {"id":"deposits","question":"¿Qué productos pertenecen a captación?","patterns":["cheques","ahorro"]},
+ {"id":"code","question":"¿Qué significa el código 300 para TDC y qué signo tiene?","patterns":["pago","reduc|rest|dismin"]},
+ {"id":"join","question":"¿Cómo se relacionan dim.dim_txn y cfg.fact_txn_captacoloca_d?","patterns":["cve_producto","cve_txn"]},
+ {"id":"opening","question":"¿Qué representa saldo_apertura en marzo?","patterns":["febrero","cierre"]},
+ {"id":"growth","question":"¿Qué tasa de crecimiento se aplica a colocación en abril?","entry":"rule.growth","patterns":["2[.,]2"]},
+ {"id":"currency","question":"¿Qué moneda utilizan los importes?","patterns":["no.*especific|no.*defin|no.*document"]},
+ {"id":"pm","question":"¿Qué significado tiene fec_nac para personas morales?","patterns":["no.*(aclara|especif|explica|defin)|sintetic"]},
+ {"id":"multi","question":"Compara las fórmulas de pagos y disposiciones de C_PERSONAL y compras y pagos TDC","patterns":["c_personal","tdc","5|0[.,]05","2|0[.,]02"]},
+ {"id":"domain","question":"¿Por qué dominio cambia entre enero y febrero?","patterns":["captacion","deposits"]},
+ {"id":"mapping","question":"¿Es válido relacionar automáticamente LOAN con C_PERSONAL?","patterns":["no"]},
+ {"id":"absent","question":"¿Qué es dim.dim_cliente.color_favorito?","status":"insufficient_evidence"},
+ {"id":"numeric_total","question":"¿Cuánto fue el saldo total de TDC en junio?","status":"capability_unavailable"},
+ {"id":"numeric_anomalies","question":"¿Cuántos clientes tienen anomalías de fecha?","status":"capability_unavailable"},
+ {"id":"numeric_rank","question":"¿Qué producto tuvo el mayor saldo en abril?","status":"capability_unavailable"}
+]

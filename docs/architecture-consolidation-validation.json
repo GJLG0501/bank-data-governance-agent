@@ -1,0 +1,306 @@
+{
+  "format": "architecture-consolidation-v1",
+  "branch": "refactor/architecture-consolidation-20261022",
+  "initial_commit": "6550ca5e966839c426b62b4fa33155cd9b4ec32b",
+  "initial_inventory": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\architecture_20261022_204840\\inventory-before.json",
+  "local_snapshot": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\architecture_20261022_204840\\workspace-before.zip",
+  "versions_installed": {
+    "langchain-core": "1.6.12",
+    "langchain-ollama": "1.1.0",
+    "langchain-postgres": "0.0.19",
+    "langgraph": "1.2.16",
+    "langchain-google-genai": "not installed; optional",
+    "pydantic": "2.14.1",
+    "psycopg": "3.3.6",
+    "pytest": "9.1.1",
+    "tenacity": "9.1.4",
+    "websockets": "16.1.1"
+  },
+  "offline": {
+    "tests": 543,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 306
+  },
+  "live": {
+    "test_units": 1,
+    "questions": 5,
+    "model_calls": 10,
+    "max_reported_input_tokens": 1154,
+    "possible_truncation_flags": 0,
+    "statuses": [
+      "grounded",
+      "grounded",
+      "grounded",
+      "explicit_absence",
+      "explanation_requires_review"
+    ],
+    "cloud_calls": 0,
+    "first_failure_preserved": ".local-validation/architecture-live-first-failure.json"
+  },
+  "conservation": {
+    "before_after": {
+      "identity": true,
+      "legacy": true,
+      "historic": true,
+      "bank": true,
+      "rag": true
+    },
+    "bank_counts": {
+      "dim.dim_txn": 9,
+      "dim.dim_cliente": 5000,
+      "dim.dim_producto": 4,
+      "cfg.ref_txn_modelo": 9,
+      "cfg.ref_cuenta_modelo": 20000,
+      "cfg.fact_txn_captacoloca_d": 225000,
+      "cfg.fact_sdos_captacoloca_m": 120000
+    },
+    "legacy_rows": {
+      "public.LOAN": {
+        "count": 500,
+        "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+      },
+      "public.CUSTOMER": {
+        "count": 1000,
+        "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+      },
+      "public.TRANSACTION": {
+        "count": 5000,
+        "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+      },
+      "bank_knowledge.corpora": {
+        "count": 1,
+        "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+      },
+      "bank_knowledge.documents": {
+        "count": 24,
+        "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+      }
+    },
+    "rag": {
+      "hash": "de75a01be9dc6da0114cf1248e7e4c88b9c220e2f7c77deb780ae55b530e58e7",
+      "count": 82
+    },
+    "historic": {
+      "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+      "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+    },
+    "protected_files": [
+      {
+        "path": "data/corpus/new_bank_model.documents.jsonl",
+        "unchanged": true
+      },
+      {
+        "path": "data/corpus/new_bank_model.documents.manifest.json",
+        "unchanged": true
+      },
+      {
+        "path": "data/corpus/new_bank_model.index-manifest.json",
+        "unchanged": true
+      },
+      {
+        "path": "data/source/new_bank_model/catalog.json",
+        "unchanged": true
+      },
+      {
+        "path": "data/source/new_bank_model/dataset-202601.manifest.json",
+        "unchanged": true
+      },
+      {
+        "path": "data/source/new_bank_model/manifest.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-data-steward-agent-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-data-steward-agent.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-data-steward-hardening-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-data-steward-hardening.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-data-steward-reasoning-evaluation.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-data-steward-reasoning-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-backup-recovery.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-data-load-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-data-load.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-governance.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-integration-plan.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-publication-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-publication.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-rag-publication-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-rag-publication.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-rag-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-rag.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/new-bank-model-runtime-validation.md",
+        "unchanged": true
+      },
+      {
+        "path": "sql/integration/001_new_bank_schemas_tables.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/integration/002_new_bank_integrity.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/integration/checks/legacy_snapshot.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/integration/checks/model_structure.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/integration/checks/new_bank_dataset.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/integration/checks/preflight.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/rag/001_new_bank_knowledge.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+        "unchanged": true
+      },
+      {
+        "path": "data/corpus/bank_metadata.documents.jsonl",
+        "unchanged": true
+      },
+      {
+        "path": "data/source/bank_metadata.json",
+        "unchanged": true
+      },
+      {
+        "path": "data/source/bank_metadata_simple (1).json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/agent-validation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/data-steward-agent.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/knowledge-corpus.md",
+        "unchanged": true
+      },
+      {
+        "path": "docs/retrieval-evaluation.json",
+        "unchanged": true
+      },
+      {
+        "path": "docs/synthetic-data.md",
+        "unchanged": true
+      },
+      {
+        "path": "sql/001-create-bank-tables.sql",
+        "unchanged": true
+      },
+      {
+        "path": "sql/002-create-knowledge-corpus.sql",
+        "unchanged": true
+      }
+    ],
+    "changed_existing_files": [
+      "scripts/steward_catalog.py",
+      ".env.example",
+      "README.md",
+      "pyproject.toml",
+      "scripts/data_steward_agent.py",
+      "uv.lock"
+    ],
+    "audit_folder": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\architecture_20261022_204840",
+    "branch": "main",
+    "initial_commit": "6550ca5e966839c426b62b4fa33155cd9b4ec32b"
+  },
+  "core_files": {
+    "bank_governance\\__init__.py": "405e60c5747b9f224260dcc61a4c2062e00f0a2e60b9e97ac6e2c3be46ed9cab",
+    "bank_governance\\__main__.py": "f9205899a1eb0b5e9692b58895c97ce329cd7f90ffc903b8dff4e906d5f5ba96",
+    "bank_governance\\cli.py": "100e9ab9dd1b8f2b0da05aa4414bdb287b5431ff53bc1fb917a84635862ec929",
+    "bank_governance\\config.py": "d77ff0537e56b9cd0ec522ec40c668d327c1da6313abd8d53dbc083d99d20d8f",
+    "bank_governance\\context.py": "b0d03a1c30773e2fb18c77ab34b1edd17556774ad7279c4d7d93e713df98e8ee",
+    "bank_governance\\contracts.py": "0771d255ab42a0f8adf7fbeb2b9a7c33995c09321a52736e17b0b5b603fa6527",
+    "bank_governance\\coordinator.py": "7d29057ac0c9474450d8044204f2be2bf82b8673678d0bab156cb6b58782718b",
+    "bank_governance\\database.py": "039cdac2b5020133fe711f8275dffa5fab42e947b4e19a2ad9f5e5d2200c375e",
+    "bank_governance\\errors.py": "0b82804fdb6e1f44836a0a067e4ca3d4b8b56cd29e506cc80b9ba6ad3c2290bf",
+    "bank_governance\\hybrid.py": "0886f90b73c24173e0be944ccd56e99361090e17dcf92000387d4364e63ae5bf",
+    "bank_governance\\policy.py": "5a3f7c9ea2431c9348a2dd6639edb73170c25d177761a4b57bd735be7ddd6ed6",
+    "bank_governance\\prompts.py": "57c721b6f2958a5eb21d3b27f89a6eeb04ba0c7648023bdcae65de7cb1dde4e6",
+    "bank_governance\\providers.py": "70f58f428bda8d5d3f61794d13fce177505a8050bd428196d5ef7479b1119b68",
+    "bank_governance\\retrieval.py": "377d8e901c0b7bdc11afd0666b91c176996d5ed391893dca5f71f22e519883ca",
+    "bank_governance\\steward.py": "4d6a9d535854cd44a88ceaf7dddf371e8a5b2ca38023df1c65d72fac1f894656",
+    "bank_governance\\tools.py": "21cb53fcbe010cb7fa6613690769b014c12d1e32008a49304182510d0877f776",
+    "bank_governance\\validation.py": "8a94a59c1148b2983d197d98612dbda50ae8c279ad26fd645b005923f1c69596"
+  },
+  "defaults_changed": false,
+  "published_corpus_changed": false,
+  "limitations": [
+    "hybrid_generation_not_accepted_as_default",
+    "remote_adapter_only_mocked",
+    "no_complete_live_62_case_reassessment",
+    "routing_is_not_a_general_intent_classifier",
+    "historical_write_tests_not_run_on_active_database"
+  ]
+}
