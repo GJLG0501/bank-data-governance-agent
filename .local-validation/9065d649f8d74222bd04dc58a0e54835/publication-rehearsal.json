@@ -1,0 +1,404 @@
+{
+  "database": "nbm_case_9065d649f8d74222_publication_rehearsal_4d9a0ca5",
+  "results": [
+    "cargado",
+    "sin cambios"
+  ],
+  "quality": {
+    "anomalies": {
+      "currency": null,
+      "classification": "upstream_preserved_not_corrected",
+      "pm_birth_field_undefined": 200,
+      "january_group_domain_rows": 20000,
+      "pf_under_18_at_registration": 1027,
+      "pf_registration_before_birth": 44,
+      "all_clients_have_all_products": true,
+      "pf_under_18_at_source_reference": 0
+    },
+    "violations": {
+      "growth": 0,
+      "january": 0,
+      "ownership": 0,
+      "continuity": 0,
+      "raw_domain": 0,
+      "event_dates": 0,
+      "client_rules": 0,
+      "account_dates": 0,
+      "event_formula": 0,
+      "client_orphans": 0,
+      "reconciliation": 0,
+      "product_orphans": 0,
+      "missing_balances": 0,
+      "catalog_duplicates": 0,
+      "event_group_counts": 0,
+      "balance_group_counts": 0,
+      "catalog_multiplication": 0,
+      "missing_or_unknown_events": 0
+    },
+    "clients_by_type": {
+      "PF": 4800,
+      "PM": 200
+    },
+    "clients_by_gender": {
+      "MUJER": 2304,
+      "HOMBRE": 2496,
+      "NO APLICA": 200
+    },
+    "clients_by_segment": {
+      "MASIVO": 3750,
+      "PREMIUM": 250,
+      "PREFERENTE": 1000
+    },
+    "accounts_by_product": {
+      "TDC": 5000,
+      "AHORRO": 5000,
+      "CHEQUES": 5000,
+      "C_PERSONAL": 5000
+    },
+    "balances_by_cut_product": [
+      {
+        "rows": 5000,
+        "max_close": "9998.16",
+        "min_close": "11.25",
+        "cve_producto": "AHORRO",
+        "closing_total": "25534797.73",
+        "opening_total": "25534797.73",
+        "fec_informacion": 20260131
+      },
+      {
+        "rows": 5000,
+        "max_close": "11998.19",
+        "min_close": "8001.24",
+        "cve_producto": "CHEQUES",
+        "closing_total": "49808697.27",
+        "opening_total": "49808697.27",
+        "fec_informacion": 20260131
+      },
+      {
+        "rows": 5000,
+        "max_close": "84996.58",
+        "min_close": "50002.60",
+        "cve_producto": "C_PERSONAL",
+        "closing_total": "337445507.43",
+        "opening_total": "337445507.43",
+        "fec_informacion": 20260131
+      },
+      {
+        "rows": 5000,
+        "max_close": "119996.11",
+        "min_close": "10031.85",
+        "cve_producto": "TDC",
+        "closing_total": "326821039.16",
+        "opening_total": "326821039.16",
+        "fec_informacion": 20260131
+      },
+      {
+        "rows": 5000,
+        "max_close": "10198.12",
+        "min_close": "11.48",
+        "cve_producto": "AHORRO",
+        "closing_total": "26045494.38",
+        "opening_total": "25534797.73",
+        "fec_informacion": 20260228
+      },
+      {
+        "rows": 5000,
+        "max_close": "12238.15",
+        "min_close": "8161.26",
+        "cve_producto": "CHEQUES",
+        "closing_total": "50804871.63",
+        "opening_total": "49808697.27",
+        "fec_informacion": 20260228
+      },
+      {
+        "rows": 5000,
+        "max_close": "87546.48",
+        "min_close": "51502.68",
+        "cve_producto": "C_PERSONAL",
+        "closing_total": "347568872.77",
+        "opening_total": "337445507.43",
+        "fec_informacion": 20260228
+      },
+      {
+        "rows": 5000,
+        "max_close": "123595.99",
+        "min_close": "10332.81",
+        "cve_producto": "TDC",
+        "closing_total": "336625670.92",
+        "opening_total": "326821039.16",
+        "fec_informacion": 20260228
+      },
+      {
+        "rows": 5000,
+        "max_close": "10300.10",
+        "min_close": "11.59",
+        "cve_producto": "AHORRO",
+        "closing_total": "26305949.47",
+        "opening_total": "26045494.38",
+        "fec_informacion": 20260331
+      },
+      {
+        "rows": 5000,
+        "max_close": "12360.53",
+        "min_close": "8242.87",
+        "cve_producto": "CHEQUES",
+        "closing_total": "51312920.71",
+        "opening_total": "50804871.63",
+        "fec_informacion": 20260331
+      },
+      {
+        "rows": 5000,
+        "max_close": "89472.50",
+        "min_close": "52635.74",
+        "cve_producto": "C_PERSONAL",
+        "closing_total": "355215387.91",
+        "opening_total": "347568872.77",
+        "fec_informacion": 20260331
+      },
+      {
+        "rows": 5000,
+        "max_close": "126315.10",
+        "min_close": "10560.13",
+        "cve_producto": "TDC",
+        "closing_total": "344031435.66",
+        "opening_total": "336625670.92",
+        "fec_informacion": 20260331
+      },
+      {
+        "rows": 5000,
+        "max_close": "10403.10",
+        "min_close": "11.71",
+        "cve_producto": "AHORRO",
+        "closing_total": "26569009.49",
+        "opening_total": "26305949.47",
+        "fec_informacion": 20260430
+      },
+      {
+        "rows": 5000,
+        "max_close": "12484.14",
+        "min_close": "8325.30",
+        "cve_producto": "CHEQUES",
+        "closing_total": "51826050.18",
+        "opening_total": "51312920.71",
+        "fec_informacion": 20260430
+      },
+      {
+        "rows": 5000,
+        "max_close": "91440.90",
+        "min_close": "53793.73",
+        "cve_producto": "C_PERSONAL",
+        "closing_total": "363030126.58",
+        "opening_total": "355215387.91",
+        "fec_informacion": 20260430
+      },
+      {
+        "rows": 5000,
+        "max_close": "129094.03",
+        "min_close": "10792.45",
+        "cve_producto": "TDC",
+        "closing_total": "351600127.35",
+        "opening_total": "344031435.66",
+        "fec_informacion": 20260430
+      },
+      {
+        "rows": 5000,
+        "max_close": "10507.13",
+        "min_close": "11.83",
+        "cve_producto": "AHORRO",
+        "closing_total": "26834699.75",
+        "opening_total": "26569009.49",
+        "fec_informacion": 20260531
+      },
+      {
+        "rows": 5000,
+        "max_close": "12608.98",
+        "min_close": "8408.55",
+        "cve_producto": "CHEQUES",
+        "closing_total": "52344310.80",
+        "opening_total": "51826050.18",
+        "fec_informacion": 20260531
+      },
+      {
+        "rows": 5000,
+        "max_close": "93452.60",
+        "min_close": "54977.19",
+        "cve_producto": "C_PERSONAL",
+        "closing_total": "371016789.65",
+        "opening_total": "363030126.58",
+        "fec_informacion": 20260531
+      },
+      {
+        "rows": 5000,
+        "max_close": "131934.10",
+        "min_close": "11029.88",
+        "cve_producto": "TDC",
+        "closing_total": "359335330.21",
+        "opening_total": "351600127.35",
+        "fec_informacion": 20260531
+      },
+      {
+        "rows": 5000,
+        "max_close": "10612.20",
+        "min_close": "11.95",
+        "cve_producto": "AHORRO",
+        "closing_total": "27103046.74",
+        "opening_total": "26834699.75",
+        "fec_informacion": 20260630
+      },
+      {
+        "rows": 5000,
+        "max_close": "12735.07",
+        "min_close": "8492.64",
+        "cve_producto": "CHEQUES",
+        "closing_total": "52867753.91",
+        "opening_total": "52344310.80",
+        "fec_informacion": 20260630
+      },
+      {
+        "rows": 5000,
+        "max_close": "95508.56",
+        "min_close": "56186.69",
+        "cve_producto": "C_PERSONAL",
+        "closing_total": "379179158.79",
+        "opening_total": "371016789.65",
+        "fec_informacion": 20260630
+      },
+      {
+        "rows": 5000,
+        "max_close": "134836.65",
+        "min_close": "11272.54",
+        "cve_producto": "TDC",
+        "closing_total": "367240707.61",
+        "opening_total": "359335330.21",
+        "fec_informacion": 20260630
+      }
+    ],
+    "january_without_movements": true,
+    "reconciled_account_months": 100000,
+    "movements_by_month_product": [
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202602,
+        "cve_producto": "AHORRO",
+        "positive_amount_total": "3064178.41"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202602,
+        "cve_producto": "CHEQUES",
+        "positive_amount_total": "5977046.80"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202602,
+        "cve_producto": "C_PERSONAL",
+        "positive_amount_total": "43867918.56"
+      },
+      {
+        "rows": 15000,
+        "cve_mes_txn": 202602,
+        "cve_producto": "TDC",
+        "positive_amount_total": "16341054.12"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202603,
+        "cve_producto": "AHORRO",
+        "positive_amount_total": "2865007.17"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202603,
+        "cve_producto": "CHEQUES",
+        "positive_amount_total": "5588538.78"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202603,
+        "cve_producto": "C_PERSONAL",
+        "positive_amount_total": "42403405.32"
+      },
+      {
+        "rows": 15000,
+        "cve_mes_txn": 202603,
+        "cve_producto": "TDC",
+        "positive_amount_total": "19524290.14"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202604,
+        "cve_producto": "AHORRO",
+        "positive_amount_total": "2893657.72"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202604,
+        "cve_producto": "CHEQUES",
+        "positive_amount_total": "5644424.37"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202604,
+        "cve_producto": "C_PERSONAL",
+        "positive_amount_total": "43336280.53"
+      },
+      {
+        "rows": 15000,
+        "cve_mes_txn": 202604,
+        "cve_producto": "TDC",
+        "positive_amount_total": "19953825.03"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202605,
+        "cve_producto": "AHORRO",
+        "positive_amount_total": "2922594.00"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202605,
+        "cve_producto": "CHEQUES",
+        "positive_amount_total": "5700867.68"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202605,
+        "cve_producto": "C_PERSONAL",
+        "positive_amount_total": "44289678.57"
+      },
+      {
+        "rows": 15000,
+        "cve_mes_txn": 202605,
+        "cve_producto": "TDC",
+        "positive_amount_total": "20392808.58"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202606,
+        "cve_producto": "AHORRO",
+        "positive_amount_total": "2951818.59"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202606,
+        "cve_producto": "CHEQUES",
+        "positive_amount_total": "5757876.73"
+      },
+      {
+        "rows": 10000,
+        "cve_mes_txn": 202606,
+        "cve_producto": "C_PERSONAL",
+        "positive_amount_total": "45264050.62"
+      },
+      {
+        "rows": 15000,
+        "cve_mes_txn": 202606,
+        "cve_producto": "TDC",
+        "positive_amount_total": "20841449.52"
+      }
+    ],
+    "max_absolute_reconciliation_difference": "0.00"
+  },
+  "dataset_sha256": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b",
+  "restored_legacy_preserved": true
+}

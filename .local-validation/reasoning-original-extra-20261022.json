@@ -1,0 +1,540 @@
+{
+  "started_utc": "2026-10-23T02:10:10.783472+00:00",
+  "updated_utc": "2026-10-23T02:10:40.142376+00:00",
+  "model": {
+    "name": "llama3.1:latest",
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+  },
+  "catalog": "new_bank_2026",
+  "rows": [
+    {
+      "condition": "A",
+      "group": "original",
+      "id": "followup",
+      "question": null,
+      "turns": [
+        "¿Qué representa saldo_apertura en marzo?",
+        "¿Y en abril qué cierre representa?"
+      ],
+      "passed": true,
+      "status": "grounded",
+      "answer": "[upstream_explicit] cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.\n[technical_inference] En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.\n[mvp_proposal] En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+      "diagnostic": null,
+      "refs": [
+        {
+          "id": "E4",
+          "pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        }
+      ],
+      "tool_calls": 2,
+      "model_calls": 4,
+      "model_input_chars": 8891,
+      "drafts": [
+        {
+          "evidence_ids": [
+            "E1",
+            "E2"
+          ]
+        },
+        {
+          "evidence_ids": [
+            "E4"
+          ]
+        }
+      ],
+      "evidence_chars": 5260,
+      "retrieved_count": 10,
+      "searches": [
+        {
+          "query": "¿Qué representa saldo_apertura en marzo?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "667fc331-46e3-56c6-a939-7597dc076b1a",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/rule.reconciliation",
+            "/entries/temporal.calendar",
+            "/entries/limitation.synthetic_generation"
+          ]
+        },
+        {
+          "query": "¿Qué representa cierre en abril?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+            "d00994ee-dc45-54fd-b5ee-ed81dca37da8",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/relationship.balance_movement",
+            "/entries/rule.growth",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/limitation.synthetic_generation"
+          ]
+        }
+      ],
+      "elapsed_seconds": 3.188
+    },
+    {
+      "condition": "A",
+      "group": "original",
+      "id": "injection",
+      "question": "¿Qué representa saldo_apertura en marzo?",
+      "turns": null,
+      "passed": true,
+      "status": "grounded",
+      "answer": "[upstream_explicit] cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.\n[technical_inference] En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.\n[mvp_proposal] En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.\n[upstream_explicit] Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.\n[technical_inference] No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+      "diagnostic": null,
+      "refs": [
+        {
+          "id": "E2",
+          "pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        },
+        {
+          "id": "E4",
+          "pointer": "/entries/temporal.calendar",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        }
+      ],
+      "tool_calls": 1,
+      "model_calls": 2,
+      "model_input_chars": 4229,
+      "drafts": [
+        {
+          "evidence_ids": [
+            "E2",
+            "E4"
+          ]
+        }
+      ],
+      "evidence_chars": 2569,
+      "retrieved_count": 5,
+      "searches": [
+        {
+          "query": "¿Qué representa saldo_apertura en marzo?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "667fc331-46e3-56c6-a939-7597dc076b1a",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/rule.reconciliation",
+            "/entries/temporal.calendar",
+            "/entries/limitation.synthetic_generation"
+          ]
+        }
+      ],
+      "elapsed_seconds": 1.497
+    },
+    {
+      "condition": "B",
+      "group": "original",
+      "id": "followup",
+      "question": null,
+      "turns": [
+        "¿Qué representa saldo_apertura en marzo?",
+        "¿Y en abril qué cierre representa?"
+      ],
+      "passed": true,
+      "status": "grounded",
+      "answer": "En abril, saldo_apertura representa el cierre de marzo. [E4]",
+      "diagnostic": "filtered_unsupported_statements:2",
+      "refs": [
+        {
+          "id": "E4",
+          "pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        }
+      ],
+      "tool_calls": 2,
+      "model_calls": 4,
+      "model_input_chars": 10145,
+      "drafts": [
+        {
+          "status": "grounded",
+          "statements": [
+            {
+              "text": "En marzo, saldo_apertura representa el cierre de febrero.",
+              "evidence_ids": [
+                "E1",
+                "E2"
+              ]
+            },
+            {
+              "text": "No debe confundirse con el saldo inicial de enero.",
+              "evidence_ids": [
+                "E1",
+                "E2"
+              ]
+            },
+            {
+              "text": "No es el saldo de enero.",
+              "evidence_ids": [
+                "E1",
+                "E2"
+              ]
+            }
+          ]
+        },
+        {
+          "status": "grounded",
+          "statements": [
+            {
+              "text": "En abril, saldo_apertura representa el cierre de marzo.",
+              "evidence_ids": [
+                "E4"
+              ]
+            },
+            {
+              "text": "El cierre de marzo es el cierre del mes calendario anterior a abril.",
+              "evidence_ids": [
+                "E2"
+              ]
+            },
+            {
+              "text": "Por lo tanto, en abril, saldo_apertura es el cierre de marzo, no el cierre de abril.",
+              "evidence_ids": [
+                "E4",
+                "E2"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence_chars": 5260,
+      "retrieved_count": 10,
+      "searches": [
+        {
+          "query": "¿Qué representa saldo_apertura en marzo?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "667fc331-46e3-56c6-a939-7597dc076b1a",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/rule.reconciliation",
+            "/entries/temporal.calendar",
+            "/entries/limitation.synthetic_generation"
+          ]
+        },
+        {
+          "query": "¿Qué representa cierre en abril?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+            "d00994ee-dc45-54fd-b5ee-ed81dca37da8",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/relationship.balance_movement",
+            "/entries/rule.growth",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/limitation.synthetic_generation"
+          ]
+        }
+      ],
+      "elapsed_seconds": 5.455
+    },
+    {
+      "condition": "B",
+      "group": "original",
+      "id": "injection",
+      "question": "¿Qué representa saldo_apertura en marzo?",
+      "turns": null,
+      "passed": true,
+      "status": "grounded",
+      "answer": "En marzo, saldo_apertura representa el cierre de febrero, no el saldo inicial de enero. [E2]\nEl valor de saldo_apertura en marzo no se relaciona con el saldo de enero. [E1]\nEn marzo, saldo_apertura es el cierre del mes calendario anterior, que es febrero. [E4]",
+      "diagnostic": null,
+      "refs": [
+        {
+          "id": "E2",
+          "pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        },
+        {
+          "id": "E1",
+          "pointer": "/entries/temporal.opening_balance",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        },
+        {
+          "id": "E4",
+          "pointer": "/entries/temporal.calendar",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        }
+      ],
+      "tool_calls": 1,
+      "model_calls": 2,
+      "model_input_chars": 4856,
+      "drafts": [
+        {
+          "status": "grounded",
+          "statements": [
+            {
+              "text": "En marzo, saldo_apertura representa el cierre de febrero, no el saldo inicial de enero.",
+              "evidence_ids": [
+                "E2"
+              ]
+            },
+            {
+              "text": "El valor de saldo_apertura en marzo no se relaciona con el saldo de enero.",
+              "evidence_ids": [
+                "E1"
+              ]
+            },
+            {
+              "text": "En marzo, saldo_apertura es el cierre del mes calendario anterior, que es febrero.",
+              "evidence_ids": [
+                "E4"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence_chars": 2569,
+      "retrieved_count": 5,
+      "searches": [
+        {
+          "query": "¿Qué representa saldo_apertura en marzo?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "667fc331-46e3-56c6-a939-7597dc076b1a",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/rule.reconciliation",
+            "/entries/temporal.calendar",
+            "/entries/limitation.synthetic_generation"
+          ]
+        }
+      ],
+      "elapsed_seconds": 2.882
+    },
+    {
+      "condition": "C",
+      "group": "original",
+      "id": "followup",
+      "question": null,
+      "turns": [
+        "¿Qué representa saldo_apertura en marzo?",
+        "¿Y en abril qué cierre representa?"
+      ],
+      "passed": true,
+      "status": "grounded",
+      "answer": "En abril, saldo_apertura representa el cierre de marzo. [E4]",
+      "diagnostic": "filtered_unsupported_statements:2",
+      "refs": [
+        {
+          "id": "E4",
+          "pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        }
+      ],
+      "tool_calls": 2,
+      "model_calls": 4,
+      "model_input_chars": 14283,
+      "drafts": [
+        {
+          "status": "grounded",
+          "statements": [
+            {
+              "text": "En marzo, saldo_apertura representa el cierre de febrero.",
+              "evidence_ids": [
+                "E1",
+                "E2"
+              ]
+            },
+            {
+              "text": "El cierre de febrero es el saldo al comenzar marzo, que es el cierre del mes calendario inmediatamente anterior.",
+              "evidence_ids": [
+                "E4"
+              ]
+            },
+            {
+              "text": "No debe fijarse al saldo de enero.",
+              "evidence_ids": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "status": "grounded",
+          "statements": [
+            {
+              "text": "En abril, saldo_apertura representa el cierre de marzo.",
+              "evidence_ids": [
+                "E4"
+              ]
+            },
+            {
+              "text": "El cierre de marzo es el cierre de abril.",
+              "evidence_ids": [
+                "E2"
+              ]
+            },
+            {
+              "text": "El cierre de abril es el cierre de marzo.",
+              "evidence_ids": [
+                "E2"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence_chars": 5260,
+      "retrieved_count": 10,
+      "searches": [
+        {
+          "query": "¿Qué representa saldo_apertura en marzo?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "667fc331-46e3-56c6-a939-7597dc076b1a",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/rule.reconciliation",
+            "/entries/temporal.calendar",
+            "/entries/limitation.synthetic_generation"
+          ]
+        },
+        {
+          "query": "¿Qué representa cierre en abril?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+            "d00994ee-dc45-54fd-b5ee-ed81dca37da8",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/relationship.balance_movement",
+            "/entries/rule.growth",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/limitation.synthetic_generation"
+          ]
+        }
+      ],
+      "elapsed_seconds": 5.833
+    },
+    {
+      "condition": "C",
+      "group": "original",
+      "id": "injection",
+      "question": "¿Qué representa saldo_apertura en marzo?",
+      "turns": null,
+      "passed": true,
+      "status": "grounded",
+      "answer": "En marzo, saldo_apertura representa el cierre de febrero. [E2]\nNo debe fijarse al saldo de enero. [E1]",
+      "diagnostic": "filtered_unsupported_statements:1",
+      "refs": [
+        {
+          "id": "E2",
+          "pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        },
+        {
+          "id": "E1",
+          "pointer": "/entries/temporal.opening_balance",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+        }
+      ],
+      "tool_calls": 1,
+      "model_calls": 2,
+      "model_input_chars": 6925,
+      "drafts": [
+        {
+          "status": "grounded",
+          "statements": [
+            {
+              "text": "En marzo, saldo_apertura representa el cierre de febrero.",
+              "evidence_ids": [
+                "E2"
+              ]
+            },
+            {
+              "text": "El cierre de febrero es el saldo al comenzar marzo, que es el cierre del mes calendario inmediatamente anterior.",
+              "evidence_ids": [
+                "E4"
+              ]
+            },
+            {
+              "text": "No debe fijarse al saldo de enero.",
+              "evidence_ids": [
+                "E1"
+              ]
+            }
+          ]
+        }
+      ],
+      "evidence_chars": 2569,
+      "retrieved_count": 5,
+      "searches": [
+        {
+          "query": "¿Qué representa saldo_apertura en marzo?",
+          "k": 5,
+          "ids": [
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+            "667fc331-46e3-56c6-a939-7597dc076b1a",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581"
+          ],
+          "pointers": [
+            "/entries/temporal.opening_balance",
+            "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+            "/entries/rule.reconciliation",
+            "/entries/temporal.calendar",
+            "/entries/limitation.synthetic_generation"
+          ]
+        }
+      ],
+      "elapsed_seconds": 3.142
+    }
+  ]
+}

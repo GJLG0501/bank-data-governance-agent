@@ -1,0 +1,1386 @@
+{
+  "branch": "main",
+  "commit": "6550ca5e966839c426b62b4fa33155cd9b4ec32b",
+  "status": " M .gitignore\n M scripts/data_steward_agent.py\n M scripts/knowledge_corpus.py\n M tests/test_agent_integration.py\n M tests/test_data_steward_agent.py\n?? data/corpus/new_bank_model.documents.jsonl\n?? data/corpus/new_bank_model.documents.manifest.json\n?? data/corpus/new_bank_model.index-manifest.json\n?? data/source/new_bank_model/\n?? docs/new-bank-data-steward-agent-validation.json\n?? docs/new-bank-data-steward-agent.md\n?? docs/new-bank-data-steward-hardening-validation.json\n?? docs/new-bank-data-steward-hardening.md\n?? docs/new-bank-data-steward-reasoning-evaluation.md\n?? docs/new-bank-data-steward-reasoning-validation.json\n?? docs/new-bank-model-backup-recovery.md\n?? docs/new-bank-model-data-load-validation.json\n?? docs/new-bank-model-data-load.md\n?? docs/new-bank-model-governance.md\n?? docs/new-bank-model-integration-plan.md\n?? docs/new-bank-model-publication-validation.json\n?? docs/new-bank-model-publication.md\n?? docs/new-bank-model-rag-publication-validation.json\n?? docs/new-bank-model-rag-publication.md\n?? docs/new-bank-model-rag-validation.json\n?? docs/new-bank-model-rag.md\n?? docs/new-bank-model-runtime-validation.md\n?? scripts/evaluate_steward_reasoning.py\n?? scripts/new_bank_catalog.py\n?? scripts/new_bank_documents.py\n?? scripts/new_bank_integration.py\n?? scripts/new_bank_model.py\n?? scripts/new_bank_publication.py\n?? scripts/new_bank_rag.py\n?? scripts/new_bank_rag_publication.py\n?? scripts/new_bank_runtime_validation.py\n?? scripts/steward_catalog.py\n?? scripts/steward_reasoning_context.py\n?? scripts/summarize_steward_reasoning.py\n?? sql/integration/\n?? sql/rag/\n?? sql/upstream/\n?? tests/fixtures/new_bank_retrieval_cases.json\n?? tests/fixtures/new_steward_cases.json\n?? tests/fixtures/steward_hardening_holdout.json\n?? tests/fixtures/steward_reasoning_cases.json\n?? tests/test_new_bank_integration_static.py\n?? tests/test_new_bank_model.py\n?? tests/test_new_bank_model_postgres.py\n?? tests/test_new_bank_postgres_runtime.py\n?? tests/test_new_bank_publication.py\n?? tests/test_new_bank_publication_postgres.py\n?? tests/test_new_bank_published_readonly.py\n?? tests/test_new_bank_rag_postgres.py\n?? tests/test_new_bank_rag_published_readonly.py\n?? tests/test_new_bank_rag_retrieval.py\n?? tests/test_new_bank_rag_unit.py\n?? tests/test_new_steward_live.py\n?? tests/test_new_steward_unit.py\n?? tests/test_steward_hardening_live.py\n?? tests/test_steward_reasoning_unit.py\n",
+  "files": [
+    {
+      "path": "data/corpus/new_bank_model.documents.jsonl",
+      "bytes": 225101,
+      "sha256": "71b873f72fe1ef42e4da6b9e3b93e15a2466daa6562790c10097c9cbfbf0f19a"
+    },
+    {
+      "path": "data/corpus/new_bank_model.documents.manifest.json",
+      "bytes": 16999,
+      "sha256": "38ae79b98ccca196a5b8ea249bf499fe952ba359fb5d0b282036cc7c32ec8b0e"
+    },
+    {
+      "path": "data/corpus/new_bank_model.index-manifest.json",
+      "bytes": 28080,
+      "sha256": "b99c57304855661f6dada7fe4c37c13736d6a49552e9660393e234af77aa1d5b"
+    },
+    {
+      "path": "data/source/new_bank_model/catalog.json",
+      "bytes": 200990,
+      "sha256": "5728b7a92fb618bf2e29083d9072522ad2c897dc9b176556f37dabb39c44fa65"
+    },
+    {
+      "path": "data/source/new_bank_model/dataset-202601.manifest.json",
+      "bytes": 2805,
+      "sha256": "03fa74cec9ac2e7b39c503e68f7a3b4cab89984d2f4556debb64681203bd8714"
+    },
+    {
+      "path": "data/source/new_bank_model/manifest.json",
+      "bytes": 8118,
+      "sha256": "737f017e4830791def015c7403d354fca170c4e8ec6a2868cbef2eff624c069f"
+    },
+    {
+      "path": "docs/new-bank-data-steward-agent-validation.json",
+      "bytes": 108241,
+      "sha256": "194437facee0323dacee8f5a0448450b40e79d8d943d786bad416ce4984b5959"
+    },
+    {
+      "path": "docs/new-bank-data-steward-agent.md",
+      "bytes": 10792,
+      "sha256": "6d3bcac22c9ad6ba4e4b801f09026f37c59a8a0ede4c750a45d26358f706681d"
+    },
+    {
+      "path": "docs/new-bank-data-steward-hardening-validation.json",
+      "bytes": 1101245,
+      "sha256": "85bf2bf1ca818c75d0e4b764f1dadfb4c9a3536d597e02e1b523d82246da40b4"
+    },
+    {
+      "path": "docs/new-bank-data-steward-hardening.md",
+      "bytes": 13204,
+      "sha256": "2f18f73b87cf5720ac1c1d6ff5566e75ea6572470edd54aa35ac6657f825b2da"
+    },
+    {
+      "path": "docs/new-bank-data-steward-reasoning-evaluation.md",
+      "bytes": 34534,
+      "sha256": "afc7a206987ae1774de2679a002067551b2bc2ece95abcda26ee2ad9f0d8ca6a"
+    },
+    {
+      "path": "docs/new-bank-data-steward-reasoning-validation.json",
+      "bytes": 539280,
+      "sha256": "63af4588aceebf12e7c0c173c916fbab69e293d3f1169550db6a9582374d2f24"
+    },
+    {
+      "path": "docs/new-bank-model-backup-recovery.md",
+      "bytes": 16746,
+      "sha256": "6fc53018500d486209f37b4cae261a28a67360d9b27be56dea7eabab62256e49"
+    },
+    {
+      "path": "docs/new-bank-model-data-load-validation.json",
+      "bytes": 37293,
+      "sha256": "53f92f671bbc996226259839a87ca080ced01005ba6c164c093cb5b04329b5cb"
+    },
+    {
+      "path": "docs/new-bank-model-data-load.md",
+      "bytes": 20850,
+      "sha256": "ae3b980b2b32c6bd15d6848c6023752eb4eed31e2058e6a9b4ec30ba10d94fae"
+    },
+    {
+      "path": "docs/new-bank-model-governance.md",
+      "bytes": 20536,
+      "sha256": "a005992e034f3928c3fc7daf8af05d4fe5d614910c8aefd3b9f8aed1156a555b"
+    },
+    {
+      "path": "docs/new-bank-model-integration-plan.md",
+      "bytes": 76553,
+      "sha256": "8a184cd662cb8c7ad3711ee4d32dc8c93dd5c2465e56bb6d98d6470a1a30bb99"
+    },
+    {
+      "path": "docs/new-bank-model-publication-validation.json",
+      "bytes": 23127,
+      "sha256": "45cfc472d24adca3a726cfa7120e43e90d6fb384b7f310927ebc0584a9474b74"
+    },
+    {
+      "path": "docs/new-bank-model-publication.md",
+      "bytes": 18977,
+      "sha256": "1c2c06819284e51d855abc6eb95fa4ad0b462e0f7b61417b71ddb12d1e25f973"
+    },
+    {
+      "path": "docs/new-bank-model-rag-publication-validation.json",
+      "bytes": 7415,
+      "sha256": "e1379a602dfe1862be4dafce6c6018793417a55c5f7c08e9d3cc92bdc8ad473d"
+    },
+    {
+      "path": "docs/new-bank-model-rag-publication.md",
+      "bytes": 7208,
+      "sha256": "f2b977b8eb42b145597bfddf0aae04312be8eba21ca80734ee180c2cb57c38c1"
+    },
+    {
+      "path": "docs/new-bank-model-rag-validation.json",
+      "bytes": 74209,
+      "sha256": "15704c7db291cdd5cc83c4a5de1292a15ac7af1372c85f54f03682bc9764fa35"
+    },
+    {
+      "path": "docs/new-bank-model-rag.md",
+      "bytes": 18390,
+      "sha256": "9e9f0d79a732f3ff71bab26deb53316f060145436e834accb46aa02ba21b8dae"
+    },
+    {
+      "path": "docs/new-bank-model-runtime-validation.md",
+      "bytes": 13882,
+      "sha256": "2408a49764e5f4ff4e38cbbd608c0aae38ea92244a8ce800f326fd5ab5ca2fe8"
+    },
+    {
+      "path": "scripts/evaluate_steward_reasoning.py",
+      "bytes": 11233,
+      "sha256": "6e7e146fe77b04e19fca208207427fd4507653a85f3674d02b3a9bf4f4323fb9",
+      "definitions": [
+        "Observe",
+        "ReplayPlanner",
+        "passes",
+        "run_one",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from datetime import datetime, timezone",
+        "import json",
+        "import re",
+        "import time",
+        "from langchain_core.messages import AIMessage, HumanMessage",
+        "from scripts import data_steward_agent as steward",
+        "from scripts import new_bank_rag as rag",
+        "from scripts.steward_reasoning_context import build_context"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_catalog.py",
+      "bytes": 31745,
+      "sha256": "373ed285b7508f839fecd1eb8c96c34be09a345fba0af30d5236a1f9db09207e",
+      "definitions": [
+        "canonical",
+        "digest",
+        "source_inventory",
+        "reference",
+        "ddl_tables",
+        "insert_rows",
+        "build_catalog",
+        "validate_catalog",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "import ast",
+        "from collections import Counter",
+        "import hashlib",
+        "import json",
+        "from pathlib import Path",
+        "import re",
+        "from scripts import new_bank_integration as design"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_documents.py",
+      "bytes": 6947,
+      "sha256": "a8329b71671d3707c4adcd7d9edf4f013f1ed17bfc9558984743e29af489e213",
+      "definitions": [
+        "catalog_text",
+        "load_catalog",
+        "pointer_key",
+        "resolve_pointer",
+        "render_entry",
+        "build_documents",
+        "validate_documents",
+        "document_manifest",
+        "corpus_identity",
+        "storage_documents",
+        "artifact_texts",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from collections import Counter",
+        "from dataclasses import asdict",
+        "import json",
+        "import uuid",
+        "from langchain_core.documents import Document",
+        "from scripts import new_bank_catalog as catalog"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_integration.py",
+      "bytes": 25978,
+      "sha256": "628a224f0f4c48c816f1322ef36486829e659557d6e89e548370afffaab53de0",
+      "definitions": [
+        "Table",
+        "cols",
+        "literal",
+        "row_check",
+        "table_body",
+        "table_spec",
+        "migration",
+        "manifest",
+        "artifacts",
+        "verify_sources",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from dataclasses import dataclass",
+        "import hashlib",
+        "import json",
+        "from pathlib import Path"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_model.py",
+      "bytes": 23624,
+      "sha256": "7aabcce055fb8105f67bed8a76427e46b8133a9590402b7312920282c14f4015",
+      "definitions": [
+        "compact",
+        "sha",
+        "money",
+        "initial_balance",
+        "month_amounts",
+        "key_positions",
+        "text_value",
+        "canonical_row",
+        "table_identity",
+        "generate",
+        "dataset_manifest",
+        "prepare",
+        "counts_sql",
+        "hashes_sql",
+        "structure_sql",
+        "quality_sql",
+        "assertion",
+        "environment",
+        "read",
+        "inspect_target",
+        "schema_guard",
+        "control_guard",
+        "content_guard",
+        "copy_text",
+        "schema_comment_manifest",
+        "comment_identity_guard",
+        "load_script",
+        "load",
+        "verify",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from datetime import date, timedelta",
+        "from decimal import Decimal, ROUND_HALF_UP, localcontext",
+        "import hashlib",
+        "import json",
+        "import time",
+        "from scripts import new_bank_integration as design",
+        "from scripts import new_bank_runtime_validation as runtime"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_publication.py",
+      "bytes": 19013,
+      "sha256": "d284f65acc449a31429e680b5568d7e05d543cd34837e6a7023915769df942e6",
+      "definitions": [
+        "file_hashes",
+        "reference",
+        "active_read",
+        "identity_guard_sql",
+        "audit_write_scope",
+        "preflight",
+        "backup",
+        "load_state",
+        "authorization_guard",
+        "_write",
+        "verify",
+        "publish",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from datetime import datetime, timezone",
+        "import hashlib",
+        "import json",
+        "from pathlib import Path",
+        "import re",
+        "import subprocess",
+        "import time",
+        "import uuid",
+        "from scripts import new_bank_model as model",
+        "from scripts import new_bank_runtime_validation as runtime"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_rag.py",
+      "bytes": 21405,
+      "sha256": "94569a20ea4ad2c0942bf1528ed3a1cfdae851c34ff5ac539726107b3b69a0c5",
+      "definitions": [
+        "probe",
+        "assert_model_current",
+        "base_manifest",
+        "prepare_vectors",
+        "validate_bundle",
+        "transport",
+        "query",
+        "initialize",
+        "snapshot_sql",
+        "validate_stored",
+        "ingestion_script",
+        "ingest",
+        "normalize",
+        "evidence_eligible",
+        "product_group_scope",
+        "CatalogRetriever",
+        "evaluate",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from dataclasses import asdict",
+        "import hashlib",
+        "import json",
+        "import math",
+        "from pathlib import Path",
+        "import re",
+        "import time",
+        "import unicodedata",
+        "from urllib.parse import urlparse",
+        "import uuid",
+        "from pgvector.psycopg import Vector",
+        "from scripts import new_bank_catalog as catalog",
+        "from scripts import new_bank_documents as docs",
+        "from scripts import new_bank_model as bank",
+        "from scripts import new_bank_runtime_validation as runtime",
+        "from scripts import knowledge_corpus as legacy"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_rag_publication.py",
+      "bytes": 13915,
+      "sha256": "8e497f1cceef4d23a5d1815fc6a2f0db12475723135317b7d9682f4ffd9297de",
+      "definitions": [
+        "context",
+        "preflight",
+        "backup",
+        "write_sql",
+        "publish",
+        "verify",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from datetime import datetime, timezone",
+        "import hashlib",
+        "import json",
+        "from pathlib import Path",
+        "import uuid",
+        "from scripts import new_bank_documents as docs",
+        "from scripts import new_bank_publication as bank_publication",
+        "from scripts import new_bank_rag as rag",
+        "from scripts import new_bank_runtime_validation as runtime"
+      ]
+    },
+    {
+      "path": "scripts/new_bank_runtime_validation.py",
+      "bytes": 16819,
+      "sha256": "078501d71945219e63aa30422973a11e9d0cdaddb569e0ce99d90695dbb71905",
+      "definitions": [
+        "docker",
+        "inspect",
+        "active_guard",
+        "isolated_guard",
+        "psql",
+        "query",
+        "case_database",
+        "snapshot",
+        "historical_fingerprints",
+        "save",
+        "load_state",
+        "prepare",
+        "finish",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from datetime import datetime, timezone",
+        "import hashlib",
+        "import json",
+        "from pathlib import Path",
+        "import re",
+        "import subprocess",
+        "import time",
+        "import uuid",
+        "from scripts import new_bank_integration as design"
+      ]
+    },
+    {
+      "path": "scripts/steward_catalog.py",
+      "bytes": 901,
+      "sha256": "01729781b39054d7a3666ba424f379aca5988b05551bf160ec33811329abd9c2",
+      "definitions": [
+        "catalog_session"
+      ],
+      "imports": [
+        "from contextlib import contextmanager",
+        "import json",
+        "from scripts import new_bank_rag as rag",
+        "from scripts import new_bank_documents as docs",
+        "from scripts.knowledge_corpus import RetrievalSession"
+      ]
+    },
+    {
+      "path": "scripts/steward_reasoning_context.py",
+      "bytes": 2961,
+      "sha256": "1aa2fef30da62e670380c8a407ea16254750695f8ff8cc1a691f5055ef44fa44",
+      "definitions": [
+        "build_context"
+      ],
+      "imports": [
+        "from datetime import date, timedelta",
+        "from scripts import new_bank_documents as documents"
+      ]
+    },
+    {
+      "path": "scripts/summarize_steward_reasoning.py",
+      "bytes": 6333,
+      "sha256": "4426f2b9a74020188c732758e3ff7c2a3b12649e55c65e501a7bf3a37decd8d9",
+      "definitions": [
+        "load",
+        "key",
+        "main"
+      ],
+      "imports": [
+        "from collections import Counter",
+        "from datetime import datetime, timezone",
+        "import json",
+        "from pathlib import Path",
+        "import re",
+        "from statistics import mean, median",
+        "import unicodedata",
+        "from scripts import new_bank_documents as docs",
+        "from scripts import new_bank_runtime_validation as runtime",
+        "from scripts.evaluate_steward_reasoning import CASES"
+      ]
+    },
+    {
+      "path": "sql/integration/001_new_bank_schemas_tables.sql",
+      "bytes": 19882,
+      "sha256": "27d7e522cc7c166f3577831e17f9bd22ce9d1c8b8fe2e69bc001b896d1f99c4a"
+    },
+    {
+      "path": "sql/integration/002_new_bank_integrity.sql",
+      "bytes": 25420,
+      "sha256": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8"
+    },
+    {
+      "path": "sql/integration/checks/legacy_snapshot.sql",
+      "bytes": 4364,
+      "sha256": "1c7c2d1c720ab60c851b7a819bf0acb65fbd15dde856e9112d3428c80e47cd7a"
+    },
+    {
+      "path": "sql/integration/checks/model_structure.sql",
+      "bytes": 1140,
+      "sha256": "cb0252c3f7d7525f314c39e61fbe692c6b043c3b41bc7a709486180676d9a71a"
+    },
+    {
+      "path": "sql/integration/checks/new_bank_dataset.sql",
+      "bytes": 8336,
+      "sha256": "13a4faa6dfbd7005a8f4b51e36b57cf02872e82f2647465aaba8a9b8e5cce9a2"
+    },
+    {
+      "path": "sql/integration/checks/preflight.sql",
+      "bytes": 1141,
+      "sha256": "cb368539a7d8e30bacb8c32dd1455d10ebce7546121bd7fdaa187ab3915a52ec"
+    },
+    {
+      "path": "sql/rag/001_new_bank_knowledge.sql",
+      "bytes": 7056,
+      "sha256": "9c668cd8e1cc81af2ebbe9b8c110a1596a7174d032a159149c23590b2dcebed6"
+    },
+    {
+      "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+      "bytes": 5213,
+      "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a"
+    },
+    {
+      "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+      "bytes": 6695,
+      "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b"
+    },
+    {
+      "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+      "bytes": 17669,
+      "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3"
+    },
+    {
+      "path": "tests/fixtures/new_bank_retrieval_cases.json",
+      "bytes": 11693,
+      "sha256": "802916502dc62624e08dd3adbd9c34950c23977263ab7295e8c56fe583e6d3b6"
+    },
+    {
+      "path": "tests/fixtures/new_steward_cases.json",
+      "bytes": 1909,
+      "sha256": "63f484fe5eea26cf050a3f727a9dfe14342a145161f161461b1d4e739517515f"
+    },
+    {
+      "path": "tests/fixtures/steward_hardening_holdout.json",
+      "bytes": 3079,
+      "sha256": "57fe3dbd7f7adad42721c2d57e12c89113c4889c8c297e7f1c5bd4cc9982e893"
+    },
+    {
+      "path": "tests/fixtures/steward_reasoning_cases.json",
+      "bytes": 2738,
+      "sha256": "85886d15c2a82dbaf67608ceb6119b8544c6658b6f54f59c602165d1274fccb1"
+    },
+    {
+      "path": "tests/test_new_bank_integration_static.py",
+      "bytes": 15461,
+      "sha256": "cde9d835b4bbef74acf93d50a7109b8cf10759913d5bed3e8a368274d5d8d7d8",
+      "definitions": [
+        "no_connections_or_legacy_generation",
+        "without_comments",
+        "split_top_level",
+        "canonical_sql",
+        "ddl_signature",
+        "original_ddls",
+        "sql_specs",
+        "test_upstream_bytes_preserved",
+        "test_checksum_change_is_rejected",
+        "test_all_five_base_schemas_match_original_ddl",
+        "test_no_destructive_operations_or_data_loads",
+        "test_write_scope_excludes_all_protected_schemas_and_tables",
+        "test_dim_txn_keeps_exact_definition_in_both_stages",
+        "test_original_dimension_nullable_fields_and_default_are_unchanged",
+        "test_integrity_keys_are_composite_and_auxiliary_tables_are_empty",
+        "test_migrations_have_atomicity_drift_and_adoption_guards",
+        "test_manifest_is_consistent_with_original_catalog_and_volumes",
+        "test_raw_domain_and_opening_balance_are_preserved_without_currency",
+        "test_generator_contract_is_implemented_outside_offline_renderer",
+        "test_artifacts_are_reproducible_without_access_to_services",
+        "test_cli_has_no_apply_or_load_command",
+        "test_inspection_sql_is_read_only_and_does_not_create_reference_objects",
+        "test_runbook_uses_explicit_isolated_destination_and_nonsecret_credentials",
+        "test_document_links_and_prepared_file_inventory"
+      ],
+      "imports": [
+        "import ast",
+        "import hashlib",
+        "import json",
+        "import re",
+        "import subprocess",
+        "import sys",
+        "from pathlib import Path",
+        "import pytest",
+        "from scripts import new_bank_integration as integration"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_model.py",
+      "bytes": 7802,
+      "sha256": "65b3bcc34610ac0b374ec4bc6d189f95d381acb4dbcdc12e4e2b8f80b69e7b57",
+      "definitions": [
+        "deny_services",
+        "prepared",
+        "test_initial_reference_vectors",
+        "test_seed_contract_and_boundary_validation",
+        "test_full_volumes_and_auxiliary_separation",
+        "test_full_reference_manifest_and_content_hashes",
+        "test_client_distributions_and_preserved_anomaly",
+        "test_all_initial_ranges_and_unique_accounts",
+        "test_independent_full_reconciliation_and_continuity",
+        "test_half_cent_financial_vectors",
+        "test_canonical_encoding_order_and_changes",
+        "test_separate_process_and_decimal_context_independence",
+        "test_cli_requires_explicit_isolated_state",
+        "test_load_sql_has_no_protected_write_or_destructive_reset",
+        "test_quality_sql_has_no_cent_tolerance_or_silent_missing_zero"
+      ],
+      "imports": [
+        "from collections import Counter",
+        "from datetime import date",
+        "from decimal import Decimal, localcontext",
+        "import json",
+        "import re",
+        "import subprocess",
+        "import sys",
+        "import pytest",
+        "from scripts import new_bank_model as m",
+        "from scripts import new_bank_integration as d"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_model_postgres.py",
+      "bytes": 6644,
+      "sha256": "0d07ba976ea4f0542363ac41baa634e69e51e3ab248e4bb9e06381379e57efb1",
+      "definitions": [
+        "run",
+        "case",
+        "prepared",
+        "trial",
+        "counts",
+        "test_01_original_and_isolated_identities",
+        "test_02_sql_identity_rejects_wrong_database_inside_transaction",
+        "test_03_partial_load_rolls_back_data_and_control_schema",
+        "test_04_one_cent_error_rejected_before_commit",
+        "test_05_concurrent_identical_loads_publish_once",
+        "test_06_repeat_has_no_row_or_manifest_changes",
+        "test_07_incompatible_identity_rejected",
+        "test_08_partial_existing_dataset_not_adopted",
+        "test_09_incompatible_control_schema_not_adopted",
+        "test_10_structure_drift_rejected_without_data",
+        "test_11_active_destination_denied_before_any_docker_operation",
+        "test_12_final_legacy_preservation"
+      ],
+      "imports": [
+        "from concurrent.futures import ThreadPoolExecutor",
+        "import os",
+        "import pytest",
+        "from scripts import new_bank_model as m",
+        "from scripts import new_bank_runtime_validation as r",
+        "from scripts import new_bank_integration as d"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_postgres_runtime.py",
+      "bytes": 17690,
+      "sha256": "13372789ee97ba7cac1e81a31cb5ce75f659c1a5b55e0fa34b2af27710bc64e3",
+      "definitions": [
+        "restored_run",
+        "persist",
+        "execute",
+        "migrated",
+        "test_backup_and_real_restoration",
+        "test_container_storage_and_network_are_isolated",
+        "test_001_creates_the_five_tables_and_original_42_columns",
+        "test_002_adds_expected_keys_checks_indexes_and_foreign_keys",
+        "test_safe_repetition_preserves_structure_and_legacy",
+        "test_valid_financial_fixture_null_dimensions_and_original_anomaly",
+        "test_four_product_fixtures_reconcile_february_and_march",
+        "test_not_null_in_all_19_fact_columns",
+        "test_duplicate_keys_are_rejected",
+        "test_foreign_keys_reject_orphans_and_wrong_owners",
+        "test_financial_temporal_domain_and_catalog_checks",
+        "test_migrations_refuse_incompatible_objects_atomically",
+        "test_guard_refuses_any_write_target_on_active_database",
+        "test_final_empty_model_legacy_and_active_preservation"
+      ],
+      "imports": [
+        "import hashlib",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "from decimal import Decimal, ROUND_HALF_UP",
+        "import pytest",
+        "from scripts import new_bank_integration as design",
+        "from scripts import new_bank_runtime_validation as runtime"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_publication.py",
+      "bytes": 3121,
+      "sha256": "97a96f60c14833bf6857b21b8dcfe70d8d79e975dc2d01839cc89fee52f7ce0e",
+      "definitions": [
+        "no_docker",
+        "test_rejects_missing_authorization_or_arbitrary_destination",
+        "test_backup_requires_explicit_authorization",
+        "test_scope_rejects_protected_destructive_or_unapproved_objects",
+        "test_approved_migrations_have_unchanged_bytes_and_scope",
+        "test_cfg_comment_backend_does_not_add_schema_table_or_change_dataset",
+        "test_original_isolated_transport_still_rejects_active_write",
+        "test_invalid_storage_mode_rejected",
+        "test_publication_state_must_be_explicit_local_file"
+      ],
+      "imports": [
+        "import copy",
+        "import json",
+        "import pytest",
+        "from scripts import new_bank_model as m",
+        "from scripts import new_bank_publication as p"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_publication_postgres.py",
+      "bytes": 5296,
+      "sha256": "fb1067c702bd5a632478d5923e6b6ee321ee00c66fa2fc91477e46a2f175fa8e",
+      "definitions": [
+        "trial",
+        "execute",
+        "read",
+        "script",
+        "test_01_restoration_and_migrations_match_approved_signature",
+        "test_02_injected_failure_rolls_back_rows_and_metadata",
+        "test_03_concurrent_full_loads_commit_exactly_one_dataset",
+        "test_04_repeat_preserves_comment_and_all_rows",
+        "test_05_other_identity_is_rejected_without_overwrite",
+        "test_06_no_extra_control_schema_and_legacy_unchanged"
+      ],
+      "imports": [
+        "from concurrent.futures import ThreadPoolExecutor",
+        "import hashlib",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import pytest",
+        "from scripts import new_bank_model as m",
+        "from scripts import new_bank_publication as p",
+        "from scripts import new_bank_runtime_validation as r"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_published_readonly.py",
+      "bytes": 3291,
+      "sha256": "25c781a05ebd16b2581b68084ab7439d8556320dd9094a364838bca6d8418046",
+      "definitions": [
+        "publication",
+        "test_confirmed_table_counts",
+        "test_exact_financial_acceptance",
+        "test_approved_hash_identity_and_actual_canonical_content",
+        "test_original_columns_and_dim_txn_definition_preserved",
+        "test_quality_exceptions_remain_overlapping_and_explicit",
+        "test_protected_counts_content_and_agent_files",
+        "test_fresh_backup_file_remains_intact"
+      ],
+      "imports": [
+        "import hashlib",
+        "import os",
+        "from pathlib import Path",
+        "import pytest",
+        "from scripts import new_bank_publication as p",
+        "from scripts import new_bank_model as m",
+        "from scripts import new_bank_runtime_validation as r"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_rag_postgres.py",
+      "bytes": 10815,
+      "sha256": "1ea6246e32484a70584f867580a4a0c69c860e4fd6884b126c787cf8f00ecda7",
+      "definitions": [
+        "context",
+        "new_case",
+        "insert_record",
+        "test_complete_ingestion_and_binary_vector_integrity",
+        "test_repeat_is_no_change_and_ddl_is_compatible",
+        "test_failure_rolls_back_manifest_and_documents",
+        "test_incompatible_structure_is_rejected_without_repair",
+        "test_partial_corpus_is_rejected_without_filling",
+        "test_incompatible_index_is_rejected_without_overwrite",
+        "test_existing_wrong_column_type_is_rejected_without_repair",
+        "test_sql_constraints_reject_invalid_rows_in_rolled_back_transactions",
+        "test_retriever_excludes_another_corpus_even_with_identical_vector",
+        "test_both_banking_datasets_and_legacy_embeddings_are_preserved"
+      ],
+      "imports": [
+        "import copy",
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import uuid",
+        "import pytest",
+        "from scripts import knowledge_corpus as old",
+        "from scripts import new_bank_documents as docs",
+        "from scripts import new_bank_rag as rag"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_rag_published_readonly.py",
+      "bytes": 1562,
+      "sha256": "e17d931fefa669f1df5b0fd8c6a7f6018b1f2b3a9954a699264c88facba60740",
+      "definitions": [
+        "report",
+        "test_published_scoped_retrieval"
+      ],
+      "imports": [
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import pytest",
+        "from scripts import new_bank_rag as rag",
+        "from scripts import new_bank_rag_publication as publication"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_rag_retrieval.py",
+      "bytes": 1677,
+      "sha256": "59314ef26d78356a6a2f103a07a0638a24bfb6c0bed227c56a839f66d51e98e0",
+      "definitions": [
+        "evaluation",
+        "test_actual_scoped_spanish_retrieval"
+      ],
+      "imports": [
+        "import json",
+        "import os",
+        "from pathlib import Path",
+        "import pytest",
+        "from scripts import new_bank_documents as docs",
+        "from scripts import new_bank_rag as rag"
+      ]
+    },
+    {
+      "path": "tests/test_new_bank_rag_unit.py",
+      "bytes": 10697,
+      "sha256": "e9a3bc8027ca1e9bc111e4aa61ff1d25ce97d7e013bbf81998141f9e34fef275",
+      "definitions": [
+        "no_services",
+        "documents",
+        "prepared",
+        "test_catalog_artifact_and_source_hashes",
+        "test_every_physical_column_and_nullable_declaration_matches_source",
+        "test_catalogs_products_signs_and_provenance",
+        "test_invalid_catalog_provenance_and_coverage_are_rejected",
+        "test_document_coverage_hashes_ids_pointers_and_artifacts",
+        "test_catalog_change_changes_document_identity",
+        "test_embedding_identity_produces_separate_corpora",
+        "test_bundle_tampering_is_rejected",
+        "test_absence_of_documentary_evidence_does_not_trigger_semantic_guess",
+        "test_supported_absence_is_documented_evidence",
+        "test_membership_facet_is_derived_from_catalog_not_test_questions",
+        "test_isolated_guard_rejects_active_before_any_write",
+        "test_sql_scoped_to_new_storage_and_temporary_references",
+        "retriever",
+        "test_retriever_scope_results_and_legacy_shape",
+        "test_retriever_abstains_without_embedding_or_query",
+        "test_retrieved_tampering_is_rejected",
+        "test_wrong_retriever_scope_rejected_before_connection",
+        "test_document_text_cannot_be_laundered_by_rehashing"
+      ],
+      "imports": [
+        "import copy",
+        "from dataclasses import replace",
+        "import json",
+        "import uuid",
+        "import pytest",
+        "from scripts import new_bank_catalog as c",
+        "from scripts import new_bank_documents as d",
+        "from scripts import new_bank_rag as rag",
+        "from scripts import knowledge_corpus as old"
+      ]
+    },
+    {
+      "path": "tests/test_new_steward_live.py",
+      "bytes": 3452,
+      "sha256": "ef5c28e2899720397b939c94ad3950903b9370bba3eef79b1458ef2977ae6d2d",
+      "definitions": [
+        "agent",
+        "test_live_new_model",
+        "test_live_followup",
+        "test_live_injected_instructions_cannot_create_references"
+      ],
+      "imports": [
+        "import json",
+        "import re",
+        "import pytest",
+        "from scripts import data_steward_agent as s, new_bank_rag as r"
+      ]
+    },
+    {
+      "path": "tests/test_new_steward_unit.py",
+      "bytes": 3654,
+      "sha256": "5f7b9b7fc9e824e2dfb187b162680d4b6b23eb586c83d97669886b9f5ddd4c0e",
+      "definitions": [
+        "make_agent",
+        "test_new_contract_keeps_scope_and_claim_provenance",
+        "test_malicious_altered_document_rejected_before_synthesis",
+        "test_invented_evidence_id_rejected",
+        "test_analytics_unavailable_without_calling_llm",
+        "test_scope_rejected_when_legacy_document_is_returned",
+        "test_selection_cannot_smuggle_generated_answer",
+        "test_extractive_text_is_exactly_the_validated_claim_text",
+        "test_history_keeps_topics_without_promoting_old_facts",
+        "test_new_turn_cannot_reuse_stale_documents"
+      ],
+      "imports": [
+        "import json",
+        "from unittest.mock import Mock",
+        "import pytest",
+        "from langchain_core.messages import AIMessage",
+        "from scripts import data_steward_agent as s, new_bank_rag as r, new_bank_documents as d"
+      ]
+    },
+    {
+      "path": "tests/test_steward_hardening_live.py",
+      "bytes": 3603,
+      "sha256": "0cc4b82b27ec485005fa1259cc270ae8a658eb0e14562b3b5e10cf5d3376a9d2",
+      "definitions": [
+        "agent",
+        "test_held_out",
+        "test_untrusted_variants",
+        "test_topic_change_clarification_and_new_evidence",
+        "test_followup_explicitly_applies_calendar_rule"
+      ],
+      "imports": [
+        "import json",
+        "import re",
+        "import pytest",
+        "from langchain_core.messages import HumanMessage",
+        "from scripts import data_steward_agent as s, new_bank_rag as r"
+      ]
+    },
+    {
+      "path": "tests/test_steward_reasoning_unit.py",
+      "bytes": 4569,
+      "sha256": "6c54b233011dd4e9e4108904d0e2c10b650b30648e480772d62c42b259c5cae7",
+      "definitions": [
+        "test_general_calendar_validation",
+        "test_temporary_context_has_verified_sources_and_calendar",
+        "test_experimental_mode_is_explicit_and_scoped",
+        "test_generated_reference_must_be_current_and_calendar_correct"
+      ],
+      "imports": [
+        "from types import SimpleNamespace",
+        "import pytest",
+        "from scripts import data_steward_agent as agent",
+        "from scripts.steward_reasoning_context import build_context"
+      ]
+    },
+    {
+      "path": ".env.example",
+      "bytes": 531,
+      "sha256": "81cd6c9b054c9f2da79fab3245b5eae05bd9102bc9d576dcdf53cb85b866517f"
+    },
+    {
+      "path": ".gitignore",
+      "bytes": 413,
+      "sha256": "07ade048c19f14f39002cc602af8184651d7feef8724437b41aa3788a41b7b3d"
+    },
+    {
+      "path": ".python-version",
+      "bytes": 7,
+      "sha256": "e72b03ed5b70312f2782f2b05055c55b24670e126d50e24c4f2c559bf288f810"
+    },
+    {
+      "path": "README.md",
+      "bytes": 16144,
+      "sha256": "8467ec0ffdd885c5266427041efec96facc765d8efda12a2327f6fb634d58fb9"
+    },
+    {
+      "path": "compose.yaml",
+      "bytes": 1011,
+      "sha256": "65f8129d3644422974c098b013668fcf6c74f7b2f08851db3b778ef5f8f2c8c6"
+    },
+    {
+      "path": "data/corpus/bank_metadata.documents.jsonl",
+      "bytes": 15668,
+      "sha256": "792f7192b440683b94dbaef35663d6dfa1279e01f00bea08b664856ff0e94464"
+    },
+    {
+      "path": "data/source/bank_metadata.json",
+      "bytes": 3106,
+      "sha256": "c0e5aadebf49a16ef3cd31c095e7e77389fb730b344b81940a3f19ac596c5fbf"
+    },
+    {
+      "path": "data/source/bank_metadata_simple (1).json",
+      "bytes": 3106,
+      "sha256": "c0e5aadebf49a16ef3cd31c095e7e77389fb730b344b81940a3f19ac596c5fbf"
+    },
+    {
+      "path": "docker/postgres/init/001-enable-vector.sql",
+      "bytes": 170,
+      "sha256": "af9dd2cc27a517dc71c863f573dda0355fd389a8606dc7ae34b14456a849d5d6"
+    },
+    {
+      "path": "docs/agent-validation.json",
+      "bytes": 801,
+      "sha256": "29187a2e2dab9424609795bdd4753e423e8554e509657db396ef839abbd7bc08"
+    },
+    {
+      "path": "docs/data-steward-agent.md",
+      "bytes": 12940,
+      "sha256": "75a8ca89663ab89f9169a9be8555065988246600b4d792087ed85f151d261572"
+    },
+    {
+      "path": "docs/knowledge-corpus.md",
+      "bytes": 10838,
+      "sha256": "fe53e0b1f5d9bedb13511ede7240745dd0f26b0ccf0994b0be8882c7e00a2529"
+    },
+    {
+      "path": "docs/retrieval-evaluation.json",
+      "bytes": 6506,
+      "sha256": "5b9531c3d5b01f92c571404b59dcd760c7b275dfd93748d5b957866fc3f3c82b"
+    },
+    {
+      "path": "docs/synthetic-data.md",
+      "bytes": 7789,
+      "sha256": "18f5332fbb35c90e0b8d218e49dc745bd501c66563b6c94c0ecaeec056d80faa"
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 1023,
+      "sha256": "1f1b09521d75d6e0c4b68e105b46c5587c51b9514ac4082f8d488976e1725b1a"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "bytes": 64,
+      "sha256": "0b1aeea7f0f4c9bf13d95744f41251a471efc0fd1c73fe904fcd639b444cf586",
+      "definitions": [],
+      "imports": []
+    },
+    {
+      "path": "scripts/bank_data.py",
+      "bytes": 18888,
+      "sha256": "6715d025259c735fc2c5bd08274304d204aaaa7ac6da0aaa5660c9a725813f19",
+      "definitions": [
+        "load_metadata",
+        "build_migration",
+        "generate",
+        "validate_data",
+        "fingerprint",
+        "settings",
+        "set_schema",
+        "schema_signature",
+        "check_schema",
+        "migrate",
+        "fetch_data",
+        "lock_tables",
+        "authorize_reset",
+        "populate",
+        "verify",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import os",
+        "import random",
+        "import sys",
+        "import uuid",
+        "from pathlib import Path",
+        "import psycopg",
+        "from dotenv import dotenv_values",
+        "from psycopg import sql"
+      ]
+    },
+    {
+      "path": "scripts/data_steward_agent.py",
+      "bytes": 35715,
+      "sha256": "ab16604fd670a1a23945238a0cc68ed11f2c198f34a49d3e45a0fc47beae2de1",
+      "definitions": [
+        "AgentError",
+        "SearchInput",
+        "AnswerDraft",
+        "EvidenceSelection",
+        "GroundedStatement",
+        "GroundedExplanation",
+        "valid_calendar_statement",
+        "Evidence",
+        "AgentReply",
+        "unavailable_request",
+        "_service_call",
+        "reference",
+        "DataStewardAgent",
+        "chat_config",
+        "agent_session",
+        "print_reply",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "from collections import deque",
+        "from contextlib import contextmanager",
+        "from dataclasses import asdict, dataclass, field",
+        "from decimal import Decimal",
+        "import json",
+        "import os",
+        "import re",
+        "import sys",
+        "import unicodedata",
+        "from typing import Literal",
+        "from dotenv import dotenv_values",
+        "import httpx",
+        "from langchain_core.exceptions import OutputParserException",
+        "from langchain_core.messages import AIMessage, HumanMessage, SystemMessage",
+        "from langchain_core.tools import tool",
+        "from langchain_ollama import ChatOllama",
+        "from langsmith import tracing_context",
+        "from ollama import Client, ResponseError",
+        "import psycopg",
+        "from pydantic import BaseModel, ConfigDict, Field, ValidationError",
+        "from sqlalchemy.exc import SQLAlchemyError",
+        "from scripts.bank_data import ROOT",
+        "from scripts.knowledge_corpus import RetrievalSession, embedding_config, model_digest"
+      ]
+    },
+    {
+      "path": "scripts/knowledge_corpus.py",
+      "bytes": 17261,
+      "sha256": "b804561798b4970dc227dc3597a32b0eae1d6f1cd18c70fca6a55c4d337dd0c5",
+      "definitions": [
+        "canonical",
+        "sha256",
+        "build_documents",
+        "write_corpus",
+        "ModelIdentity",
+        "validate_vectors",
+        "embedding_config",
+        "model_digest",
+        "probe_model",
+        "corpus_identity",
+        "storage_documents",
+        "initialize_storage",
+        "expected_manifest",
+        "check_indexed",
+        "ingest",
+        "vector_engine",
+        "create_store",
+        "search_store",
+        "retrieve",
+        "RetrievalSession",
+        "evaluate",
+        "main"
+      ],
+      "imports": [
+        "import argparse",
+        "import asyncio",
+        "from dataclasses import asdict, dataclass",
+        "import hashlib",
+        "import json",
+        "import math",
+        "import os",
+        "import re",
+        "import sys",
+        "import uuid",
+        "import httpx",
+        "from dotenv import dotenv_values",
+        "from langchain_core.documents import Document",
+        "from langchain_ollama import OllamaEmbeddings",
+        "from langchain_postgres import PGEngine, PGVectorStore",
+        "from langchain_postgres.v2.indexes import DistanceStrategy",
+        "from ollama import Client, ResponseError",
+        "from pgvector.psycopg import Vector, register_vector",
+        "import psycopg",
+        "from psycopg import sql",
+        "from psycopg.types.json import Jsonb",
+        "from sqlalchemy import URL",
+        "from sqlalchemy.exc import SQLAlchemyError",
+        "from scripts.bank_data import METADATA_PATH, ROOT, settings"
+      ]
+    },
+    {
+      "path": "sql/001-create-bank-tables.sql",
+      "bytes": 2820,
+      "sha256": "3c8c249ac31759d17d3e317fa9d45eec9f18bac622c5da67ac7a35dc84608e46"
+    },
+    {
+      "path": "sql/002-create-knowledge-corpus.sql",
+      "bytes": 1427,
+      "sha256": "6048a5d0de61d58e05ec3ab58c47fb35842fed815342b3bed06669ed1b4d12ad"
+    },
+    {
+      "path": "tests/conftest.py",
+      "bytes": 2197,
+      "sha256": "da5d6ce50193195024497da72903727eb9df228e0f89799c5c4cf8f17c30399d",
+      "definitions": [
+        "pytest_addoption",
+        "pytest_collection_modifyitems",
+        "metadata",
+        "dataset",
+        "database",
+        "isolated_database"
+      ],
+      "imports": [
+        "import uuid",
+        "import psycopg",
+        "import pytest",
+        "from psycopg import sql",
+        "from scripts import bank_data as bank"
+      ]
+    },
+    {
+      "path": "tests/fixtures/agent_cases.json",
+      "bytes": 1269,
+      "sha256": "8a0a28686ebe38a6ef6ab43a78c9dda5ce87bf04005b1146a8b066bf5ef8b7ea"
+    },
+    {
+      "path": "tests/fixtures/retrieval_cases.json",
+      "bytes": 1289,
+      "sha256": "ad9bfd12e1dceca459909c9ec594542362a9eda626888e7b7d739c6011868df4"
+    },
+    {
+      "path": "tests/test_agent_integration.py",
+      "bytes": 2047,
+      "sha256": "ad9111d8aa1668a45b2e4310adc6e5e2b18c22e4b69da978e1bc8e91aa77235e",
+      "definitions": [
+        "live_agent",
+        "test_local_llama_agent_uses_evidence_and_supported_capabilities",
+        "test_real_followup_reuses_only_session_context"
+      ],
+      "imports": [
+        "import json",
+        "import pytest",
+        "from scripts import data_steward_agent as steward",
+        "from scripts import knowledge_corpus as corpus"
+      ]
+    },
+    {
+      "path": "tests/test_corpus_database.py",
+      "bytes": 4910,
+      "sha256": "4215fcaf2c8db67834eff20c4fa9ad5503050dcb4806c0dff1f9856fa93b56e4",
+      "definitions": [
+        "StorageTestEmbeddings",
+        "test_ingestion_is_atomic_idempotent_and_separate",
+        "test_different_models_get_different_corpora",
+        "test_dimension_mismatch_is_refused",
+        "test_existing_content_is_never_silently_replaced",
+        "test_failed_ingestion_rolls_back_manifest",
+        "test_database_write_failure_rolls_back_partial_documents"
+      ],
+      "imports": [
+        "from dataclasses import replace",
+        "import pytest",
+        "from psycopg import sql",
+        "from scripts import bank_data as bank",
+        "from scripts import knowledge_corpus as corpus"
+      ]
+    },
+    {
+      "path": "tests/test_data_steward_agent.py",
+      "bytes": 13351,
+      "sha256": "f0e6423daf8fe5a3f236584c380297204ade1a1f3b1db1c8286f00216dc9d931",
+      "definitions": [
+        "match_for",
+        "tool_message",
+        "make_agent",
+        "test_catalog_answers_use_native_tools_and_real_metadata",
+        "test_missing_information_is_not_reported_as_explicit_absence",
+        "test_wrong_field_cannot_support_a_missing_field_answer",
+        "test_relationship_evidence_also_supports_its_target_key",
+        "test_absence_requires_an_explicit_absence_document",
+        "test_individual_data_and_sql_are_unavailable_without_tool_execution",
+        "test_textual_react_is_not_parsed_or_executed",
+        "test_unknown_tools_are_not_executed",
+        "test_excessive_tool_calls_are_not_executed",
+        "test_tool_argument_validation_does_not_reach_retriever",
+        "test_invented_references_are_rejected",
+        "test_invented_qualified_fields_are_withheld",
+        "test_remote_tracing_is_disabled_even_if_enabled_in_shell",
+        "test_free_references_and_sql_output_are_withheld",
+        "test_no_documents_means_no_generated_claims",
+        "test_evidence_labels_do_not_leak_between_turns",
+        "test_history_is_bounded_and_only_in_memory",
+        "test_followup_can_be_rewritten_using_session_context",
+        "test_service_failures_are_clear_and_do_not_expose_secrets",
+        "test_structured_response_failure_is_sanitized",
+        "test_debug_reports_only_whitelisted_metadata",
+        "test_model_without_tools_is_reported_without_silent_fallback",
+        "test_missing_model_is_reported_without_automatic_replacement",
+        "test_postgres_startup_failure_is_sanitized",
+        "test_terminal_supports_consecutive_questions_and_salir",
+        "test_single_question_json_is_machine_readable"
+      ],
+      "imports": [
+        "from contextlib import contextmanager",
+        "import json",
+        "from types import SimpleNamespace",
+        "from unittest.mock import Mock",
+        "import httpx",
+        "from langchain_core.exceptions import OutputParserException",
+        "from langchain_core.messages import AIMessage, ToolMessage",
+        "import psycopg",
+        "import pytest",
+        "from scripts import data_steward_agent as steward",
+        "from scripts import knowledge_corpus as corpus"
+      ]
+    },
+    {
+      "path": "tests/test_database.py",
+      "bytes": 5853,
+      "sha256": "5bab24c3a99f770dd9c3eb634c1bacdd0798800291e60b35f99965b63ab99ce7",
+      "definitions": [
+        "test_migration_is_idempotent_and_preserves_rows",
+        "test_counts_relations_and_reproducibility_in_postgres",
+        "test_repeat_population_is_a_noop",
+        "test_different_seed_is_refused_without_changing_data",
+        "test_conflicting_existing_row_is_preserved",
+        "test_database_enforces_constraints",
+        "test_partial_load_is_refused",
+        "test_schema_drift_is_refused",
+        "test_failed_load_rolls_back_all_insertions"
+      ],
+      "imports": [
+        "import psycopg",
+        "import pytest",
+        "from psycopg import sql",
+        "from scripts import bank_data as bank"
+      ]
+    },
+    {
+      "path": "tests/test_knowledge_corpus.py",
+      "bytes": 5519,
+      "sha256": "75cbb39a171a01e96b56cf8b25879dcd6b7100aebd95a64d3c0a1b1c8ed97eec",
+      "definitions": [
+        "documents",
+        "test_corpus_count_and_atomic_chunks",
+        "test_all_catalog_content_is_preserved_exactly",
+        "test_every_document_has_traceable_metadata",
+        "test_absences_are_not_defined_fields",
+        "test_deterministic_ids_and_model_isolation",
+        "test_source_revision_produces_new_ids",
+        "test_document_artifact_is_reproducible",
+        "test_invalid_vectors_are_rejected",
+        "test_retrieval_returns_sources_and_cosine_similarity",
+        "test_invalid_queries_are_rejected"
+      ],
+      "imports": [
+        "from collections import Counter",
+        "from dataclasses import replace",
+        "import json",
+        "from types import SimpleNamespace",
+        "import uuid",
+        "from langchain_core.documents import Document",
+        "import pytest",
+        "from scripts import knowledge_corpus as corpus"
+      ]
+    },
+    {
+      "path": "tests/test_semantic_retrieval.py",
+      "bytes": 1324,
+      "sha256": "e48f1559ac15cf46297e230f81d5d4d3b3f97c5cd24fca5718e2a0bae015ed38",
+      "definitions": [
+        "retrieval_session",
+        "test_actual_ollama_pgvector_retrieval"
+      ],
+      "imports": [
+        "import json",
+        "import pytest",
+        "from scripts import knowledge_corpus as corpus"
+      ]
+    },
+    {
+      "path": "tests/test_synthetic_data.py",
+      "bytes": 4027,
+      "sha256": "b1d0806b26bc7801a5430ecad49a544d598ca694ad016e634a474c558cdbca45",
+      "definitions": [
+        "test_counts_and_keys",
+        "test_catalog_fields_categories_and_relations",
+        "test_reproducibility",
+        "test_default_dataset_regression_fingerprint",
+        "test_generator_does_not_modify_global_random_state",
+        "test_sql_is_derived_from_metadata",
+        "test_invalid_data_is_rejected",
+        "test_duplicate_and_missing_rows_are_rejected",
+        "test_reset_requires_explicit_matching_confirmation",
+        "test_reset_authorization_is_scoped_to_database"
+      ],
+      "imports": [
+        "import copy",
+        "import random",
+        "import pytest",
+        "from scripts import bank_data as bank"
+      ]
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 359806,
+      "sha256": "3c5a26f515de4414a00f60529a2b220ed3359b734ff6e6aad01db5864c283a7b"
+    }
+  ],
+  "candidates": [
+    "scripts/data_steward_agent.py",
+    "scripts/steward_catalog.py",
+    "pyproject.toml",
+    "uv.lock",
+    ".env.example",
+    "README.md",
+    "bank_governance/",
+    "tests/test_architecture.py",
+    "docs/architecture.md",
+    "docs/architecture-consolidation-report.md",
+    "docs/drafts/"
+  ]
+}

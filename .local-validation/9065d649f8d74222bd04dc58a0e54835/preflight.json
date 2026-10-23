@@ -1,0 +1,7 @@
+{
+  "role": "bank_governance_dev",
+  "schemas": 0,
+  "version": "17.11 (Debian 17.11-1.pgdg12+2)",
+  "database": "bank_governance_synthetic_dev",
+  "open_transactions": 0
+}

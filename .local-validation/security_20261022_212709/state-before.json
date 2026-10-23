@@ -1,0 +1,523 @@
+{
+  "status": " M .env.example\n M .gitignore\n M README.md\n M pyproject.toml\n M scripts/data_steward_agent.py\n M scripts/knowledge_corpus.py\n M tests/test_agent_integration.py\n M tests/test_data_steward_agent.py\n M uv.lock\n?? bank_governance/\n?? data/corpus/new_bank_model.documents.jsonl\n?? data/corpus/new_bank_model.documents.manifest.json\n?? data/corpus/new_bank_model.index-manifest.json\n?? data/source/new_bank_model/\n?? docs/architecture-consolidation-report.md\n?? docs/architecture-consolidation-validation.json\n?? docs/architecture-decisions.md\n?? docs/architecture.md\n?? docs/drafts/\n?? docs/new-bank-data-steward-agent-validation.json\n?? docs/new-bank-data-steward-agent.md\n?? docs/new-bank-data-steward-hardening-validation.json\n?? docs/new-bank-data-steward-hardening.md\n?? docs/new-bank-data-steward-reasoning-evaluation.md\n?? docs/new-bank-data-steward-reasoning-validation.json\n?? docs/new-bank-model-backup-recovery.md\n?? docs/new-bank-model-data-load-validation.json\n?? docs/new-bank-model-data-load.md\n?? docs/new-bank-model-governance.md\n?? docs/new-bank-model-integration-plan.md\n?? docs/new-bank-model-publication-validation.json\n?? docs/new-bank-model-publication.md\n?? docs/new-bank-model-rag-publication-validation.json\n?? docs/new-bank-model-rag-publication.md\n?? docs/new-bank-model-rag-validation.json\n?? docs/new-bank-model-rag.md\n?? docs/new-bank-model-runtime-validation.md\n?? scripts/evaluate_steward_reasoning.py\n?? scripts/new_bank_catalog.py\n?? scripts/new_bank_documents.py\n?? scripts/new_bank_integration.py\n?? scripts/new_bank_model.py\n?? scripts/new_bank_publication.py\n?? scripts/new_bank_rag.py\n?? scripts/new_bank_rag_publication.py\n?? scripts/new_bank_runtime_validation.py\n?? scripts/steward_catalog.py\n?? scripts/steward_reasoning_context.py\n?? scripts/summarize_steward_reasoning.py\n?? sql/integration/\n?? sql/rag/\n?? sql/upstream/\n?? tests/fixtures/new_bank_retrieval_cases.json\n?? tests/fixtures/new_steward_cases.json\n?? tests/fixtures/steward_hardening_holdout.json\n?? tests/fixtures/steward_reasoning_cases.json\n?? tests/test_architecture.py\n?? tests/test_architecture_live.py\n?? tests/test_concept_drafts.py\n?? tests/test_new_bank_integration_static.py\n?? tests/test_new_bank_model.py\n?? tests/test_new_bank_model_postgres.py\n?? tests/test_new_bank_postgres_runtime.py\n?? tests/test_new_bank_publication.py\n?? tests/test_new_bank_publication_postgres.py\n?? tests/test_new_bank_published_readonly.py\n?? tests/test_new_bank_rag_postgres.py\n?? tests/test_new_bank_rag_published_readonly.py\n?? tests/test_new_bank_rag_retrieval.py\n?? tests/test_new_bank_rag_unit.py\n?? tests/test_new_steward_live.py\n?? tests/test_new_steward_unit.py\n?? tests/test_steward_hardening_live.py\n?? tests/test_steward_reasoning_unit.py\n",
+  "commit": "6550ca5e966839c426b62b4fa33155cd9b4ec32b",
+  "branch": "refactor/architecture-consolidation-20261022",
+  "files": [
+    {
+      "path": "bank_governance/__init__.py",
+      "sha256": "405e60c5747b9f224260dcc61a4c2062e00f0a2e60b9e97ac6e2c3be46ed9cab"
+    },
+    {
+      "path": "bank_governance/__main__.py",
+      "sha256": "f9205899a1eb0b5e9692b58895c97ce329cd7f90ffc903b8dff4e906d5f5ba96"
+    },
+    {
+      "path": "bank_governance/cli.py",
+      "sha256": "100e9ab9dd1b8f2b0da05aa4414bdb287b5431ff53bc1fb917a84635862ec929"
+    },
+    {
+      "path": "bank_governance/config.py",
+      "sha256": "d77ff0537e56b9cd0ec522ec40c668d327c1da6313abd8d53dbc083d99d20d8f"
+    },
+    {
+      "path": "bank_governance/context.py",
+      "sha256": "b0d03a1c30773e2fb18c77ab34b1edd17556774ad7279c4d7d93e713df98e8ee"
+    },
+    {
+      "path": "bank_governance/contracts.py",
+      "sha256": "0771d255ab42a0f8adf7fbeb2b9a7c33995c09321a52736e17b0b5b603fa6527"
+    },
+    {
+      "path": "bank_governance/coordinator.py",
+      "sha256": "7d29057ac0c9474450d8044204f2be2bf82b8673678d0bab156cb6b58782718b"
+    },
+    {
+      "path": "bank_governance/database.py",
+      "sha256": "039cdac2b5020133fe711f8275dffa5fab42e947b4e19a2ad9f5e5d2200c375e"
+    },
+    {
+      "path": "bank_governance/errors.py",
+      "sha256": "0b82804fdb6e1f44836a0a067e4ca3d4b8b56cd29e506cc80b9ba6ad3c2290bf"
+    },
+    {
+      "path": "bank_governance/hybrid.py",
+      "sha256": "0886f90b73c24173e0be944ccd56e99361090e17dcf92000387d4364e63ae5bf"
+    },
+    {
+      "path": "bank_governance/policy.py",
+      "sha256": "5a3f7c9ea2431c9348a2dd6639edb73170c25d177761a4b57bd735be7ddd6ed6"
+    },
+    {
+      "path": "bank_governance/prompts.py",
+      "sha256": "57c721b6f2958a5eb21d3b27f89a6eeb04ba0c7648023bdcae65de7cb1dde4e6"
+    },
+    {
+      "path": "bank_governance/providers.py",
+      "sha256": "70f58f428bda8d5d3f61794d13fce177505a8050bd428196d5ef7479b1119b68"
+    },
+    {
+      "path": "bank_governance/retrieval.py",
+      "sha256": "377d8e901c0b7bdc11afd0666b91c176996d5ed391893dca5f71f22e519883ca"
+    },
+    {
+      "path": "bank_governance/steward.py",
+      "sha256": "4d6a9d535854cd44a88ceaf7dddf371e8a5b2ca38023df1c65d72fac1f894656"
+    },
+    {
+      "path": "bank_governance/tools.py",
+      "sha256": "21cb53fcbe010cb7fa6613690769b014c12d1e32008a49304182510d0877f776"
+    },
+    {
+      "path": "bank_governance/validation.py",
+      "sha256": "8a94a59c1148b2983d197d98612dbda50ae8c279ad26fd645b005923f1c69596"
+    },
+    {
+      "path": "data/corpus/new_bank_model.documents.jsonl",
+      "sha256": "71b873f72fe1ef42e4da6b9e3b93e15a2466daa6562790c10097c9cbfbf0f19a"
+    },
+    {
+      "path": "data/corpus/new_bank_model.documents.manifest.json",
+      "sha256": "38ae79b98ccca196a5b8ea249bf499fe952ba359fb5d0b282036cc7c32ec8b0e"
+    },
+    {
+      "path": "data/corpus/new_bank_model.index-manifest.json",
+      "sha256": "b99c57304855661f6dada7fe4c37c13736d6a49552e9660393e234af77aa1d5b"
+    },
+    {
+      "path": "data/source/new_bank_model/catalog.json",
+      "sha256": "5728b7a92fb618bf2e29083d9072522ad2c897dc9b176556f37dabb39c44fa65"
+    },
+    {
+      "path": "data/source/new_bank_model/dataset-202601.manifest.json",
+      "sha256": "03fa74cec9ac2e7b39c503e68f7a3b4cab89984d2f4556debb64681203bd8714"
+    },
+    {
+      "path": "data/source/new_bank_model/manifest.json",
+      "sha256": "737f017e4830791def015c7403d354fca170c4e8ec6a2868cbef2eff624c069f"
+    },
+    {
+      "path": "docs/architecture-consolidation-report.md",
+      "sha256": "9824340c00058ab45772e12d0685618ed4594265217248ffefea9f22bf581297"
+    },
+    {
+      "path": "docs/architecture-consolidation-validation.json",
+      "sha256": "af2b1a6b2efefb276079be52da4fc727cf2efa3c13b9a54898660ceba0b48f65"
+    },
+    {
+      "path": "docs/architecture-decisions.md",
+      "sha256": "f2045b43e65515fc542d32f53adc9b4e5013e3ea9bda0f999c117c48b55ebdf1"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "9d690d9ee6f45c06e1c7b2e4dc38e85bf6a94261260713008b015bdcadda7762"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/01-temporal.md",
+      "sha256": "727bdde8811e0b7ea8462e19a5f2de99a43c7ccbcf09df93bbebb61aae6273c5"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/02-reconciliation.md",
+      "sha256": "3147ff62caca4034b7d3d84a5a1d199e31b0a903af5c02f733c73794f4312a1a"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/03-products.md",
+      "sha256": "1e6ffe5d25bc85d2075862cb48eb9c8d2619d32b5132b4a92566f15af691f293"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/04-grains.md",
+      "sha256": "0591776f4cda692c719a99137b6307af81c24e55b1d76098ae96312fd379d0a6"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/05-physical-semantic.md",
+      "sha256": "499bba95286c3d8de48655252695f325826fdafecc1a0f3ba54dec2756ade2f4"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/06-absence.md",
+      "sha256": "e15b8fe9ff8da516710fc842764c48091eb53fb74ea7f4f589c44f09b22f20aa"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/07-quality.md",
+      "sha256": "d85c8feb7a2568f4110d862129dd0ca118c9ce414bdc0911b9e3c1ddced3daf8"
+    },
+    {
+      "path": "docs/drafts/new-bank-concepts/sources.json",
+      "sha256": "0343aad786132bd66ceeb58e4aff5e74031ad480b872f6d13aa5c887caff8de4"
+    },
+    {
+      "path": "docs/new-bank-data-steward-agent-validation.json",
+      "sha256": "194437facee0323dacee8f5a0448450b40e79d8d943d786bad416ce4984b5959"
+    },
+    {
+      "path": "docs/new-bank-data-steward-agent.md",
+      "sha256": "6d3bcac22c9ad6ba4e4b801f09026f37c59a8a0ede4c750a45d26358f706681d"
+    },
+    {
+      "path": "docs/new-bank-data-steward-hardening-validation.json",
+      "sha256": "85bf2bf1ca818c75d0e4b764f1dadfb4c9a3536d597e02e1b523d82246da40b4"
+    },
+    {
+      "path": "docs/new-bank-data-steward-hardening.md",
+      "sha256": "2f18f73b87cf5720ac1c1d6ff5566e75ea6572470edd54aa35ac6657f825b2da"
+    },
+    {
+      "path": "docs/new-bank-data-steward-reasoning-evaluation.md",
+      "sha256": "afc7a206987ae1774de2679a002067551b2bc2ece95abcda26ee2ad9f0d8ca6a"
+    },
+    {
+      "path": "docs/new-bank-data-steward-reasoning-validation.json",
+      "sha256": "63af4588aceebf12e7c0c173c916fbab69e293d3f1169550db6a9582374d2f24"
+    },
+    {
+      "path": "docs/new-bank-model-backup-recovery.md",
+      "sha256": "6fc53018500d486209f37b4cae261a28a67360d9b27be56dea7eabab62256e49"
+    },
+    {
+      "path": "docs/new-bank-model-data-load-validation.json",
+      "sha256": "53f92f671bbc996226259839a87ca080ced01005ba6c164c093cb5b04329b5cb"
+    },
+    {
+      "path": "docs/new-bank-model-data-load.md",
+      "sha256": "ae3b980b2b32c6bd15d6848c6023752eb4eed31e2058e6a9b4ec30ba10d94fae"
+    },
+    {
+      "path": "docs/new-bank-model-governance.md",
+      "sha256": "a005992e034f3928c3fc7daf8af05d4fe5d614910c8aefd3b9f8aed1156a555b"
+    },
+    {
+      "path": "docs/new-bank-model-integration-plan.md",
+      "sha256": "8a184cd662cb8c7ad3711ee4d32dc8c93dd5c2465e56bb6d98d6470a1a30bb99"
+    },
+    {
+      "path": "docs/new-bank-model-publication-validation.json",
+      "sha256": "45cfc472d24adca3a726cfa7120e43e90d6fb384b7f310927ebc0584a9474b74"
+    },
+    {
+      "path": "docs/new-bank-model-publication.md",
+      "sha256": "1c2c06819284e51d855abc6eb95fa4ad0b462e0f7b61417b71ddb12d1e25f973"
+    },
+    {
+      "path": "docs/new-bank-model-rag-publication-validation.json",
+      "sha256": "e1379a602dfe1862be4dafce6c6018793417a55c5f7c08e9d3cc92bdc8ad473d"
+    },
+    {
+      "path": "docs/new-bank-model-rag-publication.md",
+      "sha256": "f2b977b8eb42b145597bfddf0aae04312be8eba21ca80734ee180c2cb57c38c1"
+    },
+    {
+      "path": "docs/new-bank-model-rag-validation.json",
+      "sha256": "15704c7db291cdd5cc83c4a5de1292a15ac7af1372c85f54f03682bc9764fa35"
+    },
+    {
+      "path": "docs/new-bank-model-rag.md",
+      "sha256": "9e9f0d79a732f3ff71bab26deb53316f060145436e834accb46aa02ba21b8dae"
+    },
+    {
+      "path": "docs/new-bank-model-runtime-validation.md",
+      "sha256": "2408a49764e5f4ff4e38cbbd608c0aae38ea92244a8ce800f326fd5ab5ca2fe8"
+    },
+    {
+      "path": "scripts/evaluate_steward_reasoning.py",
+      "sha256": "6e7e146fe77b04e19fca208207427fd4507653a85f3674d02b3a9bf4f4323fb9"
+    },
+    {
+      "path": "scripts/new_bank_catalog.py",
+      "sha256": "373ed285b7508f839fecd1eb8c96c34be09a345fba0af30d5236a1f9db09207e"
+    },
+    {
+      "path": "scripts/new_bank_documents.py",
+      "sha256": "a8329b71671d3707c4adcd7d9edf4f013f1ed17bfc9558984743e29af489e213"
+    },
+    {
+      "path": "scripts/new_bank_integration.py",
+      "sha256": "628a224f0f4c48c816f1322ef36486829e659557d6e89e548370afffaab53de0"
+    },
+    {
+      "path": "scripts/new_bank_model.py",
+      "sha256": "7aabcce055fb8105f67bed8a76427e46b8133a9590402b7312920282c14f4015"
+    },
+    {
+      "path": "scripts/new_bank_publication.py",
+      "sha256": "d284f65acc449a31429e680b5568d7e05d543cd34837e6a7023915769df942e6"
+    },
+    {
+      "path": "scripts/new_bank_rag.py",
+      "sha256": "94569a20ea4ad2c0942bf1528ed3a1cfdae851c34ff5ac539726107b3b69a0c5"
+    },
+    {
+      "path": "scripts/new_bank_rag_publication.py",
+      "sha256": "8e497f1cceef4d23a5d1815fc6a2f0db12475723135317b7d9682f4ffd9297de"
+    },
+    {
+      "path": "scripts/new_bank_runtime_validation.py",
+      "sha256": "078501d71945219e63aa30422973a11e9d0cdaddb569e0ce99d90695dbb71905"
+    },
+    {
+      "path": "scripts/steward_catalog.py",
+      "sha256": "64be5a5ec2b5939fb77277de42d98c669c99712b5c9ce7734ce2435836ea3ea8"
+    },
+    {
+      "path": "scripts/steward_reasoning_context.py",
+      "sha256": "1aa2fef30da62e670380c8a407ea16254750695f8ff8cc1a691f5055ef44fa44"
+    },
+    {
+      "path": "scripts/summarize_steward_reasoning.py",
+      "sha256": "4426f2b9a74020188c732758e3ff7c2a3b12649e55c65e501a7bf3a37decd8d9"
+    },
+    {
+      "path": "sql/integration/001_new_bank_schemas_tables.sql",
+      "sha256": "27d7e522cc7c166f3577831e17f9bd22ce9d1c8b8fe2e69bc001b896d1f99c4a"
+    },
+    {
+      "path": "sql/integration/002_new_bank_integrity.sql",
+      "sha256": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8"
+    },
+    {
+      "path": "sql/integration/checks/legacy_snapshot.sql",
+      "sha256": "1c7c2d1c720ab60c851b7a819bf0acb65fbd15dde856e9112d3428c80e47cd7a"
+    },
+    {
+      "path": "sql/integration/checks/model_structure.sql",
+      "sha256": "cb0252c3f7d7525f314c39e61fbe692c6b043c3b41bc7a709486180676d9a71a"
+    },
+    {
+      "path": "sql/integration/checks/new_bank_dataset.sql",
+      "sha256": "13a4faa6dfbd7005a8f4b51e36b57cf02872e82f2647465aaba8a9b8e5cce9a2"
+    },
+    {
+      "path": "sql/integration/checks/preflight.sql",
+      "sha256": "cb368539a7d8e30bacb8c32dd1455d10ebce7546121bd7fdaa187ab3915a52ec"
+    },
+    {
+      "path": "sql/rag/001_new_bank_knowledge.sql",
+      "sha256": "9c668cd8e1cc81af2ebbe9b8c110a1596a7174d032a159149c23590b2dcebed6"
+    },
+    {
+      "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+      "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a"
+    },
+    {
+      "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+      "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b"
+    },
+    {
+      "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+      "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3"
+    },
+    {
+      "path": "tests/fixtures/new_bank_retrieval_cases.json",
+      "sha256": "802916502dc62624e08dd3adbd9c34950c23977263ab7295e8c56fe583e6d3b6"
+    },
+    {
+      "path": "tests/fixtures/new_steward_cases.json",
+      "sha256": "63f484fe5eea26cf050a3f727a9dfe14342a145161f161461b1d4e739517515f"
+    },
+    {
+      "path": "tests/fixtures/steward_hardening_holdout.json",
+      "sha256": "57fe3dbd7f7adad42721c2d57e12c89113c4889c8c297e7f1c5bd4cc9982e893"
+    },
+    {
+      "path": "tests/fixtures/steward_reasoning_cases.json",
+      "sha256": "85886d15c2a82dbaf67608ceb6119b8544c6658b6f54f59c602165d1274fccb1"
+    },
+    {
+      "path": "tests/test_architecture.py",
+      "sha256": "c35890c67e60a3e09af444682b18f9b8873ae410e82d27f4f9d91288ba966629"
+    },
+    {
+      "path": "tests/test_architecture_live.py",
+      "sha256": "a0381163b1e703dcf9c528c1fd19fbe273ae58f606db3babca36a65f83a037cb"
+    },
+    {
+      "path": "tests/test_concept_drafts.py",
+      "sha256": "a47f0f8b6ac4028e54f4501e3ec8fad79193fa84bfc954f7ca95ad4356dbe52e"
+    },
+    {
+      "path": "tests/test_new_bank_integration_static.py",
+      "sha256": "cde9d835b4bbef74acf93d50a7109b8cf10759913d5bed3e8a368274d5d8d7d8"
+    },
+    {
+      "path": "tests/test_new_bank_model.py",
+      "sha256": "65b3bcc34610ac0b374ec4bc6d189f95d381acb4dbcdc12e4e2b8f80b69e7b57"
+    },
+    {
+      "path": "tests/test_new_bank_model_postgres.py",
+      "sha256": "0d07ba976ea4f0542363ac41baa634e69e51e3ab248e4bb9e06381379e57efb1"
+    },
+    {
+      "path": "tests/test_new_bank_postgres_runtime.py",
+      "sha256": "13372789ee97ba7cac1e81a31cb5ce75f659c1a5b55e0fa34b2af27710bc64e3"
+    },
+    {
+      "path": "tests/test_new_bank_publication.py",
+      "sha256": "97a96f60c14833bf6857b21b8dcfe70d8d79e975dc2d01839cc89fee52f7ce0e"
+    },
+    {
+      "path": "tests/test_new_bank_publication_postgres.py",
+      "sha256": "fb1067c702bd5a632478d5923e6b6ee321ee00c66fa2fc91477e46a2f175fa8e"
+    },
+    {
+      "path": "tests/test_new_bank_published_readonly.py",
+      "sha256": "25c781a05ebd16b2581b68084ab7439d8556320dd9094a364838bca6d8418046"
+    },
+    {
+      "path": "tests/test_new_bank_rag_postgres.py",
+      "sha256": "1ea6246e32484a70584f867580a4a0c69c860e4fd6884b126c787cf8f00ecda7"
+    },
+    {
+      "path": "tests/test_new_bank_rag_published_readonly.py",
+      "sha256": "e17d931fefa669f1df5b0fd8c6a7f6018b1f2b3a9954a699264c88facba60740"
+    },
+    {
+      "path": "tests/test_new_bank_rag_retrieval.py",
+      "sha256": "59314ef26d78356a6a2f103a07a0638a24bfb6c0bed227c56a839f66d51e98e0"
+    },
+    {
+      "path": "tests/test_new_bank_rag_unit.py",
+      "sha256": "e9a3bc8027ca1e9bc111e4aa61ff1d25ce97d7e013bbf81998141f9e34fef275"
+    },
+    {
+      "path": "tests/test_new_steward_live.py",
+      "sha256": "ef5c28e2899720397b939c94ad3950903b9370bba3eef79b1458ef2977ae6d2d"
+    },
+    {
+      "path": "tests/test_new_steward_unit.py",
+      "sha256": "5f7b9b7fc9e824e2dfb187b162680d4b6b23eb586c83d97669886b9f5ddd4c0e"
+    },
+    {
+      "path": "tests/test_steward_hardening_live.py",
+      "sha256": "0cc4b82b27ec485005fa1259cc270ae8a658eb0e14562b3b5e10cf5d3376a9d2"
+    },
+    {
+      "path": "tests/test_steward_reasoning_unit.py",
+      "sha256": "6c54b233011dd4e9e4108904d0e2c10b650b30648e480772d62c42b259c5cae7"
+    },
+    {
+      "path": ".env.example",
+      "sha256": "a8f5f61c44fa36dbe0715e2e437c27ba8bb45de30568e85731ced3c8429d13f3"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "07ade048c19f14f39002cc602af8184651d7feef8724437b41aa3788a41b7b3d"
+    },
+    {
+      "path": ".python-version",
+      "sha256": "e72b03ed5b70312f2782f2b05055c55b24670e126d50e24c4f2c559bf288f810"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c590fbb10702646b5fc1be0e17b01b0d76ff084a36de36981fe531a2dd3a6dc5"
+    },
+    {
+      "path": "compose.yaml",
+      "sha256": "65f8129d3644422974c098b013668fcf6c74f7b2f08851db3b778ef5f8f2c8c6"
+    },
+    {
+      "path": "data/corpus/bank_metadata.documents.jsonl",
+      "sha256": "792f7192b440683b94dbaef35663d6dfa1279e01f00bea08b664856ff0e94464"
+    },
+    {
+      "path": "data/source/bank_metadata.json",
+      "sha256": "c0e5aadebf49a16ef3cd31c095e7e77389fb730b344b81940a3f19ac596c5fbf"
+    },
+    {
+      "path": "data/source/bank_metadata_simple (1).json",
+      "sha256": "c0e5aadebf49a16ef3cd31c095e7e77389fb730b344b81940a3f19ac596c5fbf"
+    },
+    {
+      "path": "docker/postgres/init/001-enable-vector.sql",
+      "sha256": "af9dd2cc27a517dc71c863f573dda0355fd389a8606dc7ae34b14456a849d5d6"
+    },
+    {
+      "path": "docs/agent-validation.json",
+      "sha256": "29187a2e2dab9424609795bdd4753e423e8554e509657db396ef839abbd7bc08"
+    },
+    {
+      "path": "docs/data-steward-agent.md",
+      "sha256": "75a8ca89663ab89f9169a9be8555065988246600b4d792087ed85f151d261572"
+    },
+    {
+      "path": "docs/knowledge-corpus.md",
+      "sha256": "fe53e0b1f5d9bedb13511ede7240745dd0f26b0ccf0994b0be8882c7e00a2529"
+    },
+    {
+      "path": "docs/retrieval-evaluation.json",
+      "sha256": "5b9531c3d5b01f92c571404b59dcd760c7b275dfd93748d5b957866fc3f3c82b"
+    },
+    {
+      "path": "docs/synthetic-data.md",
+      "sha256": "18f5332fbb35c90e0b8d218e49dc745bd501c66563b6c94c0ecaeec056d80faa"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "49ed8f1751429e7b986a3e33af45099e9072ff15de751b01d76bd8c105f3b3f1"
+    },
+    {
+      "path": "scripts/__init__.py",
+      "sha256": "0b1aeea7f0f4c9bf13d95744f41251a471efc0fd1c73fe904fcd639b444cf586"
+    },
+    {
+      "path": "scripts/bank_data.py",
+      "sha256": "6715d025259c735fc2c5bd08274304d204aaaa7ac6da0aaa5660c9a725813f19"
+    },
+    {
+      "path": "scripts/data_steward_agent.py",
+      "sha256": "15955f045e149c410d5ebe2b64947218a2587c5255b137e5768afe1e9c531422"
+    },
+    {
+      "path": "scripts/knowledge_corpus.py",
+      "sha256": "b804561798b4970dc227dc3597a32b0eae1d6f1cd18c70fca6a55c4d337dd0c5"
+    },
+    {
+      "path": "sql/001-create-bank-tables.sql",
+      "sha256": "3c8c249ac31759d17d3e317fa9d45eec9f18bac622c5da67ac7a35dc84608e46"
+    },
+    {
+      "path": "sql/002-create-knowledge-corpus.sql",
+      "sha256": "6048a5d0de61d58e05ec3ab58c47fb35842fed815342b3bed06669ed1b4d12ad"
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "da5d6ce50193195024497da72903727eb9df228e0f89799c5c4cf8f17c30399d"
+    },
+    {
+      "path": "tests/fixtures/agent_cases.json",
+      "sha256": "8a0a28686ebe38a6ef6ab43a78c9dda5ce87bf04005b1146a8b066bf5ef8b7ea"
+    },
+    {
+      "path": "tests/fixtures/retrieval_cases.json",
+      "sha256": "ad9bfd12e1dceca459909c9ec594542362a9eda626888e7b7d739c6011868df4"
+    },
+    {
+      "path": "tests/test_agent_integration.py",
+      "sha256": "ad9111d8aa1668a45b2e4310adc6e5e2b18c22e4b69da978e1bc8e91aa77235e"
+    },
+    {
+      "path": "tests/test_corpus_database.py",
+      "sha256": "4215fcaf2c8db67834eff20c4fa9ad5503050dcb4806c0dff1f9856fa93b56e4"
+    },
+    {
+      "path": "tests/test_data_steward_agent.py",
+      "sha256": "f0e6423daf8fe5a3f236584c380297204ade1a1f3b1db1c8286f00216dc9d931"
+    },
+    {
+      "path": "tests/test_database.py",
+      "sha256": "5bab24c3a99f770dd9c3eb634c1bacdd0798800291e60b35f99965b63ab99ce7"
+    },
+    {
+      "path": "tests/test_knowledge_corpus.py",
+      "sha256": "75cbb39a171a01e96b56cf8b25879dcd6b7100aebd95a64d3c0a1b1c8ed97eec"
+    },
+    {
+      "path": "tests/test_semantic_retrieval.py",
+      "sha256": "e48f1559ac15cf46297e230f81d5d4d3b3f97c5cd24fca5718e2a0bae015ed38"
+    },
+    {
+      "path": "tests/test_synthetic_data.py",
+      "sha256": "b1d0806b26bc7801a5430ecad49a544d598ca694ad016e634a474c558cdbca45"
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "cbdbd3458b77edcafe99c8bf8a8634e6c723875ca411613b64675932dcb424ff"
+    }
+  ]
+}

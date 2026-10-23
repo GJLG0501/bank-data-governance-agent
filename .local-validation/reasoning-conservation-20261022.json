@@ -1,0 +1,571 @@
+{
+  "identity": {
+    "container": "bank-data-governance-agent-dev-bank-postgres-1",
+    "id": "56bf7ea7a9f9f9d8a3c03d12162d973855f6299648e54b2c79eea931977a27a2",
+    "volume": "bank-data-governance-agent-dev_bank-postgres-data",
+    "database": "bank_governance_synthetic_dev",
+    "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+  },
+  "protected_same": true,
+  "historical_same": true,
+  "bank_tables_same": true,
+  "protected": {
+    "rows": {
+      "public.LOAN": {
+        "count": 500,
+        "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+      },
+      "public.CUSTOMER": {
+        "count": 1000,
+        "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+      },
+      "public.TRANSACTION": {
+        "count": 5000,
+        "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+      },
+      "bank_knowledge.corpora": {
+        "count": 1,
+        "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+      },
+      "bank_knowledge.documents": {
+        "count": 24,
+        "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+      }
+    },
+    "columns": {
+      "public.LOAN": [
+        {
+          "type": "text",
+          "column": "loan_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "customer_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "balance",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "interest_rate",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "integer",
+          "column": "dpd",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        }
+      ],
+      "public.CUSTOMER": [
+        {
+          "type": "text",
+          "column": "customer_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "segment",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "risk_level",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "annual_income",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        }
+      ],
+      "public.TRANSACTION": [
+        {
+          "type": "text",
+          "column": "transaction_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "customer_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "amount",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "channel",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "merchant_category",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        }
+      ],
+      "bank_knowledge.corpora": [
+        {
+          "type": "uuid",
+          "column": "corpus_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "source",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "source_version",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "source_sha256",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "renderer_version",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "model_name",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 6,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "model_digest",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 7,
+          "generated": ""
+        },
+        {
+          "type": "integer",
+          "column": "dimension",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 8,
+          "generated": ""
+        },
+        {
+          "type": "integer",
+          "column": "document_count",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 9,
+          "generated": ""
+        }
+      ],
+      "bank_knowledge.documents": [
+        {
+          "type": "uuid",
+          "column": "id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "uuid",
+          "column": "corpus_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "content",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "jsonb",
+          "column": "metadata",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "public.vector(1024)",
+          "column": "embedding",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        }
+      ]
+    },
+    "indexes": {
+      "public.LOAN": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX loan_pk ON public.\"LOAN\" USING btree (loan_id)"
+        }
+      ],
+      "public.CUSTOMER": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX customer_pk ON public.\"CUSTOMER\" USING btree (customer_id)"
+        }
+      ],
+      "public.TRANSACTION": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX transaction_pk ON public.\"TRANSACTION\" USING btree (transaction_id)"
+        }
+      ],
+      "bank_knowledge.corpora": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX corpora_pkey ON bank_knowledge.corpora USING btree (corpus_id)"
+        }
+      ],
+      "bank_knowledge.documents": [
+        {
+          "valid": true,
+          "definition": "CREATE INDEX bank_knowledge_documents_corpus_idx ON bank_knowledge.documents USING btree (corpus_id)"
+        },
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX documents_pkey ON bank_knowledge.documents USING btree (id)"
+        }
+      ]
+    },
+    "vectors": {
+      "documents": 24,
+      "dimensions": [
+        1024
+      ],
+      "null_embeddings": 0
+    },
+    "constraints": {
+      "public.LOAN": [
+        {
+          "kind": "c",
+          "name": "loan_balance_range",
+          "validated": true,
+          "definition": "CHECK (((balance >= (1000)::double precision) AND (balance <= (3000000)::double precision)))"
+        },
+        {
+          "kind": "f",
+          "name": "loan_customer_id_fk",
+          "validated": true,
+          "definition": "FOREIGN KEY (customer_id) REFERENCES public.\"CUSTOMER\"(customer_id) ON DELETE RESTRICT"
+        },
+        {
+          "kind": "c",
+          "name": "loan_customer_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+        },
+        {
+          "kind": "c",
+          "name": "loan_dpd_range",
+          "validated": true,
+          "definition": "CHECK (((dpd >= 0) AND (dpd <= 365)))"
+        },
+        {
+          "kind": "c",
+          "name": "loan_interest_rate_range",
+          "validated": true,
+          "definition": "CHECK (((interest_rate >= (5)::double precision) AND (interest_rate <= (60)::double precision)))"
+        },
+        {
+          "kind": "c",
+          "name": "loan_loan_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(loan_id)) > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "loan_pk",
+          "validated": true,
+          "definition": "PRIMARY KEY (loan_id)"
+        }
+      ],
+      "public.CUSTOMER": [
+        {
+          "kind": "c",
+          "name": "customer_annual_income_range",
+          "validated": true,
+          "definition": "CHECK (((annual_income >= (60000)::double precision) AND (annual_income <= (12000000)::double precision)))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_customer_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "customer_pk",
+          "validated": true,
+          "definition": "PRIMARY KEY (customer_id)"
+        },
+        {
+          "kind": "c",
+          "name": "customer_risk_level_allowed",
+          "validated": true,
+          "definition": "CHECK ((risk_level = ANY (ARRAY['LOW'::text, 'MEDIUM'::text, 'HIGH'::text])))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_risk_level_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(risk_level)) > 0))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_segment_allowed",
+          "validated": true,
+          "definition": "CHECK ((segment = ANY (ARRAY['MASS'::text, 'PREMIER'::text, 'PRIVATE'::text])))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_segment_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(segment)) > 0))"
+        }
+      ],
+      "public.TRANSACTION": [
+        {
+          "kind": "c",
+          "name": "transaction_amount_range",
+          "validated": true,
+          "definition": "CHECK (((amount >= (10)::double precision) AND (amount <= (250000)::double precision)))"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_channel_allowed",
+          "validated": true,
+          "definition": "CHECK ((channel = ANY (ARRAY['BRANCH'::text, 'ATM'::text, 'MOBILE'::text, 'WEB'::text])))"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_channel_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(channel)) > 0))"
+        },
+        {
+          "kind": "f",
+          "name": "transaction_customer_id_fk",
+          "validated": true,
+          "definition": "FOREIGN KEY (customer_id) REFERENCES public.\"CUSTOMER\"(customer_id) ON DELETE RESTRICT"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_customer_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_merchant_category_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(merchant_category)) > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "transaction_pk",
+          "validated": true,
+          "definition": "PRIMARY KEY (transaction_id)"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_transaction_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(transaction_id)) > 0))"
+        }
+      ],
+      "bank_knowledge.corpora": [
+        {
+          "kind": "c",
+          "name": "corpora_dimension_check",
+          "validated": true,
+          "definition": "CHECK (((dimension >= 1) AND (dimension <= 16000)))"
+        },
+        {
+          "kind": "c",
+          "name": "corpora_document_count_check",
+          "validated": true,
+          "definition": "CHECK ((document_count > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "corpora_pkey",
+          "validated": true,
+          "definition": "PRIMARY KEY (corpus_id)"
+        },
+        {
+          "kind": "c",
+          "name": "corpora_source_sha256_check",
+          "validated": true,
+          "definition": "CHECK ((source_sha256 ~ '^[0-9a-f]{64}$'::text))"
+        }
+      ],
+      "bank_knowledge.documents": [
+        {
+          "kind": "c",
+          "name": "documents_content_check",
+          "validated": true,
+          "definition": "CHECK ((length(content) > 0))"
+        },
+        {
+          "kind": "f",
+          "name": "documents_corpus_id_fkey",
+          "validated": true,
+          "definition": "FOREIGN KEY (corpus_id) REFERENCES bank_knowledge.corpora(corpus_id) ON DELETE RESTRICT"
+        },
+        {
+          "kind": "c",
+          "name": "documents_metadata_check",
+          "validated": true,
+          "definition": "CHECK (((jsonb_typeof(metadata) = 'object'::text) AND (metadata ?& ARRAY['source'::text, 'source_version'::text, 'source_sha256'::text, 'table'::text, 'field'::text, 'kind'::text, 'json_pointer'::text, 'renderer_version'::text, 'chunk_sha256'::text, 'document_id'::text, 'embedding_model'::text, 'embedding_digest'::text, 'embedding_dimension'::text])))"
+        },
+        {
+          "kind": "p",
+          "name": "documents_pkey",
+          "validated": true,
+          "definition": "PRIMARY KEY (id)"
+        }
+      ]
+    },
+    "relations_found": 5,
+    "vector_extension": "0.8.7"
+  },
+  "historical": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "bank_hashes": {
+    "dim.dim_txn": {
+      "rows": 9,
+      "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+    },
+    "dim.dim_cliente": {
+      "rows": 5000,
+      "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+    },
+    "dim.dim_producto": {
+      "rows": 4,
+      "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+    },
+    "cfg.ref_txn_modelo": {
+      "rows": 9,
+      "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+    },
+    "cfg.ref_cuenta_modelo": {
+      "rows": 20000,
+      "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+    },
+    "cfg.fact_txn_captacoloca_d": {
+      "rows": 225000,
+      "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+    },
+    "cfg.fact_sdos_captacoloca_m": {
+      "rows": 120000,
+      "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+    }
+  }
+}

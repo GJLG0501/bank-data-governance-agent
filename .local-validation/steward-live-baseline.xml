@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="12" skipped="0" tests="16" time="62.321" timestamp="2026-10-22T18:48:42.433708-06:00" hostname="GERARDO"><testcase classname="tests.test_new_steward_live" name="test_live_new_model[segment]" time="7.193"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...table.cfg.fact_txn_captacoloca_d/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...responder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}])
+case = {'id': 'segment', 'question': '¿Qué significa dim.dim_cliente.segmento_cte?', 'entry': 'field.dim.dim_cliente.segmento_cte', 'patterns': ['premium', 'preferente', 'masivo']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...table.cfg.fact_txn_captacoloca_d/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[deposits]" time="3.563"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo.../limitation.synthetic_generation/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...responder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}])
+case = {'id': 'deposits', 'question': '¿Qué productos pertenecen a captación?', 'patterns': ['cheques', 'ahorro']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo.../limitation.synthetic_generation/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[code]" time="4.172"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...field.dim.dim_producto.cve_dominio/claims/1', 'classification': 'upstream_explicit'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...responder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}])
+case = {'id': 'code', 'question': '¿Qué significa el código 300 para TDC y qué signo tiene?', 'patterns': ['pago', 'reduc|rest|dismin']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...field.dim.dim_producto.cve_dominio/claims/1', 'classification': 'upstream_explicit'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[join]" time="3.652"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...fg.fact_sdos_captacoloca_m.cve_mes_alta/claims/2', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...responder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}])
+case = {'id': 'join', 'question': '¿Cómo se relacionan dim.dim_txn y cfg.fact_txn_captacoloca_d?', 'patterns': ['cve_producto', 'cve_txn']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...fg.fact_sdos_captacoloca_m.cve_mes_alta/claims/2', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[opening]" time="4.370"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...d.cfg.fact_sdos_captacoloca_m.saldo_mes/claims/2', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...responder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}])
+case = {'id': 'opening', 'question': '¿Qué representa saldo_apertura en marzo?', 'patterns': ['febrero', 'cierre']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...d.cfg.fact_sdos_captacoloca_m.saldo_mes/claims/2', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[growth]" time="3.329"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...pointer': '/entries/rule.reconciliation/claims/1', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...responder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}])
+case = {'id': 'growth', 'question': '¿Qué tasa de crecimiento se aplica a colocación en abril?', 'entry': 'rule.growth', 'patterns': ['2[.,]2']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...pointer': '/entries/rule.reconciliation/claims/1', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[currency]" time="2.456"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...er': '/entries/transaction.TDC.450/claims/1', 'classification': 'upstream_explicit'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...nder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}, ...])
+case = {'id': 'currency', 'question': '¿Qué moneda utilizan los importes?', 'patterns': ['no.*especific|no.*defin|no.*document']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...er': '/entries/transaction.TDC.450/claims/1', 'classification': 'upstream_explicit'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[pm]" time="4.929"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...es/absence.unknown_client_fields/claims/0', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...nder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}, ...])
+case = {'id': 'pm', 'question': '¿Qué significado tiene fec_nac para personas morales?', 'patterns': ['no.*(aclara|especif|explica|defin)|sintetic']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...es/absence.unknown_client_fields/claims/0', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[multi]" time="5.215"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...table.cfg.fact_txn_captacoloca_d/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...nder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}, ...])
+case = {'id': 'multi', 'question': 'Compara las fórmulas de pagos y disposiciones de C_PERSONAL y compras y pagos TDC', 'patterns': ['c_personal', 'tdc', '5|0[.,]05', '2|0[.,]02']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...table.cfg.fact_txn_captacoloca_d/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[domain]" time="6.968"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...es/relationship.balance_movement/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...nder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}, ...])
+case = {'id': 'domain', 'question': '¿Por qué dominio cambia entre enero y febrero?', 'patterns': ['captacion', 'deposits']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...es/relationship.balance_movement/claims/1', 'classification': 'technical_inference'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[mapping]" time="5.190"><failure message="AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')&#10; +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...pointer': '/entries/rule.reconciliation/claims/1', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...nder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}, ...])
+case = {'id': 'mapping', 'question': '¿Es válido relacionar automáticamente LOAN con C_PERSONAL?', 'patterns': ['no']}
+
+    @pytest.mark.parametrize('case',CASES,ids=[x['id'] for x in CASES])
+    def test_live_new_model(agent,case):
+        a,results=agent; a.history.clear()
+        reply=a.ask(case['question']); data=reply.to_dict()
+        results.append({'case':case,**data})
+        assert reply.status==case.get('status',reply.status)
+        if 'status' not in case:
+&gt;           assert reply.status in ('grounded','explicit_absence')
+E           AssertionError: assert 'insufficient_evidence' in ('grounded', 'explicit_absence')
+E            +  where 'insufficient_evidence' = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...pointer': '/entries/rule.reconciliation/claims/1', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).status
+
+tests\test_new_steward_live.py:26: AssertionError</failure></testcase><testcase classname="tests.test_new_steward_live" name="test_live_new_model[absent]" time="0.581" /><testcase classname="tests.test_new_steward_live" name="test_live_new_model[numeric_total]" time="0.000" /><testcase classname="tests.test_new_steward_live" name="test_live_new_model[numeric_anomalies]" time="0.000" /><testcase classname="tests.test_new_steward_live" name="test_live_new_model[numeric_rank]" time="0.000" /><testcase classname="tests.test_new_steward_live" name="test_live_followup" time="9.449"><failure message="AssertionError: assert ([])&#10; +  where [] = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...d.cfg.fact_sdos_captacoloca_m.saldo_mes/claims/2', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).references">agent = (&lt;scripts.data_steward_agent.DataStewardAgent object at 0x000002904A6DFB60&gt;, [{'case': {'id': 'segment', 'question': '...nder. Esto no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], ...}, ...])
+
+    def test_live_followup(agent):
+        a,results=agent; a.history.clear()
+        first=a.ask('¿Qué representa saldo_apertura en marzo?')
+        second=a.ask('¿Y en abril qué cierre representa?')
+        results.append({'case':{'id':'followup'},**second.to_dict()})
+&gt;       assert first.references and second.references
+E       AssertionError: assert ([])
+E        +  where [] = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...d.cfg.fact_sdos_captacoloca_m.saldo_mes/claims/2', 'classification': 'mvp_proposal'}]}], tool_calls=1, diagnostic=None).references
+
+tests\test_new_steward_live.py:43: AssertionError</failure></testcase></testsuite></testsuites>

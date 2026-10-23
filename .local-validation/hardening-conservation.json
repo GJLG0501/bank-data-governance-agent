@@ -1,0 +1,60 @@
+{
+  "old_rows": {
+    "public.LOAN": {
+      "count": 500,
+      "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+    },
+    "public.CUSTOMER": {
+      "count": 1000,
+      "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+    },
+    "public.TRANSACTION": {
+      "count": 5000,
+      "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+    },
+    "bank_knowledge.corpora": {
+      "count": 1,
+      "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+    },
+    "bank_knowledge.documents": {
+      "count": 24,
+      "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+    }
+  },
+  "historic": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "bank_tables": {
+    "dim.dim_txn": {
+      "rows": 9,
+      "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+    },
+    "dim.dim_cliente": {
+      "rows": 5000,
+      "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+    },
+    "dim.dim_producto": {
+      "rows": 4,
+      "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+    },
+    "cfg.ref_txn_modelo": {
+      "rows": 9,
+      "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+    },
+    "cfg.ref_cuenta_modelo": {
+      "rows": 20000,
+      "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+    },
+    "cfg.fact_txn_captacoloca_d": {
+      "rows": 225000,
+      "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+    },
+    "cfg.fact_sdos_captacoloca_m": {
+      "rows": 120000,
+      "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+    }
+  },
+  "dataset_sha256": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b",
+  "new_corpus_validated": true
+}

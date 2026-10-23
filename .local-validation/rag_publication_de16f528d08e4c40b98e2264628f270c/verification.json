@@ -1,0 +1,186 @@
+{
+  "status": "published_verified",
+  "verified_utc": "2026-10-23T00:36:52.736064+00:00",
+  "target": {
+    "container": "bank-data-governance-agent-dev-bank-postgres-1",
+    "id": "56bf7ea7a9f9f9d8a3c03d12162d973855f6299648e54b2c79eea931977a27a2",
+    "volume": "bank-data-governance-agent-dev_bank-postgres-data",
+    "database": "bank_governance_synthetic_dev",
+    "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+  },
+  "backup": {
+    "path": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\rag_publication_de16f528d08e4c40b98e2264628f270c\\database.dump",
+    "bytes": 3276477,
+    "sha256": "b54bcb36ca8e204eb6d30705804b1c7f02aa566ace1d26de42128327e04034a3",
+    "dump_exit_code": 0,
+    "list_exit_code": 0,
+    "host_archive_list_verified": true
+  },
+  "schema": "bank_knowledge_new_bank",
+  "structure": [
+    "corpora",
+    "documents"
+  ],
+  "model_id": "new_bank_2026",
+  "catalog_version": "1.0.0",
+  "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+  "embedding_model": {
+    "name": "bge-large:latest",
+    "digest": "b3d71c92805938e2c9d78e6f35e82d7cc1bd77e05b47dd2ab3016240f4021c15",
+    "dimension": 1024
+  },
+  "vectors_sha256": "08b5555ffede84edfc6b4a399f83c4c4eb1705ed997fc5b6d56829a5798e57d9",
+  "storage": {
+    "corpora": 1,
+    "database": "bank_governance_synthetic_dev",
+    "documents": 82,
+    "dimensions": [
+      1024
+    ],
+    "distinct_ids": 82
+  },
+  "first": {
+    "status": "indexado",
+    "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+    "documents": 82
+  },
+  "repeat": {
+    "status": "sin cambios",
+    "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+    "documents": 82
+  },
+  "dataset_sha256_before": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b",
+  "dataset_sha256_after": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b",
+  "bank_counts_before": {
+    "dim.dim_txn": 9,
+    "dim.dim_cliente": 5000,
+    "dim.dim_producto": 4,
+    "cfg.ref_txn_modelo": 9,
+    "cfg.ref_cuenta_modelo": 20000,
+    "cfg.fact_txn_captacoloca_d": 225000,
+    "cfg.fact_sdos_captacoloca_m": 120000
+  },
+  "bank_counts_after": {
+    "dim.dim_txn": 9,
+    "dim.dim_cliente": 5000,
+    "dim.dim_producto": 4,
+    "cfg.ref_txn_modelo": 9,
+    "cfg.ref_cuenta_modelo": 20000,
+    "cfg.fact_txn_captacoloca_d": 225000,
+    "cfg.fact_sdos_captacoloca_m": 120000
+  },
+  "bank_table_hashes_before": {
+    "dim.dim_txn": {
+      "rows": 9,
+      "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+    },
+    "dim.dim_cliente": {
+      "rows": 5000,
+      "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+    },
+    "dim.dim_producto": {
+      "rows": 4,
+      "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+    },
+    "cfg.ref_txn_modelo": {
+      "rows": 9,
+      "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+    },
+    "cfg.ref_cuenta_modelo": {
+      "rows": 20000,
+      "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+    },
+    "cfg.fact_txn_captacoloca_d": {
+      "rows": 225000,
+      "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+    },
+    "cfg.fact_sdos_captacoloca_m": {
+      "rows": 120000,
+      "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+    }
+  },
+  "bank_table_hashes_after": {
+    "dim.dim_txn": {
+      "rows": 9,
+      "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+    },
+    "dim.dim_cliente": {
+      "rows": 5000,
+      "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+    },
+    "dim.dim_producto": {
+      "rows": 4,
+      "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+    },
+    "cfg.ref_txn_modelo": {
+      "rows": 9,
+      "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+    },
+    "cfg.ref_cuenta_modelo": {
+      "rows": 20000,
+      "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+    },
+    "cfg.fact_txn_captacoloca_d": {
+      "rows": 225000,
+      "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+    },
+    "cfg.fact_sdos_captacoloca_m": {
+      "rows": 120000,
+      "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+    }
+  },
+  "reconciled_account_months": 100000,
+  "old_rows_before": {
+    "public.LOAN": {
+      "count": 500,
+      "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+    },
+    "public.CUSTOMER": {
+      "count": 1000,
+      "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+    },
+    "public.TRANSACTION": {
+      "count": 5000,
+      "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+    },
+    "bank_knowledge.corpora": {
+      "count": 1,
+      "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+    },
+    "bank_knowledge.documents": {
+      "count": 24,
+      "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+    }
+  },
+  "old_rows_after": {
+    "public.LOAN": {
+      "count": 500,
+      "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+    },
+    "public.CUSTOMER": {
+      "count": 1000,
+      "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+    },
+    "public.TRANSACTION": {
+      "count": 5000,
+      "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+    },
+    "bank_knowledge.corpora": {
+      "count": 1,
+      "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+    },
+    "bank_knowledge.documents": {
+      "count": 24,
+      "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+    }
+  },
+  "historic_before": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "historic_after": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "isolated_identity_equal": true
+}

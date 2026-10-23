@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="102" time="14.409" timestamp="2026-10-22T19:08:13.539347-06:00" hostname="GERARDO"><testcase classname="tests.test_data_steward_agent" name="test_catalog_answers_use_native_tools_and_real_metadata[annual_income]" time="0.010" /><testcase classname="tests.test_data_steward_agent" name="test_catalog_answers_use_native_tools_and_real_metadata[risk_level]" time="0.005" /><testcase classname="tests.test_data_steward_agent" name="test_catalog_answers_use_native_tools_and_real_metadata[dpd]" time="0.004" /><testcase classname="tests.test_data_steward_agent" name="test_catalog_answers_use_native_tools_and_real_metadata[relationship]" time="0.004" /><testcase classname="tests.test_data_steward_agent" name="test_catalog_answers_use_native_tools_and_real_metadata[credit_score_absence]" time="0.003" /><testcase classname="tests.test_data_steward_agent" name="test_missing_information_is_not_reported_as_explicit_absence" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_wrong_field_cannot_support_a_missing_field_answer" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_relationship_evidence_also_supports_its_target_key" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_absence_requires_an_explicit_absence_document" time="0.003" /><testcase classname="tests.test_data_steward_agent" name="test_individual_data_and_sql_are_unavailable_without_tool_execution[\xbfCu\xe1l es el saldo del cliente SYN-C-000001?]" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_individual_data_and_sql_are_unavailable_without_tool_execution[Muestra los datos bancarios individuales]" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_individual_data_and_sql_are_unavailable_without_tool_execution[Dime mi saldo]" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_individual_data_and_sql_are_unavailable_without_tool_execution[Consulta customer 123]" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_individual_data_and_sql_are_unavailable_without_tool_execution[Escribe SQL para consultar CUSTOMER]" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_textual_react_is_not_parsed_or_executed" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_unknown_tools_are_not_executed" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_excessive_tool_calls_are_not_executed" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_tool_argument_validation_does_not_reach_retriever" time="0.004" /><testcase classname="tests.test_data_steward_agent" name="test_invented_references_are_rejected" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_invented_qualified_fields_are_withheld" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_remote_tracing_is_disabled_even_if_enabled_in_shell" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_free_references_and_sql_output_are_withheld[SELECT * FROM CUSTOMER]" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_free_references_and_sql_output_are_withheld[Referencia https://invented.example]" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_free_references_and_sql_output_are_withheld[```sql bogus```]" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_no_documents_means_no_generated_claims" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_evidence_labels_do_not_leak_between_turns" time="0.004" /><testcase classname="tests.test_data_steward_agent" name="test_history_is_bounded_and_only_in_memory" time="0.005" /><testcase classname="tests.test_data_steward_agent" name="test_followup_can_be_rewritten_using_session_context" time="0.003" /><testcase classname="tests.test_data_steward_agent" name="test_service_failures_are_clear_and_do_not_expose_secrets[model-error0-Ollama]" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_service_failures_are_clear_and_do_not_expose_secrets[retriever-error1-PostgreSQL]" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_structured_response_failure_is_sanitized" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_debug_reports_only_whitelisted_metadata" time="0.002" /><testcase classname="tests.test_data_steward_agent" name="test_model_without_tools_is_reported_without_silent_fallback" time="0.001" /><testcase classname="tests.test_data_steward_agent" name="test_missing_model_is_reported_without_automatic_replacement" time="1.334" /><testcase classname="tests.test_data_steward_agent" name="test_postgres_startup_failure_is_sanitized" time="2.493" /><testcase classname="tests.test_data_steward_agent" name="test_terminal_supports_consecutive_questions_and_salir" time="0.004" /><testcase classname="tests.test_data_steward_agent" name="test_single_question_json_is_machine_readable" time="0.003" /><testcase classname="tests.test_new_steward_unit" name="test_new_contract_keeps_scope_and_claim_provenance" time="0.309" /><testcase classname="tests.test_new_steward_unit" name="test_malicious_altered_document_rejected_before_synthesis" time="0.378" /><testcase classname="tests.test_new_steward_unit" name="test_invented_evidence_id_rejected" time="0.304" /><testcase classname="tests.test_new_steward_unit" name="test_analytics_unavailable_without_calling_llm[\xbfCu\xe1nto fue el saldo total de TDC en junio?]" time="0.304" /><testcase classname="tests.test_new_steward_unit" name="test_analytics_unavailable_without_calling_llm[\xbfCu\xe1ntos clientes tienen anomal\xedas de fecha?]" time="0.308" /><testcase classname="tests.test_new_steward_unit" name="test_analytics_unavailable_without_calling_llm[\xbfQu\xe9 producto tuvo el mayor saldo en abril?]" time="0.311" /><testcase classname="tests.test_new_steward_unit" name="test_scope_rejected_when_legacy_document_is_returned" time="0.322" /><testcase classname="tests.test_new_steward_unit" name="test_selection_cannot_smuggle_generated_answer" time="0.000" /><testcase classname="tests.test_new_steward_unit" name="test_extractive_text_is_exactly_the_validated_claim_text" time="0.342" /><testcase classname="tests.test_new_steward_unit" name="test_history_keeps_topics_without_promoting_old_facts" time="0.323" /><testcase classname="tests.test_new_steward_unit" name="test_new_turn_cannot_reuse_stale_documents" time="0.301" /><testcase classname="tests.test_knowledge_corpus" name="test_corpus_count_and_atomic_chunks" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_all_catalog_content_is_preserved_exactly" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_every_document_has_traceable_metadata" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_absences_are_not_defined_fields" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_deterministic_ids_and_model_isolation" time="0.002" /><testcase classname="tests.test_knowledge_corpus" name="test_source_revision_produces_new_ids" time="0.005"><error message="failed on setup with &quot;PermissionError: [WinError 5] Access is denied: 'C:\\Users\\GJLG\\AppData\\Local\\Temp\\pytest-of-GJLG'&quot;">cls = &lt;class '_pytest.runner.CallInfo'&gt;
+func = &lt;function call_and_report.&lt;locals&gt;.&lt;lambda&gt; at 0x000001067FAC6840&gt;
+when = 'setup'
+reraise = (&lt;class '_pytest.outcomes.Exit'&gt;, &lt;class 'KeyboardInterrupt'&gt;)
+
+    @classmethod
+    def from_call(
+        cls,
+        func: Callable[[], TResult],
+        when: Literal["collect", "setup", "call", "teardown"],
+        reraise: type[BaseException] | tuple[type[BaseException], ...] | None = None,
+    ) -&gt; CallInfo[TResult]:
+        """Call func, wrapping the result in a CallInfo.
+    
+        :param func:
+            The function to call. Called without arguments.
+        :type func: Callable[[], _pytest.runner.TResult]
+        :param when:
+            The phase in which the function is called.
+        :param reraise:
+            Exception or exceptions that shall propagate if raised by the
+            function, instead of being wrapped in the CallInfo.
+        """
+        excinfo = None
+        instant = timing.Instant()
+        try:
+&gt;           result: TResult | None = func()
+                                     ^^^^^^
+
+.venv\Lib\site-packages\_pytest\runner.py:361: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\_pytest\runner.py:250: in &lt;lambda&gt;
+    lambda: runtest_hook(item=item, **kwds),
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\pluggy\_caller.py:197: in __call__
+    return self._hookexec(
+.venv\Lib\site-packages\pluggy\_manager.py:183: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\logging.py:858: in pytest_runtest_setup
+    yield
+.venv\Lib\site-packages\_pytest\capture.py:895: in pytest_runtest_setup
+    return (yield)
+            ^^^^^
+.venv\Lib\site-packages\_pytest\runner.py:170: in pytest_runtest_setup
+    item.session._setupstate.setup(item)
+.venv\Lib\site-packages\_pytest\runner.py:536: in setup
+    col.setup()
+.venv\Lib\site-packages\_pytest\python.py:1710: in setup
+    self._request._fillfixtures()
+.venv\Lib\site-packages\_pytest\fixtures.py:806: in _fillfixtures
+    item.funcargs[argname] = self.getfixturevalue(argname)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\fixtures.py:630: in getfixturevalue
+    fixturedef = self._get_active_fixturedef(argname)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\fixtures.py:726: in _get_active_fixturedef
+    fixturedef.execute(request=subrequest)
+.venv\Lib\site-packages\_pytest\fixtures.py:1232: in execute
+    result: FixtureValue = ihook.pytest_fixture_setup(
+.venv\Lib\site-packages\pluggy\_caller.py:197: in __call__
+    return self._hookexec(
+.venv\Lib\site-packages\pluggy\_manager.py:183: in _hookexec
+    return self._inner_hookexec(hook_name, methods, kwargs, firstresult)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\pluggy\_execution.py:64: in run_old_style_hookwrapper
+    return result.get_result()
+           ^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\pluggy\_execution.py:49: in run_old_style_hookwrapper
+    res = yield
+          ^^^^^
+.venv\Lib\site-packages\_pytest\setuponly.py:36: in pytest_fixture_setup
+    return (yield)
+            ^^^^^
+.venv\Lib\site-packages\_pytest\fixtures.py:1328: in pytest_fixture_setup
+    result = call_fixture_func(fixturefunc, request, kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\fixtures.py:998: in call_fixture_func
+    fixture_result = next(generator)
+                     ^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\tmpdir.py:300: in tmp_path
+    path = _mk_tmp(request, tmp_path_factory)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\tmpdir.py:287: in _mk_tmp
+    return factory.mktemp(name, numbered=True)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\tmpdir.py:136: in mktemp
+    basename = self._ensure_relative_to_basetemp(basename)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\tmpdir.py:117: in _ensure_relative_to_basetemp
+    if (self.getbasetemp() / basename).resolve().parent != self.getbasetemp():
+        ^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\tmpdir.py:213: in getbasetemp
+    basetemp = make_numbered_dir_with_cleanup(
+.venv\Lib\site-packages\_pytest\pathlib.py:420: in make_numbered_dir_with_cleanup
+    raise e
+.venv\Lib\site-packages\_pytest\pathlib.py:401: in make_numbered_dir_with_cleanup
+    p = make_numbered_dir(root, prefix, mode)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\pathlib.py:228: in make_numbered_dir
+    max_existing = max(map(parse_num, find_suffixes(root, prefix)), default=-1)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\_pytest\pathlib.py:187: in extract_suffixes
+    for entry in iter:
+                 ^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+root = WindowsPath('C:/Users/GJLG/AppData/Local/Temp/pytest-of-GJLG')
+prefix = 'pytest-'
+
+    def find_prefixed(root: Path, prefix: str) -&gt; Iterator[os.DirEntry[str]]:
+        """Find all elements in root that begin with the prefix, case-insensitive."""
+        l_prefix = prefix.lower()
+&gt;       for x in os.scandir(root):
+                 ^^^^^^^^^^^^^^^^
+E       PermissionError: [WinError 5] Access is denied: 'C:\\Users\\GJLG\\AppData\\Local\\Temp\\pytest-of-GJLG'
+
+.venv\Lib\site-packages\_pytest\pathlib.py:175: PermissionError</error></testcase><testcase classname="tests.test_knowledge_corpus" name="test_document_artifact_is_reproducible" time="0.002" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors0-1-3]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors1-1-3]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors2-1-3]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors3-1-3]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors4-1-3]" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors5-0-0]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_vectors_are_rejected[vectors6-0-16001]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_retrieval_returns_sources_and_cosine_similarity" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_queries_are_rejected[-5]" time="0.000" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_queries_are_rejected[   -5]" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_queries_are_rejected[query-0]" time="0.001" /><testcase classname="tests.test_knowledge_corpus" name="test_invalid_queries_are_rejected[query-21]" time="0.000" /><testcase classname="tests.test_new_bank_rag_unit" name="test_catalog_artifact_and_source_hashes" time="0.194" /><testcase classname="tests.test_new_bank_rag_unit" name="test_every_physical_column_and_nullable_declaration_matches_source" time="0.071" /><testcase classname="tests.test_new_bank_rag_unit" name="test_catalogs_products_signs_and_provenance" time="0.071" /><testcase classname="tests.test_new_bank_rag_unit" name="test_invalid_catalog_provenance_and_coverage_are_rejected[range]" time="0.071" /><testcase classname="tests.test_new_bank_rag_unit" name="test_invalid_catalog_provenance_and_coverage_are_rejected[hash]" time="0.083" /><testcase classname="tests.test_new_bank_rag_unit" name="test_invalid_catalog_provenance_and_coverage_are_rejected[classification]" time="0.070" /><testcase classname="tests.test_new_bank_rag_unit" name="test_invalid_catalog_provenance_and_coverage_are_rejected[coverage]" time="0.073" /><testcase classname="tests.test_new_bank_rag_unit" name="test_document_coverage_hashes_ids_pointers_and_artifacts" time="0.980" /><testcase classname="tests.test_new_bank_rag_unit" name="test_catalog_change_changes_document_identity" time="0.576" /><testcase classname="tests.test_new_bank_rag_unit" name="test_embedding_identity_produces_separate_corpora" time="0.382" /><testcase classname="tests.test_new_bank_rag_unit" name="test_bundle_tampering_is_rejected[content]" time="0.014" /><testcase classname="tests.test_new_bank_rag_unit" name="test_bundle_tampering_is_rejected[metadata]" time="0.012" /><testcase classname="tests.test_new_bank_rag_unit" name="test_bundle_tampering_is_rejected[embedding]" time="0.013" /><testcase classname="tests.test_new_bank_rag_unit" name="test_bundle_tampering_is_rejected[embedding_sha256]" time="0.011" /><testcase classname="tests.test_new_bank_rag_unit" name="test_absence_of_documentary_evidence_does_not_trigger_semantic_guess[\xbfCu\xe1l es la capital de Francia?]" time="0.011" /><testcase classname="tests.test_new_bank_rag_unit" name="test_absence_of_documentary_evidence_does_not_trigger_semantic_guess[\xbfQu\xe9 es dim.dim_cliente.color_favorito?]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_absence_of_documentary_evidence_does_not_trigger_semantic_guess[\xbfCu\xe1l es el saldo actual de la cuenta 100000?]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_absence_of_documentary_evidence_does_not_trigger_semantic_guess[\xbfQu\xe9 tasa de crecimiento se aplica en 2027?]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_supported_absence_is_documented_evidence" time="0.003" /><testcase classname="tests.test_new_bank_rag_unit" name="test_membership_facet_is_derived_from_catalog_not_test_questions[Enumera los productos de captaci\xf3n-CAPTACION]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_membership_facet_is_derived_from_catalog_not_test_questions[Lista los productos de colocaci\xf3n-COLOCACION]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_membership_facet_is_derived_from_catalog_not_test_questions[Productos de captaci\xf3n y colocaci\xf3n-None]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_membership_facet_is_derived_from_catalog_not_test_questions[Productos que no son de captaci\xf3n-None]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_membership_facet_is_derived_from_catalog_not_test_questions[\xbfQu\xe9 tasa tiene captaci\xf3n?-None]" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_isolated_guard_rejects_active_before_any_write" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_sql_scoped_to_new_storage_and_temporary_references" time="0.050" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retriever_scope_results_and_legacy_shape" time="0.323" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retriever_abstains_without_embedding_or_query" time="0.282" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retrieved_tampering_is_rejected[id]" time="0.300" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retrieved_tampering_is_rejected[metadata]" time="0.328" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retrieved_tampering_is_rejected[actual_vector_sha256]" time="0.248" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retrieved_tampering_is_rejected[dimension]" time="0.278" /><testcase classname="tests.test_new_bank_rag_unit" name="test_retrieved_tampering_is_rejected[distance]" time="0.286" /><testcase classname="tests.test_new_bank_rag_unit" name="test_wrong_retriever_scope_rejected_before_connection" time="0.001" /><testcase classname="tests.test_new_bank_rag_unit" name="test_document_text_cannot_be_laundered_by_rehashing" time="0.072" /></testsuite></testsuites>

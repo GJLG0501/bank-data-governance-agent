@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="17.859" timestamp="2026-10-22T21:07:25.202055-06:00" hostname="GERARDO"><testcase classname="tests.test_architecture_live" name="test_small_local_integration" time="16.811"><failure message="AssertionError: {'status': 'insufficient_evidence', 'answer': 'No encontré evidencia suficiente en el corpus recuperado para responder...o no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], 'evidence': [], ...}&#10;assert []&#10; +  where [] = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...a fuera de este catálogo sintético.', references=[], evidence=[], tool_calls=1, diagnostic=None, validation_results=[]).references">def test_small_local_integration():
+        rows=[];events=[]
+        try:
+            with agent_session(data_model='new_bank_2026',retrieval_mode='hybrid',debug=events.append) as agent:
+                for question in ['¿Qué moneda especifican los SQL?',
+                                 '¿Cuál es el cierre que abre mayo?', '¿Y en el mes siguiente?']:
+                    reply=agent.ask(question);rows.append({'question':question,**reply.to_dict()})
+&gt;                   assert reply.references,reply.to_dict()
+E                   AssertionError: {'status': 'insufficient_evidence', 'answer': 'No encontré evidencia suficiente en el corpus recuperado para responder...o no demuestra que el dato o campo no exista fuera de este catálogo sintético.', 'references': [], 'evidence': [], ...}
+E                   assert []
+E                    +  where [] = AgentReply(status='insufficient_evidence', answer='No encontré evidencia suficiente en el corpus recuperado para respo...a fuera de este catálogo sintético.', references=[], evidence=[], tool_calls=1, diagnostic=None, validation_results=[]).references
+
+tests\test_architecture_live.py:22: AssertionError</failure></testcase></testsuite></testsuites>

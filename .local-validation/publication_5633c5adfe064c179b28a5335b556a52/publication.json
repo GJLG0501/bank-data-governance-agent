@@ -1,0 +1,2002 @@
+{
+  "target": {
+    "container": "bank-data-governance-agent-dev-bank-postgres-1",
+    "id": "56bf7ea7a9f9f9d8a3c03d12162d973855f6299648e54b2c79eea931977a27a2",
+    "database": "bank_governance_synthetic_dev",
+    "volume": "bank-data-governance-agent-dev_bank-postgres-data",
+    "host": "127.0.0.1",
+    "port": 5434
+  },
+  "source": {
+    "container": "bank-data-governance-agent-dev-bank-postgres-1",
+    "id": "56bf7ea7a9f9f9d8a3c03d12162d973855f6299648e54b2c79eea931977a27a2",
+    "volume": "bank-data-governance-agent-dev_bank-postgres-data",
+    "database": "bank_governance_synthetic_dev",
+    "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+  },
+  "identity": {
+    "role": "bank_governance_dev",
+    "temp": true,
+    "create": true,
+    "vector": "0.8.7",
+    "connect": true,
+    "schemas": [],
+    "version": "17.11 (Debian 17.11-1.pgdg12+2)",
+    "database": "bank_governance_synthetic_dev",
+    "database_owner": "bank_governance_dev",
+    "event_triggers": 0,
+    "open_transactions": 0,
+    "prepared_transactions": 0
+  },
+  "before": {
+    "context": {
+      "role": "bank_governance_dev",
+      "database": "bank_governance_synthetic_dev",
+      "server_version": "17.11 (Debian 17.11-1.pgdg12+2)"
+    },
+    "protected": {
+      "rows": {
+        "public.LOAN": {
+          "count": 500,
+          "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+        },
+        "public.CUSTOMER": {
+          "count": 1000,
+          "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+        },
+        "public.TRANSACTION": {
+          "count": 5000,
+          "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+        },
+        "bank_knowledge.corpora": {
+          "count": 1,
+          "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+        },
+        "bank_knowledge.documents": {
+          "count": 24,
+          "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+        }
+      },
+      "columns": {
+        "public.LOAN": [
+          {
+            "type": "text",
+            "column": "loan_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 1,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "customer_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 2,
+            "generated": ""
+          },
+          {
+            "type": "double precision",
+            "column": "balance",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 3,
+            "generated": ""
+          },
+          {
+            "type": "double precision",
+            "column": "interest_rate",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 4,
+            "generated": ""
+          },
+          {
+            "type": "integer",
+            "column": "dpd",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 5,
+            "generated": ""
+          }
+        ],
+        "public.CUSTOMER": [
+          {
+            "type": "text",
+            "column": "customer_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 1,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "segment",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 2,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "risk_level",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 3,
+            "generated": ""
+          },
+          {
+            "type": "double precision",
+            "column": "annual_income",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 4,
+            "generated": ""
+          }
+        ],
+        "public.TRANSACTION": [
+          {
+            "type": "text",
+            "column": "transaction_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 1,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "customer_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 2,
+            "generated": ""
+          },
+          {
+            "type": "double precision",
+            "column": "amount",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 3,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "channel",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 4,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "merchant_category",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 5,
+            "generated": ""
+          }
+        ],
+        "bank_knowledge.corpora": [
+          {
+            "type": "uuid",
+            "column": "corpus_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 1,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "source",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 2,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "source_version",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 3,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "source_sha256",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 4,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "renderer_version",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 5,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "model_name",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 6,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "model_digest",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 7,
+            "generated": ""
+          },
+          {
+            "type": "integer",
+            "column": "dimension",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 8,
+            "generated": ""
+          },
+          {
+            "type": "integer",
+            "column": "document_count",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 9,
+            "generated": ""
+          }
+        ],
+        "bank_knowledge.documents": [
+          {
+            "type": "uuid",
+            "column": "id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 1,
+            "generated": ""
+          },
+          {
+            "type": "uuid",
+            "column": "corpus_id",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 2,
+            "generated": ""
+          },
+          {
+            "type": "text",
+            "column": "content",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 3,
+            "generated": ""
+          },
+          {
+            "type": "jsonb",
+            "column": "metadata",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 4,
+            "generated": ""
+          },
+          {
+            "type": "public.vector(1024)",
+            "column": "embedding",
+            "default": null,
+            "identity": "",
+            "not_null": true,
+            "position": 5,
+            "generated": ""
+          }
+        ]
+      },
+      "indexes": {
+        "public.LOAN": [
+          {
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX loan_pk ON public.\"LOAN\" USING btree (loan_id)"
+          }
+        ],
+        "public.CUSTOMER": [
+          {
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX customer_pk ON public.\"CUSTOMER\" USING btree (customer_id)"
+          }
+        ],
+        "public.TRANSACTION": [
+          {
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX transaction_pk ON public.\"TRANSACTION\" USING btree (transaction_id)"
+          }
+        ],
+        "bank_knowledge.corpora": [
+          {
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX corpora_pkey ON bank_knowledge.corpora USING btree (corpus_id)"
+          }
+        ],
+        "bank_knowledge.documents": [
+          {
+            "valid": true,
+            "definition": "CREATE INDEX bank_knowledge_documents_corpus_idx ON bank_knowledge.documents USING btree (corpus_id)"
+          },
+          {
+            "valid": true,
+            "definition": "CREATE UNIQUE INDEX documents_pkey ON bank_knowledge.documents USING btree (id)"
+          }
+        ]
+      },
+      "vectors": {
+        "documents": 24,
+        "dimensions": [
+          1024
+        ],
+        "null_embeddings": 0
+      },
+      "constraints": {
+        "public.LOAN": [
+          {
+            "kind": "c",
+            "name": "loan_balance_range",
+            "validated": true,
+            "definition": "CHECK (((balance >= (1000)::double precision) AND (balance <= (3000000)::double precision)))"
+          },
+          {
+            "kind": "f",
+            "name": "loan_customer_id_fk",
+            "validated": true,
+            "definition": "FOREIGN KEY (customer_id) REFERENCES public.\"CUSTOMER\"(customer_id) ON DELETE RESTRICT"
+          },
+          {
+            "kind": "c",
+            "name": "loan_customer_id_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+          },
+          {
+            "kind": "c",
+            "name": "loan_dpd_range",
+            "validated": true,
+            "definition": "CHECK (((dpd >= 0) AND (dpd <= 365)))"
+          },
+          {
+            "kind": "c",
+            "name": "loan_interest_rate_range",
+            "validated": true,
+            "definition": "CHECK (((interest_rate >= (5)::double precision) AND (interest_rate <= (60)::double precision)))"
+          },
+          {
+            "kind": "c",
+            "name": "loan_loan_id_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(loan_id)) > 0))"
+          },
+          {
+            "kind": "p",
+            "name": "loan_pk",
+            "validated": true,
+            "definition": "PRIMARY KEY (loan_id)"
+          }
+        ],
+        "public.CUSTOMER": [
+          {
+            "kind": "c",
+            "name": "customer_annual_income_range",
+            "validated": true,
+            "definition": "CHECK (((annual_income >= (60000)::double precision) AND (annual_income <= (12000000)::double precision)))"
+          },
+          {
+            "kind": "c",
+            "name": "customer_customer_id_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+          },
+          {
+            "kind": "p",
+            "name": "customer_pk",
+            "validated": true,
+            "definition": "PRIMARY KEY (customer_id)"
+          },
+          {
+            "kind": "c",
+            "name": "customer_risk_level_allowed",
+            "validated": true,
+            "definition": "CHECK ((risk_level = ANY (ARRAY['LOW'::text, 'MEDIUM'::text, 'HIGH'::text])))"
+          },
+          {
+            "kind": "c",
+            "name": "customer_risk_level_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(risk_level)) > 0))"
+          },
+          {
+            "kind": "c",
+            "name": "customer_segment_allowed",
+            "validated": true,
+            "definition": "CHECK ((segment = ANY (ARRAY['MASS'::text, 'PREMIER'::text, 'PRIVATE'::text])))"
+          },
+          {
+            "kind": "c",
+            "name": "customer_segment_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(segment)) > 0))"
+          }
+        ],
+        "public.TRANSACTION": [
+          {
+            "kind": "c",
+            "name": "transaction_amount_range",
+            "validated": true,
+            "definition": "CHECK (((amount >= (10)::double precision) AND (amount <= (250000)::double precision)))"
+          },
+          {
+            "kind": "c",
+            "name": "transaction_channel_allowed",
+            "validated": true,
+            "definition": "CHECK ((channel = ANY (ARRAY['BRANCH'::text, 'ATM'::text, 'MOBILE'::text, 'WEB'::text])))"
+          },
+          {
+            "kind": "c",
+            "name": "transaction_channel_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(channel)) > 0))"
+          },
+          {
+            "kind": "f",
+            "name": "transaction_customer_id_fk",
+            "validated": true,
+            "definition": "FOREIGN KEY (customer_id) REFERENCES public.\"CUSTOMER\"(customer_id) ON DELETE RESTRICT"
+          },
+          {
+            "kind": "c",
+            "name": "transaction_customer_id_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+          },
+          {
+            "kind": "c",
+            "name": "transaction_merchant_category_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(merchant_category)) > 0))"
+          },
+          {
+            "kind": "p",
+            "name": "transaction_pk",
+            "validated": true,
+            "definition": "PRIMARY KEY (transaction_id)"
+          },
+          {
+            "kind": "c",
+            "name": "transaction_transaction_id_nonempty",
+            "validated": true,
+            "definition": "CHECK ((length(btrim(transaction_id)) > 0))"
+          }
+        ],
+        "bank_knowledge.corpora": [
+          {
+            "kind": "c",
+            "name": "corpora_dimension_check",
+            "validated": true,
+            "definition": "CHECK (((dimension >= 1) AND (dimension <= 16000)))"
+          },
+          {
+            "kind": "c",
+            "name": "corpora_document_count_check",
+            "validated": true,
+            "definition": "CHECK ((document_count > 0))"
+          },
+          {
+            "kind": "p",
+            "name": "corpora_pkey",
+            "validated": true,
+            "definition": "PRIMARY KEY (corpus_id)"
+          },
+          {
+            "kind": "c",
+            "name": "corpora_source_sha256_check",
+            "validated": true,
+            "definition": "CHECK ((source_sha256 ~ '^[0-9a-f]{64}$'::text))"
+          }
+        ],
+        "bank_knowledge.documents": [
+          {
+            "kind": "c",
+            "name": "documents_content_check",
+            "validated": true,
+            "definition": "CHECK ((length(content) > 0))"
+          },
+          {
+            "kind": "f",
+            "name": "documents_corpus_id_fkey",
+            "validated": true,
+            "definition": "FOREIGN KEY (corpus_id) REFERENCES bank_knowledge.corpora(corpus_id) ON DELETE RESTRICT"
+          },
+          {
+            "kind": "c",
+            "name": "documents_metadata_check",
+            "validated": true,
+            "definition": "CHECK (((jsonb_typeof(metadata) = 'object'::text) AND (metadata ?& ARRAY['source'::text, 'source_version'::text, 'source_sha256'::text, 'table'::text, 'field'::text, 'kind'::text, 'json_pointer'::text, 'renderer_version'::text, 'chunk_sha256'::text, 'document_id'::text, 'embedding_model'::text, 'embedding_digest'::text, 'embedding_dimension'::text])))"
+          },
+          {
+            "kind": "p",
+            "name": "documents_pkey",
+            "validated": true,
+            "definition": "PRIMARY KEY (id)"
+          }
+        ]
+      },
+      "relations_found": 5,
+      "vector_extension": "0.8.7"
+    },
+    "snapshot_format": "legacy-protected-v1"
+  },
+  "historical_fingerprints": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "protected_files": {
+    "scripts/bank_data.py": "6715d025259c735fc2c5bd08274304d204aaaa7ac6da0aaa5660c9a725813f19",
+    "scripts/knowledge_corpus.py": "a3a564b1503cf623ddff0b7dba2d1d148afade2726e9ce681989d37ac3c30317",
+    "scripts/data_steward_agent.py": "e50df5922982d8dd35d110a5bf27a2d9b7ebbd74c2b890326ef1c1dcf25eb12d",
+    "data/source/bank_metadata.json": "c0e5aadebf49a16ef3cd31c095e7e77389fb730b344b81940a3f19ac596c5fbf",
+    "data/corpus/bank_metadata.documents.jsonl": "792f7192b440683b94dbaef35663d6dfa1279e01f00bea08b664856ff0e94464"
+  },
+  "code_files": {
+    "scripts/new_bank_model.py": "7aabcce055fb8105f67bed8a76427e46b8133a9590402b7312920282c14f4015",
+    "scripts/new_bank_publication.py": "d284f65acc449a31429e680b5568d7e05d543cd34837e6a7023915769df942e6",
+    "scripts/new_bank_integration.py": "628a224f0f4c48c816f1322ef36486829e659557d6e89e548370afffaab53de0",
+    "scripts/new_bank_runtime_validation.py": "078501d71945219e63aa30422973a11e9d0cdaddb569e0ce99d90695dbb71905",
+    "sql/integration/checks/model_structure.sql": "cb0252c3f7d7525f314c39e61fbe692c6b043c3b41bc7a709486180676d9a71a",
+    "sql/integration/checks/new_bank_dataset.sql": "13a4faa6dfbd7005a8f4b51e36b57cf02872e82f2647465aaba8a9b8e5cce9a2",
+    "sql/integration/checks/legacy_snapshot.sql": "1c7c2d1c720ab60c851b7a819bf0acb65fbd15dde856e9112d3428c80e47cd7a",
+    "data/source/new_bank_model/dataset-202601.manifest.json": "03fa74cec9ac2e7b39c503e68f7a3b4cab89984d2f4556debb64681203bd8714"
+  },
+  "manifest": {
+    "adaptation_version": "1.0.0",
+    "algorithm": "sha256-rounded-uniform-v1",
+    "canonical_format": "json-array-of-text-or-null/UTF8/LF-between-rows/no-final-LF/v1",
+    "currency": null,
+    "generator_version": "1.0.0",
+    "manifest_version": "1.0.0",
+    "migrations_sha256": {
+      "sql/integration/001_new_bank_schemas_tables.sql": "27d7e522cc7c166f3577831e17f9bd22ce9d1c8b8fe2e69bc001b896d1f99c4a",
+      "sql/integration/002_new_bank_integrity.sql": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8"
+    },
+    "model_id": "new_bank_2026",
+    "period": [
+      202601,
+      202606
+    ],
+    "rounding": "Decimal.ROUND_HALF_UP/2",
+    "seed": 202601,
+    "sort_keys": {
+      "cfg.fact_sdos_captacoloca_m": [
+        "num_cta",
+        "cve_producto",
+        "fec_informacion"
+      ],
+      "cfg.fact_txn_captacoloca_d": [
+        "num_cta",
+        "cve_producto",
+        "cve_mes_txn",
+        "cve_txn"
+      ],
+      "cfg.ref_cuenta_modelo": [
+        "num_cta",
+        "cve_producto"
+      ],
+      "cfg.ref_txn_modelo": [
+        "cve_producto",
+        "cve_txn"
+      ],
+      "dim.dim_cliente": [
+        "num_cte"
+      ],
+      "dim.dim_producto": [
+        "cve_producto"
+      ],
+      "dim.dim_txn": [
+        "cve_producto",
+        "cve_txn"
+      ]
+    },
+    "source_sha256": {
+      "sql/upstream/001_dimensiones_cliente_producto_txn.sql": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+      "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+      "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3"
+    },
+    "tables": {
+      "cfg.fact_sdos_captacoloca_m": {
+        "rows": 120000,
+        "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+      },
+      "cfg.fact_txn_captacoloca_d": {
+        "rows": 225000,
+        "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+      },
+      "cfg.ref_cuenta_modelo": {
+        "rows": 20000,
+        "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+      },
+      "cfg.ref_txn_modelo": {
+        "rows": 9,
+        "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+      },
+      "dim.dim_cliente": {
+        "rows": 5000,
+        "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+      },
+      "dim.dim_producto": {
+        "rows": 4,
+        "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+      },
+      "dim.dim_txn": {
+        "rows": 9,
+        "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+      }
+    },
+    "dataset_sha256": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b"
+  },
+  "isolated_state": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\9065d649f8d74222bd04dc58a0e54835\\state.json",
+  "structure_002": {
+    "owners": [
+      "bank_governance_dev"
+    ],
+    "tables": [
+      "cfg.fact_sdos_captacoloca_m",
+      "cfg.fact_txn_captacoloca_d",
+      "cfg.ref_cuenta_modelo",
+      "cfg.ref_txn_modelo",
+      "dim.dim_cliente",
+      "dim.dim_producto",
+      "dim.dim_txn"
+    ],
+    "columns": [
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "num_cta",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "num_cte",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "cve_producto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "fec_alta",
+        "date",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "cve_mes_alta",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "saldo_apertura",
+        "numeric(18,2)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "saldo_mes",
+        "numeric(18,2)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "fec_informacion",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "dominio",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "num_cta",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "num_cte",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "cve_producto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "fec_txn",
+        "date",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "cve_mes_txn",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "saldo_txn",
+        "numeric(18,2)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "cve_txn",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "desc_txn",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "fec_informacion",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "dominio",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "num_cta",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "num_cte",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "cve_producto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "fec_alta",
+        "date",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "cve_mes_alta",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "cve_producto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "cve_txn",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "desc_txn",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "cve_dominio",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "grupo_producto",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "signo_economico",
+        "smallint",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "regla_version",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "num_cte",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "fec_alta",
+        "date",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "fec_nac",
+        "date",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "tipo_persona",
+        "character varying(10)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "genero_cte",
+        "character varying(10)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "segmento_cte",
+        "character varying(20)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "giro_empresa",
+        "character varying(30)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "cve_territorio",
+        "character varying(255)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "cve_dir",
+        "character varying(255)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "cve_subdir",
+        "character varying(255)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "cve_sucursal",
+        "integer",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_cliente",
+        "cve_promotor",
+        "character varying(10)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_producto",
+        "cve_producto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_producto",
+        "cve_dominio",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_producto",
+        "grupo_producto",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_producto",
+        "cve_subproducto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_producto",
+        "descripcion",
+        "character varying(100)",
+        false,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_producto",
+        "activo",
+        "boolean",
+        false,
+        "true",
+        "",
+        ""
+      ],
+      [
+        "dim.dim_txn",
+        "cve_producto",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_txn",
+        "cve_dominio",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_txn",
+        "grupo_producto",
+        "character varying(20)",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_txn",
+        "cve_txn",
+        "integer",
+        true,
+        null,
+        "",
+        ""
+      ],
+      [
+        "dim.dim_txn",
+        "desc_txn",
+        "character varying(40)",
+        true,
+        null,
+        "",
+        ""
+      ]
+    ],
+    "indexes": [
+      "CREATE UNIQUE INDEX dim_cliente_pkey ON dim.dim_cliente USING btree (num_cte)",
+      "CREATE UNIQUE INDEX dim_producto_pkey ON dim.dim_producto USING btree (cve_producto)",
+      "CREATE UNIQUE INDEX nbm_sdos_cuenta_corte_uq ON cfg.fact_sdos_captacoloca_m USING btree (num_cta, cve_producto, fec_informacion)",
+      "CREATE UNIQUE INDEX nbm_txn_evento_sintetico_uq ON cfg.fact_txn_captacoloca_d USING btree (num_cta, cve_producto, cve_mes_txn, cve_txn)",
+      "CREATE UNIQUE INDEX ref_cuenta_modelo_num_cta_cve_producto_num_cte_key ON cfg.ref_cuenta_modelo USING btree (num_cta, cve_producto, num_cte)",
+      "CREATE UNIQUE INDEX ref_cuenta_modelo_num_cte_cve_producto_key ON cfg.ref_cuenta_modelo USING btree (num_cte, cve_producto)",
+      "CREATE UNIQUE INDEX ref_cuenta_modelo_pkey ON cfg.ref_cuenta_modelo USING btree (num_cta, cve_producto)",
+      "CREATE UNIQUE INDEX ref_txn_modelo_cve_producto_cve_txn_desc_txn_key ON cfg.ref_txn_modelo USING btree (cve_producto, cve_txn, desc_txn)",
+      "CREATE UNIQUE INDEX ref_txn_modelo_pkey ON cfg.ref_txn_modelo USING btree (cve_producto, cve_txn)"
+    ],
+    "constraints": [
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_alta_ck",
+        "c",
+        "CHECK (((fec_alta = '2026-01-01'::date) AND (cve_mes_alta = 202601)))",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_corte_ck",
+        "c",
+        "CHECK ((fec_informacion = ANY (ARRAY[20260131, 20260228, 20260331, 20260430, 20260531, 20260630])))",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_cuenta_corte_uq",
+        "u",
+        "UNIQUE (num_cta, cve_producto, fec_informacion)",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_cuenta_fk",
+        "f",
+        "FOREIGN KEY (num_cta, cve_producto, num_cte) REFERENCES cfg.ref_cuenta_modelo(num_cta, cve_producto, num_cte) ON UPDATE RESTRICT ON DELETE RESTRICT",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_dominio_origen_ck",
+        "c",
+        "CHECK (((dominio)::text =\nCASE\n    WHEN (fec_informacion = 20260131) THEN\n    CASE\n        WHEN ((cve_producto)::text = ANY ((ARRAY['CHEQUES'::character varying, 'AHORRO'::character varying])::text[])) THEN 'CAPTACION'::text\n        ELSE 'COLOCACION'::text\n    END\n    ELSE\n    CASE\n        WHEN ((cve_producto)::text = ANY ((ARRAY['CHEQUES'::character varying, 'AHORRO'::character varying])::text[])) THEN 'DEPOSITS'::text\n        WHEN ((cve_producto)::text = 'C_PERSONAL'::text) THEN 'LENDING'::text\n        WHEN ((cve_producto)::text = 'TDC'::text) THEN 'TDC'::text\n        ELSE NULL::text\n    END\nEND))",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_enero_ck",
+        "c",
+        "CHECK (((fec_informacion <> 20260131) OR ((saldo_mes = saldo_apertura) AND ((((cve_producto)::text = 'CHEQUES'::text) AND ((saldo_apertura >= 8000.00) AND (saldo_apertura <= 12000.00))) OR (((cve_producto)::text = 'AHORRO'::text) AND ((saldo_apertura >= 5.00) AND (saldo_apertura <= 10000.00))) OR (((cve_producto)::text = 'TDC'::text) AND ((saldo_apertura >= 10000.00) AND (saldo_apertura <= 120000.00))) OR (((cve_producto)::text = 'C_PERSONAL'::text) AND ((saldo_apertura >= 50000.00) AND (saldo_apertura <= 85000.00)))))))",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_importes_ck",
+        "c",
+        "CHECK (((saldo_apertura > (0)::numeric) AND (saldo_apertura < 'Infinity'::numeric) AND (saldo_mes > (0)::numeric) AND (saldo_mes < 'Infinity'::numeric)))",
+        true
+      ],
+      [
+        "cfg.fact_sdos_captacoloca_m",
+        "nbm_sdos_objetivo_ck",
+        "c",
+        "CHECK (((fec_informacion = 20260131) OR (saldo_mes = round((saldo_apertura * ((1)::numeric +\nCASE\n    WHEN (fec_informacion = 20260228) THEN\n    CASE\n        WHEN ((cve_producto)::text = ANY ((ARRAY['CHEQUES'::character varying, 'AHORRO'::character varying])::text[])) THEN 0.02\n        ELSE 0.03\n    END\n    ELSE\n    CASE\n        WHEN ((cve_producto)::text = ANY ((ARRAY['CHEQUES'::character varying, 'AHORRO'::character varying])::text[])) THEN 0.01\n        ELSE 0.022\n    END\nEND)), 2))))",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_catalogo_fk",
+        "f",
+        "FOREIGN KEY (cve_producto, cve_txn, desc_txn) REFERENCES cfg.ref_txn_modelo(cve_producto, cve_txn, desc_txn) ON UPDATE RESTRICT ON DELETE RESTRICT",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_corte_ck",
+        "c",
+        "CHECK (((fec_informacion = ANY (ARRAY[20260228, 20260331, 20260430, 20260531, 20260630])) AND ((fec_informacion / 100) = cve_mes_txn)))",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_cuenta_fk",
+        "f",
+        "FOREIGN KEY (num_cta, cve_producto, num_cte) REFERENCES cfg.ref_cuenta_modelo(num_cta, cve_producto, num_cte) ON UPDATE RESTRICT ON DELETE RESTRICT",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_dominio_origen_ck",
+        "c",
+        "CHECK (((dominio)::text =\nCASE\n    WHEN ((cve_producto)::text = ANY ((ARRAY['CHEQUES'::character varying, 'AHORRO'::character varying])::text[])) THEN 'DEPOSITS'::text\n    WHEN ((cve_producto)::text = 'C_PERSONAL'::text) THEN 'LENDING'::text\n    WHEN ((cve_producto)::text = 'TDC'::text) THEN 'TDC'::text\n    ELSE NULL::text\nEND))",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_evento_sintetico_uq",
+        "u",
+        "UNIQUE (num_cta, cve_producto, cve_mes_txn, cve_txn)",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_fecha_ck",
+        "c",
+        "CHECK ((isfinite(fec_txn) AND (EXTRACT(day FROM fec_txn) = (15)::numeric) AND (((EXTRACT(year FROM fec_txn) * (100)::numeric) + EXTRACT(month FROM fec_txn)) = (cve_mes_txn)::numeric)))",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_importe_ck",
+        "c",
+        "CHECK (((saldo_txn > (0)::numeric) AND (saldo_txn < 'Infinity'::numeric)))",
+        true
+      ],
+      [
+        "cfg.fact_txn_captacoloca_d",
+        "nbm_txn_mes_ck",
+        "c",
+        "CHECK ((cve_mes_txn = ANY (ARRAY[202602, 202603, 202604, 202605, 202606])))",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "nbm_ref_cuenta_cliente_fk",
+        "f",
+        "FOREIGN KEY (num_cte) REFERENCES dim.dim_cliente(num_cte) ON UPDATE RESTRICT ON DELETE RESTRICT",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "nbm_ref_cuenta_producto_fk",
+        "f",
+        "FOREIGN KEY (cve_producto) REFERENCES dim.dim_producto(cve_producto) ON UPDATE RESTRICT ON DELETE RESTRICT",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "ref_cuenta_modelo_check",
+        "c",
+        "CHECK (((((cve_producto)::text = 'CHEQUES'::text) AND ((num_cta >= 100000) AND (num_cta <= 104999))) OR (((cve_producto)::text = 'AHORRO'::text) AND ((num_cta >= 200000) AND (num_cta <= 204999))) OR (((cve_producto)::text = 'TDC'::text) AND ((num_cta >= 300000) AND (num_cta <= 304999))) OR (((cve_producto)::text = 'C_PERSONAL'::text) AND ((num_cta >= 400000) AND (num_cta <= 404999)))))",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "ref_cuenta_modelo_check1",
+        "c",
+        "CHECK (((fec_alta = '2026-01-01'::date) AND (cve_mes_alta = 202601)))",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "ref_cuenta_modelo_num_cta_cve_producto_num_cte_key",
+        "u",
+        "UNIQUE (num_cta, cve_producto, num_cte)",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "ref_cuenta_modelo_num_cte_cve_producto_key",
+        "u",
+        "UNIQUE (num_cte, cve_producto)",
+        true
+      ],
+      [
+        "cfg.ref_cuenta_modelo",
+        "ref_cuenta_modelo_pkey",
+        "p",
+        "PRIMARY KEY (num_cta, cve_producto)",
+        true
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "nbm_ref_txn_producto_fk",
+        "f",
+        "FOREIGN KEY (cve_producto) REFERENCES dim.dim_producto(cve_producto) ON UPDATE RESTRICT ON DELETE RESTRICT",
+        true
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "ref_txn_modelo_check",
+        "c",
+        "CHECK ((((((((((((cve_producto)::text = 'CHEQUES'::text) AND (cve_txn = 100) AND ((desc_txn)::text = 'DEPOSITO'::text) AND ((cve_dominio)::text = 'DEPOSITS'::text) AND ((grupo_producto)::text = 'CAPTACION'::text) AND (signo_economico = 1)) OR (((cve_producto)::text = 'CHEQUES'::text) AND (cve_txn = 200) AND ((desc_txn)::text = 'RETIRO'::text) AND ((cve_dominio)::text = 'DEPOSITS'::text) AND ((grupo_producto)::text = 'CAPTACION'::text) AND (signo_economico = '-1'::integer))) OR (((cve_producto)::text = 'AHORRO'::text) AND (cve_txn = 100) AND ((desc_txn)::text = 'DEPOSITO'::text) AND ((cve_dominio)::text = 'DEPOSITS'::text) AND ((grupo_producto)::text = 'CAPTACION'::text) AND (signo_economico = 1))) OR (((cve_producto)::text = 'AHORRO'::text) AND (cve_txn = 200) AND ((desc_txn)::text = 'RETIRO'::text) AND ((cve_dominio)::text = 'DEPOSITS'::text) AND ((grupo_producto)::text = 'CAPTACION'::text) AND (signo_economico = '-1'::integer))) OR (((cve_producto)::text = 'C_PERSONAL'::text) AND (cve_txn = 300) AND ((desc_txn)::text = 'PAGOS'::text) AND ((cve_dominio)::text = 'LENDING'::text) AND ((grupo_producto)::text = 'COLOCACION'::text) AND (signo_economico = '-1'::integer))) OR (((cve_producto)::text = 'C_PERSONAL'::text) AND (cve_txn = 450) AND ((desc_txn)::text = 'DISPOSICIONES'::text) AND ((cve_dominio)::text = 'LENDING'::text) AND ((grupo_producto)::text = 'COLOCACION'::text) AND (signo_economico = 1))) OR (((cve_producto)::text = 'TDC'::text) AND (cve_txn = 300) AND ((desc_txn)::text = 'PAGOS'::text) AND ((cve_dominio)::text = 'TDC'::text) AND ((grupo_producto)::text = 'COLOCACION'::text) AND (signo_economico = '-1'::integer))) OR (((cve_producto)::text = 'TDC'::text) AND (cve_txn = 400) AND ((desc_txn)::text = 'COMPRAS'::text) AND ((cve_dominio)::text = 'TDC'::text) AND ((grupo_producto)::text = 'COLOCACION'::text) AND (signo_economico = 1))) OR (((cve_producto)::text = 'TDC'::text) AND (cve_txn = 450) AND ((desc_txn)::text = 'DISPOSICIONES'::text) AND ((cve_dominio)::text = 'TDC'::text) AND ((grupo_producto)::text = 'COLOCACION'::text) AND (signo_economico = 1))))",
+        true
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "ref_txn_modelo_cve_producto_cve_txn_desc_txn_key",
+        "u",
+        "UNIQUE (cve_producto, cve_txn, desc_txn)",
+        true
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "ref_txn_modelo_pkey",
+        "p",
+        "PRIMARY KEY (cve_producto, cve_txn)",
+        true
+      ],
+      [
+        "cfg.ref_txn_modelo",
+        "ref_txn_modelo_regla_version_check",
+        "c",
+        "CHECK (((regla_version)::text = '1.0.0'::text))",
+        true
+      ],
+      [
+        "dim.dim_cliente",
+        "dim_cliente_genero_cte_check",
+        "c",
+        "CHECK (((genero_cte)::text = ANY ((ARRAY['HOMBRE'::character varying, 'MUJER'::character varying, 'NO APLICA'::character varying])::text[])))",
+        true
+      ],
+      [
+        "dim.dim_cliente",
+        "dim_cliente_pkey",
+        "p",
+        "PRIMARY KEY (num_cte)",
+        true
+      ],
+      [
+        "dim.dim_cliente",
+        "dim_cliente_tipo_persona_check",
+        "c",
+        "CHECK (((tipo_persona)::text = ANY ((ARRAY['PF'::character varying, 'PM'::character varying])::text[])))",
+        true
+      ],
+      [
+        "dim.dim_producto",
+        "dim_producto_cve_dominio_check",
+        "c",
+        "CHECK (((cve_dominio)::text = ANY ((ARRAY['DEPOSITS'::character varying, 'LENDING'::character varying, 'TDC'::character varying])::text[])))",
+        true
+      ],
+      [
+        "dim.dim_producto",
+        "dim_producto_pkey",
+        "p",
+        "PRIMARY KEY (cve_producto)",
+        true
+      ]
+    ]
+  },
+  "isolated_dataset_verified": true,
+  "generation_timings": {
+    "generation_seconds": 0.6575284999562427,
+    "canonical_hash_seconds": 2.363719700020738
+  },
+  "run_id": "5633c5adfe064c179b28a5335b556a52",
+  "authorization": "publish-new-bank-2026-to-original-development-only-v1",
+  "status": "published_verified",
+  "backup": {
+    "path": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\publication_5633c5adfe064c179b28a5335b556a52\\database.dump",
+    "bytes": 207336,
+    "sha256": "520d400787acc685ea630833edc3cae91e3596c0369d92cc48382938d25ddca5",
+    "dump_exit_code": 0,
+    "list_exit_code": 0,
+    "container_archive": "/tmp/nbm-publication-5633c5adfe064c179b28a5335b556a52.dump",
+    "restoration_verified": true,
+    "restore_exit_code": 0,
+    "restore_container": "nbm-pg17-validation-9065d649f8d74222bd04dc58a0e54835",
+    "restore_database": "nbm_case_9065d649f8d74222_publication_fresh_backup_9f511a9c"
+  },
+  "created_utc": "2026-10-22T22:54:53.562746+00:00",
+  "migrations": [
+    {
+      "file": "sql/integration/001_new_bank_schemas_tables.sql",
+      "sha256": "27d7e522cc7c166f3577831e17f9bd22ce9d1c8b8fe2e69bc001b896d1f99c4a",
+      "exit_code": 0
+    },
+    {
+      "file": "sql/integration/002_new_bank_integrity.sql",
+      "sha256": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8",
+      "exit_code": 0
+    }
+  ],
+  "verified_utc": "2026-10-22T22:56:20.427114+00:00",
+  "result": {
+    "result": "cargado",
+    "dataset_sha256": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b"
+  },
+  "repeat": {
+    "result": "sin cambios",
+    "dataset_sha256": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b"
+  },
+  "validation": {
+    "counts": {
+      "dim.dim_txn": 9,
+      "dim.dim_cliente": 5000,
+      "dim.dim_producto": 4,
+      "cfg.ref_txn_modelo": 9,
+      "cfg.ref_cuenta_modelo": 20000,
+      "cfg.fact_txn_captacoloca_d": 225000,
+      "cfg.fact_sdos_captacoloca_m": 120000
+    },
+    "quality": {
+      "anomalies": {
+        "currency": null,
+        "classification": "upstream_preserved_not_corrected",
+        "pm_birth_field_undefined": 200,
+        "january_group_domain_rows": 20000,
+        "pf_under_18_at_registration": 1027,
+        "pf_registration_before_birth": 44,
+        "all_clients_have_all_products": true,
+        "pf_under_18_at_source_reference": 0
+      },
+      "violations": {
+        "growth": 0,
+        "january": 0,
+        "ownership": 0,
+        "continuity": 0,
+        "raw_domain": 0,
+        "event_dates": 0,
+        "client_rules": 0,
+        "account_dates": 0,
+        "event_formula": 0,
+        "client_orphans": 0,
+        "reconciliation": 0,
+        "product_orphans": 0,
+        "missing_balances": 0,
+        "catalog_duplicates": 0,
+        "event_group_counts": 0,
+        "balance_group_counts": 0,
+        "catalog_multiplication": 0,
+        "missing_or_unknown_events": 0
+      },
+      "clients_by_type": {
+        "PF": 4800,
+        "PM": 200
+      },
+      "clients_by_gender": {
+        "MUJER": 2304,
+        "HOMBRE": 2496,
+        "NO APLICA": 200
+      },
+      "clients_by_segment": {
+        "MASIVO": 3750,
+        "PREMIUM": 250,
+        "PREFERENTE": 1000
+      },
+      "accounts_by_product": {
+        "TDC": 5000,
+        "AHORRO": 5000,
+        "CHEQUES": 5000,
+        "C_PERSONAL": 5000
+      },
+      "balances_by_cut_product": [
+        {
+          "rows": 5000,
+          "max_close": "9998.16",
+          "min_close": "11.25",
+          "cve_producto": "AHORRO",
+          "closing_total": "25534797.73",
+          "opening_total": "25534797.73",
+          "fec_informacion": 20260131
+        },
+        {
+          "rows": 5000,
+          "max_close": "11998.19",
+          "min_close": "8001.24",
+          "cve_producto": "CHEQUES",
+          "closing_total": "49808697.27",
+          "opening_total": "49808697.27",
+          "fec_informacion": 20260131
+        },
+        {
+          "rows": 5000,
+          "max_close": "84996.58",
+          "min_close": "50002.60",
+          "cve_producto": "C_PERSONAL",
+          "closing_total": "337445507.43",
+          "opening_total": "337445507.43",
+          "fec_informacion": 20260131
+        },
+        {
+          "rows": 5000,
+          "max_close": "119996.11",
+          "min_close": "10031.85",
+          "cve_producto": "TDC",
+          "closing_total": "326821039.16",
+          "opening_total": "326821039.16",
+          "fec_informacion": 20260131
+        },
+        {
+          "rows": 5000,
+          "max_close": "10198.12",
+          "min_close": "11.48",
+          "cve_producto": "AHORRO",
+          "closing_total": "26045494.38",
+          "opening_total": "25534797.73",
+          "fec_informacion": 20260228
+        },
+        {
+          "rows": 5000,
+          "max_close": "12238.15",
+          "min_close": "8161.26",
+          "cve_producto": "CHEQUES",
+          "closing_total": "50804871.63",
+          "opening_total": "49808697.27",
+          "fec_informacion": 20260228
+        },
+        {
+          "rows": 5000,
+          "max_close": "87546.48",
+          "min_close": "51502.68",
+          "cve_producto": "C_PERSONAL",
+          "closing_total": "347568872.77",
+          "opening_total": "337445507.43",
+          "fec_informacion": 20260228
+        },
+        {
+          "rows": 5000,
+          "max_close": "123595.99",
+          "min_close": "10332.81",
+          "cve_producto": "TDC",
+          "closing_total": "336625670.92",
+          "opening_total": "326821039.16",
+          "fec_informacion": 20260228
+        },
+        {
+          "rows": 5000,
+          "max_close": "10300.10",
+          "min_close": "11.59",
+          "cve_producto": "AHORRO",
+          "closing_total": "26305949.47",
+          "opening_total": "26045494.38",
+          "fec_informacion": 20260331
+        },
+        {
+          "rows": 5000,
+          "max_close": "12360.53",
+          "min_close": "8242.87",
+          "cve_producto": "CHEQUES",
+          "closing_total": "51312920.71",
+          "opening_total": "50804871.63",
+          "fec_informacion": 20260331
+        },
+        {
+          "rows": 5000,
+          "max_close": "89472.50",
+          "min_close": "52635.74",
+          "cve_producto": "C_PERSONAL",
+          "closing_total": "355215387.91",
+          "opening_total": "347568872.77",
+          "fec_informacion": 20260331
+        },
+        {
+          "rows": 5000,
+          "max_close": "126315.10",
+          "min_close": "10560.13",
+          "cve_producto": "TDC",
+          "closing_total": "344031435.66",
+          "opening_total": "336625670.92",
+          "fec_informacion": 20260331
+        },
+        {
+          "rows": 5000,
+          "max_close": "10403.10",
+          "min_close": "11.71",
+          "cve_producto": "AHORRO",
+          "closing_total": "26569009.49",
+          "opening_total": "26305949.47",
+          "fec_informacion": 20260430
+        },
+        {
+          "rows": 5000,
+          "max_close": "12484.14",
+          "min_close": "8325.30",
+          "cve_producto": "CHEQUES",
+          "closing_total": "51826050.18",
+          "opening_total": "51312920.71",
+          "fec_informacion": 20260430
+        },
+        {
+          "rows": 5000,
+          "max_close": "91440.90",
+          "min_close": "53793.73",
+          "cve_producto": "C_PERSONAL",
+          "closing_total": "363030126.58",
+          "opening_total": "355215387.91",
+          "fec_informacion": 20260430
+        },
+        {
+          "rows": 5000,
+          "max_close": "129094.03",
+          "min_close": "10792.45",
+          "cve_producto": "TDC",
+          "closing_total": "351600127.35",
+          "opening_total": "344031435.66",
+          "fec_informacion": 20260430
+        },
+        {
+          "rows": 5000,
+          "max_close": "10507.13",
+          "min_close": "11.83",
+          "cve_producto": "AHORRO",
+          "closing_total": "26834699.75",
+          "opening_total": "26569009.49",
+          "fec_informacion": 20260531
+        },
+        {
+          "rows": 5000,
+          "max_close": "12608.98",
+          "min_close": "8408.55",
+          "cve_producto": "CHEQUES",
+          "closing_total": "52344310.80",
+          "opening_total": "51826050.18",
+          "fec_informacion": 20260531
+        },
+        {
+          "rows": 5000,
+          "max_close": "93452.60",
+          "min_close": "54977.19",
+          "cve_producto": "C_PERSONAL",
+          "closing_total": "371016789.65",
+          "opening_total": "363030126.58",
+          "fec_informacion": 20260531
+        },
+        {
+          "rows": 5000,
+          "max_close": "131934.10",
+          "min_close": "11029.88",
+          "cve_producto": "TDC",
+          "closing_total": "359335330.21",
+          "opening_total": "351600127.35",
+          "fec_informacion": 20260531
+        },
+        {
+          "rows": 5000,
+          "max_close": "10612.20",
+          "min_close": "11.95",
+          "cve_producto": "AHORRO",
+          "closing_total": "27103046.74",
+          "opening_total": "26834699.75",
+          "fec_informacion": 20260630
+        },
+        {
+          "rows": 5000,
+          "max_close": "12735.07",
+          "min_close": "8492.64",
+          "cve_producto": "CHEQUES",
+          "closing_total": "52867753.91",
+          "opening_total": "52344310.80",
+          "fec_informacion": 20260630
+        },
+        {
+          "rows": 5000,
+          "max_close": "95508.56",
+          "min_close": "56186.69",
+          "cve_producto": "C_PERSONAL",
+          "closing_total": "379179158.79",
+          "opening_total": "371016789.65",
+          "fec_informacion": 20260630
+        },
+        {
+          "rows": 5000,
+          "max_close": "134836.65",
+          "min_close": "11272.54",
+          "cve_producto": "TDC",
+          "closing_total": "367240707.61",
+          "opening_total": "359335330.21",
+          "fec_informacion": 20260630
+        }
+      ],
+      "january_without_movements": true,
+      "reconciled_account_months": 100000,
+      "movements_by_month_product": [
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202602,
+          "cve_producto": "AHORRO",
+          "positive_amount_total": "3064178.41"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202602,
+          "cve_producto": "CHEQUES",
+          "positive_amount_total": "5977046.80"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202602,
+          "cve_producto": "C_PERSONAL",
+          "positive_amount_total": "43867918.56"
+        },
+        {
+          "rows": 15000,
+          "cve_mes_txn": 202602,
+          "cve_producto": "TDC",
+          "positive_amount_total": "16341054.12"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202603,
+          "cve_producto": "AHORRO",
+          "positive_amount_total": "2865007.17"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202603,
+          "cve_producto": "CHEQUES",
+          "positive_amount_total": "5588538.78"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202603,
+          "cve_producto": "C_PERSONAL",
+          "positive_amount_total": "42403405.32"
+        },
+        {
+          "rows": 15000,
+          "cve_mes_txn": 202603,
+          "cve_producto": "TDC",
+          "positive_amount_total": "19524290.14"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202604,
+          "cve_producto": "AHORRO",
+          "positive_amount_total": "2893657.72"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202604,
+          "cve_producto": "CHEQUES",
+          "positive_amount_total": "5644424.37"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202604,
+          "cve_producto": "C_PERSONAL",
+          "positive_amount_total": "43336280.53"
+        },
+        {
+          "rows": 15000,
+          "cve_mes_txn": 202604,
+          "cve_producto": "TDC",
+          "positive_amount_total": "19953825.03"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202605,
+          "cve_producto": "AHORRO",
+          "positive_amount_total": "2922594.00"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202605,
+          "cve_producto": "CHEQUES",
+          "positive_amount_total": "5700867.68"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202605,
+          "cve_producto": "C_PERSONAL",
+          "positive_amount_total": "44289678.57"
+        },
+        {
+          "rows": 15000,
+          "cve_mes_txn": 202605,
+          "cve_producto": "TDC",
+          "positive_amount_total": "20392808.58"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202606,
+          "cve_producto": "AHORRO",
+          "positive_amount_total": "2951818.59"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202606,
+          "cve_producto": "CHEQUES",
+          "positive_amount_total": "5757876.73"
+        },
+        {
+          "rows": 10000,
+          "cve_mes_txn": 202606,
+          "cve_producto": "C_PERSONAL",
+          "positive_amount_total": "45264050.62"
+        },
+        {
+          "rows": 15000,
+          "cve_mes_txn": 202606,
+          "cve_producto": "TDC",
+          "positive_amount_total": "20841449.52"
+        }
+      ],
+      "max_absolute_reconciliation_difference": "0.00"
+    },
+    "manifest": {
+      "seed": 202601,
+      "period": [
+        202601,
+        202606
+      ],
+      "tables": {
+        "dim.dim_txn": {
+          "rows": 9,
+          "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+        },
+        "dim.dim_cliente": {
+          "rows": 5000,
+          "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+        },
+        "dim.dim_producto": {
+          "rows": 4,
+          "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+        },
+        "cfg.ref_txn_modelo": {
+          "rows": 9,
+          "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+        },
+        "cfg.ref_cuenta_modelo": {
+          "rows": 20000,
+          "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+        },
+        "cfg.fact_txn_captacoloca_d": {
+          "rows": 225000,
+          "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+        },
+        "cfg.fact_sdos_captacoloca_m": {
+          "rows": 120000,
+          "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+        }
+      },
+      "currency": null,
+      "model_id": "new_bank_2026",
+      "rounding": "Decimal.ROUND_HALF_UP/2",
+      "algorithm": "sha256-rounded-uniform-v1",
+      "sort_keys": {
+        "dim.dim_txn": [
+          "cve_producto",
+          "cve_txn"
+        ],
+        "dim.dim_cliente": [
+          "num_cte"
+        ],
+        "dim.dim_producto": [
+          "cve_producto"
+        ],
+        "cfg.ref_txn_modelo": [
+          "cve_producto",
+          "cve_txn"
+        ],
+        "cfg.ref_cuenta_modelo": [
+          "num_cta",
+          "cve_producto"
+        ],
+        "cfg.fact_txn_captacoloca_d": [
+          "num_cta",
+          "cve_producto",
+          "cve_mes_txn",
+          "cve_txn"
+        ],
+        "cfg.fact_sdos_captacoloca_m": [
+          "num_cta",
+          "cve_producto",
+          "fec_informacion"
+        ]
+      },
+      "source_sha256": {
+        "sql/upstream/001_dimensiones_cliente_producto_txn.sql": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+        "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+        "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3"
+      },
+      "dataset_sha256": "a85d0c9b8818d4f5134a80f112221c57e96b1419580339f15068f4d0069b947b",
+      "canonical_format": "json-array-of-text-or-null/UTF8/LF-between-rows/no-final-LF/v1",
+      "manifest_version": "1.0.0",
+      "generator_version": "1.0.0",
+      "migrations_sha256": {
+        "sql/integration/002_new_bank_integrity.sql": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8",
+        "sql/integration/001_new_bank_schemas_tables.sql": "27d7e522cc7c166f3577831e17f9bd22ce9d1c8b8fe2e69bc001b896d1f99c4a"
+      },
+      "adaptation_version": "1.0.0"
+    }
+  },
+  "load_seconds": 6.6342713999329135,
+  "active_preserved": true,
+  "regression_tests": [
+    {
+      "name": "new_offline",
+      "tests": 57,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 13.678,
+      "evidence": "publication-new-offline-tests.xml"
+    },
+    {
+      "name": "isolated_loader_and_publication",
+      "tests": 20,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 160.538,
+      "evidence": "publication-preliminary-postgres-tests.xml"
+    },
+    {
+      "name": "legacy_unit",
+      "tests": 87,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 2.959,
+      "evidence": "publication-legacy-unit-tests.xml"
+    },
+    {
+      "name": "legacy_retrieval_and_agent",
+      "tests": 16,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 29.936,
+      "evidence": "publication-legacy-live-tests.xml"
+    },
+    {
+      "name": "published_readonly",
+      "tests": 13,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 5.003,
+      "evidence": "publication-active-readonly-tests.xml"
+    }
+  ],
+  "final_verified_utc": "2026-10-22T23:01:40.331229+00:00"
+}

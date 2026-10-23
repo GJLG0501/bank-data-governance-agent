@@ -1,0 +1,237 @@
+{
+  "before_after": {
+    "identity": true,
+    "legacy": true,
+    "historic": true,
+    "bank": true,
+    "rag": true
+  },
+  "bank_counts": {
+    "dim.dim_txn": 9,
+    "dim.dim_cliente": 5000,
+    "dim.dim_producto": 4,
+    "cfg.ref_txn_modelo": 9,
+    "cfg.ref_cuenta_modelo": 20000,
+    "cfg.fact_txn_captacoloca_d": 225000,
+    "cfg.fact_sdos_captacoloca_m": 120000
+  },
+  "legacy_rows": {
+    "public.LOAN": {
+      "count": 500,
+      "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+    },
+    "public.CUSTOMER": {
+      "count": 1000,
+      "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+    },
+    "public.TRANSACTION": {
+      "count": 5000,
+      "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+    },
+    "bank_knowledge.corpora": {
+      "count": 1,
+      "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+    },
+    "bank_knowledge.documents": {
+      "count": 24,
+      "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+    }
+  },
+  "rag": {
+    "hash": "de75a01be9dc6da0114cf1248e7e4c88b9c220e2f7c77deb780ae55b530e58e7",
+    "count": 82
+  },
+  "historic": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "protected_files": [
+    {
+      "path": "data/corpus/new_bank_model.documents.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "data/corpus/new_bank_model.documents.manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/corpus/new_bank_model.index-manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/source/new_bank_model/catalog.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/source/new_bank_model/dataset-202601.manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/source/new_bank_model/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-data-steward-agent-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-data-steward-agent.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-data-steward-hardening-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-data-steward-hardening.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-data-steward-reasoning-evaluation.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-data-steward-reasoning-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-backup-recovery.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-data-load-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-data-load.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-governance.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-integration-plan.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-publication-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-publication.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-rag-publication-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-rag-publication.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-rag-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-rag.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/new-bank-model-runtime-validation.md",
+      "unchanged": true
+    },
+    {
+      "path": "sql/integration/001_new_bank_schemas_tables.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/integration/002_new_bank_integrity.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/integration/checks/legacy_snapshot.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/integration/checks/model_structure.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/integration/checks/new_bank_dataset.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/integration/checks/preflight.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/rag/001_new_bank_knowledge.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+      "unchanged": true
+    },
+    {
+      "path": "data/corpus/bank_metadata.documents.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "data/source/bank_metadata.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/source/bank_metadata_simple (1).json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/agent-validation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/data-steward-agent.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/knowledge-corpus.md",
+      "unchanged": true
+    },
+    {
+      "path": "docs/retrieval-evaluation.json",
+      "unchanged": true
+    },
+    {
+      "path": "docs/synthetic-data.md",
+      "unchanged": true
+    },
+    {
+      "path": "sql/001-create-bank-tables.sql",
+      "unchanged": true
+    },
+    {
+      "path": "sql/002-create-knowledge-corpus.sql",
+      "unchanged": true
+    }
+  ],
+  "changed_existing_files": [
+    "scripts/steward_catalog.py",
+    ".env.example",
+    "README.md",
+    "pyproject.toml",
+    "scripts/data_steward_agent.py",
+    "uv.lock"
+  ],
+  "audit_folder": "C:\\Users\\GJLG\\Repositorios\\Agente de IA Banamex\\bank-data-governance-agent\\.local-validation\\architecture_20261022_204840",
+  "branch": "main",
+  "initial_commit": "6550ca5e966839c426b62b4fa33155cd9b4ec32b"
+}

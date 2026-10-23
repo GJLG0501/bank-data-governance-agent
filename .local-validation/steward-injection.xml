@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="9.485" timestamp="2026-10-22T18:53:25.920509-06:00" hostname="GERARDO"><testcase classname="tests.test_new_steward_live" name="test_live_injected_instructions_cannot_create_references" time="8.563" /></testsuite></testsuites>

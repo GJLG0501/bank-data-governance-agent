@@ -1,0 +1,37 @@
+;
+; Archive created at 2026-10-22 03:10:39 UTC
+;     dbname: bank_governance_synthetic_dev
+;     TOC Entries: 26
+;     Compression: gzip
+;     Dump Version: 1.16-0
+;     Format: CUSTOM
+;     Integer: 4 bytes
+;     Offset: 8 bytes
+;     Dumped from database version: 17.11 (Debian 17.11-1.pgdg12+2)
+;     Dumped by pg_dump version: 17.11 (Debian 17.11-1.pgdg12+2)
+;
+;
+; Selected TOC Entries:
+;
+7; 2615 19613 SCHEMA - bank_knowledge bank_governance_dev
+2; 3079 16385 EXTENSION - vector 
+3656; 0 0 COMMENT - EXTENSION vector 
+222; 1259 19614 TABLE bank_knowledge corpora bank_governance_dev
+223; 1259 19624 TABLE bank_knowledge documents bank_governance_dev
+219; 1259 17552 TABLE public CUSTOMER bank_governance_dev
+221; 1259 17583 TABLE public LOAN bank_governance_dev
+220; 1259 17565 TABLE public TRANSACTION bank_governance_dev
+3648; 0 19614 TABLE DATA bank_knowledge corpora bank_governance_dev
+3649; 0 19624 TABLE DATA bank_knowledge documents bank_governance_dev
+3645; 0 17552 TABLE DATA public CUSTOMER bank_governance_dev
+3647; 0 17583 TABLE DATA public LOAN bank_governance_dev
+3646; 0 17565 TABLE DATA public TRANSACTION bank_governance_dev
+3493; 2606 19623 CONSTRAINT bank_knowledge corpora corpora_pkey bank_governance_dev
+3496; 2606 19632 CONSTRAINT bank_knowledge documents documents_pkey bank_governance_dev
+3487; 2606 17564 CONSTRAINT public CUSTOMER customer_pk bank_governance_dev
+3491; 2606 17594 CONSTRAINT public LOAN loan_pk bank_governance_dev
+3489; 2606 17577 CONSTRAINT public TRANSACTION transaction_pk bank_governance_dev
+3494; 1259 19638 INDEX bank_knowledge bank_knowledge_documents_corpus_idx bank_governance_dev
+3499; 2606 19633 FK CONSTRAINT bank_knowledge documents documents_corpus_id_fkey bank_governance_dev
+3498; 2606 17595 FK CONSTRAINT public LOAN loan_customer_id_fk bank_governance_dev
+3497; 2606 17578 FK CONSTRAINT public TRANSACTION transaction_customer_id_fk bank_governance_dev

@@ -1,0 +1,1112 @@
+{
+  "identity": {
+    "container": "bank-data-governance-agent-dev-bank-postgres-1",
+    "id": "56bf7ea7a9f9f9d8a3c03d12162d973855f6299648e54b2c79eea931977a27a2",
+    "volume": "bank-data-governance-agent-dev_bank-postgres-data",
+    "database": "bank_governance_synthetic_dev",
+    "image_id": "sha256:ac08538c6f8b9904c33c8224c5e5706dbe760aca29db1d096972b4052c22a75d"
+  },
+  "legacy": {
+    "rows": {
+      "public.LOAN": {
+        "count": 500,
+        "sha256": "e4824a7b2dfa2271d7cf9f95bade8734538188d303b749382e41e772ee824f38"
+      },
+      "public.CUSTOMER": {
+        "count": 1000,
+        "sha256": "4676fb7861eb6f1de0ef1c0cb63abab8262f288bff00e8eb901a6c9bd21f1029"
+      },
+      "public.TRANSACTION": {
+        "count": 5000,
+        "sha256": "34d4fd2e536556b49a39c169f6610f76ccd2ede615f3c1323ff23501330e0370"
+      },
+      "bank_knowledge.corpora": {
+        "count": 1,
+        "sha256": "10bafc6f20a6a0dfe6c622583dd4ab1fd994e11dade4feadfb45d128a8cd64c0"
+      },
+      "bank_knowledge.documents": {
+        "count": 24,
+        "sha256": "cf960d2bd8982209849e9fa9f0046f911c8cce9645140cf4bd63021727bd6430"
+      }
+    },
+    "columns": {
+      "public.LOAN": [
+        {
+          "type": "text",
+          "column": "loan_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "customer_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "balance",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "interest_rate",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "integer",
+          "column": "dpd",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        }
+      ],
+      "public.CUSTOMER": [
+        {
+          "type": "text",
+          "column": "customer_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "segment",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "risk_level",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "annual_income",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        }
+      ],
+      "public.TRANSACTION": [
+        {
+          "type": "text",
+          "column": "transaction_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "customer_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "double precision",
+          "column": "amount",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "channel",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "merchant_category",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        }
+      ],
+      "bank_knowledge.corpora": [
+        {
+          "type": "uuid",
+          "column": "corpus_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "source",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "source_version",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "source_sha256",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "renderer_version",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "model_name",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 6,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "model_digest",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 7,
+          "generated": ""
+        },
+        {
+          "type": "integer",
+          "column": "dimension",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 8,
+          "generated": ""
+        },
+        {
+          "type": "integer",
+          "column": "document_count",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 9,
+          "generated": ""
+        }
+      ],
+      "bank_knowledge.documents": [
+        {
+          "type": "uuid",
+          "column": "id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 1,
+          "generated": ""
+        },
+        {
+          "type": "uuid",
+          "column": "corpus_id",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 2,
+          "generated": ""
+        },
+        {
+          "type": "text",
+          "column": "content",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 3,
+          "generated": ""
+        },
+        {
+          "type": "jsonb",
+          "column": "metadata",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 4,
+          "generated": ""
+        },
+        {
+          "type": "public.vector(1024)",
+          "column": "embedding",
+          "default": null,
+          "identity": "",
+          "not_null": true,
+          "position": 5,
+          "generated": ""
+        }
+      ]
+    },
+    "indexes": {
+      "public.LOAN": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX loan_pk ON public.\"LOAN\" USING btree (loan_id)"
+        }
+      ],
+      "public.CUSTOMER": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX customer_pk ON public.\"CUSTOMER\" USING btree (customer_id)"
+        }
+      ],
+      "public.TRANSACTION": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX transaction_pk ON public.\"TRANSACTION\" USING btree (transaction_id)"
+        }
+      ],
+      "bank_knowledge.corpora": [
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX corpora_pkey ON bank_knowledge.corpora USING btree (corpus_id)"
+        }
+      ],
+      "bank_knowledge.documents": [
+        {
+          "valid": true,
+          "definition": "CREATE INDEX bank_knowledge_documents_corpus_idx ON bank_knowledge.documents USING btree (corpus_id)"
+        },
+        {
+          "valid": true,
+          "definition": "CREATE UNIQUE INDEX documents_pkey ON bank_knowledge.documents USING btree (id)"
+        }
+      ]
+    },
+    "vectors": {
+      "documents": 24,
+      "dimensions": [
+        1024
+      ],
+      "null_embeddings": 0
+    },
+    "constraints": {
+      "public.LOAN": [
+        {
+          "kind": "c",
+          "name": "loan_balance_range",
+          "validated": true,
+          "definition": "CHECK (((balance >= (1000)::double precision) AND (balance <= (3000000)::double precision)))"
+        },
+        {
+          "kind": "f",
+          "name": "loan_customer_id_fk",
+          "validated": true,
+          "definition": "FOREIGN KEY (customer_id) REFERENCES public.\"CUSTOMER\"(customer_id) ON DELETE RESTRICT"
+        },
+        {
+          "kind": "c",
+          "name": "loan_customer_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+        },
+        {
+          "kind": "c",
+          "name": "loan_dpd_range",
+          "validated": true,
+          "definition": "CHECK (((dpd >= 0) AND (dpd <= 365)))"
+        },
+        {
+          "kind": "c",
+          "name": "loan_interest_rate_range",
+          "validated": true,
+          "definition": "CHECK (((interest_rate >= (5)::double precision) AND (interest_rate <= (60)::double precision)))"
+        },
+        {
+          "kind": "c",
+          "name": "loan_loan_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(loan_id)) > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "loan_pk",
+          "validated": true,
+          "definition": "PRIMARY KEY (loan_id)"
+        }
+      ],
+      "public.CUSTOMER": [
+        {
+          "kind": "c",
+          "name": "customer_annual_income_range",
+          "validated": true,
+          "definition": "CHECK (((annual_income >= (60000)::double precision) AND (annual_income <= (12000000)::double precision)))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_customer_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "customer_pk",
+          "validated": true,
+          "definition": "PRIMARY KEY (customer_id)"
+        },
+        {
+          "kind": "c",
+          "name": "customer_risk_level_allowed",
+          "validated": true,
+          "definition": "CHECK ((risk_level = ANY (ARRAY['LOW'::text, 'MEDIUM'::text, 'HIGH'::text])))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_risk_level_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(risk_level)) > 0))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_segment_allowed",
+          "validated": true,
+          "definition": "CHECK ((segment = ANY (ARRAY['MASS'::text, 'PREMIER'::text, 'PRIVATE'::text])))"
+        },
+        {
+          "kind": "c",
+          "name": "customer_segment_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(segment)) > 0))"
+        }
+      ],
+      "public.TRANSACTION": [
+        {
+          "kind": "c",
+          "name": "transaction_amount_range",
+          "validated": true,
+          "definition": "CHECK (((amount >= (10)::double precision) AND (amount <= (250000)::double precision)))"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_channel_allowed",
+          "validated": true,
+          "definition": "CHECK ((channel = ANY (ARRAY['BRANCH'::text, 'ATM'::text, 'MOBILE'::text, 'WEB'::text])))"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_channel_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(channel)) > 0))"
+        },
+        {
+          "kind": "f",
+          "name": "transaction_customer_id_fk",
+          "validated": true,
+          "definition": "FOREIGN KEY (customer_id) REFERENCES public.\"CUSTOMER\"(customer_id) ON DELETE RESTRICT"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_customer_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(customer_id)) > 0))"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_merchant_category_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(merchant_category)) > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "transaction_pk",
+          "validated": true,
+          "definition": "PRIMARY KEY (transaction_id)"
+        },
+        {
+          "kind": "c",
+          "name": "transaction_transaction_id_nonempty",
+          "validated": true,
+          "definition": "CHECK ((length(btrim(transaction_id)) > 0))"
+        }
+      ],
+      "bank_knowledge.corpora": [
+        {
+          "kind": "c",
+          "name": "corpora_dimension_check",
+          "validated": true,
+          "definition": "CHECK (((dimension >= 1) AND (dimension <= 16000)))"
+        },
+        {
+          "kind": "c",
+          "name": "corpora_document_count_check",
+          "validated": true,
+          "definition": "CHECK ((document_count > 0))"
+        },
+        {
+          "kind": "p",
+          "name": "corpora_pkey",
+          "validated": true,
+          "definition": "PRIMARY KEY (corpus_id)"
+        },
+        {
+          "kind": "c",
+          "name": "corpora_source_sha256_check",
+          "validated": true,
+          "definition": "CHECK ((source_sha256 ~ '^[0-9a-f]{64}$'::text))"
+        }
+      ],
+      "bank_knowledge.documents": [
+        {
+          "kind": "c",
+          "name": "documents_content_check",
+          "validated": true,
+          "definition": "CHECK ((length(content) > 0))"
+        },
+        {
+          "kind": "f",
+          "name": "documents_corpus_id_fkey",
+          "validated": true,
+          "definition": "FOREIGN KEY (corpus_id) REFERENCES bank_knowledge.corpora(corpus_id) ON DELETE RESTRICT"
+        },
+        {
+          "kind": "c",
+          "name": "documents_metadata_check",
+          "validated": true,
+          "definition": "CHECK (((jsonb_typeof(metadata) = 'object'::text) AND (metadata ?& ARRAY['source'::text, 'source_version'::text, 'source_sha256'::text, 'table'::text, 'field'::text, 'kind'::text, 'json_pointer'::text, 'renderer_version'::text, 'chunk_sha256'::text, 'document_id'::text, 'embedding_model'::text, 'embedding_digest'::text, 'embedding_dimension'::text])))"
+        },
+        {
+          "kind": "p",
+          "name": "documents_pkey",
+          "validated": true,
+          "definition": "PRIMARY KEY (id)"
+        }
+      ]
+    },
+    "relations_found": 5,
+    "vector_extension": "0.8.7"
+  },
+  "historic": {
+    "bank_data_sha256": "30fc34ef604fed893478ad4322c5b16d38cacc703b8eca592e696578f859eff5",
+    "corpus_sha256": "63a6313e870be8268ce7bd85ee0eb8401ebbece4bb6f529b211c4796a6db0847"
+  },
+  "bank": {
+    "dim.dim_txn": {
+      "rows": 9,
+      "sha256": "ccdd75284ddffd3b04541d6dac69e03d5c306ff58aa1320af6d8f8e80249d633"
+    },
+    "dim.dim_cliente": {
+      "rows": 5000,
+      "sha256": "6c6c9347e8a1511a3ded30348d20e4a0a3d2a7c5017fc6b8758a061a145df66c"
+    },
+    "dim.dim_producto": {
+      "rows": 4,
+      "sha256": "7fc8155a706390c67aea7f9c2b80802bd58b864961c5b1d3034a81c2f543fbb9"
+    },
+    "cfg.ref_txn_modelo": {
+      "rows": 9,
+      "sha256": "59716d997b6d8de85fc7495e5cc54b206bce5b59617531158c1d77bc9dc324d4"
+    },
+    "cfg.ref_cuenta_modelo": {
+      "rows": 20000,
+      "sha256": "e0e694ad4eb187219cf4e9c4996d4b191313e3b6bd4e98e38e241aea04076218"
+    },
+    "cfg.fact_txn_captacoloca_d": {
+      "rows": 225000,
+      "sha256": "3bd42112026556770dcf8841786b462dfa9216b60a98e768f62e7e21e618eb69"
+    },
+    "cfg.fact_sdos_captacoloca_m": {
+      "rows": 120000,
+      "sha256": "05a8a3fca8bd52ebbbc98b4b18343a1961b6d83a6ef25b3641325d9ed02345f7"
+    }
+  },
+  "rag": {
+    "corpora": [
+      {
+        "manifest": {
+          "format": "new-bank-vector-index-v1",
+          "distance": "cosine",
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "vector_hashes": {
+            "0ee6a93f-b1e7-556c-a198-1080cb135b41": "eb2bbbd28f34ee6e069430d7d57d61d4da5ed3ff6d3d5d568db3a56ca6f3a843",
+            "12f3e02b-5845-5bde-96fe-cdeff3ac8b6e": "730b44a1ff923f5acb8918b75ff6475fdafbdd175546fdb436b403bee9d10cfe",
+            "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17": "cefa0987e5b75fa529212558dbb8a02d2d0fa74ff344b52d7b2fdad3da45acb4",
+            "141e5c27-a288-5a8d-a876-afafcb6208cb": "6e9f8e5b7ffb4c360ac488cec916152a38a787534a631cde443f20abf6c75483",
+            "14485dc9-be63-5395-8026-0d8f8dfc87d1": "e2bf68867ee906582082919e1036624639cbe4e34aa042b14c0808030568da36",
+            "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e": "29d605af96943c016c4a676a79723e7a123632514a0200ab91d079b96eaf5880",
+            "1c0badab-1460-5de8-920d-c5b8593ef0f4": "53aad9058843da7824c4e75ba9968271f448e9df0dbe3f322780789d50f8f01a",
+            "1e9b4e83-876c-535d-a3bc-04c91c4f0258": "6640d3f88b8915221de1d15f8a77c92532c87de2eb994b700b8c8bd455e7a7d6",
+            "212ad885-d1e1-5b4f-b61b-f9562d89289c": "77792d6b7901243e509b0b5897bec7248a060dd4530fe990fd3d67d26c9cce5a",
+            "2757e656-2f44-51c0-b8ae-9411c637e545": "397a3c2645a5889ea7dc1b63b6e60ac5df1e397cb89738ef73cdf786c7182808",
+            "28c61930-0ac1-5101-846c-f2e1dbb4d8e3": "934615eb0ea4a01ee4cd6bd3151c81e11ed7c4b7b5b6400cd772ca19de159206",
+            "2b47f697-eb92-5c9a-b427-bcfbe51ac1a5": "22fba673d0b8388d49911d8e573e8ec7bb91b523acb682d6f179a171ab869707",
+            "2f40eb7d-728c-5237-9db0-cddc286d0757": "2020347d6cf9f0b1368b42114ecf0d76112fc76dcee701f67deb1d5f25434e63",
+            "30c897eb-8a72-571d-86d8-0ad539d7c6cd": "c50e8be18004dcf9e28f418479ab11d0022f5168bf7258b281e35180489e52f8",
+            "331dcea7-152c-5857-8bee-f72b43a716e0": "61113255a7471703db7815e00682b9c6b3a23fa5f883dae06d38ccf8e6cdccd2",
+            "37f693fa-1268-5288-abce-e6ee1e8f9779": "1df4b4de7d4c473aaaa6aa0329d29f4ea42a67a81fad46d0a3098c17bd5f41ac",
+            "3c659a1b-a56f-590a-a0a5-f6623f265c3c": "723f9e08b2ce83b67e81a60af470be4baf8c67cc014a82aa48eab4646aad7f6d",
+            "3da8ef67-a95f-50a8-92fb-ffb06686e23c": "f071ed08750d8c24a0a27e2f076a47bc526f1227a27ff503ce90c8d296e9c611",
+            "474615a7-3d1b-5848-8bac-c3bb94901f8b": "3272fcb9cf8c5b812d969a90040c4cd64a63cb530d8fd4ca30536fe300d0cf14",
+            "4bb51fb9-513d-5215-8109-8098b9b56f80": "a6f66873866b25dd3b2b8e865baf06ee4c2f559d27c6608d2ff618774abee970",
+            "4bf5c65f-90ec-5474-b42e-6e3caad659db": "5b0cc45543592c51f944384edf548664672d4f792a797c188c6fef915b9846ed",
+            "4e5b42a4-a0ac-5050-ac9e-fb02ff2ec6b1": "9f38284837df11625e8ac6d39b46f901902679d8b834c5eb5540ac8255eb2883",
+            "5926930f-987d-505d-89bf-85da837ad794": "8a082e455dce42a24f18db5fde493bf2f311f990a981037755309a2ef54129c3",
+            "6333779c-3c84-570b-b149-3feda6df1215": "9d80b8760904d912304dc8a7132394b6e46e4f24730b11cb40a6fc81de361fad",
+            "636c38cc-99ec-5994-86dd-aed3cc4496dd": "4317b74dd442be5d1f88f9a69b36f6c18ab356582ac206e1af332afcb628b557",
+            "63d24796-6dc9-5be8-a21a-e913d48bb1a9": "a7f9fda4f1767f0b5039bcf0e355e79da500851beb4b7286cb33effe77140c39",
+            "667fc331-46e3-56c6-a939-7597dc076b1a": "ca9b6e05c1e539bbbc91bdd852db4f31a6b18b1b9529dfacce5bfdb74a1b015b",
+            "66c34581-f708-5339-8352-049014500edf": "5550ce3d96bdab69502bb46775cea796dbd0f2cdd4d4bd00b3d8eda35388bd00",
+            "6b5b9e0c-3746-5c9a-b762-7e677ebfef4d": "4cf0d24e14f4f6739585a5a74ed154c7a3b2e28e6ead4545943e3d169f2f90f8",
+            "6bf14e55-c8f3-5da1-a760-38b26a0fc2fd": "c557e55727882b12a2d73e8bd66ff575c9778332cd11f1be475e1659ef30a87c",
+            "6e5a1087-e7fb-5ecc-86a2-abaa27c43991": "2a3a28bac8d160f90147a973da60d954937f5153ffa734bf1ffc33747600c4c0",
+            "709c79ca-ffeb-5258-9e6f-49c0a1fae64f": "b5e7e4e773ed30f2545dcba7a307695903c4c9c1b568ad29c344e0ab60c8bee4",
+            "710b9f51-f9f6-5526-b444-8dfb024f290c": "951c9635c89ab2726f1173e982af350fa3e85b32dd7bdc2351b150911f8a22ca",
+            "7263d269-919e-5eb4-bc4a-137b8c996aa8": "ac3514d4bdf0e28bf05afafba1dffd22c5f2e01f1fb26a1c92028082f01eca8c",
+            "72aa7e59-617d-5cdb-9197-2e15947a642f": "9c4ba4dae989d424d92673b9425fa446d97cc7e5c3581a87f44a43c78f525fd9",
+            "733bf142-ea24-54b7-ba02-d3ce7491eff2": "435151b7d0fa3b6bc1b711b1c44e051299e8f239b5a604c2c0cc4a3299fa3aaa",
+            "7e171429-8b27-563b-8025-1ea31d1c91c8": "d3a40a328ea839ff4aa701b58bfad1c52d53c45ce6f805dcdf2bccfdf0bd4e29",
+            "82e966c0-1f28-5cb6-b1f3-1096eb6e0ac1": "59fb8dde8415e8108fc476cdce37a376a07ea7ef11ebae42e05ae124f7e7f7c3",
+            "83118fe8-0e80-5527-93f2-b07e30009a04": "87c1b6014d386a000dcd628e2ccdf560ec77269ab3fa44bc4e2a0cca051c6746",
+            "8887dc2c-71d9-50a4-b05d-98db883b81ba": "712201cb52d3ca81a81829ec46a8555ddc3b6741c29c6fca831b3b9d956ad154",
+            "88dc7395-27b1-524d-b5db-73927b70d956": "7d5c203420b289dd6384d8df0550b9e2a42a71638cddad5fd471cdfdcf0f9c8a",
+            "89e3ead2-9bd0-5bf0-af17-0388f841364a": "8956ee0bb1db40b2dcc959da46cdf32d440ed48156e1d69f502da7ab7a88ae34",
+            "8a9a9c07-a23b-57b1-9672-c7f87f533537": "88755f48b40c43e104ebf424ec4b78d6a11a31f9e7d7acf83bd6cdbb88f0fa46",
+            "90853ce2-c5b8-5519-8658-ec81162e5d56": "94b2a93ee1b8515f880419519f787111eef5157394dae035710dcfd95ec2de66",
+            "95f65949-01f5-5dbe-b548-378f23bf95cd": "daf915fe9452366c1973c40364b49560c14a561e8b5c57a8357ed44fc3a4a554",
+            "972f5a0e-42ab-53e9-b77a-4c3f08b6baa2": "a5d5cab2bea950dc9aef6fc5b02bb7723135a79552efecb5cac1f810d48f901a",
+            "9c80677e-7ec3-58a3-8104-da14ad09989c": "2f94a1af22e9fa91ba2bff7470d3c8f899c98a1ab1e54e1876b76901b6430212",
+            "a67edcc0-4bf1-5070-97c7-671fe6541773": "059929e75fb45ec5f8ad52dbbbb95439ed2c31e66f0e670c9dbd6ac908ca0e1b",
+            "a6d662db-d9a4-5c45-90f2-27d5374b9fb6": "e5e5c215cb6c26c760a655ec1b3b5ffdd36f7a5a005004679ce91aa4357b8425",
+            "a819c674-ceee-564c-abb3-eddd3e6bd125": "e51fb61ce26982e114a79858a83c7f72758b964495c2e7e8823c07af91bfc000",
+            "aaebd7a0-e8b6-5ef4-aae3-6b3bf00802e4": "218cff0bef075469b288e6554a3529cb156c6b498cc9feed4c70b3f4a661dfbd",
+            "ab010905-5c46-5aed-a2fb-63027849b62a": "f8f5d39b3f98fe7344a7f8c8058557dcb8e75768008dbb4e03af05fa7e3eb0e3",
+            "ab0f4a28-9754-5c44-bfe5-76f98c800db4": "9731c57f6cb104a1d5c0124da4b3bb7a03c90811719703cd8828b433a3ad2b22",
+            "b0ebfc32-98ff-5288-97b4-d2d078559581": "024ae338e9468b4be56fc6131c434dac1e1874507941a3402f990afe9b8920a5",
+            "b20ac871-a5d0-5698-9349-7b414d06640d": "621fcaba4c2704f337810b73a59bce09c5e7a3549b6bcf00e65677b4c3766741",
+            "b478c3f9-03fa-541c-8841-f6e37b13afae": "6a757706f56e62aad836c3b1e77524ee6fdf7d8087383a27d632b34fbff98185",
+            "b52dcfea-095a-5c57-9c3f-615b469fa855": "a3e0d6ee78bf33e4c85db6007b9997a0ac7c5ccc34e2b4f8a883e1e3a7553ae5",
+            "b7baecb9-1d5b-5e38-b38c-61b255f561f0": "5c15362e6a68f4028b79176f6ec77b6cac4ddb85c8ab7c2a1f854f4432470115",
+            "bd8ca2c6-88d4-5f62-b408-05a63fab45cc": "ac083f699078ab7eb179dcfda8492d6e522da62a43567dca4f1a51a99877de5f",
+            "c107f1e8-0d4e-57e2-a5f2-8301c522bcac": "5fe510d0f4f0680d741704e6e24cb9b97a18dfef834ad7a371735eac8551e93b",
+            "c162599c-54ba-50f1-9ee7-f6ec21fbb053": "27c1f82f563033e7dd691196e556a0e85a992d99621964476ba135447a9982ba",
+            "c3d99489-35b8-5181-953f-d759add27b1b": "b92ac65b8686454711f0d5a3ecff058b8fc6c7cdfbdb655fab704d7c83702bc5",
+            "c7173ffe-ee66-5b89-9888-495aa99e7022": "7bc100a8a79d728032aea862a2d016920b1e0d8269a53928c66c3b56d8c8918a",
+            "c7eaefe7-4fe1-5ba2-a8ba-3db8b4e536f0": "4b68988534171fc4d6af02ef98ebc0b8995e26e8b1cef7eafdba2f01d4cfa60d",
+            "c875d509-624b-5e7b-ae07-fbc23b2d4aae": "c95e7c89cd1b81500b5c4f1f37e6184ab6206c5117d425e8551b825edd2b86a3",
+            "caebb207-97c0-5fd5-a74a-1bbf236e138a": "b4e20d183caae368d8f7ac390c985038e2c82a64d7c6c84743a4b471b6a11174",
+            "d00994ee-dc45-54fd-b5ee-ed81dca37da8": "ef74fe5b850a9e8c40a467cf97bf1211769fb70b1ca05d8c5a24e7be30b3b855",
+            "d348b3bd-950d-522b-99b5-d4534611d5bb": "5243cf63fc3e77e10b14612725ce6c13ebb9303faa4ec5e9ab3bc62fbd7add13",
+            "d5c0553b-4f27-5541-a00d-702a1baa99b5": "7484b7d3fc4a22d214b99bb89d86e1bb05733aa7cd712eda138ddaf438ca121d",
+            "da1f1dcd-493a-540b-95eb-3f9edf9f16d4": "ba6896f3c184d1b42da86ba348899d4b374a5fb2e5fdf0b5be9b6c65820d9660",
+            "dbe57985-e676-5259-b77f-732d222351a1": "db6b7d1da0fdeeffc8c3d945dcff6b94196692774073525b62ec584862659c94",
+            "ddf44038-c328-55c0-9164-2b2f2e236f29": "61bc636e7fa95c5ba32b00c608ab410a7c7ea85c764540e4bf0c04cdb9a082e1",
+            "e0b63da8-8255-5e00-8546-ee661bb88f46": "3f169bc64211fd04fe0ddb3097a9bb4c865d13edabe845628416c33739011999",
+            "e5112de3-6d62-530d-92ef-0d26b3123c28": "40e83af10a8c5a35b6d27efb46333df4f4de411089cdc25a9d3fbea594bae5ec",
+            "e79472b1-306e-5d37-8d92-fa164ba9ac1d": "4e048e0eb4330ae3342a521262af49144cded30de8dc37952e6435793ddc4352",
+            "ef84e1c2-2894-59c5-850a-015ddedf923c": "aa408f182709582d6651c0c94ac8762c501116d7774d8b9057dc02c771c9ea11",
+            "f84e1005-582b-5c17-a5b5-e5c38087b9d1": "3b06b7c444c97ab0b5af6be848db9a4c99d5a68dcd6a432b0635aabf9c041af8",
+            "f9dba247-7055-5cc8-99ae-061ac7e9b5de": "ad5ca222f08cca540067479caadec892d9257dd6a558807ef9754a706180ffc1",
+            "fa3df9ee-e752-51d0-883b-e7e67a95347e": "caef6e8139e1c86f0e4378060f1954d6d4e9c673503c3a1050907ee5c9c3f340",
+            "faf525e4-fa64-58c1-b92c-18cb19bdde8a": "ce1f65258e5a47fdc6c1408a97032ee365ba7eda83601752ee0d7261d11c0813",
+            "fc0e0de3-34c8-57c8-bf61-03fdf06db757": "2bb651eb107c1adcdb7b0f8365ed53bb2f902b4a1c8435722308a209575fbee0",
+            "fdb66f2f-d454-51eb-a7ab-41f5a86fd694": "522541fbb6136dfe99937c708406908df17de6909c6cfdd93c9a40d0eb55bec9"
+          },
+          "vectors_sha256": "08b5555ffede84edfc6b4a399f83c4c4eb1705ed997fc5b6d56829a5798e57d9",
+          "embedding_model": {
+            "name": "bge-large:latest",
+            "digest": "b3d71c92805938e2c9d78e6f35e82d7cc1bd77e05b47dd2ab3016240f4021c15",
+            "dimension": 1024
+          },
+          "vector_encoding": "pgvector-binary-v1",
+          "document_manifest": {
+            "kinds": {
+              "field": 42,
+              "model": 1,
+              "table": 5,
+              "product": 4,
+              "proposal": 1,
+              "ambiguity": 7,
+              "limitation": 1,
+              "transaction": 9,
+              "relationship": 3,
+              "temporal_rule": 2,
+              "financial_rule": 5,
+              "auxiliary_table": 2
+            },
+            "format": "new-bank-document-manifest-v1",
+            "model_id": "new_bank_2026",
+            "documents": [
+              {
+                "id": "8abd58e6-eab1-50b3-812c-3a89e1b84fbf",
+                "sha256": "45dbf352fadedf0bd0ad2634ed3c4347ca01facf0063d676a6c6980c0ad9d970",
+                "entry_id": "absence.banking_features"
+              },
+              {
+                "id": "d7032483-2ed6-5e93-bfef-560a14c215f1",
+                "sha256": "867983ee2430dac32cc95d6d5de9fc24704bdd4d5d80a6fc9d58612addc81dae",
+                "entry_id": "absence.credit_score"
+              },
+              {
+                "id": "fab94a39-f75b-5087-8e99-d7557c2f7671",
+                "sha256": "3b9ca4b385ded2073c5370fb71a76067afcec9a13bb0167e2d5da24ac5b0af99",
+                "entry_id": "absence.currency"
+              },
+              {
+                "id": "43f51403-8038-5603-8ddd-94812a899d69",
+                "sha256": "b2369bc8b1a4fcbf83c5033d9000013c27747a1e18f200eb5bbe48dfc18b0f21",
+                "entry_id": "absence.legacy_mapping"
+              },
+              {
+                "id": "a8a0f53c-6acc-594f-91cb-74da8d723ef0",
+                "sha256": "d5eb1c9f913c38faebdf9f76928e4a7caf672b150a8fcc10c7ab1c95e0ecd159",
+                "entry_id": "absence.pm_birth"
+              },
+              {
+                "id": "4ee64ca4-0a96-5964-a4bc-d678ff3a8601",
+                "sha256": "53935a0c44803905a0b92f5ad9bbb70e988a086f126c2b483eb0f8a81ae6a15d",
+                "entry_id": "absence.unknown_client_fields"
+              },
+              {
+                "id": "ac20a0b7-90a2-542e-956b-863530a1f9d4",
+                "sha256": "5626dbff8d2257de61e88b66e0c26e2d060fd537941206e698a1f4cd8d7a45db",
+                "entry_id": "ambiguity.raw_domain"
+              },
+              {
+                "id": "cad4d3c2-0bc7-546b-992f-3bc68c48a1be",
+                "sha256": "82012fcc4ec4a4988a15231ff9202b0ce67cabd539a562a08d39b73fb00efe9d",
+                "entry_id": "auxiliary.cfg.ref_cuenta_modelo"
+              },
+              {
+                "id": "7d5e33f3-2708-520d-ac62-627de366f1fb",
+                "sha256": "3e2da548e74d22a7707b2a3a0096d18d43f2afdbf873830e8d7472e8a649cd04",
+                "entry_id": "auxiliary.cfg.ref_txn_modelo"
+              },
+              {
+                "id": "93314049-d648-5847-bfbe-330413f3dce6",
+                "sha256": "39bc043bce72d72ef8e0a893a8973bb527e7da05114b77f72aabb94d6eead9aa",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.cve_mes_alta"
+              },
+              {
+                "id": "1b1ceea6-c54c-5d86-a320-a3cfd01536a2",
+                "sha256": "4490cb8aa90dd81baece562700afb182657376ac3364f41f04b8a60c156805bf",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.cve_producto"
+              },
+              {
+                "id": "79b6a04a-da08-5e6c-8c51-918083c0a739",
+                "sha256": "572a7e9199328c36cb441d8d26364914f23ceb7cd3daba509cc113e6b30dab0a",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.dominio"
+              },
+              {
+                "id": "a4c07b9a-4e70-5f9c-82ca-b3170269c27d",
+                "sha256": "88b18a99c07820fb9f2318d1245631cb457b1334926263aa4fadf5ebcb1a63e1",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.fec_alta"
+              },
+              {
+                "id": "b73689f3-f206-53a0-89ae-40a02ce7b4e8",
+                "sha256": "79df2441f2ab99d9a8119269c2b2dbcc8cbe9b9ccde2ea068b8dc4c6ed5d84ae",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.fec_informacion"
+              },
+              {
+                "id": "7eee6345-dc42-5849-bb99-9429f6c1c1c2",
+                "sha256": "899cdbdca84877dcf0e8cc111c8f80140a11dc65c8db794df24806d9312bac89",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.num_cta"
+              },
+              {
+                "id": "c62251c0-420a-5f74-91a2-3cff7c203da8",
+                "sha256": "171627795c500b863b46e54b76799e77f8bbb4771486050a9c1db3e2118393d3",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.num_cte"
+              },
+              {
+                "id": "3cc3e73a-0b37-5fda-9c51-5b17d243e045",
+                "sha256": "5caa8473c451e4a294b5896eb17b23799dd0b1d5d1c8d65f61925549e9cbbca8",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura"
+              },
+              {
+                "id": "2e0e5598-09f8-5fa3-acbc-841bd176a477",
+                "sha256": "bbc367898e8332afa553b0e0e71b25f800326c9686c1bf948ae2c365bdc2ee71",
+                "entry_id": "field.cfg.fact_sdos_captacoloca_m.saldo_mes"
+              },
+              {
+                "id": "6cbd7bc6-de6d-5c8f-96fb-7721cf025043",
+                "sha256": "7560f4543584ae33aed9b03cb5cfaafa2efcbb04eb8fba15e0c22231f3c7fc71",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.cve_mes_txn"
+              },
+              {
+                "id": "1a464746-d928-59f2-8909-339719c2f951",
+                "sha256": "dfcdac2d05bfc15751e0ef8d70621c1f66f8ff71ec556d12dc711fdf605e045a",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.cve_producto"
+              },
+              {
+                "id": "9d1eac10-607d-57e2-8cf4-8cdb46f126c1",
+                "sha256": "731f8ddb8851b2ef8e308356e8fcfe6d2528dec547f73efb41207a7695d63394",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.cve_txn"
+              },
+              {
+                "id": "bc7ded91-07c1-5d86-ab90-c5c259ca9c99",
+                "sha256": "afa9e74abb5f1183a22bef125eb3de9e06020f4af89f5568d9da117d445a2bbd",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.desc_txn"
+              },
+              {
+                "id": "648b56b3-f5ef-5758-89f3-d541d9e2ffba",
+                "sha256": "fc065ad9d2a7830edebc6b5bc3411e48274afb0e3433fb4eb308d81a3fef0a50",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.dominio"
+              },
+              {
+                "id": "481279d0-4f94-5266-a366-2d39142d75d3",
+                "sha256": "26069949cd97c90dc2b7639667c93c7b5f0c2be3c7fe2bafc14740767f522179",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.fec_informacion"
+              },
+              {
+                "id": "b73084a8-2274-5c2e-b2ac-550731770108",
+                "sha256": "5802559202f200874dfda17276eae9954b1abac88972f7e4fcdb8b6d93395555",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.fec_txn"
+              },
+              {
+                "id": "68b8135f-8505-539a-9380-436d2099daa0",
+                "sha256": "4874fb9935e87c17346caf0d2f66c1df74f5d85453ceca46f6f6f8fefbd13564",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.num_cta"
+              },
+              {
+                "id": "7374d5ca-8d70-5c70-bbf0-614493f765b7",
+                "sha256": "0848c3e1d362efb90e4dc4675dd6418881112624176fa7fa7b03e01281ee9812",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.num_cte"
+              },
+              {
+                "id": "2a01ac69-4ec3-55b2-b5ab-cec560f7d0bb",
+                "sha256": "4d27b27b9a5a920cb561ced57033e4393ef11d0d6c82c2a54fae876f87795368",
+                "entry_id": "field.cfg.fact_txn_captacoloca_d.saldo_txn"
+              },
+              {
+                "id": "8650dd34-da10-506c-8a3d-6fb0c3538517",
+                "sha256": "cb075feab654d9f82f92e324915afa0f2aa07eb9f0db7759869e779765b96915",
+                "entry_id": "field.dim.dim_cliente.cve_dir"
+              },
+              {
+                "id": "086ee45f-5356-5848-bc12-b5604c2ca0ec",
+                "sha256": "41f0affda5da73551cababd1dd5c721e77d246e1dab1e078918a1b9e432b3c50",
+                "entry_id": "field.dim.dim_cliente.cve_promotor"
+              },
+              {
+                "id": "fee89408-1c16-590b-83c1-1dc70cc3457e",
+                "sha256": "10f4442871f6d5b99e144c8e40ac0aecfd5a510a6e9ea3a770a6b72269485581",
+                "entry_id": "field.dim.dim_cliente.cve_subdir"
+              },
+              {
+                "id": "571ed0b0-1730-56af-ae13-325fdb63ae8c",
+                "sha256": "5761a7c465a133e686c708959fa16b4926b85441379eafaa46930492875447c9",
+                "entry_id": "field.dim.dim_cliente.cve_sucursal"
+              },
+              {
+                "id": "44b38937-97ed-5c20-876a-89dd2c0e8845",
+                "sha256": "f93ee4716cf21d25b5fdc53fc5aa7492950206aade5965e78047879e9f7fb68b",
+                "entry_id": "field.dim.dim_cliente.cve_territorio"
+              },
+              {
+                "id": "6abc63d8-ada2-5500-9f92-620d9c6e328b",
+                "sha256": "6f2dff98fda3201b711a3e0aadd368a919c936ad37f614b540acc58a2e954ec7",
+                "entry_id": "field.dim.dim_cliente.fec_alta"
+              },
+              {
+                "id": "a2a36882-0b7b-5c4b-80db-9f6c8a1019a1",
+                "sha256": "ca2a2a4f8b01028e8e44e5896378676181dabea655a2e4e75e490bef4ee07ac4",
+                "entry_id": "field.dim.dim_cliente.fec_nac"
+              },
+              {
+                "id": "0bc541c6-5dd7-5301-8e90-d7d8f916c644",
+                "sha256": "4f84e0b68c5bb64cd570007afca9038d71baf09f20833a2c98ff5832a0e50bee",
+                "entry_id": "field.dim.dim_cliente.genero_cte"
+              },
+              {
+                "id": "dc6f0f4d-2fb7-54bf-992f-857145a3ba75",
+                "sha256": "3a9a391b58d595d434e65721ff25b74162d695491dd112b8b4ab324679ef6b9e",
+                "entry_id": "field.dim.dim_cliente.giro_empresa"
+              },
+              {
+                "id": "5e62fbca-e10c-5ff5-9a0c-2de1c620533a",
+                "sha256": "bb7d074b6ff1fa8983934f88ba2d19970e19e5cfbe9793c96a239ba34e24e6cd",
+                "entry_id": "field.dim.dim_cliente.num_cte"
+              },
+              {
+                "id": "99d84220-1b74-54b8-ad8b-04df23dd2295",
+                "sha256": "0f6de89cb1bebdb08f258285ee3b7e5b1d790b195e4a7da2d58ff5082fa132a4",
+                "entry_id": "field.dim.dim_cliente.segmento_cte"
+              },
+              {
+                "id": "127d9956-3905-5eda-8d6e-ad96f7a229ae",
+                "sha256": "b30f718878df804124325d751760155ddd1b06a2c3d6f5942f68c95a6756326b",
+                "entry_id": "field.dim.dim_cliente.tipo_persona"
+              },
+              {
+                "id": "39a554d9-05bf-53be-9a69-ec696ae59d18",
+                "sha256": "9008b0bd8c76f36962e76526ca37fe7576168515e11a899115eaeca5b2316117",
+                "entry_id": "field.dim.dim_producto.activo"
+              },
+              {
+                "id": "d9685700-ca73-5c4a-9bea-00e567b22240",
+                "sha256": "df7637dfd5d35140e339159a7d4bcf1df6e493876c964a050301c25cf4df0376",
+                "entry_id": "field.dim.dim_producto.cve_dominio"
+              },
+              {
+                "id": "f36480e7-06fc-5634-81b7-f9c5ee5b0f45",
+                "sha256": "05cfdea15a5e70b70986320d48b153ef38f7f3da5cf06d875effa49780a1c7f8",
+                "entry_id": "field.dim.dim_producto.cve_producto"
+              },
+              {
+                "id": "99eb5623-b6b0-54ed-901b-b52e770dde83",
+                "sha256": "f229ed50e4dd24330210cc54669776a08f6c13e83200b89a262b476428472631",
+                "entry_id": "field.dim.dim_producto.cve_subproducto"
+              },
+              {
+                "id": "8c8d3c14-6bb5-5b71-8c51-0157e304f4cc",
+                "sha256": "ad1a0afc91d2f162826f1d911bb9b4e9569a5b956b9660120dc09fed48a41fc6",
+                "entry_id": "field.dim.dim_producto.descripcion"
+              },
+              {
+                "id": "be797f9d-41ce-5432-9446-39b12201d6ff",
+                "sha256": "070f49cd2829d956b4d2af223c5568d04fecace9bdb31868ecb4e98f9cdc53c9",
+                "entry_id": "field.dim.dim_producto.grupo_producto"
+              },
+              {
+                "id": "e299fb3f-7ace-597e-8cbf-894673dfd410",
+                "sha256": "15632685aa7bcd054771a674f1601824b4513cab6a59bc8f83bb1324420f7e10",
+                "entry_id": "field.dim.dim_txn.cve_dominio"
+              },
+              {
+                "id": "a2b4ee67-a082-5020-95cc-c3d7ec6c83f6",
+                "sha256": "88a4aaea79d126e05465516dc9892b23830259dc1210df22802973a55782e132",
+                "entry_id": "field.dim.dim_txn.cve_producto"
+              },
+              {
+                "id": "3ae7e961-787b-5090-a962-40f2d51f2b81",
+                "sha256": "bef9cb31f27c5c325d38ab28e3c85dbc45f836cada3f57ac35b5a2d318351f8a",
+                "entry_id": "field.dim.dim_txn.cve_txn"
+              },
+              {
+                "id": "44b37302-9d47-5def-abc5-1b916bb05c72",
+                "sha256": "9552c2136d9f56fa4c588e2609cf46f739a33fac1b7842ca0aec4aee51962b0a",
+                "entry_id": "field.dim.dim_txn.desc_txn"
+              },
+              {
+                "id": "9617907e-dd5f-5c99-ad02-4902420896e8",
+                "sha256": "6bbc246618281435a8ebc435442ecf5f7be6ed3325a04c27fbc9a9b7a2084bc9",
+                "entry_id": "field.dim.dim_txn.grupo_producto"
+              },
+              {
+                "id": "58b37e8d-c22c-5f8f-91dd-de372c5b1e29",
+                "sha256": "e3187bb318329450f63f76dcfce348d20ef654930f54e48cb7bb8bac1c478cac",
+                "entry_id": "limitation.synthetic_generation"
+              },
+              {
+                "id": "8a77ed12-66bb-5648-8e01-9ff28e292426",
+                "sha256": "b17c1efaca75bfe926b289e10e70ddf5a665f7a5552bf5260adeedb0dd204d68",
+                "entry_id": "model.overview"
+              },
+              {
+                "id": "d1349ac1-98a9-574d-853e-84c3101bd06f",
+                "sha256": "800fc1b3ce70201756a1ee05d232d07de566a1000be14c0186a44e0ad84e88db",
+                "entry_id": "product.AHORRO"
+              },
+              {
+                "id": "3703bef6-1351-522c-8552-09426a579493",
+                "sha256": "311c3f30f35b799d78b101c04cc382ae0830a231a2aabb048cb71b95b3166d73",
+                "entry_id": "product.CHEQUES"
+              },
+              {
+                "id": "c64b59c8-369c-5fe6-aae7-040dac805b29",
+                "sha256": "b897b05c0721c6e6a2510676a641ddd939419b3dc77580afb37a3df62fd6cca2",
+                "entry_id": "product.C_PERSONAL"
+              },
+              {
+                "id": "04f69218-0df4-529e-95fc-93f744d5df57",
+                "sha256": "c13829d1933a97d6b0d0e6cf1218e35b82558699c99edda621f121223e2cb936",
+                "entry_id": "product.TDC"
+              },
+              {
+                "id": "85518aa4-212e-5f20-8681-9e5ef2c4ea80",
+                "sha256": "753ba75b047c8af9d27530e6338d1cc678a0bf4df0ad047c3c06e5a144029105",
+                "entry_id": "proposal.governance_constraints"
+              },
+              {
+                "id": "2bccd446-c862-5145-842d-bb3363500eb0",
+                "sha256": "ea2582f5c17f03ddb128f27bb4615a48c9f1619966e266dabb7dabdad35f8491",
+                "entry_id": "relationship.account_owner"
+              },
+              {
+                "id": "87a8f752-4662-5e7e-b386-852255306a94",
+                "sha256": "b505bf878f0db64c77e54ad8e6956883960586070630e7c1d7f13a27e87e975b",
+                "entry_id": "relationship.balance_movement"
+              },
+              {
+                "id": "1cbe8eb8-afab-50bd-98ba-a509c0a0b700",
+                "sha256": "6a704bffe7caf33b6b36c31d468869041c71b31a5da99bccdbfb876b81ec4bcf",
+                "entry_id": "relationship.transaction_catalog"
+              },
+              {
+                "id": "a533c2c7-c38c-534b-a5d4-54eaab9b5fcd",
+                "sha256": "2d16d21a94cbeecc5f4233921d2f5bd075286d63a1d19d2ee0afdf339bc7db48",
+                "entry_id": "rule.amounts.card"
+              },
+              {
+                "id": "c5a4f9e4-323d-52a4-82d2-6a8d793f41d7",
+                "sha256": "981ad6ded443b94f1fd6d74a7b477261bf483dd2a156f39f883248710dcd5b2d",
+                "entry_id": "rule.amounts.deposits"
+              },
+              {
+                "id": "e1e2dbef-df5e-51e8-ae99-0819db7bd5b9",
+                "sha256": "e550b2c7fed625b7d9f9882aaed51ba6ad35a7eb3dcb0d3192f808e300df5fcb",
+                "entry_id": "rule.amounts.personal"
+              },
+              {
+                "id": "f9687e46-ab0f-55fa-868a-5ffc0500f489",
+                "sha256": "f7b18a749fd3b615427ee1370db6c70eec017b6722732e32a1bdc054acb725e6",
+                "entry_id": "rule.growth"
+              },
+              {
+                "id": "f9c58180-c17d-588c-9b2b-431ad59bb6d7",
+                "sha256": "c7ca9ad077cbb0956675c71a7e203ce17238033c95c67e70c93c7735ce29d7ff",
+                "entry_id": "rule.reconciliation"
+              },
+              {
+                "id": "3a092922-fe4b-502a-8408-24783f9da306",
+                "sha256": "bf9724875f500346d4a701e71ceb220b9062db03e90884e0f15c432fc538066e",
+                "entry_id": "table.cfg.fact_sdos_captacoloca_m"
+              },
+              {
+                "id": "1ac0910b-ba92-5736-a999-d9c4b2a713f9",
+                "sha256": "9d4d3eba7dd2df1c68afefdd2ef849c1ea4514f01f2ad317eb9157be5fe38648",
+                "entry_id": "table.cfg.fact_txn_captacoloca_d"
+              },
+              {
+                "id": "37246ddd-b975-57a4-9592-588924d5ef9f",
+                "sha256": "d559bb887d8232184352914cf309f458c3df84bb7d4dc1dc8892c24ddfa7b30e",
+                "entry_id": "table.dim.dim_cliente"
+              },
+              {
+                "id": "304c367b-827c-5ed5-b315-b25c4241413b",
+                "sha256": "cf6470e25e7e6960a0848cf38df06123e5e1152a29abca643b105f1de625cf09",
+                "entry_id": "table.dim.dim_producto"
+              },
+              {
+                "id": "162bc196-4c6c-5c55-a6c7-43c8fdbc574b",
+                "sha256": "ce56a2be37a430a148ce885a84f50091c0c0360a303503bb481d215946fe79cd",
+                "entry_id": "table.dim.dim_txn"
+              },
+              {
+                "id": "e28043c0-e29c-507c-b79c-97218153800b",
+                "sha256": "20caf9d68305d4f0dd800d76ec0ef089eefa416db437312f58118d68a5117891",
+                "entry_id": "temporal.calendar"
+              },
+              {
+                "id": "8dd608b1-c4ad-5bb1-90e7-b753a62edcb1",
+                "sha256": "351943b7bf8235631693cb5729c1ca5ec839000cdd80675f9556e1dd9cb38cbd",
+                "entry_id": "temporal.opening_balance"
+              },
+              {
+                "id": "8a0ba068-46e5-59a2-8580-fd5442153b7c",
+                "sha256": "4ed084a54132ebcbc59b6985b1d94b0b67a2cd5c537f1abd4a0244499d3b5527",
+                "entry_id": "transaction.AHORRO.100"
+              },
+              {
+                "id": "15e65b98-363a-56bc-9df3-cbc0d40d9ce6",
+                "sha256": "2ce0ae6af84e082226de82c235667df9dc7fa848b04ca219ac61fc5145cb4289",
+                "entry_id": "transaction.AHORRO.200"
+              },
+              {
+                "id": "4f7b0314-90fa-5802-8bbc-2532b05c9862",
+                "sha256": "78c0bd09050d19b99b5df4ae2e1efdec8321a2b8fa95c66698dfcb3b7fba1d36",
+                "entry_id": "transaction.CHEQUES.100"
+              },
+              {
+                "id": "7cd0f6e5-e3fd-5699-88de-0029aeb27858",
+                "sha256": "987ad64a4abf7d38eb708b37c4f26cd77fbe9bf8aac2c00ff85bae9c6b8222be",
+                "entry_id": "transaction.CHEQUES.200"
+              },
+              {
+                "id": "7276a981-ac51-5d83-855b-ceac3251c73e",
+                "sha256": "9f2e6ddd882b411eb4237df8a2dc2464a42119303177a74bb0e978cd5caa3afe",
+                "entry_id": "transaction.C_PERSONAL.300"
+              },
+              {
+                "id": "7a375c57-0555-56b6-8e98-7a885017f698",
+                "sha256": "14b020fc23eac44e3368fc977965f44ec4f3c6a70fab403f47872c4ddb8f0e89",
+                "entry_id": "transaction.C_PERSONAL.450"
+              },
+              {
+                "id": "0a3ffa3d-be77-5fb1-b55b-81ffc3a144ed",
+                "sha256": "1af4c44587520a7eb9c00b0ce3619c00a48fa1aa4489397829523b3f8b076840",
+                "entry_id": "transaction.TDC.300"
+              },
+              {
+                "id": "5063461f-4e1c-57d4-bd48-75b4575bf307",
+                "sha256": "7a95bf3741e6421c54252a31d98e07149e9deb6839e4a52bc961dd123291de04",
+                "entry_id": "transaction.TDC.400"
+              },
+              {
+                "id": "3b8aedc3-7ea8-51d8-aa0f-aa74764e5fb2",
+                "sha256": "ab182ca7a1a903ca014b2fbb29d7e4a933124d5e0e364c2e8c52025669126196",
+                "entry_id": "transaction.TDC.450"
+              }
+            ],
+            "catalog_sha256": "5728b7a92fb618bf2e29083d9072522ad2c897dc9b176556f37dabb39c44fa65",
+            "content_sha256": "77311b6c11c14b75a984f4a14b3267a69647e46c478c52719fe235dc17a5579a",
+            "document_count": 82,
+            "catalog_version": "1.0.0",
+            "renderer_version": "1.0.0"
+          }
+        },
+        "model_id": "new_bank_2026",
+        "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e"
+      }
+    ],
+    "documents": {
+      "hash": "de75a01be9dc6da0114cf1248e7e4c88b9c220e2f7c77deb780ae55b530e58e7",
+      "count": 82
+    }
+  }
+}

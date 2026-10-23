@@ -1,0 +1,69 @@
+;
+; Archive created at 2026-10-23 00:31:14 UTC
+;     dbname: bank_governance_synthetic_dev
+;     TOC Entries: 58
+;     Compression: gzip
+;     Dump Version: 1.16-0
+;     Format: CUSTOM
+;     Integer: 4 bytes
+;     Offset: 8 bytes
+;     Dumped from database version: 17.11 (Debian 17.11-1.pgdg12+2)
+;     Dumped by pg_dump version: 17.11 (Debian 17.11-1.pgdg12+2)
+;
+;
+; Selected TOC Entries:
+;
+7; 2615 19613 SCHEMA - bank_knowledge bank_governance_dev
+9; 2615 33098 SCHEMA - cfg bank_governance_dev
+3744; 0 0 COMMENT - SCHEMA cfg bank_governance_dev
+8; 2615 33097 SCHEMA - dim bank_governance_dev
+2; 3079 16385 EXTENSION - vector 
+3745; 0 0 COMMENT - EXTENSION vector 
+232; 1259 19614 TABLE bank_knowledge corpora bank_governance_dev
+233; 1259 19624 TABLE bank_knowledge documents bank_governance_dev
+237; 1259 33163 TABLE cfg fact_sdos_captacoloca_m bank_governance_dev
+238; 1259 33180 TABLE cfg fact_txn_captacoloca_d bank_governance_dev
+240; 1259 33273 TABLE cfg ref_cuenta_modelo bank_governance_dev
+239; 1259 33241 TABLE cfg ref_txn_modelo bank_governance_dev
+234; 1259 33106 TABLE dim dim_cliente bank_governance_dev
+235; 1259 33133 TABLE dim dim_producto bank_governance_dev
+236; 1259 33154 TABLE dim dim_txn bank_governance_dev
+229; 1259 17552 TABLE public CUSTOMER bank_governance_dev
+231; 1259 17583 TABLE public LOAN bank_governance_dev
+230; 1259 17565 TABLE public TRANSACTION bank_governance_dev
+3729; 0 19614 TABLE DATA bank_knowledge corpora bank_governance_dev
+3730; 0 19624 TABLE DATA bank_knowledge documents bank_governance_dev
+3734; 0 33163 TABLE DATA cfg fact_sdos_captacoloca_m bank_governance_dev
+3735; 0 33180 TABLE DATA cfg fact_txn_captacoloca_d bank_governance_dev
+3737; 0 33273 TABLE DATA cfg ref_cuenta_modelo bank_governance_dev
+3736; 0 33241 TABLE DATA cfg ref_txn_modelo bank_governance_dev
+3731; 0 33106 TABLE DATA dim dim_cliente bank_governance_dev
+3732; 0 33133 TABLE DATA dim dim_producto bank_governance_dev
+3733; 0 33154 TABLE DATA dim dim_txn bank_governance_dev
+3726; 0 17552 TABLE DATA public CUSTOMER bank_governance_dev
+3728; 0 17583 TABLE DATA public LOAN bank_governance_dev
+3727; 0 17565 TABLE DATA public TRANSACTION bank_governance_dev
+3550; 2606 19623 CONSTRAINT bank_knowledge corpora corpora_pkey bank_governance_dev
+3553; 2606 19632 CONSTRAINT bank_knowledge documents documents_pkey bank_governance_dev
+3559; 2606 33331 CONSTRAINT cfg fact_sdos_captacoloca_m nbm_sdos_cuenta_corte_uq bank_governance_dev
+3561; 2606 33357 CONSTRAINT cfg fact_txn_captacoloca_d nbm_txn_evento_sintetico_uq bank_governance_dev
+3567; 2606 33281 CONSTRAINT cfg ref_cuenta_modelo ref_cuenta_modelo_num_cta_cve_producto_num_cte_key bank_governance_dev
+3569; 2606 33283 CONSTRAINT cfg ref_cuenta_modelo ref_cuenta_modelo_num_cte_cve_producto_key bank_governance_dev
+3571; 2606 33279 CONSTRAINT cfg ref_cuenta_modelo ref_cuenta_modelo_pkey bank_governance_dev
+3563; 2606 33249 CONSTRAINT cfg ref_txn_modelo ref_txn_modelo_cve_producto_cve_txn_desc_txn_key bank_governance_dev
+3565; 2606 33247 CONSTRAINT cfg ref_txn_modelo ref_txn_modelo_pkey bank_governance_dev
+3555; 2606 33114 CONSTRAINT dim dim_cliente dim_cliente_pkey bank_governance_dev
+3557; 2606 33139 CONSTRAINT dim dim_producto dim_producto_pkey bank_governance_dev
+3544; 2606 17564 CONSTRAINT public CUSTOMER customer_pk bank_governance_dev
+3548; 2606 17594 CONSTRAINT public LOAN loan_pk bank_governance_dev
+3546; 2606 17577 CONSTRAINT public TRANSACTION transaction_pk bank_governance_dev
+3551; 1259 19638 INDEX bank_knowledge bank_knowledge_documents_corpus_idx bank_governance_dev
+3574; 2606 19633 FK CONSTRAINT bank_knowledge documents documents_corpus_id_fkey bank_governance_dev
+3579; 2606 33306 FK CONSTRAINT cfg ref_cuenta_modelo nbm_ref_cuenta_cliente_fk bank_governance_dev
+3580; 2606 33311 FK CONSTRAINT cfg ref_cuenta_modelo nbm_ref_cuenta_producto_fk bank_governance_dev
+3578; 2606 33268 FK CONSTRAINT cfg ref_txn_modelo nbm_ref_txn_producto_fk bank_governance_dev
+3575; 2606 33338 FK CONSTRAINT cfg fact_sdos_captacoloca_m nbm_sdos_cuenta_fk bank_governance_dev
+3576; 2606 33368 FK CONSTRAINT cfg fact_txn_captacoloca_d nbm_txn_catalogo_fk bank_governance_dev
+3577; 2606 33363 FK CONSTRAINT cfg fact_txn_captacoloca_d nbm_txn_cuenta_fk bank_governance_dev
+3573; 2606 17595 FK CONSTRAINT public LOAN loan_customer_id_fk bank_governance_dev
+3572; 2606 17578 FK CONSTRAINT public TRANSACTION transaction_customer_id_fk bank_governance_dev

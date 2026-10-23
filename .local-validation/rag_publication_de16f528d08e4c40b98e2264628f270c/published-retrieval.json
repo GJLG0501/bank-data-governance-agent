@@ -1,0 +1,2257 @@
+{
+  "model_id": "new_bank_2026",
+  "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+  "total": 50,
+  "passed": 50,
+  "positive_mrr": 0.9365079365079365,
+  "cases": [
+    {
+      "id": "requested_segment",
+      "question": "¿Qué significa dim.dim_cliente.segmento_cte?",
+      "expected_entries": [
+        "field.dim.dim_cliente.segmento_cte"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.dim.dim_cliente.segmento_cte",
+        "table.dim.dim_cliente",
+        "field.dim.dim_cliente.num_cte",
+        "field.dim.dim_cliente.genero_cte",
+        "relationship.transaction_catalog"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.8008093478948752,
+        0.779759152481396,
+        0.7331223507030593,
+        0.7262970695342489,
+        0.7258464583526005
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_deposits",
+      "question": "¿Qué productos pertenecen a captación?",
+      "expected_entries": [
+        "product.CHEQUES",
+        "product.AHORRO"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "product.AHORRO",
+        "product.CHEQUES",
+        "field.dim.dim_producto.grupo_producto",
+        "relationship.account_owner",
+        "table.cfg.fact_sdos_captacoloca_m"
+      ],
+      "retrieval_strategy": "catalog_group_then_cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.6693402932501586,
+        0.6410714342125846,
+        0.6873918958072834,
+        0.6860498973101549,
+        0.6631663247148792
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_tdc_300",
+      "question": "¿Qué significa el código de transacción 300 para TDC?",
+      "expected_entries": [
+        "transaction.TDC.300"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "transaction.TDC.300",
+        "transaction.TDC.400",
+        "transaction.TDC.450",
+        "rule.amounts.card",
+        "product.TDC"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.802211261718205,
+        0.7526555439409341,
+        0.7500367760745998,
+        0.7303121042995754,
+        0.7031266191047331
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_catalog_join",
+      "question": "¿Cómo se relacionan dim.dim_txn y cfg.fact_txn_captacoloca_d?",
+      "expected_entries": [
+        "relationship.transaction_catalog"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "relationship.transaction_catalog",
+        "field.cfg.fact_txn_captacoloca_d.cve_txn",
+        "field.cfg.fact_txn_captacoloca_d.cve_producto",
+        "field.cfg.fact_txn_captacoloca_d.desc_txn",
+        "field.cfg.fact_txn_captacoloca_d.saldo_txn"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7785781621933039,
+        0.7706317168850744,
+        0.7698071875651173,
+        0.7654717704372666,
+        0.7619651414135197
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_opening_march",
+      "question": "¿Qué representa saldo_apertura en marzo?",
+      "expected_entries": [
+        "temporal.opening_balance"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "temporal.opening_balance",
+        "field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+        "rule.reconciliation",
+        "temporal.calendar",
+        "limitation.synthetic_generation"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7954007888670631,
+        0.7512599822855092,
+        0.6997709334852389,
+        0.6984873801920974,
+        0.6880918812204311
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_signed_amount",
+      "question": "¿Por qué saldo_txn no debe interpretarse directamente como un importe con signo?",
+      "expected_entries": [
+        "field.cfg.fact_txn_captacoloca_d.saldo_txn"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.reconciliation",
+        "field.cfg.fact_txn_captacoloca_d.saldo_txn",
+        "relationship.transaction_catalog",
+        "relationship.account_owner",
+        "relationship.balance_movement"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 0.5,
+      "scores": [
+        0.799190616511322,
+        0.7500024735936908,
+        0.746447428002252,
+        0.736033138283131,
+        0.7354820020730973
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ]
+      ]
+    },
+    {
+      "id": "requested_periods",
+      "question": "¿Qué diferencia existe entre cve_mes_alta y fec_informacion?",
+      "expected_entries": [
+        "temporal.calendar"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "temporal.calendar",
+        "relationship.balance_movement",
+        "field.cfg.fact_sdos_captacoloca_m.cve_mes_alta",
+        "field.dim.dim_cliente.cve_dir",
+        "field.dim.dim_cliente.cve_subdir"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7701816329306291,
+        0.7658254922940569,
+        0.7643230416967963,
+        0.7502361684897179,
+        0.7441618012899766
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_growth_april",
+      "question": "¿Qué tasa de crecimiento se aplica a colocación en abril?",
+      "expected_entries": [
+        "rule.growth"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.growth",
+        "ambiguity.raw_domain",
+        "temporal.opening_balance",
+        "temporal.calendar",
+        "relationship.balance_movement"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.76097482442858,
+        0.6817687289489124,
+        0.679495291830309,
+        0.6636252991148145,
+        0.659202415848071
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ]
+      ]
+    },
+    {
+      "id": "requested_currency",
+      "question": "¿Qué moneda utilizan los importes?",
+      "expected_entries": [
+        "absence.currency"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.currency",
+        "rule.reconciliation",
+        "limitation.synthetic_generation",
+        "transaction.C_PERSONAL.450",
+        "relationship.account_owner"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7914350032806903,
+        0.7011221702185172,
+        0.6570353764084905,
+        0.6560566816364312,
+        0.6514922823034888
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_credit_score",
+      "question": "¿Existe una columna credit_score en el nuevo modelo?",
+      "expected_entries": [
+        "absence.credit_score"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.credit_score",
+        "absence.banking_features",
+        "limitation.synthetic_generation",
+        "product.C_PERSONAL",
+        "proposal.governance_constraints"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.8745919615517268,
+        0.7848522881642008,
+        0.7784037254786031,
+        0.7486391067505734,
+        0.7444015768043629
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal"
+        ]
+      ]
+    },
+    {
+      "id": "requested_legacy_mapping",
+      "question": "¿Es válido relacionar automáticamente LOAN con C_PERSONAL?",
+      "expected_entries": [
+        "absence.legacy_mapping"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.legacy_mapping",
+        "product.C_PERSONAL",
+        "limitation.synthetic_generation",
+        "absence.banking_features",
+        "relationship.account_owner"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7995789883515441,
+        0.7455389196323537,
+        0.7105347874872352,
+        0.7072129628112234,
+        0.7045559395418312
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "requested_pm_birth",
+      "question": "¿Qué significado tiene fec_nac para personas morales?",
+      "expected_entries": [
+        "absence.pm_birth"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.pm_birth",
+        "table.dim.dim_cliente",
+        "temporal.calendar",
+        "field.dim.dim_cliente.fec_nac",
+        "relationship.account_owner"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7664000837803537,
+        0.6767556080301677,
+        0.6754594863556603,
+        0.6725738465283084,
+        0.6543314261933878
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_raw_domain",
+      "question": "¿Por qué dominio contiene CAPTACION en enero y DEPOSITS después?",
+      "expected_entries": [
+        "ambiguity.raw_domain"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "ambiguity.raw_domain",
+        "rule.growth",
+        "field.cfg.fact_sdos_captacoloca_m.dominio",
+        "field.cfg.fact_txn_captacoloca_d.dominio",
+        "product.AHORRO"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.753142177309733,
+        0.7434985775051605,
+        0.7334390084264033,
+        0.7285491449412833,
+        0.7273054014708578
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal",
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_unknown_attributes",
+      "question": "¿Qué definición y valores se conocen de cve_dir y cve_subdir?",
+      "expected_entries": [
+        "absence.unknown_client_fields"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.dim.dim_cliente.cve_subdir",
+        "field.dim.dim_cliente.cve_dir",
+        "absence.unknown_client_fields",
+        "field.dim.dim_cliente.cve_promotor",
+        "field.dim.dim_cliente.cve_territorio"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 0.3333333333333333,
+      "scores": [
+        0.7885125531539313,
+        0.7712229217556676,
+        0.7515030651388739,
+        0.7407838415165189,
+        0.7401340007781982
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_savings_range",
+      "question": "¿Qué saldo inicial y rango de cuenta se definen para AHORRO?",
+      "expected_entries": [
+        "product.AHORRO"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "product.AHORRO",
+        "temporal.opening_balance",
+        "temporal.calendar",
+        "table.cfg.fact_sdos_captacoloca_m",
+        "field.cfg.fact_sdos_captacoloca_m.saldo_apertura"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.6983057581774851,
+        0.6504448875122982,
+        0.638450850886412,
+        0.6362866352882456,
+        0.6350715510654009
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_accounts",
+      "question": "¿Cómo se asigna una cuenta de cada producto a cada cliente?",
+      "expected_entries": [
+        "relationship.account_owner"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "relationship.account_owner",
+        "auxiliary.cfg.ref_cuenta_modelo",
+        "relationship.transaction_catalog",
+        "absence.unknown_client_fields",
+        "table.cfg.fact_sdos_captacoloca_m"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7485142946243499,
+        0.6787591598199307,
+        0.660881916337138,
+        0.6586875116042905,
+        0.6581812704693806
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_account_date",
+      "question": "¿Qué fecha almacena cfg.fact_sdos_captacoloca_m.fec_alta?",
+      "expected_entries": [
+        "field.cfg.fact_sdos_captacoloca_m.fec_alta"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.cfg.fact_sdos_captacoloca_m.fec_informacion",
+        "field.cfg.fact_sdos_captacoloca_m.fec_alta",
+        "field.cfg.fact_txn_captacoloca_d.fec_informacion",
+        "field.cfg.fact_sdos_captacoloca_m.cve_mes_alta",
+        "temporal.calendar"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 0.5,
+      "scores": [
+        0.7362012958227053,
+        0.7210387989143904,
+        0.7127141787835963,
+        0.7055824995041696,
+        0.6988618345086651
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_february_growth",
+      "question": "¿Cuánto crece captación en febrero de 2026 según el generador?",
+      "expected_entries": [
+        "rule.growth"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.growth",
+        "absence.pm_birth",
+        "temporal.calendar",
+        "limitation.synthetic_generation",
+        "ambiguity.raw_domain"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.6983193603634406,
+        0.6879322661929632,
+        0.6754409508756838,
+        0.6699207022905878,
+        0.666000604808384
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference"
+        ]
+      ]
+    },
+    {
+      "id": "extra_personal_amounts",
+      "question": "¿Cómo se calculan pagos y disposiciones para C_PERSONAL?",
+      "expected_entries": [
+        "rule.amounts.personal"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.amounts.personal",
+        "rule.amounts.card",
+        "transaction.C_PERSONAL.450",
+        "product.C_PERSONAL",
+        "transaction.C_PERSONAL.300"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7840548215124896,
+        0.7066530656790267,
+        0.7040486469442824,
+        0.6988469477344614,
+        0.6912057031638318
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_card_amounts",
+      "question": "¿Cómo se calculan compras, disposiciones y pagos TDC?",
+      "expected_entries": [
+        "rule.amounts.card"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.amounts.card",
+        "transaction.TDC.450",
+        "transaction.TDC.400",
+        "product.TDC",
+        "transaction.TDC.300"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.8301270997675776,
+        0.7387214587594818,
+        0.7375532452064677,
+        0.7342078587722571,
+        0.7321537530880547
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_interest_absent",
+      "question": "¿El crecimiento impuesto es una tasa de interés contractual?",
+      "expected_entries": [
+        "rule.growth"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.growth",
+        "rule.reconciliation",
+        "transaction.C_PERSONAL.450",
+        "absence.banking_features",
+        "relationship.transaction_catalog"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7113991643788934,
+        0.6204888019906524,
+        0.6166178951632258,
+        0.6157019044745713,
+        0.6129955976019908
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_features_absent",
+      "question": "¿Tenemos límite de crédito, mora o DPD en el nuevo modelo?",
+      "expected_entries": [
+        "absence.banking_features"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.banking_features",
+        "limitation.synthetic_generation",
+        "proposal.governance_constraints",
+        "field.dim.dim_producto.descripcion",
+        "field.cfg.fact_sdos_captacoloca_m.fec_informacion"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.8279600265193595,
+        0.7476771334565376,
+        0.7456336627880159,
+        0.7336057304849032,
+        0.7327293812688661
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_auxiliary",
+      "question": "¿Qué es cfg.ref_txn_modelo y de dónde viene su clave compuesta?",
+      "expected_entries": [
+        "auxiliary.cfg.ref_txn_modelo"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "auxiliary.cfg.ref_txn_modelo",
+        "field.cfg.fact_txn_captacoloca_d.cve_producto",
+        "field.cfg.fact_txn_captacoloca_d.cve_txn",
+        "relationship.transaction_catalog",
+        "field.cfg.fact_txn_captacoloca_d.num_cta"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7667719403777411,
+        0.7553687333559657,
+        0.7520236225142267,
+        0.7504967451095634,
+        0.7375284466985896
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_no_unique",
+      "question": "¿Existe una PK o UNIQUE en dim.dim_txn?",
+      "expected_entries": [
+        "table.dim.dim_txn"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "relationship.transaction_catalog",
+        "table.dim.dim_txn",
+        "auxiliary.cfg.ref_txn_modelo",
+        "field.dim.dim_txn.cve_producto",
+        "field.dim.dim_txn.cve_txn"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 0.5,
+      "scores": [
+        0.7701225506821312,
+        0.7244000331640815,
+        0.7219447031284846,
+        0.7177981138230645,
+        0.712058723902054
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_product_group_loans",
+      "question": "Enumera los productos de colocación",
+      "expected_entries": [
+        "product.C_PERSONAL",
+        "product.TDC"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "product.C_PERSONAL",
+        "product.TDC",
+        "relationship.transaction_catalog",
+        "field.dim.dim_producto.grupo_producto",
+        "rule.amounts.card"
+      ],
+      "retrieval_strategy": "catalog_group_then_cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.6358217838099699,
+        0.6088239939775543,
+        0.7087976027007251,
+        0.6906887129975946,
+        0.687776969836568
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extra_product_group_deposits",
+      "question": "Lista los productos del grupo CAPTACION",
+      "expected_entries": [
+        "product.CHEQUES",
+        "product.AHORRO"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "product.AHORRO",
+        "product.CHEQUES",
+        "field.dim.dim_producto.grupo_producto",
+        "field.dim.dim_txn.grupo_producto",
+        "table.dim.dim_producto"
+      ],
+      "retrieval_strategy": "catalog_group_then_cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.6535420028244824,
+        0.6307160102467928,
+        0.7279305238972272,
+        0.6752264298431824,
+        0.6750184252759333
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "abstain_unrelated",
+      "question": "¿Cuál es la capital de Francia?",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "abstain_unknown_field",
+      "question": "¿Qué significa dim.dim_cliente.color_favorito?",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "abstain_live_value",
+      "question": "¿Cuál es el saldo actual de la cuenta 100000?",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "abstain_future",
+      "question": "¿Qué tasa de crecimiento se aplica en 2027?",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "extended_multi_products",
+      "question": "Compara CHEQUES y AHORRO: descripción y rangos iniciales",
+      "k": 12,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "product.CHEQUES",
+        "product.AHORRO"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "product.CHEQUES",
+        "transaction.CHEQUES.200",
+        "transaction.CHEQUES.100",
+        "rule.amounts.deposits",
+        "limitation.synthetic_generation",
+        "rule.growth",
+        "field.dim.dim_producto.descripcion",
+        "absence.legacy_mapping",
+        "relationship.transaction_catalog",
+        "transaction.AHORRO.100",
+        "product.AHORRO",
+        "rule.reconciliation"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7290973774964902,
+        0.7175893355852876,
+        0.7067153875062113,
+        0.7003544003088239,
+        0.699989306930631,
+        0.6961115779810315,
+        0.684040286059365,
+        0.6713055005289391,
+        0.6682848930358934,
+        0.6662533282125056,
+        0.6629981787200447,
+        0.6629772788923178
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_multi_loans",
+      "question": "Compara los productos C_PERSONAL y TDC",
+      "k": 12,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "product.C_PERSONAL",
+        "product.TDC"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.amounts.card",
+        "product.TDC",
+        "transaction.TDC.450",
+        "transaction.TDC.400",
+        "field.dim.dim_txn.cve_txn",
+        "field.dim.dim_producto.cve_dominio",
+        "transaction.TDC.300",
+        "relationship.transaction_catalog",
+        "product.C_PERSONAL",
+        "relationship.account_owner",
+        "field.dim.dim_producto.cve_producto",
+        "absence.legacy_mapping"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 0.5,
+      "scores": [
+        0.7346850317341127,
+        0.7228817824843204,
+        0.7213444377594516,
+        0.7195206927824643,
+        0.6926502768605893,
+        0.6904218608392406,
+        0.6893192199824026,
+        0.6856462955474902,
+        0.6841619861608812,
+        0.6756093099350257,
+        0.6755132497580695,
+        0.6732453945696929
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ]
+      ]
+    },
+    {
+      "id": "extended_multi_amounts",
+      "question": "Compara las fórmulas de pagos y disposiciones de C_PERSONAL y compras y pagos TDC",
+      "k": 12,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "rule.amounts.personal",
+        "rule.amounts.card"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.amounts.card",
+        "transaction.TDC.300",
+        "relationship.transaction_catalog",
+        "rule.amounts.personal",
+        "transaction.TDC.450",
+        "transaction.TDC.400",
+        "field.dim.dim_txn.cve_txn",
+        "field.cfg.fact_sdos_captacoloca_m.cve_producto",
+        "limitation.synthetic_generation",
+        "field.cfg.fact_txn_captacoloca_d.desc_txn",
+        "field.cfg.fact_txn_captacoloca_d.cve_producto",
+        "field.dim.dim_txn.desc_txn"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7975826376873639,
+        0.7486933017285546,
+        0.729648081022293,
+        0.7173989641959834,
+        0.7111253049672428,
+        0.7066664381821552,
+        0.6995584189628923,
+        0.6986588656103245,
+        0.6984914068005356,
+        0.6975560008023095,
+        0.693171531296668,
+        0.6924988903101964
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_multi_dates",
+      "question": "Diferencia fec_alta de dim.dim_cliente y fec_alta de cfg.fact_sdos_captacoloca_m",
+      "k": 12,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "field.dim.dim_cliente.fec_alta",
+        "field.cfg.fact_sdos_captacoloca_m.fec_alta"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.cfg.fact_sdos_captacoloca_m.fec_alta",
+        "field.cfg.fact_sdos_captacoloca_m.fec_informacion",
+        "field.cfg.fact_txn_captacoloca_d.fec_informacion",
+        "field.cfg.fact_sdos_captacoloca_m.cve_mes_alta",
+        "field.cfg.fact_sdos_captacoloca_m.num_cte",
+        "field.cfg.fact_txn_captacoloca_d.cve_producto",
+        "field.cfg.fact_txn_captacoloca_d.num_cte",
+        "table.dim.dim_cliente",
+        "field.cfg.fact_txn_captacoloca_d.cve_txn",
+        "relationship.transaction_catalog",
+        "field.cfg.fact_txn_captacoloca_d.cve_mes_txn",
+        "field.dim.dim_cliente.fec_alta"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7867750144199247,
+        0.7755108500016217,
+        0.7642377789446385,
+        0.7614012868768933,
+        0.7535359876327509,
+        0.7518826956154682,
+        0.7506287621907728,
+        0.7460525471128995,
+        0.7453431920240232,
+        0.7439271793192336,
+        0.7400394719968761,
+        0.7388002432109368
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_multi_groups",
+      "question": "¿Cuáles productos son de captación y cuáles de colocación?",
+      "k": 12,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "field.dim.dim_producto.grupo_producto"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.dim.dim_producto.grupo_producto",
+        "rule.growth",
+        "relationship.account_owner",
+        "table.cfg.fact_sdos_captacoloca_m",
+        "product.AHORRO",
+        "relationship.transaction_catalog",
+        "product.CHEQUES",
+        "table.cfg.fact_txn_captacoloca_d",
+        "rule.amounts.card",
+        "field.dim.dim_producto.descripcion",
+        "table.dim.dim_producto",
+        "field.cfg.fact_txn_captacoloca_d.desc_txn"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7293467844311308,
+        0.6829071422926066,
+        0.6806180857875294,
+        0.670507370738868,
+        0.667365551119854,
+        0.6558469143005076,
+        0.6494641482191309,
+        0.6456558455600554,
+        0.6450015094877201,
+        0.6447579899863126,
+        0.6415454621477823,
+        0.6406087111701163
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_column_type",
+      "question": "¿Qué tipo físico tiene cfg.fact_txn_captacoloca_d.saldo_txn?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "field.cfg.fact_txn_captacoloca_d.saldo_txn"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.cfg.fact_txn_captacoloca_d.saldo_txn",
+        "field.cfg.fact_sdos_captacoloca_m.fec_informacion",
+        "relationship.transaction_catalog",
+        "field.cfg.fact_txn_captacoloca_d.num_cte",
+        "field.cfg.fact_txn_captacoloca_d.desc_txn"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.764129516093868,
+        0.7381895872668444,
+        0.7261035662580945,
+        0.7254169098412024,
+        0.7249334246158325
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_nullable_original",
+      "question": "¿Admite NULL originalmente dim.dim_producto.activo?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "field.dim.dim_producto.activo"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.dim.dim_producto.activo",
+        "field.cfg.fact_txn_captacoloca_d.cve_producto",
+        "field.cfg.fact_txn_captacoloca_d.desc_txn",
+        "field.cfg.fact_sdos_captacoloca_m.cve_producto",
+        "field.dim.dim_cliente.giro_empresa"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7775861555132716,
+        0.75532589091887,
+        0.7367391335705094,
+        0.7329787970857206,
+        0.7282542366072338
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_pk_client",
+      "question": "¿Cuál es la clave primaria de dim.dim_cliente.num_cte?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "field.dim.dim_cliente.num_cte"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "field.dim.dim_cliente.num_cte",
+        "table.dim.dim_cliente",
+        "relationship.transaction_catalog",
+        "field.dim.dim_cliente.cve_dir",
+        "field.dim.dim_cliente.genero_cte"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7779381341786704,
+        0.7766625018909631,
+        0.7365612230635536,
+        0.7361572351830566,
+        0.7356698951524551
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_synthetic",
+      "question": "¿Cuáles son los supuestos sintéticos de RANDOM y anomalías del generador?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "limitation.synthetic_generation"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "limitation.synthetic_generation",
+        "relationship.transaction_catalog",
+        "relationship.balance_movement",
+        "table.dim.dim_cliente",
+        "absence.unknown_client_fields"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7412114051982607,
+        0.6569028327158697,
+        0.6492899300361031,
+        0.6371642024125751,
+        0.634112288322373
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference"
+        ]
+      ]
+    },
+    {
+      "id": "extended_balance_join",
+      "question": "¿Cómo agregar movimientos para conciliar saldos sin multiplicar filas?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "relationship.balance_movement"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "relationship.balance_movement",
+        "rule.reconciliation",
+        "limitation.synthetic_generation",
+        "relationship.transaction_catalog",
+        "relationship.account_owner"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.6402461528778076,
+        0.629089801528519,
+        0.6189119617710812,
+        0.6135220161961318,
+        0.601269590703302
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_sign_cheques",
+      "question": "¿Qué signo económico tiene CHEQUES código 200 RETIRO?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "transaction.CHEQUES.200"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "transaction.CHEQUES.200",
+        "transaction.AHORRO.200",
+        "transaction.CHEQUES.100",
+        "rule.amounts.deposits",
+        "transaction.AHORRO.100"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.835883020442842,
+        0.7613350152970226,
+        0.7360329661290935,
+        0.7075121118848345,
+        0.6870900783810683
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_sign_personal",
+      "question": "¿Qué signo económico tiene C_PERSONAL código 300 PAGOS?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "transaction.C_PERSONAL.300"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "transaction.C_PERSONAL.300",
+        "transaction.TDC.300",
+        "transaction.C_PERSONAL.450",
+        "limitation.synthetic_generation",
+        "rule.reconciliation"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7939621701330959,
+        0.7413403987885364,
+        0.7052570581436959,
+        0.693392298977667,
+        0.690752772925962
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_sign_card",
+      "question": "¿Qué signo económico tiene TDC código 450 DISPOSICIONES?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "transaction.TDC.450"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "transaction.TDC.450",
+        "transaction.TDC.400",
+        "transaction.C_PERSONAL.450",
+        "transaction.TDC.300",
+        "rule.amounts.card"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.8329302768152921,
+        0.7650049240882848,
+        0.7487877307877698,
+        0.7376693174445287,
+        0.707610088133222
+      ],
+      "assertion_origins": [
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_mvp_reconcile",
+      "question": "¿Qué propone el MVP para conciliación exacta sin tolerancia de un centavo?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "rule.reconciliation"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "rule.reconciliation",
+        "auxiliary.cfg.ref_cuenta_modelo",
+        "auxiliary.cfg.ref_txn_modelo",
+        "proposal.governance_constraints",
+        "relationship.transaction_catalog"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.7512038946152587,
+        0.6623493022767716,
+        0.6569672022442914,
+        0.6458740234375734,
+        0.6398504328460559
+      ],
+      "assertion_origins": [
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal"
+        ],
+        [
+          "mvp_proposal"
+        ],
+        [
+          "mvp_proposal"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_unknown_currency",
+      "question": "¿Puedo asumir que todos los importes son MXN?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "absence.currency"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.currency",
+        "rule.reconciliation",
+        "relationship.account_owner",
+        "relationship.transaction_catalog",
+        "proposal.governance_constraints"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.744094942850597,
+        0.6920883861807396,
+        0.6636261736790102,
+        0.6594133560626114,
+        0.651229997015977
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "mvp_proposal",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal"
+        ]
+      ]
+    },
+    {
+      "id": "extended_pm_legal",
+      "question": "¿fec_nac en PM puede llamarse fecha de constitución?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "expected_entries": [
+        "absence.pm_birth"
+      ],
+      "passed": true,
+      "status": "evidence",
+      "retrieved_entries": [
+        "absence.pm_birth",
+        "field.dim.dim_cliente.fec_nac",
+        "field.dim.dim_cliente.fec_alta",
+        "field.cfg.fact_sdos_captacoloca_m.fec_alta",
+        "temporal.calendar"
+      ],
+      "retrieval_strategy": "cosine",
+      "reciprocal_rank": 1.0,
+      "scores": [
+        0.8066946037645109,
+        0.7315489053727028,
+        0.6999225020870604,
+        0.6950625079646727,
+        0.6900045850869412
+      ],
+      "assertion_origins": [
+        [
+          "technical_inference"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "upstream_explicit"
+        ],
+        [
+          "mvp_proposal",
+          "technical_inference",
+          "upstream_explicit"
+        ],
+        [
+          "technical_inference",
+          "upstream_explicit"
+        ]
+      ]
+    },
+    {
+      "id": "extended_unknown_column",
+      "question": "¿Qué es cfg.fact_txn_captacoloca_d.credit_limit?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "extended_unsupported_year",
+      "question": "¿Qué tasa de crecimiento usa colocación en 2028?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "extended_live_account",
+      "question": "¿Cuál es el saldo actual de la cuenta 200000?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    },
+    {
+      "id": "extended_unrelated",
+      "question": "¿Cómo cocinar una paella?",
+      "k": 5,
+      "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+      "no_evidence": true,
+      "passed": true,
+      "status": "no_evidence",
+      "retrieved_entries": [],
+      "retrieval_strategy": "abstention",
+      "reciprocal_rank": 0,
+      "scores": [],
+      "assertion_origins": []
+    }
+  ],
+  "score_is_correctness_proof": false
+}

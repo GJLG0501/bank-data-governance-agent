@@ -1,0 +1,10 @@
+{
+  "comparisons": {
+    "identity": true,
+    "legacy": true,
+    "historic": true,
+    "bank": true,
+    "rag": true
+  },
+  "privileges_unchanged": true
+}

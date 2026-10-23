@@ -1,0 +1,2616 @@
+{
+  "responses": [
+    {
+      "question": "¿Qué moneda especifican los SQL?",
+      "status": "grounded",
+      "answer": "[technical_inference] Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.\n[upstream_explicit] U2 obtiene saldo inicial mediante ROUND(mínimo+RANDOM()*(máximo-mínimo),2); U3 impone crecimientos y una operación por tipo/mes. Todos los clientes reciben los cuatro productos.\n[technical_inference] No hay un historial de eventos reales. Las fechas de nacimiento y alta se generan independientemente; los conteos observados de anomalías son resultados de validación de una versión de dataset, no definiciones permanentes ni políticas bancarias.\n[upstream_explicit] dim.dim_txn.desc_txn: tipo físico VARCHAR(40); NOT NULL en el DDL recibido.\n[upstream_explicit] Las descripciones literales son DEPOSITO, RETIRO, PAGOS, COMPRAS o DISPOSICIONES según producto/código; no son identificadores de eventos.\n[upstream_explicit] Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.\n[mvp_proposal] Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.\n[upstream_explicit] Relacionar por cve_producto + cve_txn, nunca solo cve_txn, para no multiplicar los movimientos. dim_txn no tiene PK/UNIQUE.\n[technical_inference] Cardinalidad esperada: una definición por par producto/código frente a muchos movimientos. Comprobar que cada par tiene exactamente una definición; incluso el JOIN compuesto multiplica filas si se duplican pares. No ocultarlo con DISTINCT.",
+      "references": [
+        {
+          "evidence_id": "E1",
+          "document_id": "a67edcc0-4bf1-5070-97c7-671fe6541773",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/absence.currency",
+          "kind": "ambiguity",
+          "similarity": 0.8191375085607202,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "absence.currency.c1",
+              "text": "Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 151,
+                  "source_id": "U1",
+                  "line_start": 1,
+                  "excerpt_sha256": "7d5fdf269c0c25b87d7610bb852e00ec13fb51625b516ddc73f96b5201470761"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 215,
+                  "source_id": "U2",
+                  "line_start": 1,
+                  "excerpt_sha256": "e9718886f74ebd54bdc7e797b21cde34b417ae0fae7be00501e40844d339075d"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 488,
+                  "source_id": "U3",
+                  "line_start": 1,
+                  "excerpt_sha256": "67e834f30e0dc1ca9ba90bb66fe58c783b6fe9527a401ab94334ed1dd47f3259"
+                }
+              ],
+              "json_pointer": "/entries/absence.currency/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "document_id": "b0ebfc32-98ff-5288-97b4-d2d078559581",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/limitation.synthetic_generation",
+          "kind": "limitation",
+          "similarity": 0.7201640081015893,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "limitation.synthetic_generation.c1",
+              "text": "U2 obtiene saldo inicial mediante ROUND(mínimo+RANDOM()*(máximo-mínimo),2); U3 impone crecimientos y una operación por tipo/mes. Todos los clientes reciben los cuatro productos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 114,
+                  "source_id": "U2",
+                  "line_start": 83,
+                  "excerpt_sha256": "9c0f1d40960573ff6230edbc0a2b3ea7b384ad54fbc82b5120716acd98f19918"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 34,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "67ee69bc182356f606feadf4cf5077eff6c31cbe9c259a096eb228d77d4d8e66"
+                }
+              ],
+              "json_pointer": "/entries/limitation.synthetic_generation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "limitation.synthetic_generation.c2",
+              "text": "No hay un historial de eventos reales. Las fechas de nacimiento y alta se generan independientemente; los conteos observados de anomalías son resultados de validación de una versión de dataset, no definiciones permanentes ni políticas bancarias.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 70,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "2d275246254672e5d23ee96e7b00e555f3fdea0ab2316dcd04de074a8e302673"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2b2ffa0b2bf1c02d0ac63bbd2c7a314a838c13620e1d379edb1baee2034fe926"
+                }
+              ],
+              "json_pointer": "/entries/limitation.synthetic_generation/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E3",
+          "document_id": "4bf5c65f-90ec-5474-b42e-6e3caad659db",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": "dim.dim_txn",
+          "field": "desc_txn",
+          "json_pointer": "/entries/field.dim.dim_txn.desc_txn",
+          "kind": "field",
+          "similarity": 0.7136368494143646,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "field.dim.dim_txn.desc_txn.c1",
+              "text": "dim.dim_txn.desc_txn: tipo físico VARCHAR(40); NOT NULL en el DDL recibido.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 106,
+                  "source_id": "U1",
+                  "line_start": 106,
+                  "excerpt_sha256": "c71cb649872e3bd77070a658f62417c604bdb871926c1836bf9f0b4ac8c786fe"
+                }
+              ],
+              "json_pointer": "/entries/field.dim.dim_txn.desc_txn/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "field.dim.dim_txn.desc_txn.c2",
+              "text": "Las descripciones literales son DEPOSITO, RETIRO, PAGOS, COMPRAS o DISPOSICIONES según producto/código; no son identificadores de eventos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                }
+              ],
+              "json_pointer": "/entries/field.dim.dim_txn.desc_txn/claims/1",
+              "classification": "upstream_explicit"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E4",
+          "document_id": "667fc331-46e3-56c6-a939-7597dc076b1a",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/rule.reconciliation",
+          "kind": "financial_rule",
+          "similarity": 0.713067489083621,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "rule.reconciliation.c1",
+              "text": "Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 15,
+                  "excerpt_sha256": "5e6d030bd614fe344bbf48b9cf5c7ba7e5c6db3e0d85abeaabcd8a8d569127a2"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.reconciliation.c2",
+              "text": "Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+              "source_refs": [
+                {
+                  "path": "docs/new-bank-model-governance.md",
+                  "sha256": "a005992e034f3928c3fc7daf8af05d4fe5d614910c8aefd3b9f8aed1156a555b",
+                  "line_end": 100,
+                  "source_id": "G1",
+                  "line_start": 93,
+                  "excerpt_sha256": "b579c59e4e2c52ee3f3a26aec7e157e9267abd666af6b9fdd418eb47de2296ca"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/1",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E5",
+          "document_id": "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.transaction_catalog",
+          "kind": "relationship",
+          "similarity": 0.7119190349482541,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.transaction_catalog.c1",
+              "text": "Relacionar por cve_producto + cve_txn, nunca solo cve_txn, para no multiplicar los movimientos. dim_txn no tiene PK/UNIQUE.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 6,
+                  "source_id": "U1",
+                  "line_start": 5,
+                  "excerpt_sha256": "4493897e88c138c280d8cc71b9cdc766d8fee9d600476ba11ff2c93411a7e7c8"
+                },
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                }
+              ],
+              "json_pointer": "/entries/relationship.transaction_catalog/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "relationship.transaction_catalog.c2",
+              "text": "Cardinalidad esperada: una definición por par producto/código frente a muchos movimientos. Comprobar que cada par tiene exactamente una definición; incluso el JOIN compuesto multiplica filas si se duplican pares. No ocultarlo con DISTINCT.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 22,
+                  "source_id": "U3",
+                  "line_start": 20,
+                  "excerpt_sha256": "a70bf7427fb7164cc04aa35fb1d0585e024be2ffc4f5b4f0cdf3a2d6b4adc47d"
+                }
+              ],
+              "json_pointer": "/entries/relationship.transaction_catalog/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "document_id": "a67edcc0-4bf1-5070-97c7-671fe6541773",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nMoneda de los importes no especificada\n[technical_inference] Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/absence.currency",
+          "kind": "ambiguity",
+          "similarity": 0.8191375085607202,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "absence.currency.c1",
+              "text": "Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 151,
+                  "source_id": "U1",
+                  "line_start": 1,
+                  "excerpt_sha256": "7d5fdf269c0c25b87d7610bb852e00ec13fb51625b516ddc73f96b5201470761"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 215,
+                  "source_id": "U2",
+                  "line_start": 1,
+                  "excerpt_sha256": "e9718886f74ebd54bdc7e797b21cde34b417ae0fae7be00501e40844d339075d"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 488,
+                  "source_id": "U3",
+                  "line_start": 1,
+                  "excerpt_sha256": "67e834f30e0dc1ca9ba90bb66fe58c783b6fe9527a401ab94334ed1dd47f3259"
+                }
+              ],
+              "json_pointer": "/entries/absence.currency/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "document_id": "b0ebfc32-98ff-5288-97b4-d2d078559581",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nSupuestos del generador y alcance del conocimiento documental\n[upstream_explicit] U2 obtiene saldo inicial mediante ROUND(mínimo+RANDOM()*(máximo-mínimo),2); U3 impone crecimientos y una operación por tipo/mes. Todos los clientes reciben los cuatro productos.\n[technical_inference] No hay un historial de eventos reales. Las fechas de nacimiento y alta se generan independientemente; los conteos observados de anomalías son resultados de validación de una versión de dataset, no definiciones permanentes ni políticas bancarias.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/limitation.synthetic_generation",
+          "kind": "limitation",
+          "similarity": 0.7201640081015893,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "limitation.synthetic_generation.c1",
+              "text": "U2 obtiene saldo inicial mediante ROUND(mínimo+RANDOM()*(máximo-mínimo),2); U3 impone crecimientos y una operación por tipo/mes. Todos los clientes reciben los cuatro productos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 114,
+                  "source_id": "U2",
+                  "line_start": 83,
+                  "excerpt_sha256": "9c0f1d40960573ff6230edbc0a2b3ea7b384ad54fbc82b5120716acd98f19918"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 34,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "67ee69bc182356f606feadf4cf5077eff6c31cbe9c259a096eb228d77d4d8e66"
+                }
+              ],
+              "json_pointer": "/entries/limitation.synthetic_generation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "limitation.synthetic_generation.c2",
+              "text": "No hay un historial de eventos reales. Las fechas de nacimiento y alta se generan independientemente; los conteos observados de anomalías son resultados de validación de una versión de dataset, no definiciones permanentes ni políticas bancarias.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 70,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "2d275246254672e5d23ee96e7b00e555f3fdea0ab2316dcd04de074a8e302673"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2b2ffa0b2bf1c02d0ac63bbd2c7a314a838c13620e1d379edb1baee2034fe926"
+                }
+              ],
+              "json_pointer": "/entries/limitation.synthetic_generation/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E3",
+          "document_id": "4bf5c65f-90ec-5474-b42e-6e3caad659db",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\ndim.dim_txn.desc_txn — Descripción del tipo de transacción\n[upstream_explicit] dim.dim_txn.desc_txn: tipo físico VARCHAR(40); NOT NULL en el DDL recibido.\n[upstream_explicit] Las descripciones literales son DEPOSITO, RETIRO, PAGOS, COMPRAS o DISPOSICIONES según producto/código; no son identificadores de eventos.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": "dim.dim_txn",
+          "field": "desc_txn",
+          "json_pointer": "/entries/field.dim.dim_txn.desc_txn",
+          "kind": "field",
+          "similarity": 0.7136368494143646,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "field.dim.dim_txn.desc_txn.c1",
+              "text": "dim.dim_txn.desc_txn: tipo físico VARCHAR(40); NOT NULL en el DDL recibido.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 106,
+                  "source_id": "U1",
+                  "line_start": 106,
+                  "excerpt_sha256": "c71cb649872e3bd77070a658f62417c604bdb871926c1836bf9f0b4ac8c786fe"
+                }
+              ],
+              "json_pointer": "/entries/field.dim.dim_txn.desc_txn/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "field.dim.dim_txn.desc_txn.c2",
+              "text": "Las descripciones literales son DEPOSITO, RETIRO, PAGOS, COMPRAS o DISPOSICIONES según producto/código; no son identificadores de eventos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                }
+              ],
+              "json_pointer": "/entries/field.dim.dim_txn.desc_txn/claims/1",
+              "classification": "upstream_explicit"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E4",
+          "document_id": "667fc331-46e3-56c6-a939-7597dc076b1a",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nConciliación exacta y signo económico de saldo_txn\n[upstream_explicit] Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.\n[mvp_proposal] Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/rule.reconciliation",
+          "kind": "financial_rule",
+          "similarity": 0.713067489083621,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "rule.reconciliation.c1",
+              "text": "Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 15,
+                  "excerpt_sha256": "5e6d030bd614fe344bbf48b9cf5c7ba7e5c6db3e0d85abeaabcd8a8d569127a2"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.reconciliation.c2",
+              "text": "Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+              "source_refs": [
+                {
+                  "path": "docs/new-bank-model-governance.md",
+                  "sha256": "a005992e034f3928c3fc7daf8af05d4fe5d614910c8aefd3b9f8aed1156a555b",
+                  "line_end": 100,
+                  "source_id": "G1",
+                  "line_start": 93,
+                  "excerpt_sha256": "b579c59e4e2c52ee3f3a26aec7e157e9267abd666af6b9fdd418eb47de2296ca"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/1",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E5",
+          "document_id": "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nJOIN dim.dim_txn con cfg.fact_txn_captacoloca_d\n[upstream_explicit] Relacionar por cve_producto + cve_txn, nunca solo cve_txn, para no multiplicar los movimientos. dim_txn no tiene PK/UNIQUE.\n[technical_inference] Cardinalidad esperada: una definición por par producto/código frente a muchos movimientos. Comprobar que cada par tiene exactamente una definición; incluso el JOIN compuesto multiplica filas si se duplican pares. No ocultarlo con DISTINCT.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.transaction_catalog",
+          "kind": "relationship",
+          "similarity": 0.7119190349482541,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.transaction_catalog.c1",
+              "text": "Relacionar por cve_producto + cve_txn, nunca solo cve_txn, para no multiplicar los movimientos. dim_txn no tiene PK/UNIQUE.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 6,
+                  "source_id": "U1",
+                  "line_start": 5,
+                  "excerpt_sha256": "4493897e88c138c280d8cc71b9cdc766d8fee9d600476ba11ff2c93411a7e7c8"
+                },
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                }
+              ],
+              "json_pointer": "/entries/relationship.transaction_catalog/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "relationship.transaction_catalog.c2",
+              "text": "Cardinalidad esperada: una definición por par producto/código frente a muchos movimientos. Comprobar que cada par tiene exactamente una definición; incluso el JOIN compuesto multiplica filas si se duplican pares. No ocultarlo con DISTINCT.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 22,
+                  "source_id": "U3",
+                  "line_start": 20,
+                  "excerpt_sha256": "a70bf7427fb7164cc04aa35fb1d0585e024be2ffc4f5b4f0cdf3a2d6b4adc47d"
+                }
+              ],
+              "json_pointer": "/entries/relationship.transaction_catalog/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "tool_calls": 1,
+      "diagnostic": null,
+      "validation_results": [],
+      "retrieved_document_count": 5,
+      "used_document_count": 5
+    },
+    {
+      "question": "¿Cuál es el cierre que abre mayo?",
+      "status": "grounded",
+      "answer": "[upstream_explicit] Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.\n[technical_inference] No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+      "references": [
+        {
+          "evidence_id": "E5",
+          "document_id": "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.calendar",
+          "kind": "temporal_rule",
+          "similarity": 0.6389727518187397,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.calendar.c1",
+              "text": "Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 104,
+                  "source_id": "U2",
+                  "line_start": 100,
+                  "excerpt_sha256": "b32aaa8813eb506306271b734192c64da6462c4b0fb826da1379d77e3cbaafab"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 239,
+                  "source_id": "U3",
+                  "line_start": 232,
+                  "excerpt_sha256": "6807cd669c3dac17fdb3a1397039be8b581e93274a967185909d8693dd02a00a"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "temporal.calendar.c2",
+              "text": "No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 53,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "b079a32bf48a2ab5df045e44ecaabfacfe0b23657d2c6e9940fd87ca02209554"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 40,
+                  "source_id": "U2",
+                  "line_start": 30,
+                  "excerpt_sha256": "add473b8445c5ec94e8073ee5136da04fc003b537d8f265cc6e31675f388a0af"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 58,
+                  "source_id": "U3",
+                  "line_start": 47,
+                  "excerpt_sha256": "a39c36715c87d30d3cb4a70fad74b398fa59ad774415bc8df1a6d58b3b58a3f4"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "document_id": "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nQué representa saldo_apertura en marzo\n[technical_inference] saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.opening_balance",
+          "kind": "temporal_rule",
+          "similarity": 0.7360699806047369,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.opening_balance.c1",
+              "text": "saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.opening_balance/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "document_id": "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\ncfg.fact_sdos_captacoloca_m.saldo_apertura — Saldo de inicio del mes; apertura de cuenta solo en enero\n[upstream_explicit] cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.\n[technical_inference] En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.\n[mvp_proposal] En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": "cfg.fact_sdos_captacoloca_m",
+          "field": "saldo_apertura",
+          "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "kind": "field",
+          "similarity": 0.6859455517498098,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c1",
+              "text": "cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 36,
+                  "source_id": "U2",
+                  "line_start": 36,
+                  "excerpt_sha256": "1b6aa8386a660cdcc1f201408ec095cb11c506670ea90411fc7cb2143af8ddcd"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c2",
+              "text": "En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/1",
+              "classification": "technical_inference"
+            },
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c3",
+              "text": "En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+              "source_refs": [
+                {
+                  "path": "sql/integration/002_new_bank_integrity.sql",
+                  "sha256": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8",
+                  "line_end": 261,
+                  "source_id": "M2",
+                  "line_start": 188,
+                  "excerpt_sha256": "f9767488a33e9852b7038aef05369a404c7bbacadb7e3eda2aa1093d59380533"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/2",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E3",
+          "document_id": "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nJOIN de saldos y movimientos al grano mensual\n[technical_inference] Agregar movimientos por num_cta+cve_producto+cve_mes_txn antes de comparar con el saldo del mismo corte. Un JOIN directo de cada movimiento al saldo repite el saldo dos o tres veces; no sumar cierres de varios meses como flujo.\n[technical_inference] Relacionar al cierre anterior del mes calendario exacto, no a cualquier fila previa disponible. cve_mes_alta no identifica el mes del cierre.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.balance_movement",
+          "kind": "relationship",
+          "similarity": 0.6738311259545285,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.balance_movement.c1",
+              "text": "Agregar movimientos por num_cta+cve_producto+cve_mes_txn antes de comparar con el saldo del mismo corte. Un JOIN directo de cada movimiento al saldo repite el saldo dos o tres veces; no sumar cierres de varios meses como flujo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 34,
+                  "source_id": "U3",
+                  "line_start": 20,
+                  "excerpt_sha256": "3768cfd81d07b9c0f6b6a2b3595507ca4def3ffac2b4b8c360acf51b156cefc8"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/relationship.balance_movement/claims/0",
+              "classification": "technical_inference"
+            },
+            {
+              "id": "relationship.balance_movement.c2",
+              "text": "Relacionar al cierre anterior del mes calendario exacto, no a cualquier fila previa disponible. cve_mes_alta no identifica el mes del cierre.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 222,
+                  "source_id": "U3",
+                  "line_start": 220,
+                  "excerpt_sha256": "268577da0ad67499bae5a2bcb028c4550e19f6e63cc41f2487f7e4dbcb5b0da8"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/relationship.balance_movement/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E4",
+          "document_id": "d00994ee-dc45-54fd-b5ee-ed81dca37da8",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nCrecimiento mensual sintético de captación y colocación\n[upstream_explicit] Febrero 2026: captación 2.0% y colocación 3.0%. Marzo, abril, mayo y junio: captación 1.0% y colocación 2.2%. CHEQUES/AHORRO son captación; C_PERSONAL/TDC colocación.\n[upstream_explicit] Cierre objetivo = ROUND(saldo anterior*(1+tasa),2); incremento objetivo = cierre objetivo - saldo anterior. Se redondea por cuenta y mes, no una tasa agregada.\n[technical_inference] El crecimiento impuesto no define interés contractual, rentabilidad, mora ni una política de tasas bancarias reales.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/rule.growth",
+          "kind": "financial_rule",
+          "similarity": 0.6470899581909364,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "rule.growth.c1",
+              "text": "Febrero 2026: captación 2.0% y colocación 3.0%. Marzo, abril, mayo y junio: captación 1.0% y colocación 2.2%. CHEQUES/AHORRO son captación; C_PERSONAL/TDC colocación.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 97,
+                  "source_id": "U1",
+                  "line_start": 94,
+                  "excerpt_sha256": "52f0e7f92c071e4c25879d9b46fe836d6940d76af2699c99de489fa82ad5bd81"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 13,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2f77e44ccc1a8d3f46c0c847788cec0004f180bc56e74b4df77ce8a61916bc7e"
+                }
+              ],
+              "json_pointer": "/entries/rule.growth/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.growth.c2",
+              "text": "Cierre objetivo = ROUND(saldo anterior*(1+tasa),2); incremento objetivo = cierre objetivo - saldo anterior. Se redondea por cuenta y mes, no una tasa agregada.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                }
+              ],
+              "json_pointer": "/entries/rule.growth/claims/1",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.growth.c3",
+              "text": "El crecimiento impuesto no define interés contractual, rentabilidad, mora ni una política de tasas bancarias reales.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2b2ffa0b2bf1c02d0ac63bbd2c7a314a838c13620e1d379edb1baee2034fe926"
+                }
+              ],
+              "json_pointer": "/entries/rule.growth/claims/2",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E5",
+          "document_id": "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nFechas y períodos: apertura, operación y corte\n[upstream_explicit] Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.\n[technical_inference] No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.calendar",
+          "kind": "temporal_rule",
+          "similarity": 0.6389727518187397,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.calendar.c1",
+              "text": "Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 104,
+                  "source_id": "U2",
+                  "line_start": 100,
+                  "excerpt_sha256": "b32aaa8813eb506306271b734192c64da6462c4b0fb826da1379d77e3cbaafab"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 239,
+                  "source_id": "U3",
+                  "line_start": 232,
+                  "excerpt_sha256": "6807cd669c3dac17fdb3a1397039be8b581e93274a967185909d8693dd02a00a"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "temporal.calendar.c2",
+              "text": "No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 53,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "b079a32bf48a2ab5df045e44ecaabfacfe0b23657d2c6e9940fd87ca02209554"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 40,
+                  "source_id": "U2",
+                  "line_start": 30,
+                  "excerpt_sha256": "add473b8445c5ec94e8073ee5136da04fc003b537d8f265cc6e31675f388a0af"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 58,
+                  "source_id": "U3",
+                  "line_start": 47,
+                  "excerpt_sha256": "a39c36715c87d30d3cb4a70fad74b398fa59ad774415bc8df1a6d58b3b58a3f4"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "tool_calls": 1,
+      "diagnostic": null,
+      "validation_results": [],
+      "retrieved_document_count": 5,
+      "used_document_count": 1
+    },
+    {
+      "question": "¿Y en el mes siguiente?",
+      "status": "grounded",
+      "answer": "[technical_inference] saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+      "references": [
+        {
+          "evidence_id": "E2",
+          "document_id": "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.opening_balance",
+          "kind": "temporal_rule",
+          "similarity": 0.7515919200935959,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.opening_balance.c1",
+              "text": "saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.opening_balance/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "document_id": "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\ncfg.fact_sdos_captacoloca_m.saldo_apertura — Saldo de inicio del mes; apertura de cuenta solo en enero\n[upstream_explicit] cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.\n[technical_inference] En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.\n[mvp_proposal] En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": "cfg.fact_sdos_captacoloca_m",
+          "field": "saldo_apertura",
+          "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "kind": "field",
+          "similarity": 0.6960585064783396,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c1",
+              "text": "cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 36,
+                  "source_id": "U2",
+                  "line_start": 36,
+                  "excerpt_sha256": "1b6aa8386a660cdcc1f201408ec095cb11c506670ea90411fc7cb2143af8ddcd"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c2",
+              "text": "En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/1",
+              "classification": "technical_inference"
+            },
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c3",
+              "text": "En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+              "source_refs": [
+                {
+                  "path": "sql/integration/002_new_bank_integrity.sql",
+                  "sha256": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8",
+                  "line_end": 261,
+                  "source_id": "M2",
+                  "line_start": 188,
+                  "excerpt_sha256": "f9767488a33e9852b7038aef05369a404c7bbacadb7e3eda2aa1093d59380533"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/2",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "document_id": "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nQué representa saldo_apertura en marzo\n[technical_inference] saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.opening_balance",
+          "kind": "temporal_rule",
+          "similarity": 0.7515919200935959,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.opening_balance.c1",
+              "text": "saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.opening_balance/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E3",
+          "document_id": "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nFechas y períodos: apertura, operación y corte\n[upstream_explicit] Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.\n[technical_inference] No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.calendar",
+          "kind": "temporal_rule",
+          "similarity": 0.6698209246939937,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.calendar.c1",
+              "text": "Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 104,
+                  "source_id": "U2",
+                  "line_start": 100,
+                  "excerpt_sha256": "b32aaa8813eb506306271b734192c64da6462c4b0fb826da1379d77e3cbaafab"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 239,
+                  "source_id": "U3",
+                  "line_start": 232,
+                  "excerpt_sha256": "6807cd669c3dac17fdb3a1397039be8b581e93274a967185909d8693dd02a00a"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "temporal.calendar.c2",
+              "text": "No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 53,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "b079a32bf48a2ab5df045e44ecaabfacfe0b23657d2c6e9940fd87ca02209554"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 40,
+                  "source_id": "U2",
+                  "line_start": 30,
+                  "excerpt_sha256": "add473b8445c5ec94e8073ee5136da04fc003b537d8f265cc6e31675f388a0af"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 58,
+                  "source_id": "U3",
+                  "line_start": 47,
+                  "excerpt_sha256": "a39c36715c87d30d3cb4a70fad74b398fa59ad774415bc8df1a6d58b3b58a3f4"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E4",
+          "document_id": "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nJOIN de saldos y movimientos al grano mensual\n[technical_inference] Agregar movimientos por num_cta+cve_producto+cve_mes_txn antes de comparar con el saldo del mismo corte. Un JOIN directo de cada movimiento al saldo repite el saldo dos o tres veces; no sumar cierres de varios meses como flujo.\n[technical_inference] Relacionar al cierre anterior del mes calendario exacto, no a cualquier fila previa disponible. cve_mes_alta no identifica el mes del cierre.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.balance_movement",
+          "kind": "relationship",
+          "similarity": 0.6726006063699047,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.balance_movement.c1",
+              "text": "Agregar movimientos por num_cta+cve_producto+cve_mes_txn antes de comparar con el saldo del mismo corte. Un JOIN directo de cada movimiento al saldo repite el saldo dos o tres veces; no sumar cierres de varios meses como flujo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 34,
+                  "source_id": "U3",
+                  "line_start": 20,
+                  "excerpt_sha256": "3768cfd81d07b9c0f6b6a2b3595507ca4def3ffac2b4b8c360acf51b156cefc8"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/relationship.balance_movement/claims/0",
+              "classification": "technical_inference"
+            },
+            {
+              "id": "relationship.balance_movement.c2",
+              "text": "Relacionar al cierre anterior del mes calendario exacto, no a cualquier fila previa disponible. cve_mes_alta no identifica el mes del cierre.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 222,
+                  "source_id": "U3",
+                  "line_start": 220,
+                  "excerpt_sha256": "268577da0ad67499bae5a2bcb028c4550e19f6e63cc41f2487f7e4dbcb5b0da8"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/relationship.balance_movement/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E5",
+          "document_id": "d00994ee-dc45-54fd-b5ee-ed81dca37da8",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nCrecimiento mensual sintético de captación y colocación\n[upstream_explicit] Febrero 2026: captación 2.0% y colocación 3.0%. Marzo, abril, mayo y junio: captación 1.0% y colocación 2.2%. CHEQUES/AHORRO son captación; C_PERSONAL/TDC colocación.\n[upstream_explicit] Cierre objetivo = ROUND(saldo anterior*(1+tasa),2); incremento objetivo = cierre objetivo - saldo anterior. Se redondea por cuenta y mes, no una tasa agregada.\n[technical_inference] El crecimiento impuesto no define interés contractual, rentabilidad, mora ni una política de tasas bancarias reales.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/rule.growth",
+          "kind": "financial_rule",
+          "similarity": 0.636037436476365,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "rule.growth.c1",
+              "text": "Febrero 2026: captación 2.0% y colocación 3.0%. Marzo, abril, mayo y junio: captación 1.0% y colocación 2.2%. CHEQUES/AHORRO son captación; C_PERSONAL/TDC colocación.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 97,
+                  "source_id": "U1",
+                  "line_start": 94,
+                  "excerpt_sha256": "52f0e7f92c071e4c25879d9b46fe836d6940d76af2699c99de489fa82ad5bd81"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 13,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2f77e44ccc1a8d3f46c0c847788cec0004f180bc56e74b4df77ce8a61916bc7e"
+                }
+              ],
+              "json_pointer": "/entries/rule.growth/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.growth.c2",
+              "text": "Cierre objetivo = ROUND(saldo anterior*(1+tasa),2); incremento objetivo = cierre objetivo - saldo anterior. Se redondea por cuenta y mes, no una tasa agregada.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                }
+              ],
+              "json_pointer": "/entries/rule.growth/claims/1",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.growth.c3",
+              "text": "El crecimiento impuesto no define interés contractual, rentabilidad, mora ni una política de tasas bancarias reales.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2b2ffa0b2bf1c02d0ac63bbd2c7a314a838c13620e1d379edb1baee2034fe926"
+                }
+              ],
+              "json_pointer": "/entries/rule.growth/claims/2",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "tool_calls": 1,
+      "diagnostic": null,
+      "validation_results": [],
+      "retrieved_document_count": 5,
+      "used_document_count": 1
+    },
+    {
+      "question": "moneda híbrida",
+      "status": "explicit_absence",
+      "answer": "Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+      "references": [
+        {
+          "evidence_id": "E1",
+          "document_id": "a67edcc0-4bf1-5070-97c7-671fe6541773",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/absence.currency",
+          "kind": "ambiguity",
+          "similarity": 0.7588021632439398,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "absence.currency.c1",
+              "text": "Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 151,
+                  "source_id": "U1",
+                  "line_start": 1,
+                  "excerpt_sha256": "7d5fdf269c0c25b87d7610bb852e00ec13fb51625b516ddc73f96b5201470761"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 215,
+                  "source_id": "U2",
+                  "line_start": 1,
+                  "excerpt_sha256": "e9718886f74ebd54bdc7e797b21cde34b417ae0fae7be00501e40844d339075d"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 488,
+                  "source_id": "U3",
+                  "line_start": 1,
+                  "excerpt_sha256": "67e834f30e0dc1ca9ba90bb66fe58c783b6fe9527a401ab94334ed1dd47f3259"
+                }
+              ],
+              "json_pointer": "/entries/absence.currency/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "document_id": "a67edcc0-4bf1-5070-97c7-671fe6541773",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nMoneda de los importes no especificada\n[technical_inference] Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/absence.currency",
+          "kind": "ambiguity",
+          "similarity": 0.7588021632439398,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "absence.currency.c1",
+              "text": "Los tres SQL no especifican moneda ni unidad monetaria. No se puede concluir MXN, pesos, USD u otra divisa. No heredar moneda del catálogo antiguo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 151,
+                  "source_id": "U1",
+                  "line_start": 1,
+                  "excerpt_sha256": "7d5fdf269c0c25b87d7610bb852e00ec13fb51625b516ddc73f96b5201470761"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 215,
+                  "source_id": "U2",
+                  "line_start": 1,
+                  "excerpt_sha256": "e9718886f74ebd54bdc7e797b21cde34b417ae0fae7be00501e40844d339075d"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 488,
+                  "source_id": "U3",
+                  "line_start": 1,
+                  "excerpt_sha256": "67e834f30e0dc1ca9ba90bb66fe58c783b6fe9527a401ab94334ed1dd47f3259"
+                }
+              ],
+              "json_pointer": "/entries/absence.currency/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "document_id": "b0ebfc32-98ff-5288-97b4-d2d078559581",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nSupuestos del generador y alcance del conocimiento documental\n[upstream_explicit] U2 obtiene saldo inicial mediante ROUND(mínimo+RANDOM()*(máximo-mínimo),2); U3 impone crecimientos y una operación por tipo/mes. Todos los clientes reciben los cuatro productos.\n[technical_inference] No hay un historial de eventos reales. Las fechas de nacimiento y alta se generan independientemente; los conteos observados de anomalías son resultados de validación de una versión de dataset, no definiciones permanentes ni políticas bancarias.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/limitation.synthetic_generation",
+          "kind": "limitation",
+          "similarity": 0.6714308645038186,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "limitation.synthetic_generation.c1",
+              "text": "U2 obtiene saldo inicial mediante ROUND(mínimo+RANDOM()*(máximo-mínimo),2); U3 impone crecimientos y una operación por tipo/mes. Todos los clientes reciben los cuatro productos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 114,
+                  "source_id": "U2",
+                  "line_start": 83,
+                  "excerpt_sha256": "9c0f1d40960573ff6230edbc0a2b3ea7b384ad54fbc82b5120716acd98f19918"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 34,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "67ee69bc182356f606feadf4cf5077eff6c31cbe9c259a096eb228d77d4d8e66"
+                }
+              ],
+              "json_pointer": "/entries/limitation.synthetic_generation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "limitation.synthetic_generation.c2",
+              "text": "No hay un historial de eventos reales. Las fechas de nacimiento y alta se generan independientemente; los conteos observados de anomalías son resultados de validación de una versión de dataset, no definiciones permanentes ni políticas bancarias.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 70,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "2d275246254672e5d23ee96e7b00e555f3fdea0ab2316dcd04de074a8e302673"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 11,
+                  "excerpt_sha256": "2b2ffa0b2bf1c02d0ac63bbd2c7a314a838c13620e1d379edb1baee2034fe926"
+                }
+              ],
+              "json_pointer": "/entries/limitation.synthetic_generation/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E3",
+          "document_id": "667fc331-46e3-56c6-a939-7597dc076b1a",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nConciliación exacta y signo económico de saldo_txn\n[upstream_explicit] Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.\n[mvp_proposal] Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/rule.reconciliation",
+          "kind": "financial_rule",
+          "similarity": 0.6565330437978874,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "rule.reconciliation.c1",
+              "text": "Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 15,
+                  "excerpt_sha256": "5e6d030bd614fe344bbf48b9cf5c7ba7e5c6db3e0d85abeaabcd8a8d569127a2"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.reconciliation.c2",
+              "text": "Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+              "source_refs": [
+                {
+                  "path": "docs/new-bank-model-governance.md",
+                  "sha256": "a005992e034f3928c3fc7daf8af05d4fe5d614910c8aefd3b9f8aed1156a555b",
+                  "line_end": 100,
+                  "source_id": "G1",
+                  "line_start": 93,
+                  "excerpt_sha256": "b579c59e4e2c52ee3f3a26aec7e157e9267abd666af6b9fdd418eb47de2296ca"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/1",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E4",
+          "document_id": "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nJOIN dim.dim_txn con cfg.fact_txn_captacoloca_d\n[upstream_explicit] Relacionar por cve_producto + cve_txn, nunca solo cve_txn, para no multiplicar los movimientos. dim_txn no tiene PK/UNIQUE.\n[technical_inference] Cardinalidad esperada: una definición por par producto/código frente a muchos movimientos. Comprobar que cada par tiene exactamente una definición; incluso el JOIN compuesto multiplica filas si se duplican pares. No ocultarlo con DISTINCT.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.transaction_catalog",
+          "kind": "relationship",
+          "similarity": 0.6452304509419575,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.transaction_catalog.c1",
+              "text": "Relacionar por cve_producto + cve_txn, nunca solo cve_txn, para no multiplicar los movimientos. dim_txn no tiene PK/UNIQUE.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 6,
+                  "source_id": "U1",
+                  "line_start": 5,
+                  "excerpt_sha256": "4493897e88c138c280d8cc71b9cdc766d8fee9d600476ba11ff2c93411a7e7c8"
+                },
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                }
+              ],
+              "json_pointer": "/entries/relationship.transaction_catalog/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "relationship.transaction_catalog.c2",
+              "text": "Cardinalidad esperada: una definición por par producto/código frente a muchos movimientos. Comprobar que cada par tiene exactamente una definición; incluso el JOIN compuesto multiplica filas si se duplican pares. No ocultarlo con DISTINCT.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 119,
+                  "source_id": "U1",
+                  "line_start": 100,
+                  "excerpt_sha256": "3763246eaf8fa4500a0b8490dbe80e89f07ffec6875461f9275c7c1cfbab8e73"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 22,
+                  "source_id": "U3",
+                  "line_start": 20,
+                  "excerpt_sha256": "a70bf7427fb7164cc04aa35fb1d0585e024be2ffc4f5b4f0cdf3a2d6b4adc47d"
+                }
+              ],
+              "json_pointer": "/entries/relationship.transaction_catalog/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E5",
+          "document_id": "331dcea7-152c-5857-8bee-f72b43a716e0",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nRelación cliente, cuenta y producto\n[upstream_explicit] U2 cruza clientes con cuatro productos y asigna cuenta por orden de num_cte; todos los clientes reciben una cuenta por producto. Enero funciona como registro de cuentas/saldos; no hay maestro de cuentas independiente upstream.\n[technical_inference] Hechos a cliente por num_cte y a producto por cve_producto; comprobar cuenta/producto/cliente coherentes entre meses y movimientos. Una cuenta tiene varios cierres y movimientos; las FK no vienen en los DDL originales.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.account_owner",
+          "kind": "relationship",
+          "similarity": 0.6378629207611265,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.account_owner.c1",
+              "text": "U2 cruza clientes con cuatro productos y asigna cuenta por orden de num_cte; todos los clientes reciben una cuenta por producto. Enero funciona como registro de cuentas/saldos; no hay maestro de cuentas independiente upstream.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 27,
+                  "source_id": "U2",
+                  "line_start": 4,
+                  "excerpt_sha256": "962f1523c5813fd0e77f1ec21c997945f34f65f0dbfa791ab03dc55acd073a64"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 114,
+                  "source_id": "U2",
+                  "line_start": 83,
+                  "excerpt_sha256": "9c0f1d40960573ff6230edbc0a2b3ea7b384ad54fbc82b5120716acd98f19918"
+                }
+              ],
+              "json_pointer": "/entries/relationship.account_owner/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "relationship.account_owner.c2",
+              "text": "Hechos a cliente por num_cte y a producto por cve_producto; comprobar cuenta/producto/cliente coherentes entre meses y movimientos. Una cuenta tiene varios cierres y movimientos; las FK no vienen en los DDL originales.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 27,
+                  "source_id": "U1",
+                  "line_start": 12,
+                  "excerpt_sha256": "390701c4bbd725a328b862a676fc972da28dd759e85955ffbc754fc5df521235"
+                },
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 90,
+                  "source_id": "U1",
+                  "line_start": 82,
+                  "excerpt_sha256": "f6400dc02f056e4524c7ed3ea7d2cb1896ab1b2f2d37b30daa38f60372259f2c"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 40,
+                  "source_id": "U2",
+                  "line_start": 30,
+                  "excerpt_sha256": "add473b8445c5ec94e8073ee5136da04fc003b537d8f265cc6e31675f388a0af"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 58,
+                  "source_id": "U3",
+                  "line_start": 47,
+                  "excerpt_sha256": "a39c36715c87d30d3cb4a70fad74b398fa59ad774415bc8df1a6d58b3b58a3f4"
+                }
+              ],
+              "json_pointer": "/entries/relationship.account_owner/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "tool_calls": 1,
+      "diagnostic": "documented_absence_from_current_source",
+      "validation_results": [],
+      "retrieved_document_count": 5,
+      "used_document_count": 1
+    },
+    {
+      "question": "apertura abril híbrida",
+      "status": "explanation_requires_review",
+      "answer": "Explicación propuesta; texto pendiente de revisión semántica: El cierre que representa saldo_apertura en abril es el cierre de marzo. [E5]",
+      "references": [
+        {
+          "evidence_id": "E5",
+          "document_id": "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.calendar",
+          "kind": "temporal_rule",
+          "similarity": 0.669864437229567,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.calendar.c1",
+              "text": "Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 104,
+                  "source_id": "U2",
+                  "line_start": 100,
+                  "excerpt_sha256": "b32aaa8813eb506306271b734192c64da6462c4b0fb826da1379d77e3cbaafab"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 239,
+                  "source_id": "U3",
+                  "line_start": 232,
+                  "excerpt_sha256": "6807cd669c3dac17fdb3a1397039be8b581e93274a967185909d8693dd02a00a"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "temporal.calendar.c2",
+              "text": "No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 53,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "b079a32bf48a2ab5df045e44ecaabfacfe0b23657d2c6e9940fd87ca02209554"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 40,
+                  "source_id": "U2",
+                  "line_start": 30,
+                  "excerpt_sha256": "add473b8445c5ec94e8073ee5136da04fc003b537d8f265cc6e31675f388a0af"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 58,
+                  "source_id": "U3",
+                  "line_start": 47,
+                  "excerpt_sha256": "a39c36715c87d30d3cb4a70fad74b398fa59ad774415bc8df1a6d58b3b58a3f4"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "E1",
+          "document_id": "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nQué representa saldo_apertura en marzo\n[technical_inference] saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.opening_balance",
+          "kind": "temporal_rule",
+          "similarity": 0.7622700020946424,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.opening_balance.c1",
+              "text": "saldo_apertura cambia de alcance temporal: enero registra saldo inicial de cuenta; en febrero–junio guarda el inicio del mes, igual al cierre calendario anterior. En marzo es el cierre de febrero. No debe fijarse al saldo de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.opening_balance/claims/0",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E2",
+          "document_id": "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\ncfg.fact_sdos_captacoloca_m.saldo_apertura — Saldo de inicio del mes; apertura de cuenta solo en enero\n[upstream_explicit] cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.\n[technical_inference] En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.\n[mvp_proposal] En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": "cfg.fact_sdos_captacoloca_m",
+          "field": "saldo_apertura",
+          "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+          "kind": "field",
+          "similarity": 0.7115652641473009,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c1",
+              "text": "cfg.fact_sdos_captacoloca_m.saldo_apertura: tipo físico NUMERIC(18,2); admite NULL en el DDL recibido.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 36,
+                  "source_id": "U2",
+                  "line_start": 36,
+                  "excerpt_sha256": "1b6aa8386a660cdcc1f201408ec095cb11c506670ea90411fc7cb2143af8ddcd"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c2",
+              "text": "En enero saldo_apertura=saldo_mes=saldo_inicial de cuenta. Desde febrero es el cierre del mes calendario anterior. En marzo representa el cierre de febrero, no el saldo inicial de enero.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 198,
+                  "source_id": "U3",
+                  "line_start": 170,
+                  "excerpt_sha256": "75eea5558335cfc6cdfaff7d91a862cfc29d0462441299bee7e7b1159925589f"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/1",
+              "classification": "technical_inference"
+            },
+            {
+              "id": "field.cfg.fact_sdos_captacoloca_m.saldo_apertura.c3",
+              "text": "En el esquema derivado del MVP esta columna del hecho es NOT NULL; ese refuerzo no procede del DDL original nullable.",
+              "source_refs": [
+                {
+                  "path": "sql/integration/002_new_bank_integrity.sql",
+                  "sha256": "11fb5d9e104b872a16c1e25c23aef8fb3ac9a74fa72cf40f57eb04b1caa29db8",
+                  "line_end": 261,
+                  "source_id": "M2",
+                  "line_start": 188,
+                  "excerpt_sha256": "f9767488a33e9852b7038aef05369a404c7bbacadb7e3eda2aa1093d59380533"
+                }
+              ],
+              "json_pointer": "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura/claims/2",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E3",
+          "document_id": "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nJOIN de saldos y movimientos al grano mensual\n[technical_inference] Agregar movimientos por num_cta+cve_producto+cve_mes_txn antes de comparar con el saldo del mismo corte. Un JOIN directo de cada movimiento al saldo repite el saldo dos o tres veces; no sumar cierres de varios meses como flujo.\n[technical_inference] Relacionar al cierre anterior del mes calendario exacto, no a cualquier fila previa disponible. cve_mes_alta no identifica el mes del cierre.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/relationship.balance_movement",
+          "kind": "relationship",
+          "similarity": 0.6996664284864692,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "relationship.balance_movement.c1",
+              "text": "Agregar movimientos por num_cta+cve_producto+cve_mes_txn antes de comparar con el saldo del mismo corte. Un JOIN directo de cada movimiento al saldo repite el saldo dos o tres veces; no sumar cierres de varios meses como flujo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 34,
+                  "source_id": "U3",
+                  "line_start": 20,
+                  "excerpt_sha256": "3768cfd81d07b9c0f6b6a2b3595507ca4def3ffac2b4b8c360acf51b156cefc8"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/relationship.balance_movement/claims/0",
+              "classification": "technical_inference"
+            },
+            {
+              "id": "relationship.balance_movement.c2",
+              "text": "Relacionar al cierre anterior del mes calendario exacto, no a cualquier fila previa disponible. cve_mes_alta no identifica el mes del cierre.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 222,
+                  "source_id": "U3",
+                  "line_start": 220,
+                  "excerpt_sha256": "268577da0ad67499bae5a2bcb028c4550e19f6e63cc41f2487f7e4dbcb5b0da8"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/relationship.balance_movement/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E4",
+          "document_id": "667fc331-46e3-56c6-a939-7597dc076b1a",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nConciliación exacta y signo económico de saldo_txn\n[upstream_explicit] Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.\n[mvp_proposal] Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/rule.reconciliation",
+          "kind": "financial_rule",
+          "similarity": 0.6854229569435899,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "rule.reconciliation.c1",
+              "text": "Los importes saldo_txn se almacenan positivos. Aplicar signo por producto/código y sumar el neto para alcanzar el cierre objetivo al centavo.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 37,
+                  "source_id": "U3",
+                  "line_start": 15,
+                  "excerpt_sha256": "5e6d030bd614fe344bbf48b9cf5c7ba7e5c6db3e0d85abeaabcd8a8d569127a2"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "rule.reconciliation.c2",
+              "text": "Validar apertura del mes + suma firmada de movimientos = cierre sin tolerancia de un centavo. Comprobar faltantes y huérfanos antes de restar; no reemplazarlos por cero. La regla del MVP no debe confundirse con el filtro de ejemplo >0.01 de U3.",
+              "source_refs": [
+                {
+                  "path": "docs/new-bank-model-governance.md",
+                  "sha256": "a005992e034f3928c3fc7daf8af05d4fe5d614910c8aefd3b9f8aed1156a555b",
+                  "line_end": 100,
+                  "source_id": "G1",
+                  "line_start": 93,
+                  "excerpt_sha256": "b579c59e4e2c52ee3f3a26aec7e157e9267abd666af6b9fdd418eb47de2296ca"
+                }
+              ],
+              "json_pointer": "/entries/rule.reconciliation/claims/1",
+              "classification": "mvp_proposal"
+            }
+          ]
+        },
+        {
+          "evidence_id": "E5",
+          "document_id": "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+          "content": "Modelo bancario sintético new_bank_2026, catálogo 1.0.0.\nFechas y períodos: apertura, operación y corte\n[upstream_explicit] Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.\n[technical_inference] No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+          "source": "data/source/new_bank_model/catalog.json",
+          "source_version": "1.0.0",
+          "table": null,
+          "field": null,
+          "json_pointer": "/entries/temporal.calendar",
+          "kind": "temporal_rule",
+          "similarity": 0.669864437229567,
+          "model_id": "new_bank_2026",
+          "corpus_id": "8dbc359e-53db-5df8-bbec-418b1add756e",
+          "claims": [
+            {
+              "id": "temporal.calendar.c1",
+              "text": "Cuenta abierta 2026-01-01, cohorte cve_mes_alta=202601; las operaciones febrero–junio se ubican el día 15; fec_informacion es el último día del mes. Enero define saldo inicial y no movimientos.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 104,
+                  "source_id": "U2",
+                  "line_start": 100,
+                  "excerpt_sha256": "b32aaa8813eb506306271b734192c64da6462c4b0fb826da1379d77e3cbaafab"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 137,
+                  "source_id": "U2",
+                  "line_start": 127,
+                  "excerpt_sha256": "9dc136aaabc6c2522d93508da7b2812fc74e0348e426a887396b058a1ca5af16"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 146,
+                  "source_id": "U3",
+                  "line_start": 135,
+                  "excerpt_sha256": "3714d85c24fc434f7a2c64fd9f59cbd9e59f7d6e2a3da160025aac8bab24472b"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 239,
+                  "source_id": "U3",
+                  "line_start": 232,
+                  "excerpt_sha256": "6807cd669c3dac17fdb3a1397039be8b581e93274a967185909d8693dd02a00a"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 340,
+                  "source_id": "U3",
+                  "line_start": 324,
+                  "excerpt_sha256": "6eec9c7b7a7055586b5fdfbf9a4c0a76fa2709df3b9be85fcf49977e0ee3ce34"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/0",
+              "classification": "upstream_explicit"
+            },
+            {
+              "id": "temporal.calendar.c2",
+              "text": "No intercambiar fec_alta del cliente, fec_alta de cuenta, cve_mes_txn, cve_mes_alta y fec_informacion: tienen granos y significados diferentes.",
+              "source_refs": [
+                {
+                  "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+                  "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+                  "line_end": 53,
+                  "source_id": "U1",
+                  "line_start": 45,
+                  "excerpt_sha256": "b079a32bf48a2ab5df045e44ecaabfacfe0b23657d2c6e9940fd87ca02209554"
+                },
+                {
+                  "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+                  "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+                  "line_end": 40,
+                  "source_id": "U2",
+                  "line_start": 30,
+                  "excerpt_sha256": "add473b8445c5ec94e8073ee5136da04fc003b537d8f265cc6e31675f388a0af"
+                },
+                {
+                  "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+                  "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+                  "line_end": 58,
+                  "source_id": "U3",
+                  "line_start": 47,
+                  "excerpt_sha256": "a39c36715c87d30d3cb4a70fad74b398fa59ad774415bc8df1a6d58b3b58a3f4"
+                }
+              ],
+              "json_pointer": "/entries/temporal.calendar/claims/1",
+              "classification": "technical_inference"
+            }
+          ]
+        }
+      ],
+      "tool_calls": 1,
+      "diagnostic": null,
+      "validation_results": [
+        {
+          "text": "El cierre que representa saldo_apertura en abril es el cierre de marzo.",
+          "evidence_ids": [
+            "E1",
+            "E2"
+          ],
+          "type": "literal",
+          "operation": null,
+          "validation": "rejected",
+          "reason": "Literal claim is not a source extract",
+          "verified_value": null
+        },
+        {
+          "text": "El cierre que representa saldo_apertura en abril es el cierre de marzo.",
+          "evidence_ids": [
+            "E5"
+          ],
+          "type": "inference",
+          "operation": null,
+          "validation": "review_required",
+          "reason": "Natural-language inference is not automatically entailed",
+          "verified_value": null
+        }
+      ],
+      "retrieved_document_count": 5,
+      "used_document_count": 1
+    }
+  ],
+  "events": [
+    {
+      "event": "model_call",
+      "phase": "planner",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 684,
+      "input_tokens": 349,
+      "output_tokens": 26,
+      "possible_truncation": false,
+      "duration_seconds": 0.575
+    },
+    {
+      "event": "tool_started",
+      "tool": "search_data_catalog"
+    },
+    {
+      "event": "tool_finished",
+      "tool": "search_data_catalog",
+      "document_count": 5,
+      "evidence_chars": 2258,
+      "retrieval": {
+        "semantic_attempts": 1,
+        "lexical_candidates": 0,
+        "fusion": "rrf"
+      },
+      "document_ids": [
+        "a67edcc0-4bf1-5070-97c7-671fe6541773",
+        "b0ebfc32-98ff-5288-97b4-d2d078559581",
+        "4bf5c65f-90ec-5474-b42e-6e3caad659db",
+        "667fc331-46e3-56c6-a939-7597dc076b1a",
+        "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e"
+      ],
+      "pointers": [
+        "/entries/absence.currency",
+        "/entries/limitation.synthetic_generation",
+        "/entries/field.dim.dim_txn.desc_txn",
+        "/entries/rule.reconciliation",
+        "/entries/relationship.transaction_catalog"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "synthesis",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 3133,
+      "input_tokens": 895,
+      "output_tokens": 26,
+      "possible_truncation": false,
+      "duration_seconds": 0.394
+    },
+    {
+      "event": "answer_references",
+      "retrieved_count": 5,
+      "used_count": 5,
+      "document_ids": [
+        "a67edcc0-4bf1-5070-97c7-671fe6541773",
+        "b0ebfc32-98ff-5288-97b4-d2d078559581",
+        "4bf5c65f-90ec-5474-b42e-6e3caad659db",
+        "667fc331-46e3-56c6-a939-7597dc076b1a",
+        "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "planner",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 1007,
+      "input_tokens": 436,
+      "output_tokens": 28,
+      "possible_truncation": false,
+      "duration_seconds": 0.404
+    },
+    {
+      "event": "tool_started",
+      "tool": "search_data_catalog"
+    },
+    {
+      "event": "tool_finished",
+      "tool": "search_data_catalog",
+      "document_count": 5,
+      "evidence_chars": 2590,
+      "retrieval": {
+        "semantic_attempts": 2,
+        "lexical_candidates": 2,
+        "fusion": "rrf"
+      },
+      "document_ids": [
+        "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+        "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+        "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+        "d00994ee-dc45-54fd-b5ee-ed81dca37da8",
+        "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17"
+      ],
+      "pointers": [
+        "/entries/temporal.opening_balance",
+        "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+        "/entries/relationship.balance_movement",
+        "/entries/rule.growth",
+        "/entries/temporal.calendar"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "synthesis",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 3790,
+      "input_tokens": 1104,
+      "output_tokens": 11,
+      "possible_truncation": false,
+      "duration_seconds": 0.223
+    },
+    {
+      "event": "answer_references",
+      "retrieved_count": 5,
+      "used_count": 1,
+      "document_ids": [
+        "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "planner",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 1169,
+      "input_tokens": 486,
+      "output_tokens": 24,
+      "possible_truncation": false,
+      "duration_seconds": 0.425
+    },
+    {
+      "event": "tool_started",
+      "tool": "search_data_catalog"
+    },
+    {
+      "event": "tool_finished",
+      "tool": "search_data_catalog",
+      "document_count": 5,
+      "evidence_chars": 2590,
+      "retrieval": {
+        "semantic_attempts": 2,
+        "lexical_candidates": 3,
+        "fusion": "rrf"
+      },
+      "document_ids": [
+        "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+        "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+        "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17",
+        "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+        "d00994ee-dc45-54fd-b5ee-ed81dca37da8"
+      ],
+      "pointers": [
+        "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+        "/entries/temporal.opening_balance",
+        "/entries/temporal.calendar",
+        "/entries/relationship.balance_movement",
+        "/entries/rule.growth"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "synthesis",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 3952,
+      "input_tokens": 1154,
+      "output_tokens": 11,
+      "possible_truncation": false,
+      "duration_seconds": 0.512
+    },
+    {
+      "event": "answer_references",
+      "retrieved_count": 5,
+      "used_count": 1,
+      "document_ids": [
+        "212ad885-d1e1-5b4f-b61b-f9562d89289c"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "planner",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 671,
+      "input_tokens": 348,
+      "output_tokens": 25,
+      "possible_truncation": false,
+      "duration_seconds": 0.42
+    },
+    {
+      "event": "tool_started",
+      "tool": "search_data_catalog"
+    },
+    {
+      "event": "tool_finished",
+      "tool": "search_data_catalog",
+      "document_count": 5,
+      "evidence_chars": 2468,
+      "retrieval": {
+        "semantic_attempts": 1,
+        "lexical_candidates": 0,
+        "fusion": "rrf"
+      },
+      "document_ids": [
+        "a67edcc0-4bf1-5070-97c7-671fe6541773",
+        "b0ebfc32-98ff-5288-97b4-d2d078559581",
+        "667fc331-46e3-56c6-a939-7597dc076b1a",
+        "173aa1d0-2efa-57a6-8d88-7f0e5bb7b21e",
+        "331dcea7-152c-5857-8bee-f72b43a716e0"
+      ],
+      "pointers": [
+        "/entries/absence.currency",
+        "/entries/limitation.synthetic_generation",
+        "/entries/rule.reconciliation",
+        "/entries/relationship.transaction_catalog",
+        "/entries/relationship.account_owner"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "synthesis",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 3681,
+      "input_tokens": 1024,
+      "output_tokens": 51,
+      "possible_truncation": false,
+      "duration_seconds": 1.017
+    },
+    {
+      "event": "answer_references",
+      "retrieved_count": 5,
+      "used_count": 1,
+      "document_ids": [
+        "a67edcc0-4bf1-5070-97c7-671fe6541773"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "planner",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 856,
+      "input_tokens": 403,
+      "output_tokens": 28,
+      "possible_truncation": false,
+      "duration_seconds": 0.437
+    },
+    {
+      "event": "tool_started",
+      "tool": "search_data_catalog"
+    },
+    {
+      "event": "tool_finished",
+      "tool": "search_data_catalog",
+      "document_count": 5,
+      "evidence_chars": 2501,
+      "retrieval": {
+        "semantic_attempts": 1,
+        "lexical_candidates": 2,
+        "fusion": "rrf"
+      },
+      "document_ids": [
+        "212ad885-d1e1-5b4f-b61b-f9562d89289c",
+        "b7baecb9-1d5b-5e38-b38c-61b255f561f0",
+        "28c61930-0ac1-5101-846c-f2e1dbb4d8e3",
+        "667fc331-46e3-56c6-a939-7597dc076b1a",
+        "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17"
+      ],
+      "pointers": [
+        "/entries/temporal.opening_balance",
+        "/entries/field.cfg.fact_sdos_captacoloca_m.saldo_apertura",
+        "/entries/relationship.balance_movement",
+        "/entries/rule.reconciliation",
+        "/entries/temporal.calendar"
+      ]
+    },
+    {
+      "event": "model_call",
+      "phase": "synthesis",
+      "provider": "ollama",
+      "model": "llama3.1:latest",
+      "configured_context": 8192,
+      "input_chars": 3900,
+      "input_tokens": 1131,
+      "output_tokens": 99,
+      "possible_truncation": false,
+      "duration_seconds": 1.569
+    },
+    {
+      "event": "answer_references",
+      "retrieved_count": 5,
+      "used_count": 1,
+      "document_ids": [
+        "139f7f5d-ef79-5fc1-a9a7-f4bc67ce4a17"
+      ]
+    }
+  ]
+}
