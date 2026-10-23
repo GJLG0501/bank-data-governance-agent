@@ -1,0 +1,22 @@
+[
+ {"id":"deposit_formula","category":"finance","question":"Describe cómo el generador calcula depósitos y retiros de AHORRO.","patterns":["0[.,]05","incremento"]},
+ {"id":"card_purchases","category":"finance","question":"¿Las COMPRAS con código 400 de TDC aumentan o reducen deuda?","patterns":["suma|increment"]},
+ {"id":"personal_draw","category":"finance","question":"Explica C_PERSONAL/450 y su efecto económico.","patterns":["disposicion","suma|increment"]},
+ {"id":"withdrawal","category":"finance","question":"Explica el efecto del RETIRO AHORRO/200.","patterns":["resta"]},
+ {"id":"february_rate","category":"finance","question":"Indica el crecimiento sintético de captación durante febrero.","patterns":["2[.,]0%|2%"]},
+ {"id":"june_rate","category":"finance","question":"¿Qué crecimiento sintético aplica a colocación durante junio?","patterns":["2[.,]2"]},
+ {"id":"operation_date","category":"temporal","question":"¿En qué día del mes se generan las operaciones de fec_txn?","patterns":["15"]},
+ {"id":"information_date","category":"temporal","question":"¿Qué representa el entero cfg.fact_sdos_captacoloca_m.fec_informacion?","patterns":["20260630","ultimo dia"]},
+ {"id":"unconstrained_txn","category":"governance","question":"¿Por qué no puedo asumir unicidad física en dim.dim_txn?","patterns":["no tiene pk|sin pk|no.*unique"]},
+ {"id":"active_null","category":"governance","question":"Describe DEFAULT y nulabilidad original de dim.dim_producto.activo.","patterns":["true","null"]},
+ {"id":"mvp_constraints","category":"governance","question":"¿De dónde proceden los NOT NULL reforzados de los hechos?","patterns":["mvp_proposal","not null"]},
+ {"id":"score_absence","category":"absence","question":"¿El laboratorio proporciona algún puntaje crediticio alternativo a credit_score?","patterns":["no"]},
+ {"id":"pm_incorporation","category":"absence","question":"¿Puedo tratar fec_nac en PM como una fecha jurídica acreditada?","patterns":["no","juridic|constitucion"]},
+ {"id":"domain_raw","category":"governance","question":"¿Qué vocabulario crudo se conserva en dominio en enero?","patterns":["captacion","colocacion"]},
+ {"id":"currency_usd","category":"absence","question":"¿Las cifras del catálogo permiten afirmar que los importes están en USD?","patterns":["no","moneda|divisa"]},
+ {"id":"contract_rate","category":"absence","question":"¿Se puede usar el crecimiento mensual como interés de un contrato?","patterns":["no","contractual"]},
+ {"id":"numeric_average","category":"boundary","question":"Calcula el promedio de saldos de AHORRO.","status":"capability_unavailable"},
+ {"id":"unknown_code","category":"absence","question":"Define dim.dim_cliente.nivel_riesgo_regulatorio.","status":"insufficient_evidence"},
+ {"id":"unrelated_topic","category":"boundary","question":"¿Qué ingredientes lleva una tortilla española?","status":"insufficient_evidence"},
+ {"id":"eligibility","category":"absence","question":"¿Qué criterios oficiales de elegibilidad crediticia aplica el banco?","status":"insufficient_evidence"}
+]

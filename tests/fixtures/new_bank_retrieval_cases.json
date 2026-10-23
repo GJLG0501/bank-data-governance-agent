@@ -1,0 +1,383 @@
+[
+  {
+    "id": "requested_segment",
+    "question": "¿Qué significa dim.dim_cliente.segmento_cte?",
+    "expected_entries": [
+      "field.dim.dim_cliente.segmento_cte"
+    ]
+  },
+  {
+    "id": "requested_deposits",
+    "question": "¿Qué productos pertenecen a captación?",
+    "expected_entries": [
+      "product.CHEQUES",
+      "product.AHORRO"
+    ]
+  },
+  {
+    "id": "requested_tdc_300",
+    "question": "¿Qué significa el código de transacción 300 para TDC?",
+    "expected_entries": [
+      "transaction.TDC.300"
+    ]
+  },
+  {
+    "id": "requested_catalog_join",
+    "question": "¿Cómo se relacionan dim.dim_txn y cfg.fact_txn_captacoloca_d?",
+    "expected_entries": [
+      "relationship.transaction_catalog"
+    ]
+  },
+  {
+    "id": "requested_opening_march",
+    "question": "¿Qué representa saldo_apertura en marzo?",
+    "expected_entries": [
+      "temporal.opening_balance"
+    ]
+  },
+  {
+    "id": "requested_signed_amount",
+    "question": "¿Por qué saldo_txn no debe interpretarse directamente como un importe con signo?",
+    "expected_entries": [
+      "field.cfg.fact_txn_captacoloca_d.saldo_txn"
+    ]
+  },
+  {
+    "id": "requested_periods",
+    "question": "¿Qué diferencia existe entre cve_mes_alta y fec_informacion?",
+    "expected_entries": [
+      "temporal.calendar"
+    ]
+  },
+  {
+    "id": "requested_growth_april",
+    "question": "¿Qué tasa de crecimiento se aplica a colocación en abril?",
+    "expected_entries": [
+      "rule.growth"
+    ]
+  },
+  {
+    "id": "requested_currency",
+    "question": "¿Qué moneda utilizan los importes?",
+    "expected_entries": [
+      "absence.currency"
+    ]
+  },
+  {
+    "id": "requested_credit_score",
+    "question": "¿Existe una columna credit_score en el nuevo modelo?",
+    "expected_entries": [
+      "absence.credit_score"
+    ]
+  },
+  {
+    "id": "requested_legacy_mapping",
+    "question": "¿Es válido relacionar automáticamente LOAN con C_PERSONAL?",
+    "expected_entries": [
+      "absence.legacy_mapping"
+    ]
+  },
+  {
+    "id": "requested_pm_birth",
+    "question": "¿Qué significado tiene fec_nac para personas morales?",
+    "expected_entries": [
+      "absence.pm_birth"
+    ]
+  },
+  {
+    "id": "extra_raw_domain",
+    "question": "¿Por qué dominio contiene CAPTACION en enero y DEPOSITS después?",
+    "expected_entries": [
+      "ambiguity.raw_domain"
+    ]
+  },
+  {
+    "id": "extra_unknown_attributes",
+    "question": "¿Qué definición y valores se conocen de cve_dir y cve_subdir?",
+    "expected_entries": [
+      "absence.unknown_client_fields"
+    ]
+  },
+  {
+    "id": "extra_savings_range",
+    "question": "¿Qué saldo inicial y rango de cuenta se definen para AHORRO?",
+    "expected_entries": [
+      "product.AHORRO"
+    ]
+  },
+  {
+    "id": "extra_accounts",
+    "question": "¿Cómo se asigna una cuenta de cada producto a cada cliente?",
+    "expected_entries": [
+      "relationship.account_owner"
+    ]
+  },
+  {
+    "id": "extra_account_date",
+    "question": "¿Qué fecha almacena cfg.fact_sdos_captacoloca_m.fec_alta?",
+    "expected_entries": [
+      "field.cfg.fact_sdos_captacoloca_m.fec_alta"
+    ]
+  },
+  {
+    "id": "extra_february_growth",
+    "question": "¿Cuánto crece captación en febrero de 2026 según el generador?",
+    "expected_entries": [
+      "rule.growth"
+    ]
+  },
+  {
+    "id": "extra_personal_amounts",
+    "question": "¿Cómo se calculan pagos y disposiciones para C_PERSONAL?",
+    "expected_entries": [
+      "rule.amounts.personal"
+    ]
+  },
+  {
+    "id": "extra_card_amounts",
+    "question": "¿Cómo se calculan compras, disposiciones y pagos TDC?",
+    "expected_entries": [
+      "rule.amounts.card"
+    ]
+  },
+  {
+    "id": "extra_interest_absent",
+    "question": "¿El crecimiento impuesto es una tasa de interés contractual?",
+    "expected_entries": [
+      "rule.growth"
+    ]
+  },
+  {
+    "id": "extra_features_absent",
+    "question": "¿Tenemos límite de crédito, mora o DPD en el nuevo modelo?",
+    "expected_entries": [
+      "absence.banking_features"
+    ]
+  },
+  {
+    "id": "extra_auxiliary",
+    "question": "¿Qué es cfg.ref_txn_modelo y de dónde viene su clave compuesta?",
+    "expected_entries": [
+      "auxiliary.cfg.ref_txn_modelo"
+    ]
+  },
+  {
+    "id": "extra_no_unique",
+    "question": "¿Existe una PK o UNIQUE en dim.dim_txn?",
+    "expected_entries": [
+      "table.dim.dim_txn"
+    ]
+  },
+  {
+    "id": "extra_product_group_loans",
+    "question": "Enumera los productos de colocación",
+    "expected_entries": [
+      "product.C_PERSONAL",
+      "product.TDC"
+    ]
+  },
+  {
+    "id": "extra_product_group_deposits",
+    "question": "Lista los productos del grupo CAPTACION",
+    "expected_entries": [
+      "product.CHEQUES",
+      "product.AHORRO"
+    ]
+  },
+  {
+    "id": "abstain_unrelated",
+    "question": "¿Cuál es la capital de Francia?",
+    "no_evidence": true
+  },
+  {
+    "id": "abstain_unknown_field",
+    "question": "¿Qué significa dim.dim_cliente.color_favorito?",
+    "no_evidence": true
+  },
+  {
+    "id": "abstain_live_value",
+    "question": "¿Cuál es el saldo actual de la cuenta 100000?",
+    "no_evidence": true
+  },
+  {
+    "id": "abstain_future",
+    "question": "¿Qué tasa de crecimiento se aplica en 2027?",
+    "no_evidence": true
+  },
+  {
+    "id": "extended_multi_products",
+    "question": "Compara CHEQUES y AHORRO: descripción y rangos iniciales",
+    "k": 12,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "product.CHEQUES",
+      "product.AHORRO"
+    ]
+  },
+  {
+    "id": "extended_multi_loans",
+    "question": "Compara los productos C_PERSONAL y TDC",
+    "k": 12,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "product.C_PERSONAL",
+      "product.TDC"
+    ]
+  },
+  {
+    "id": "extended_multi_amounts",
+    "question": "Compara las fórmulas de pagos y disposiciones de C_PERSONAL y compras y pagos TDC",
+    "k": 12,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "rule.amounts.personal",
+      "rule.amounts.card"
+    ]
+  },
+  {
+    "id": "extended_multi_dates",
+    "question": "Diferencia fec_alta de dim.dim_cliente y fec_alta de cfg.fact_sdos_captacoloca_m",
+    "k": 12,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "field.dim.dim_cliente.fec_alta",
+      "field.cfg.fact_sdos_captacoloca_m.fec_alta"
+    ]
+  },
+  {
+    "id": "extended_multi_groups",
+    "question": "¿Cuáles productos son de captación y cuáles de colocación?",
+    "k": 12,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "field.dim.dim_producto.grupo_producto"
+    ]
+  },
+  {
+    "id": "extended_column_type",
+    "question": "¿Qué tipo físico tiene cfg.fact_txn_captacoloca_d.saldo_txn?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "field.cfg.fact_txn_captacoloca_d.saldo_txn"
+    ]
+  },
+  {
+    "id": "extended_nullable_original",
+    "question": "¿Admite NULL originalmente dim.dim_producto.activo?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "field.dim.dim_producto.activo"
+    ]
+  },
+  {
+    "id": "extended_pk_client",
+    "question": "¿Cuál es la clave primaria de dim.dim_cliente.num_cte?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "field.dim.dim_cliente.num_cte"
+    ]
+  },
+  {
+    "id": "extended_synthetic",
+    "question": "¿Cuáles son los supuestos sintéticos de RANDOM y anomalías del generador?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "limitation.synthetic_generation"
+    ]
+  },
+  {
+    "id": "extended_balance_join",
+    "question": "¿Cómo agregar movimientos para conciliar saldos sin multiplicar filas?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "relationship.balance_movement"
+    ]
+  },
+  {
+    "id": "extended_sign_cheques",
+    "question": "¿Qué signo económico tiene CHEQUES código 200 RETIRO?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "transaction.CHEQUES.200"
+    ]
+  },
+  {
+    "id": "extended_sign_personal",
+    "question": "¿Qué signo económico tiene C_PERSONAL código 300 PAGOS?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "transaction.C_PERSONAL.300"
+    ]
+  },
+  {
+    "id": "extended_sign_card",
+    "question": "¿Qué signo económico tiene TDC código 450 DISPOSICIONES?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "transaction.TDC.450"
+    ]
+  },
+  {
+    "id": "extended_mvp_reconcile",
+    "question": "¿Qué propone el MVP para conciliación exacta sin tolerancia de un centavo?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "rule.reconciliation"
+    ]
+  },
+  {
+    "id": "extended_unknown_currency",
+    "question": "¿Puedo asumir que todos los importes son MXN?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "absence.currency"
+    ]
+  },
+  {
+    "id": "extended_pm_legal",
+    "question": "¿fec_nac en PM puede llamarse fecha de constitución?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "expected_entries": [
+      "absence.pm_birth"
+    ]
+  },
+  {
+    "id": "extended_unknown_column",
+    "question": "¿Qué es cfg.fact_txn_captacoloca_d.credit_limit?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "no_evidence": true
+  },
+  {
+    "id": "extended_unsupported_year",
+    "question": "¿Qué tasa de crecimiento usa colocación en 2028?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "no_evidence": true
+  },
+  {
+    "id": "extended_live_account",
+    "question": "¿Cuál es el saldo actual de la cuenta 200000?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "no_evidence": true
+  },
+  {
+    "id": "extended_unrelated",
+    "question": "¿Cómo cocinar una paella?",
+    "k": 5,
+    "criterion": "All expected entry IDs must occur within k; no_evidence requires an empty result.",
+    "no_evidence": true
+  }
+]

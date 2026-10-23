@@ -11,6 +11,7 @@ import pytest
 
 from scripts import data_steward_agent as steward
 from scripts import knowledge_corpus as corpus
+from bank_governance.security import simulated_access
 
 CASES = json.loads((corpus.ROOT / "tests/fixtures/agent_cases.json").read_text(encoding="utf-8"))
 
@@ -31,12 +32,15 @@ def tool_message(question="CUSTOMER.annual_income", name="search_data_catalog", 
 
 def make_agent(*, pointer="/tables/CUSTOMER/fields/annual_income", status="grounded", debug=None, history_turns=4):
     retriever = Mock()
+    _, stored = corpus.storage_documents(corpus.build_documents(), corpus.ModelIdentity('unit-test', 'test-digest', 3))
+    retriever.expected = {doc.id: doc for doc in stored}
     retriever.search.return_value = [match_for(pointer)]
     model = Mock()
     model.bind_tools.return_value.invoke.return_value = tool_message()
     model.with_structured_output.return_value.invoke.return_value = steward.AnswerDraft(
         status=status, answer="Definición en español sustentada por el catálogo sintético.", evidence_ids=["E1"])
-    agent = steward.DataStewardAgent(model, retriever, debug=debug, history_turns=history_turns)
+    agent = steward.DataStewardAgent(model, retriever, debug=debug, history_turns=history_turns,
+                                    data_model='legacy_metadata',security=simulated_access())
     return agent, model, retriever
 
 
@@ -233,14 +237,14 @@ def test_model_without_tools_is_reported_without_silent_fallback(monkeypatch):
     monkeypatch.setattr(steward, "Client", Mock(return_value=client))
     monkeypatch.setattr(steward, "model_digest", Mock(return_value="same-model"))
     with pytest.raises(steward.AgentError, match="no declara soporte"):
-        with steward.agent_session():
+        with steward.agent_session(data_model='legacy_metadata',security=simulated_access()):
             pytest.fail("No debe construir un agente incompatible")
 
 
 def test_missing_model_is_reported_without_automatic_replacement(monkeypatch):
     monkeypatch.setattr(steward, "model_digest", Mock(side_effect=ValueError("not installed")))
     with pytest.raises(steward.AgentError, match="no está instalado"):
-        with steward.agent_session():
+        with steward.agent_session(data_model='legacy_metadata',security=simulated_access()):
             pytest.fail("No debe cambiar de modelo")
 
 
@@ -253,7 +257,7 @@ def test_postgres_startup_failure_is_sanitized(monkeypatch):
     retrieval.__enter__ = Mock(side_effect=psycopg.OperationalError("secret-do-not-log"))
     monkeypatch.setattr(steward, "RetrievalSession", Mock(return_value=retrieval))
     with pytest.raises(steward.AgentError, match="PostgreSQL"):
-        with steward.agent_session():
+        with steward.agent_session(data_model='legacy_metadata',security=simulated_access()):
             pytest.fail("No debe iniciar una sesion sin PostgreSQL")
 
 

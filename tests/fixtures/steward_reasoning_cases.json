@@ -1,0 +1,18 @@
+[
+  {"id":"february_continuity","question":"Si miro saldo_apertura de febrero, ¿a qué cierre corresponde?","patterns":["febrero.{0,120}enero"]},
+  {"id":"april_continuity","question":"Para abril, ¿de qué mes procede saldo_apertura?","patterns":["abril.{0,120}marzo"]},
+  {"id":"may_continuity","question":"Explica la continuidad del saldo entre abril y mayo.","patterns":["(?:saldo_apertura|apertura).{0,100}mayo.{0,100}cierre de abril|mayo.{0,100}(?:saldo_apertura|apertura).{0,100}cierre de abril|cierre de abril.{0,100}(?:saldo_apertura|apertura).{0,100}mayo"]},
+  {"id":"june_continuity","question":"¿Cuál es el origen del saldo_apertura en junio?","patterns":["junio.{0,120}mayo"]},
+  {"id":"january_exception","question":"¿Por qué saldo_apertura de enero no se interpreta igual que el de meses posteriores?","patterns":["enero","inicial|original"]},
+  {"id":"stock_vs_flow","question":"¿Por qué no debo sumar saldos de cierre de varios meses como si fueran movimientos?","patterns":["cierre|saldo","movimiento|flujo"]},
+  {"id":"reconciliation_steps","question":"¿Qué pasos conceptuales permiten conciliar los movimientos con un cierre mensual?","patterns":["apertura|anterior","signo|firmada","cierre"]},
+  {"id":"join_multiplicity","question":"¿Qué problema causa unir cada movimiento directamente con una fila de saldo mensual?","patterns":["duplic|repite|multiplic"]},
+  {"id":"catalog_key_reason","question":"¿Por qué una unión de transacciones solo por cve_txn es insegura?","patterns":["cve_producto","cve_txn","duplic|multiplic"]},
+  {"id":"deposit_vs_placement","question":"Compara la dirección económica de depósitos y disposiciones de crédito.","patterns":["captaci|deposit","colocaci|deuda|credito","suma|increment"]},
+  {"id":"growth_not_interest","question":"Si el saldo crece por una tasa sintética, ¿puedo presentarla como interés contractual?","patterns":["no","contractual"]},
+  {"id":"physical_business","question":"Distingue la columna fec_nac de una interpretación jurídica para PM.","patterns":["fec_nac","juridic|constitucion","no"]},
+  {"id":"raw_domain","question":"¿Por qué es importante conservar dominio de origen al normalizar categorías?","patterns":["dominio","origen|crudo|original"]},
+  {"id":"missing_month","question":"Si no aparece el cierre del mes calendario anterior, ¿es correcto usar cualquier saldo previo?","patterns":["no","calendario|mes"]},
+  {"id":"currency_ambiguity","question":"¿Qué límite tiene una explicación financiera si desconozco la moneda?","patterns":["no.*moneda|moneda.*no|divisa"]},
+  {"id":"unknown_official_policy","question":"¿Qué política oficial de tasas del banco se infiere del generador?","status":"insufficient_evidence"}
+]

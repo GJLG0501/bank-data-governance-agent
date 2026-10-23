@@ -1,0 +1,659 @@
+{
+  "version": "synthetic-mvp-1",
+  "status": "reviewable_synthetic_proposal_not_official_bank_policy",
+  "model_id": "new_bank_2026",
+  "catalog_path": "data/source/new_bank_model/catalog.json",
+  "catalog_sha256": "5728b7a92fb618bf2e29083d9072522ad2c897dc9b176556f37dabb39c44fa65",
+  "categories": {
+    "public_documentation": "Reviewed shareable definitions; no current corpus automatically public.",
+    "internal_metadata": "Technical definitions without individual rows; current documentary corpus proposal.",
+    "aggregate_finance": "Derived approved metrics after scope, grain and disclosure review; no raw fact column qualifies.",
+    "personal_data": "Attributes linked to a person or customer profile.",
+    "identifiers": "Customer and account identifiers; synthetic origin does not grant public access.",
+    "individual_movements": "Account-linked balances, dates and transaction attributes.",
+    "restricted": "Confidential compositions, organizational assignments and unknown sensitivity."
+  },
+  "tables": [
+    {
+      "table": "cfg.fact_sdos_captacoloca_m",
+      "row_sensitivity": "restricted",
+      "columns": [
+        {
+          "column": "cve_mes_alta",
+          "physical_type": "INTEGER",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 35,
+            "line_end": 35,
+            "excerpt_sha256": "8d81c7816ae5d4a980a1ad3dde471ce8185b58a69b30e13e58f7b504d2bff7bf"
+          }
+        },
+        {
+          "column": "cve_producto",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 33,
+            "line_end": 33,
+            "excerpt_sha256": "a9901d168fdf0200164768a631320c5a39a7143c30031f4db091bae528592e74"
+          }
+        },
+        {
+          "column": "dominio",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 39,
+            "line_end": 39,
+            "excerpt_sha256": "e09c7c049c91a0475fa9ea0cbf9f4589559478a0b8d386368e680af846ddff2a"
+          }
+        },
+        {
+          "column": "fec_alta",
+          "physical_type": "DATE",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 34,
+            "line_end": 34,
+            "excerpt_sha256": "6a0d079ed86d60225ebc9f6dc2a30b7af219e4fdeb7c427bed168fe39a4b346e"
+          }
+        },
+        {
+          "column": "fec_informacion",
+          "physical_type": "INTEGER",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 38,
+            "line_end": 38,
+            "excerpt_sha256": "e4fcba9bfc1002f94a153c80df7bd3b20958e2a187b52901434729d36c42b9ef"
+          }
+        },
+        {
+          "column": "num_cta",
+          "physical_type": "INTEGER",
+          "sensitivity": "identifiers",
+          "reason_code": "customer_or_account_identifier",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 31,
+            "line_end": 31,
+            "excerpt_sha256": "fcaf8ab6ed8c4b29289b9dadf0b5bce76c0092d2cb8cc33aef04a6eaac4622c6"
+          }
+        },
+        {
+          "column": "num_cte",
+          "physical_type": "INTEGER",
+          "sensitivity": "identifiers",
+          "reason_code": "customer_or_account_identifier",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 32,
+            "line_end": 32,
+            "excerpt_sha256": "0cf192cfeb6827ee7a3df0c66eda682c240790f670d6fa9c6a684cd2f4e932f8"
+          }
+        },
+        {
+          "column": "saldo_apertura",
+          "physical_type": "NUMERIC(18,2)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 36,
+            "line_end": 36,
+            "excerpt_sha256": "1b6aa8386a660cdcc1f201408ec095cb11c506670ea90411fc7cb2143af8ddcd"
+          }
+        },
+        {
+          "column": "saldo_mes",
+          "physical_type": "NUMERIC(18,2)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U2",
+            "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+            "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+            "line_start": 37,
+            "line_end": 37,
+            "excerpt_sha256": "d83a92b34901e30ac9b1c7c0959111f33003ce1aae90076987b9408c23a8b097"
+          }
+        }
+      ]
+    },
+    {
+      "table": "cfg.fact_txn_captacoloca_d",
+      "row_sensitivity": "restricted",
+      "columns": [
+        {
+          "column": "cve_mes_txn",
+          "physical_type": "INTEGER",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 52,
+            "line_end": 52,
+            "excerpt_sha256": "508be851547826ac936f19ed8110212297a2b2cba54079794ebd0f8c9a9dc987"
+          }
+        },
+        {
+          "column": "cve_producto",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 50,
+            "line_end": 50,
+            "excerpt_sha256": "a9901d168fdf0200164768a631320c5a39a7143c30031f4db091bae528592e74"
+          }
+        },
+        {
+          "column": "cve_txn",
+          "physical_type": "INTEGER",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 54,
+            "line_end": 54,
+            "excerpt_sha256": "da8aed844c5b8dfb4683261380577f846f7ef83d3f4c62c7e7ac282ba6febf59"
+          }
+        },
+        {
+          "column": "desc_txn",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 55,
+            "line_end": 55,
+            "excerpt_sha256": "094b86f18a3fc734c8294168f99adf7be7190a480297c0a7eab882a5fd94aaed"
+          }
+        },
+        {
+          "column": "dominio",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 57,
+            "line_end": 57,
+            "excerpt_sha256": "e09c7c049c91a0475fa9ea0cbf9f4589559478a0b8d386368e680af846ddff2a"
+          }
+        },
+        {
+          "column": "fec_informacion",
+          "physical_type": "INTEGER",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 56,
+            "line_end": 56,
+            "excerpt_sha256": "e4fcba9bfc1002f94a153c80df7bd3b20958e2a187b52901434729d36c42b9ef"
+          }
+        },
+        {
+          "column": "fec_txn",
+          "physical_type": "DATE",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 51,
+            "line_end": 51,
+            "excerpt_sha256": "2fec2ffb377edd9545ecf49f8572cfa406dafcbefe73f4124cdfd943d190fcca"
+          }
+        },
+        {
+          "column": "num_cta",
+          "physical_type": "INTEGER",
+          "sensitivity": "identifiers",
+          "reason_code": "customer_or_account_identifier",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 48,
+            "line_end": 48,
+            "excerpt_sha256": "fcaf8ab6ed8c4b29289b9dadf0b5bce76c0092d2cb8cc33aef04a6eaac4622c6"
+          }
+        },
+        {
+          "column": "num_cte",
+          "physical_type": "INTEGER",
+          "sensitivity": "identifiers",
+          "reason_code": "customer_or_account_identifier",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 49,
+            "line_end": 49,
+            "excerpt_sha256": "0cf192cfeb6827ee7a3df0c66eda682c240790f670d6fa9c6a684cd2f4e932f8"
+          }
+        },
+        {
+          "column": "saldo_txn",
+          "physical_type": "NUMERIC(18,2)",
+          "sensitivity": "individual_movements",
+          "reason_code": "account_linked_financial_observation_not_an_aggregate",
+          "source_ref": {
+            "source_id": "U3",
+            "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+            "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+            "line_start": 53,
+            "line_end": 53,
+            "excerpt_sha256": "2f6af27a7d84bc5165af3ed6e850d273e867a493c63062a1d125ab1a500256cb"
+          }
+        }
+      ]
+    },
+    {
+      "table": "dim.dim_cliente",
+      "row_sensitivity": "restricted",
+      "columns": [
+        {
+          "column": "cve_dir",
+          "physical_type": "VARCHAR(255)",
+          "sensitivity": "restricted",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 21,
+            "line_end": 21,
+            "excerpt_sha256": "a7ad23a94e81ba1a77e8d1478731aaa1e2146d4b9e77508be25102907306df42"
+          }
+        },
+        {
+          "column": "cve_promotor",
+          "physical_type": "VARCHAR(10)",
+          "sensitivity": "restricted",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 24,
+            "line_end": 24,
+            "excerpt_sha256": "2fc49dd7a44f40f1b9889f189c636d9225aa041a359adf0dffe6143f7a6d8998"
+          }
+        },
+        {
+          "column": "cve_subdir",
+          "physical_type": "VARCHAR(255)",
+          "sensitivity": "restricted",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 22,
+            "line_end": 22,
+            "excerpt_sha256": "68b49c052f97b5445774784f1b36058e667d68ff46953489cbe6110274aceb91"
+          }
+        },
+        {
+          "column": "cve_sucursal",
+          "physical_type": "INTEGER",
+          "sensitivity": "restricted",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 23,
+            "line_end": 23,
+            "excerpt_sha256": "14401c23b48b5636c83c2623046fe615a405b1c5485eb45ae88e1e7022964612"
+          }
+        },
+        {
+          "column": "cve_territorio",
+          "physical_type": "VARCHAR(255)",
+          "sensitivity": "restricted",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 20,
+            "line_end": 20,
+            "excerpt_sha256": "561dcddeada19de5635cbdd5099d0bf288466265b8ea0744488049cfff4a3925"
+          }
+        },
+        {
+          "column": "fec_alta",
+          "physical_type": "DATE",
+          "sensitivity": "personal_data",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 14,
+            "line_end": 14,
+            "excerpt_sha256": "c7070f1877db7e3966a5e55ad66e9c2c1d7c9c8d9360b08cc79df5d184aa9cfd"
+          }
+        },
+        {
+          "column": "fec_nac",
+          "physical_type": "DATE",
+          "sensitivity": "personal_data",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 15,
+            "line_end": 15,
+            "excerpt_sha256": "c54a39f66b7327e9c461d9e6a71523e4c111fb1be1b23a02227b50f8775913c3"
+          }
+        },
+        {
+          "column": "genero_cte",
+          "physical_type": "VARCHAR(10)",
+          "sensitivity": "personal_data",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 17,
+            "line_end": 17,
+            "excerpt_sha256": "afd6cf192ddb3cd039efb4b524250f72a09ff7361623f11613e49a99a2d58c9d"
+          }
+        },
+        {
+          "column": "giro_empresa",
+          "physical_type": "VARCHAR(30)",
+          "sensitivity": "personal_data",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 19,
+            "line_end": 19,
+            "excerpt_sha256": "a486843f66bada371714a1d79e004544fadae4019de3fe1500e6bf3f391a400a"
+          }
+        },
+        {
+          "column": "num_cte",
+          "physical_type": "INTEGER",
+          "sensitivity": "identifiers",
+          "reason_code": "customer_identifier",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 13,
+            "line_end": 13,
+            "excerpt_sha256": "7f67797015a031485fddea55dd24d85bc673a8034d7008eb8e22875fe8355367"
+          }
+        },
+        {
+          "column": "segmento_cte",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "personal_data",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 18,
+            "line_end": 18,
+            "excerpt_sha256": "1e47dad59c1a0012c5b0eb44713379be22a366458e0a11de40efedbc5238edbc"
+          }
+        },
+        {
+          "column": "tipo_persona",
+          "physical_type": "VARCHAR(10)",
+          "sensitivity": "personal_data",
+          "reason_code": "customer_profile_or_organizational_assignment",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 16,
+            "line_end": 16,
+            "excerpt_sha256": "d40377e75da75ecba7a799648d9132934aed038b4c2c4395268832ebfbe55cbb"
+          }
+        }
+      ]
+    },
+    {
+      "table": "dim.dim_producto",
+      "row_sensitivity": "internal_metadata",
+      "columns": [
+        {
+          "column": "activo",
+          "physical_type": "BOOLEAN",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 88,
+            "line_end": 88,
+            "excerpt_sha256": "deddad36c1471b6e98a84822396c734489ea3b4da38f704ebbc4f5c34427ce4d"
+          }
+        },
+        {
+          "column": "cve_dominio",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 84,
+            "line_end": 84,
+            "excerpt_sha256": "9667b9d880b2336bd3d71907d2bb1af78fe96619b11c0b70b20c448f4f583d51"
+          }
+        },
+        {
+          "column": "cve_producto",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 83,
+            "line_end": 83,
+            "excerpt_sha256": "3e27844521e346b902d3d7d824394071abcf537250ff24614855b95ee3d297d5"
+          }
+        },
+        {
+          "column": "cve_subproducto",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 86,
+            "line_end": 86,
+            "excerpt_sha256": "f23f5b87991f575e20bcdf3e2d2b4fb8a446cf8869b3b49662337cbc5e3d0439"
+          }
+        },
+        {
+          "column": "descripcion",
+          "physical_type": "VARCHAR(100)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 87,
+            "line_end": 87,
+            "excerpt_sha256": "0e6324c6f7f1c1b21cdfc7f255cd65ca6c1525c943b9f307c433dbbba6d0c6fe"
+          }
+        },
+        {
+          "column": "grupo_producto",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 85,
+            "line_end": 85,
+            "excerpt_sha256": "89bfb88dfa887c19f95a3ce6e54ace4290b58e17e765c6e139886c9cf29e5e70"
+          }
+        }
+      ]
+    },
+    {
+      "table": "dim.dim_txn",
+      "row_sensitivity": "internal_metadata",
+      "columns": [
+        {
+          "column": "cve_dominio",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 103,
+            "line_end": 103,
+            "excerpt_sha256": "9667b9d880b2336bd3d71907d2bb1af78fe96619b11c0b70b20c448f4f583d51"
+          }
+        },
+        {
+          "column": "cve_producto",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 102,
+            "line_end": 102,
+            "excerpt_sha256": "1d56c781a2c23c90853afe5bc174b833de3a0422f985a691feaff4ce9958d1f4"
+          }
+        },
+        {
+          "column": "cve_txn",
+          "physical_type": "INTEGER",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 105,
+            "line_end": 105,
+            "excerpt_sha256": "f4f03b877aaf800b85186c463b4b28187c633b6c2302e8836a12dcb0769d720a"
+          }
+        },
+        {
+          "column": "desc_txn",
+          "physical_type": "VARCHAR(40)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 106,
+            "line_end": 106,
+            "excerpt_sha256": "c71cb649872e3bd77070a658f62417c604bdb871926c1836bf9f0b4ac8c786fe"
+          }
+        },
+        {
+          "column": "grupo_producto",
+          "physical_type": "VARCHAR(20)",
+          "sensitivity": "internal_metadata",
+          "reason_code": "product_or_transaction_definition",
+          "source_ref": {
+            "source_id": "U1",
+            "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+            "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+            "line_start": 104,
+            "line_end": 104,
+            "excerpt_sha256": "89bfb88dfa887c19f95a3ce6e54ace4290b58e17e765c6e139886c9cf29e5e70"
+          }
+        }
+      ]
+    }
+  ],
+  "source_table_count": 5,
+  "source_column_count": 42,
+  "prospective_views": [
+    {
+      "resource": "bank.aggregate",
+      "sensitivity": "aggregate_finance",
+      "implemented": false,
+      "requirements": [
+        "trusted_scope",
+        "approved_dimensions",
+        "verified_cohort_at_least_10",
+        "composition_risk_review",
+        "no_raw_identifiers"
+      ]
+    }
+  ],
+  "notes": [
+    "Column labels never override stricter row, join or resource restrictions.",
+    "NULL or synthetic values do not remove sensitivity.",
+    "No currency is inferred.",
+    "saldo_apertura keeps original name, values and temporal meaning.",
+    "No bank data, published metadata or effective permissions are changed by this proposal."
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "manifest_version": "1.0.0",
+  "model_id": "new_bank_2026",
+  "adaptation_version": "1.0.0",
+  "status": "prepared_not_applied",
+  "design": "docs/new-bank-model-integration-plan.md",
+  "provenance": {
+    "kind": "provided_synthetic_educational_sql",
+    "official_bank_policy": false,
+    "source_release": null,
+    "source_release_note": "No upstream version or delivery provenance beyond the provided files was specified.",
+    "currency": null
+  },
+  "sources": [
+    {
+      "id": "U1",
+      "path": "sql/upstream/001_dimensiones_cliente_producto_txn.sql",
+      "sha256": "eee849f1bfbdc138291a81682a0ed836ac5dbd37b9c499c2a00a273377e7696a",
+      "depends_on": []
+    },
+    {
+      "id": "U2",
+      "path": "sql/upstream/002_generar_cuentas_y_saldos_enero_2026.sql",
+      "sha256": "6dfc90c1e55b2092584499c05a74b55309aeda004d8ce135e0bc7e6f765ecd2b",
+      "depends_on": [
+        "U1",
+        "cfg schema"
+      ]
+    },
+    {
+      "id": "U3",
+      "path": "sql/upstream/003_generar_transacciones_y_saldos_feb_jun_2026.sql",
+      "sha256": "d28d22b90e9882fa3780c23d1107df79ce72f9556ba8351d505eb108b0756fa3",
+      "depends_on": [
+        "U2",
+        "January close"
+      ]
+    }
+  ],
+  "tables": [
+    {
+      "name": "dim.dim_cliente",
+      "source_id": "U1",
+      "columns": 12
+    },
+    {
+      "name": "dim.dim_producto",
+      "source_id": "U1",
+      "columns": 6
+    },
+    {
+      "name": "dim.dim_txn",
+      "source_id": "U1",
+      "columns": 5
+    },
+    {
+      "name": "cfg.fact_sdos_captacoloca_m",
+      "source_id": "U2",
+      "columns": 9
+    },
+    {
+      "name": "cfg.fact_txn_captacoloca_d",
+      "source_id": "U3",
+      "columns": 10
+    }
+  ],
+  "auxiliary_tables": [
+    {
+      "name": "cfg.ref_txn_modelo",
+      "origin": "mvp_adaptation",
+      "initial_rows": 0
+    },
+    {
+      "name": "cfg.ref_cuenta_modelo",
+      "origin": "mvp_adaptation",
+      "initial_rows": 0
+    }
+  ],
+  "protected_tables": [
+    "public.\"CUSTOMER\"",
+    "public.\"TRANSACTION\"",
+    "public.\"LOAN\"",
+    "bank_knowledge.corpora",
+    "bank_knowledge.documents"
+  ],
+  "expected_loaded_volumes": {
+    "dim.dim_cliente": 5000,
+    "dim.dim_producto": 4,
+    "dim.dim_txn": 9,
+    "cfg.fact_sdos_captacoloca_m": 120000,
+    "cfg.fact_txn_captacoloca_d": 225000,
+    "distinct_accounts": 20000,
+    "original_five_tables_total": 350013,
+    "balances_per_cut": 20000,
+    "movements_per_month": 45000,
+    "auxiliary_transaction_rows": 9,
+    "auxiliary_account_rows": 20000
+  },
+  "calendar": {
+    "account_open_date": "2026-01-01",
+    "cohort": 202601,
+    "cuts": [
+      20260131,
+      20260228,
+      20260331,
+      20260430,
+      20260531,
+      20260630
+    ],
+    "transaction_months": [
+      202602,
+      202603,
+      202604,
+      202605,
+      202606
+    ],
+    "transaction_day": 15
+  },
+  "distributions": {
+    "PF": 4800,
+    "PM": 200,
+    "PF_HOMBRE": 2496,
+    "PF_MUJER": 2304,
+    "PM_NO_APLICA": 200,
+    "PREMIUM": 250,
+    "PREFERENTE": 1000,
+    "MASIVO": 3750
+  },
+  "products": [
+    {
+      "code": "CHEQUES",
+      "domain": "DEPOSITS",
+      "group": "CAPTACION",
+      "account_min": 100000,
+      "account_max": 104999,
+      "initial_balance_min": "8000.00",
+      "initial_balance_max": "12000.00",
+      "accounts": 5000,
+      "txn_types": 2
+    },
+    {
+      "code": "AHORRO",
+      "domain": "DEPOSITS",
+      "group": "CAPTACION",
+      "account_min": 200000,
+      "account_max": 204999,
+      "initial_balance_min": "5.00",
+      "initial_balance_max": "10000.00",
+      "accounts": 5000,
+      "txn_types": 2
+    },
+    {
+      "code": "TDC",
+      "domain": "TDC",
+      "group": "COLOCACION",
+      "account_min": 300000,
+      "account_max": 304999,
+      "initial_balance_min": "10000.00",
+      "initial_balance_max": "120000.00",
+      "accounts": 5000,
+      "txn_types": 3
+    },
+    {
+      "code": "C_PERSONAL",
+      "domain": "LENDING",
+      "group": "COLOCACION",
+      "account_min": 400000,
+      "account_max": 404999,
+      "initial_balance_min": "50000.00",
+      "initial_balance_max": "85000.00",
+      "accounts": 5000,
+      "txn_types": 2
+    }
+  ],
+  "transaction_catalog": [
+    {
+      "product": "CHEQUES",
+      "code": 100,
+      "description": "DEPOSITO",
+      "domain": "DEPOSITS",
+      "group": "CAPTACION",
+      "sign": 1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "CHEQUES",
+      "code": 200,
+      "description": "RETIRO",
+      "domain": "DEPOSITS",
+      "group": "CAPTACION",
+      "sign": -1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "AHORRO",
+      "code": 100,
+      "description": "DEPOSITO",
+      "domain": "DEPOSITS",
+      "group": "CAPTACION",
+      "sign": 1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "AHORRO",
+      "code": 200,
+      "description": "RETIRO",
+      "domain": "DEPOSITS",
+      "group": "CAPTACION",
+      "sign": -1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "C_PERSONAL",
+      "code": 300,
+      "description": "PAGOS",
+      "domain": "LENDING",
+      "group": "COLOCACION",
+      "sign": -1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "C_PERSONAL",
+      "code": 450,
+      "description": "DISPOSICIONES",
+      "domain": "LENDING",
+      "group": "COLOCACION",
+      "sign": 1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "TDC",
+      "code": 300,
+      "description": "PAGOS",
+      "domain": "TDC",
+      "group": "COLOCACION",
+      "sign": -1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "TDC",
+      "code": 400,
+      "description": "COMPRAS",
+      "domain": "TDC",
+      "group": "COLOCACION",
+      "sign": 1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    },
+    {
+      "product": "TDC",
+      "code": 450,
+      "description": "DISPOSICIONES",
+      "domain": "TDC",
+      "group": "COLOCACION",
+      "sign": 1,
+      "definition_source": "U1",
+      "economic_sign_source": "U3"
+    }
+  ],
+  "financial_rules": {
+    "growth_february": {
+      "CAPTACION": "0.02",
+      "COLOCACION": "0.03"
+    },
+    "growth_march_june": {
+      "CAPTACION": "0.01",
+      "COLOCACION": "0.022"
+    },
+    "rounding": "decimal_round_half_up_2_places_per_account_per_month",
+    "growth_is_interest": false,
+    "reconciliation_tolerance": "0.00"
+  },
+  "decisions": {
+    "upstream_immutable": true,
+    "separate_legacy_model_and_rag": true,
+    "preserve_raw_dominio": true,
+    "preserve_saldo_apertura": true,
+    "dim_txn_has_pk_or_unique": false,
+    "auxiliary_composite_catalog": true,
+    "anomalies": "report_without_silent_correction",
+    "infer_currency": false
+  },
+  "future_generator": {
+    "status": "implemented_in_separate_loader",
+    "algorithm_version": "sha256-rounded-uniform-v1",
+    "implementation": "scripts/new_bank_model.py",
+    "generator_version": "1.0.0",
+    "default_seed": 202601,
+    "contract": "docs/new-bank-model-governance.md#algoritmo-futuro",
+    "difference_from_upstream": "SHA-256 per account replaces session RANDOM(); no bit-for-bit equivalence. Deterministic rounded-uniform sampling keeps inclusive ranges and endpoint half-bin weighting; assignments, financial formulas and categorical counts remain as upstream."
+  },
+  "migrations": [
+    "sql/integration/001_new_bank_schemas_tables.sql",
+    "sql/integration/002_new_bank_integrity.sql"
+  ],
+  "apply_order": [
+    "backup_and_isolated_restore_verified",
+    "001",
+    "002",
+    "future_separate_validated_load"
+  ],
+  "known_anomalies": [
+    "January dominio contains product group; subsequent months contain technical domain.",
+    "saldo_apertura means initial account balance in January and opening monthly balance thereafter.",
+    "Client 3552: fec_alta 2003-04-24 precedes fec_nac 2004-10-27 under U1 formulas."
+  ]
+}
